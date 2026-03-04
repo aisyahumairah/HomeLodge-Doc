@@ -1,0 +1,178 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2" pages="3">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Book">
+    <mxGraphModel dx="772" dy="501" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-10" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-0" parent="WIyWlLk6GJQsqaUBKTNV-1" style="ellipse;whiteSpace=wrap;html=1;" value="Start" vertex="1">
+          <mxGeometry height="80" width="120" x="250" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-13" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="9tfLkcfd6AaP8B7K7p8G-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-1" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Submit Booking" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-11" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-2" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Choose date and time" vertex="1">
+          <mxGeometry height="60" width="140" x="240" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-12" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-18" connectable="0" parent="9tfLkcfd6AaP8B7K7p8G-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Yes" vertex="1">
+          <mxGeometry relative="1" x="-0.3333" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-19" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="9tfLkcfd6AaP8B7K7p8G-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-20" connectable="0" parent="9tfLkcfd6AaP8B7K7p8G-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="No" vertex="1">
+          <mxGeometry relative="1" x="-0.25" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-3" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rhombus;whiteSpace=wrap;html=1;" value="Available?" vertex="1">
+          <mxGeometry height="80" width="80" x="270" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-4" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="System will display the message &quot;The date has been booked! Please choose another date&quot;" vertex="1">
+          <mxGeometry height="60" width="180" x="430" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-5" parent="WIyWlLk6GJQsqaUBKTNV-1" style="ellipse;whiteSpace=wrap;html=1;" value="End" vertex="1">
+          <mxGeometry height="80" width="120" x="250" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-14" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-6" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Proceed to payment" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-15" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-17" connectable="0" parent="9tfLkcfd6AaP8B7K7p8G-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Yes" vertex="1">
+          <mxGeometry relative="1" x="-0.1238" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-22" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-23" connectable="0" parent="9tfLkcfd6AaP8B7K7p8G-22" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="No" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-7" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rhombus;whiteSpace=wrap;html=1;" value="Payment Success?" vertex="1">
+          <mxGeometry height="80" width="80" x="270" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-16" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-8" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Booking confirmed" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-24" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="9tfLkcfd6AaP8B7K7p8G-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-9" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=0;whiteSpace=wrap;html=1;" value="Booking is pending for payment" vertex="1">
+          <mxGeometry height="60" width="180" x="430" y="595" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-21" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="9tfLkcfd6AaP8B7K7p8G-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1.005;entryY=0.394;entryDx=0;entryDy=0;entryPerimeter=0;" target="9tfLkcfd6AaP8B7K7p8G-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9tfLkcfd6AaP8B7K7p8G-26" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=1;whiteSpace=wrap;html=1;" value="User will be give time for 1 day to make payment. (The date chosen will be blocked for awhile for user to make payment)&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;If 1 day passed and still no payment, the date will open to others to book. The booking status will be auto cancel by system.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="280" x="570" y="370" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="sgRGcwZqUfuyQbOw8D-U" name="Cancel">
+    <mxGraphModel dx="702" dy="455" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-10" edge="1" parent="1" source="jaqNoGnkZYMnNYj0NWm9-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="jaqNoGnkZYMnNYj0NWm9-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" value="Start" vertex="1">
+          <mxGeometry height="60" width="100" x="240" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-11" edge="1" parent="1" source="jaqNoGnkZYMnNYj0NWm9-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="jaqNoGnkZYMnNYj0NWm9-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cancel booking" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-12" edge="1" parent="1" source="jaqNoGnkZYMnNYj0NWm9-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="jaqNoGnkZYMnNYj0NWm9-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-15" connectable="0" parent="jaqNoGnkZYMnNYj0NWm9-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Yes" vertex="1">
+          <mxGeometry relative="1" x="-0.3778" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-4" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Confirm?" vertex="1">
+          <mxGeometry height="80" width="80" x="250" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-13" edge="1" parent="1" source="jaqNoGnkZYMnNYj0NWm9-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="jaqNoGnkZYMnNYj0NWm9-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="The booking status will be &quot;Cancel&quot;" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Need to wait 3 - 5 days for refund" vertex="1">
+          <mxGeometry height="60" width="120" x="230" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-7" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" value="End" vertex="1">
+          <mxGeometry height="60" width="100" x="240" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-14" edge="1" parent="1" source="jaqNoGnkZYMnNYj0NWm9-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="jaqNoGnkZYMnNYj0NWm9-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-16" edge="1" parent="1" source="jaqNoGnkZYMnNYj0NWm9-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="jaqNoGnkZYMnNYj0NWm9-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="300" />
+              <mxPoint x="400" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jaqNoGnkZYMnNYj0NWm9-17" connectable="0" parent="jaqNoGnkZYMnNYj0NWm9-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="No" vertex="1">
+          <mxGeometry relative="1" x="-0.7907" as="geometry">
+            <mxPoint x="-25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_YRWagiuKOm8UCqwh1H-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="If user cancel less than 3 days before the date of booking, there will be no refund." vertex="1">
+          <mxGeometry height="80" width="165" x="10" y="460" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="39fUx3kU2fNj8r_CbrKR" name="status flow">
+    <mxGraphModel dx="772" dy="501" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ryy2FMLlwGud11AQm6lc-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Submit Booking&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Status: Pending for payment&lt;/div&gt;&lt;div&gt;The date will not be able to book by others (the system will block that date for temporary)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="180" x="230" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="ryy2FMLlwGud11AQm6lc-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Payment Confirmed&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Status: Booked&lt;/div&gt;&lt;div&gt;The date is blocked to others to book&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="230" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ryy2FMLlwGud11AQm6lc-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cancellation&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Status: Cancel&lt;/div&gt;&lt;div&gt;The date will be opened to others to book&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="230" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="Nupvpv3xTBv8nbsLsGl5-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="No Payment after 1 day make booking&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Status: Cancel by System&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="470" y="320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
