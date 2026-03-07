@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HomeLodge – Mockup Navigator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+  <link rel="stylesheet" href="../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #F9FAFB; }
+    .hero { background: linear-gradient(135deg, #2563EB 0%, #0F766E 100%); color: white; padding: 60px 0 40px; }
+    .page-card { background: white; border-radius: 12px; border: 1px solid #E5E7EB; padding: 20px; transition: all 0.2s; text-decoration: none; display: block; height: 100%; }
+    .page-card:hover { border-color: #2563EB; box-shadow: 0 4px 20px rgba(37,99,235,0.15); transform: translateY(-2px); }
+    .page-card .icon-wrap { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 1.2rem; }
+    .page-card h6 { color: #111827; font-weight: 600; margin-bottom: 4px; }
+    .page-card p { color: #6B7280; font-size: 0.8rem; margin: 0; }
+    .section-title { font-weight: 700; color: #111827; font-size: 1.1rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #E5E7EB; }
+    .badge-role { font-size: 0.7rem; padding: 3px 8px; border-radius: 999px; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <span style="font-size:2.5rem;">🏠</span>
+        <div>
+          <h1 class="mb-0 fw-bold" style="font-size:2rem;">HomeLodge</h1>
+          <p class="mb-0 opacity-75">UI Mockup Navigator – Homestay Booking System</p>
+        </div>
+      </div>
+      <div class="d-flex gap-3 flex-wrap mt-4">
+        <span class="badge bg-white text-primary fs-2 px-3 py-2 rounded-pill">28 Pages</span>
+        <span class="badge bg-white text-success fs-2 px-3 py-2 rounded-pill">2 User Roles</span>
+        <span class="badge bg-white text-warning fs-2 px-3 py-2 rounded-pill">Full Flow Coverage</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <!-- Auth Pages -->
+    <div class="mb-5">
+      <div class="section-title d-flex align-items-center gap-2">
+        <i class="ti ti-lock text-primary"></i> Authentication Pages
+        <span class="badge badge-role bg-primary-subtle text-primary ms-2">Guest & Admin</span>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3"><a class="page-card" href="auth/login.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-login"></i></div>
+          <h6>Login</h6><p>Email/password + Google SSO login</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="auth/register.html">
+          <div class="icon-wrap bg-success-subtle text-success"><i class="ti ti-user-plus"></i></div>
+          <h6>Register</h6><p>Account registration with password strength</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="auth/forgot-password.html">
+          <div class="icon-wrap bg-warning-subtle text-warning"><i class="ti ti-mail"></i></div>
+          <h6>Forgot Password</h6><p>Send reset link to email</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="auth/reset-password.html">
+          <div class="icon-wrap bg-danger-subtle text-danger"><i class="ti ti-key"></i></div>
+          <h6>Reset Password</h6><p>Set new password with requirements</p>
+        </a></div>
+      </div>
+    </div>
+
+    <!-- Guest Pages -->
+    <div class="mb-5">
+      <div class="section-title d-flex align-items-center gap-2">
+        <i class="ti ti-user text-success"></i> Guest (User) Pages
+        <span class="badge badge-role bg-success-subtle text-success ms-2">Guest Role</span>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3"><a class="page-card" href="guest/home.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-home"></i></div>
+          <h6>Home / Landing</h6><p>Availability calendar + Book Now CTA</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/booking-form.html">
+          <div class="icon-wrap bg-success-subtle text-success"><i class="ti ti-calendar-plus"></i></div>
+          <h6>Booking Form</h6><p>Select dates, time & submit booking</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/my-bookings.html">
+          <div class="icon-wrap bg-warning-subtle text-warning"><i class="ti ti-list-check"></i></div>
+          <h6>My Bookings</h6><p>Current & past bookings list</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/booking-detail.html">
+          <div class="icon-wrap bg-secondary-subtle text-secondary"><i class="ti ti-file-description"></i></div>
+          <h6>Booking Detail</h6><p>Full booking info + QR code + actions</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/payment.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-credit-card"></i></div>
+          <h6>Payment</h6><p>Payment gateway page with summary</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/payment-history.html">
+          <div class="icon-wrap bg-success-subtle text-success"><i class="ti ti-receipt"></i></div>
+          <h6>Payment History</h6><p>All past payments with receipts</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/notifications.html">
+          <div class="icon-wrap bg-warning-subtle text-warning"><i class="ti ti-bell"></i></div>
+          <h6>Notifications</h6><p>In-app notification list</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/profile.html">
+          <div class="icon-wrap bg-secondary-subtle text-secondary"><i class="ti ti-user-circle"></i></div>
+          <h6>My Profile</h6><p>Edit profile & change password</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="guest/chat.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-message-circle"></i></div>
+          <h6>Chat</h6><p>Real-time chat with admin</p>
+        </a></div>
+      </div>
+    </div>
+
+    <!-- Admin Pages -->
+    <div class="mb-5">
+      <div class="section-title d-flex align-items-center gap-2">
+        <i class="ti ti-shield text-danger"></i> Admin Pages
+        <span class="badge badge-role bg-danger-subtle text-danger ms-2">Admin Role</span>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3"><a class="page-card" href="admin/dashboard.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-layout-dashboard"></i></div>
+          <h6>Dashboard</h6><p>Overview stats, recent bookings</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/booking-calendar.html">
+          <div class="icon-wrap bg-success-subtle text-success"><i class="ti ti-calendar"></i></div>
+          <h6>Booking Calendar</h6><p>Visual calendar with date statuses</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/all-bookings.html">
+          <div class="icon-wrap bg-warning-subtle text-warning"><i class="ti ti-list"></i></div>
+          <h6>All Bookings</h6><p>Full booking list with filters</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/booking-detail.html">
+          <div class="icon-wrap bg-secondary-subtle text-secondary"><i class="ti ti-file-text"></i></div>
+          <h6>Booking Detail (Admin)</h6><p>View, edit, QR + housekeeping</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/bills.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-file-invoice"></i></div>
+          <h6>Bills</h6><p>Billing list + regenerate</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/payments.html">
+          <div class="icon-wrap bg-success-subtle text-success"><i class="ti ti-cash"></i></div>
+          <h6>Payments</h6><p>Payment list + receipts</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/manage-users.html">
+          <div class="icon-wrap bg-warning-subtle text-warning"><i class="ti ti-users"></i></div>
+          <h6>Manage Users</h6><p>User CRUD + activate/deactivate</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/add-user.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-user-plus"></i></div>
+          <h6>Add User</h6><p>Create new user account</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/edit-user.html">
+          <div class="icon-wrap bg-secondary-subtle text-secondary"><i class="ti ti-user-edit"></i></div>
+          <h6>Edit User</h6><p>Update user info & status</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/roles.html">
+          <div class="icon-wrap bg-danger-subtle text-danger"><i class="ti ti-shield"></i></div>
+          <h6>Roles</h6><p>Create & manage roles</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/permissions.html">
+          <div class="icon-wrap bg-warning-subtle text-warning"><i class="ti ti-lock"></i></div>
+          <h6>Permissions</h6><p>Create & manage permissions</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/chat-admin.html">
+          <div class="icon-wrap bg-success-subtle text-success"><i class="ti ti-message-dots"></i></div>
+          <h6>Chat (Admin)</h6><p>Reply to guest messages</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/settings.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-settings"></i></div>
+          <h6>Settings</h6><p>SMTP, Security, Refund policy</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/audit-logs.html">
+          <div class="icon-wrap bg-secondary-subtle text-secondary"><i class="ti ti-clipboard-list"></i></div>
+          <h6>Audit Logs</h6><p>System activity trail (read-only)</p>
+        </a></div>
+        <div class="col-md-3"><a class="page-card" href="admin/profile.html">
+          <div class="icon-wrap bg-primary-subtle text-primary"><i class="ti ti-user-circle"></i></div>
+          <h6>Admin Profile</h6><p>Edit admin profile</p>
+        </a></div>
+      </div>
+    </div>
+
+    <div class="text-center text-muted py-4">
+      <small>HomeLodge Mockup v1.0 &mdash; For requirement validation only. &copy; 2026</small>
+    </div>
+  </div>
+
+  <script src="../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+</html>
