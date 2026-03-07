@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Booking Detail – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+        }
+
+        .guest-nav {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: .85rem;
+            color: #6B7280;
+        }
+
+        .info-value {
+            font-size: .9rem;
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .qr-box {
+            width: 150px;
+            height: 150px;
+            background: #111827;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: .7rem;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .status-badge {
+            border-radius: 999px;
+            padding: 5px 14px;
+            font-size: .8rem;
+            font-weight: 600;
+        }
+
+        .badge-confirmed {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .badge-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .policy-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed #E5E7EB;
+            font-size: .9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="guest-nav">
+        <div class="container py-2" style="max-width:1200px;">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="fw-bold fs-4 text-primary text-decoration-none" href="home.html">🏠 HomeLodge</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="nav-link text-dark" href="home.html">Home</a>
+                    <a class="nav-link fw-semibold text-primary" href="my-bookings.html">My Bookings</a>
+                    <a class="nav-link text-dark" href="chat.html">Chat</a>
+                    <a class="nav-link text-dark position-relative" href="notifications.html"><i
+                            class="ti ti-bell fs-4"></i></a>
+                    <div class="dropdown"><button
+                            class="btn btn-sm d-flex align-items-center gap-2 border rounded-3 py-1 px-2"
+                            data-bs-toggle="dropdown">
+                            <div
+                                style="width:28px;height:28px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;">
+                                A</div><span class="fw-medium" style="font-size:.9rem;">Ahmad</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-3">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4" style="max-width:1000px;">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="my-bookings.html">My Bookings</a></li>
+                <li class="breadcrumb-item active">#BK-2026-001</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h4 class="fw-bold mb-1" style="color:#111827;">Booking #BK-2026-001</h4>
+                <span class="status-badge badge-confirmed">Confirmed</span>
+            </div>
+            <div class="d-flex gap-2">
+                <a href="payment.html" class="btn btn-primary rounded-3 px-3 fw-medium"><i
+                        class="ti ti-credit-card me-2"></i>Pay Now</a>
+                <button class="btn btn-outline-danger rounded-3 px-3 fw-medium" data-bs-toggle="modal"
+                    data-bs-target="#cancelModal"><i class="ti ti-x me-2"></i>Cancel</button>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <!-- Booking Info -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3"><i class="ti ti-calendar me-2 text-primary"></i>Stay Details</h6>
+                    <div class="info-row"><span class="info-label">Property</span><span class="info-value">HomeLodge
+                            KL</span></div>
+                    <div class="info-row"><span class="info-label">Check-in</span><span class="info-value">15 March 2026
+                            &nbsp;·&nbsp; 3:00 PM</span></div>
+                    <div class="info-row"><span class="info-label">Check-out</span><span class="info-value">17 March
+                            2026 &nbsp;·&nbsp; 12:00 PM</span></div>
+                    <div class="info-row"><span class="info-label">Duration</span><span class="info-value">2
+                            nights</span></div>
+                    <div class="info-row"><span class="info-label">Booking Date</span><span class="info-value">7 March
+                            2026</span></div>
+                    <div class="info-row"><span class="info-label">Booking Status</span><span
+                            class="status-badge badge-confirmed">Confirmed</span></div>
+                </div>
+
+                <!-- Payment Info -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3"><i class="ti ti-cash me-2 text-success"></i>Payment Details</h6>
+                    <div class="info-row"><span class="info-label">Bill Number</span><span
+                            class="info-value fw-semibold text-primary">#BILL-2026-001</span></div>
+                    <div class="info-row"><span class="info-label">Room Rate</span><span class="info-value">RM 250 × 2
+                            nights = RM 500.00</span></div>
+                    <div class="info-row"><span class="info-label">Deposit</span><span class="info-value">RM 100.00
+                            (refundable)</span></div>
+                    <div class="info-row"><span class="info-label">Total Amount</span><span
+                            class="info-value fw-bold fs-5 text-primary">RM 600.00</span></div>
+                    <div class="info-row"><span class="info-label">Payment Status</span><span
+                            class="status-badge badge-confirmed">Paid</span></div>
+                    <div class="info-row"><span class="info-label">Payment Ref</span><span
+                            class="info-value">#PAY-2026-001</span></div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-sm btn-outline-success rounded-3"><i
+                                class="ti ti-download me-1"></i>Download Receipt</a>
+                    </div>
+                </div>
+
+                <!-- Cancellation Policy -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3"><i class="ti ti-info-circle me-2 text-warning"></i>Cancellation Policy</h6>
+                    <div class="policy-row"><span>Less than 3 days before check-in</span><span
+                            class="text-danger fw-semibold">No refund</span></div>
+                    <div class="policy-row"><span>1 week before check-in</span><span
+                            class="text-warning fw-semibold">25% refund</span></div>
+                    <div class="policy-row" style="border-bottom:none;"><span>2 weeks before check-in</span><span
+                            class="text-success fw-semibold">50% refund</span></div>
+                    <div class="mt-3 rounded-3 p-3"
+                        style="background:#FEF3C7;border:1px solid #FDE68A;font-size:.85rem;">
+                        <i class="ti ti-clock text-warning me-2"></i>
+                        If you cancel now, you are eligible for a <strong>50% refund (RM 250.00)</strong>. Refund
+                        processed within 3–5 business days.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <!-- QR Code -->
+                <div class="info-card text-center">
+                    <h6 class="fw-bold mb-3"><i class="ti ti-qrcode me-2 text-primary"></i>Door Access QR Code</h6>
+                    <div class="qr-box mb-3">
+                        <!-- Placeholder QR code grid -->
+                        <div>
+                            <div style="display:grid;grid-template-columns:repeat(7,12px);gap:2px;">
+                                <div style="background:white;width:12px;height:12px;border-radius:2px;"></div>
+                                <div style="background:white;width:12px;height:12px;border-radius:2px;"></div>
+                                <div style="background:white;width:12px;height:12px;border-radius:2px;"></div>
+                                <div style="background:#111827;width:12px;height:12px;border-radius:2px;"></div>
+                                <div style="background:white;width:12px;height:12px;border-radius:2px;"></div>
+                                <div style="background:white;width:12px;height:12px;border-radius:2px;"></div>
+                                <div style="background:white;width:12px;height:12px;border-radius:2px;"></div>
+                            </div>
+                            <div class="mt-2" style="font-size:.65rem;text-align:center;color:#9CA3AF;">🔳 QR Code</div>
+                            <div style="font-size:.6rem;color:#9CA3AF;">BK-2026-001</div>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-1" style="font-size:.85rem;">Present this QR code at the door for keyless
+                        entry.</p>
+                    <div class="d-flex justify-content-between text-muted mb-2" style="font-size:.8rem;">
+                        <span>Valid from: <strong class="text-dark">15 Mar 3:00 PM</strong></span>
+                        <span>Until: <strong class="text-dark">17 Mar 12:00 PM</strong></span>
+                    </div>
+                    <div class="badge bg-success-subtle text-success px-3 py-2 rounded-3 w-100">
+                        <i class="ti ti-check me-1"></i> QR Code Active
+                    </div>
+                    <button class="btn btn-sm btn-outline-primary mt-3 rounded-3 w-100"><i
+                            class="ti ti-download me-1"></i>Download QR Code</button>
+                </div>
+
+                <!-- Contact Admin -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3"><i class="ti ti-headset me-2 text-secondary"></i>Need Help?</h6>
+                    <p class="text-muted mb-3" style="font-size:.85rem;">Have questions about your booking? Chat with
+                        our admin directly.</p>
+                    <a href="chat.html" class="btn btn-outline-primary w-100 rounded-3"><i
+                            class="ti ti-message-circle me-2"></i>Chat with Admin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel Modal -->
+    <div class="modal fade" id="cancelModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-danger"><i class="ti ti-alert-triangle me-2"></i>Cancel Booking
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to cancel booking <strong>#BK-2026-001</strong>?</p>
+                    <div class="rounded-3 p-3" style="background:#FEF3C7;border:1px solid #FDE68A;font-size:.9rem;">
+                        <strong>Refund Estimate:</strong><br>
+                        Based on the cancellation policy, you will receive a <strong class="text-success">50% refund (RM
+                            250.00)</strong> within 3–5 business days.
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-secondary rounded-3" data-bs-dismiss="modal">Keep
+                        Booking</button>
+                    <button type="button" class="btn btn-danger rounded-3"
+                        onclick="window.location='my-bookings.html'">Confirm Cancellation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

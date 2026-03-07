@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment History – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+        }
+
+        .guest-nav {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            overflow: hidden;
+        }
+
+        .table th {
+            background: #F9FAFB;
+            font-size: .8rem;
+            font-weight: 600;
+            color: #6B7280;
+            text-transform: uppercase;
+        }
+
+        .table td {
+            vertical-align: middle;
+            font-size: .9rem;
+        }
+
+        .status-badge {
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: .78rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .badge-failed {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .badge-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="guest-nav">
+        <div class="container py-2" style="max-width:1200px;">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="fw-bold fs-4 text-primary text-decoration-none" href="home.html">🏠 HomeLodge</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="nav-link text-dark" href="home.html">Home</a>
+                    <a class="nav-link text-dark" href="my-bookings.html">My Bookings</a>
+                    <a class="nav-link text-dark" href="chat.html">Chat</a>
+                    <a class="nav-link text-dark position-relative" href="notifications.html"><i
+                            class="ti ti-bell fs-4"></i></a>
+                    <div class="dropdown"><button
+                            class="btn btn-sm d-flex align-items-center gap-2 border rounded-3 py-1 px-2"
+                            data-bs-toggle="dropdown">
+                            <div
+                                style="width:28px;height:28px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;">
+                                A</div><span class="fw-medium" style="font-size:.9rem;">Ahmad</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-3">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4" style="max-width:1100px;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h4 class="fw-bold mb-1" style="color:#111827;">Payment History</h4>
+                <p class="text-muted mb-0">All your past payment transactions</p>
+            </div>
+            <!-- Filters -->
+            <div class="d-flex gap-2 align-items-center">
+                <input type="date" class="form-control form-control-sm rounded-3" value="2026-01-01">
+                <span class="text-muted">–</span>
+                <input type="date" class="form-control form-control-sm rounded-3" value="2026-03-07">
+                <select class="form-select form-select-sm rounded-3" style="min-width:120px;">
+                    <option>All Status</option>
+                    <option>Success</option>
+                    <option>Failed</option>
+                    <option>Pending</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-muted" style="font-size:.85rem;">Total Paid</div>
+                            <div class="fw-bold fs-3 text-success">RM 1,800.00</div>
+                        </div>
+                        <div
+                            style="width:48px;height:48px;border-radius:12px;background:#DCFCE7;display:flex;align-items:center;justify-content:center;color:#16A34A;font-size:1.3rem;">
+                            <i class="ti ti-check"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-muted" style="font-size:.85rem;">Transactions</div>
+                            <div class="fw-bold fs-3">4</div>
+                        </div>
+                        <div
+                            style="width:48px;height:48px;border-radius:12px;background:#DBEAFE;display:flex;align-items:center;justify-content:center;color:#2563EB;font-size:1.3rem;">
+                            <i class="ti ti-receipt"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="text-muted" style="font-size:.85rem;">Pending</div>
+                            <div class="fw-bold fs-3 text-warning">RM 600.00</div>
+                        </div>
+                        <div
+                            style="width:48px;height:48px;border-radius:12px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;color:#D97706;font-size:1.3rem;">
+                            <i class="ti ti-clock"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-card">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Payment ID</th>
+                            <th>Bill #</th>
+                            <th>Booking</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold text-primary">#PAY-2026-001</td>
+                            <td>#BILL-2026-001</td>
+                            <td><a href="booking-detail.html" class="text-primary">#BK-2026-001</a></td>
+                            <td>7 Mar 2026<br><small class="text-muted">10:32 AM</small></td>
+                            <td class="fw-semibold">RM 600.00</td>
+                            <td><span class="status-badge badge-success">Success</span></td>
+                            <td><button class="btn btn-sm btn-outline-success rounded-2"><i
+                                        class="ti ti-download me-1"></i>Receipt</button></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">—</td>
+                            <td>#BILL-2026-002</td>
+                            <td><a href="booking-detail.html" class="text-primary">#BK-2026-002</a></td>
+                            <td>7 Mar 2026<br><small class="text-muted">Pending</small></td>
+                            <td class="fw-semibold">RM 600.00</td>
+                            <td><span class="status-badge badge-pending">Pending</span></td>
+                            <td><a href="payment.html" class="btn btn-sm btn-warning rounded-2">Pay Now</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold text-primary">#PAY-2026-003</td>
+                            <td>#BILL-2026-003</td>
+                            <td><a href="booking-detail.html" class="text-primary">#BK-2026-003</a></td>
+                            <td>1 Feb 2026<br><small class="text-muted">2:15 PM</small></td>
+                            <td class="fw-semibold">RM 600.00</td>
+                            <td><span class="status-badge badge-success">Success</span></td>
+                            <td><button class="btn btn-sm btn-outline-success rounded-2"><i
+                                        class="ti ti-download me-1"></i>Receipt</button></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold text-primary">#PAY-2025-010</td>
+                            <td>#BILL-2025-010</td>
+                            <td><a href="booking-detail.html" class="text-primary">#BK-2025-010</a></td>
+                            <td>18 Dec 2025<br><small class="text-muted">9:00 AM</small></td>
+                            <td class="fw-semibold">RM 600.00</td>
+                            <td><span class="status-badge badge-success">Success</span></td>
+                            <td><button class="btn btn-sm btn-outline-success rounded-2"><i
+                                        class="ti ti-download me-1"></i>Receipt</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

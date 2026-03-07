@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Profile – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+        }
+
+        .guest-nav {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .form-control:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, .1);
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .avatar-upload {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563EB, #0F766E);
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .avatar-upload .edit-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 26px;
+            height: 26px;
+            background: #2563EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            font-size: .7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="guest-nav">
+        <div class="container py-2" style="max-width:1200px;">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="fw-bold fs-4 text-primary text-decoration-none" href="home.html">🏠 HomeLodge</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="nav-link text-dark" href="home.html">Home</a>
+                    <a class="nav-link text-dark" href="my-bookings.html">My Bookings</a>
+                    <a class="nav-link text-dark" href="chat.html">Chat</a>
+                    <a class="nav-link text-dark position-relative" href="notifications.html"><i
+                            class="ti ti-bell fs-4"></i></a>
+                    <div class="dropdown"><button
+                            class="btn btn-sm d-flex align-items-center gap-2 border rounded-3 py-1 px-2"
+                            data-bs-toggle="dropdown">
+                            <div
+                                style="width:28px;height:28px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;">
+                                A</div><span class="fw-medium" style="font-size:.9rem;">Ahmad</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-3">
+                            <li><a class="dropdown-item fw-semibold text-primary" href="profile.html"><i
+                                        class="ti ti-user me-2"></i>Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4" style="max-width:800px;">
+        <h4 class="fw-bold mb-4" style="color:#111827;"><i class="ti ti-user-circle me-2 text-primary"></i>My Profile
+        </h4>
+
+        <!-- Profile Header -->
+        <div class="section-card d-flex align-items-center gap-4">
+            <div class="avatar-upload">
+                A
+                <div class="edit-overlay"><i class="ti ti-camera" style="font-size:.7rem;color:white;"></i></div>
+            </div>
+            <div>
+                <h5 class="fw-bold mb-1" style="color:#111827;">Ahmad Razif</h5>
+                <p class="text-muted mb-1" style="font-size:.9rem;">ahmad@email.com</p>
+                <span class="badge bg-primary-subtle text-primary px-3 py-1 rounded-pill">Guest</span>
+            </div>
+            <div class="ms-auto text-end">
+                <div class="text-muted" style="font-size:.8rem;">Member since</div>
+                <div class="fw-semibold">January 2026</div>
+            </div>
+        </div>
+
+        <!-- Edit Profile Form -->
+        <div class="section-card">
+            <h6 class="fw-bold mb-4"><i class="ti ti-edit me-2 text-primary"></i>Personal Information</h6>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">First Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded-3" value="Ahmad">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">Last Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded-3" value="Razif">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">Email Address</label>
+                        <input type="email" class="form-control rounded-3" value="ahmad@email.com" readonly
+                            style="background:#F9FAFB;">
+                        <div class="form-text text-muted">Email cannot be changed. Contact admin for assistance.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">Phone Number</label>
+                        <input type="tel" class="form-control rounded-3" value="+60 12-345 6789">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label fw-medium">Profile Picture</label>
+                        <input type="file" class="form-control rounded-3" accept="image/*">
+                        <div class="form-text text-muted">Max 2MB. JPG, PNG accepted.</div>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary rounded-3 px-4 fw-medium"><i
+                            class="ti ti-check me-2"></i>Save Changes</button>
+                    <button type="reset" class="btn btn-outline-secondary rounded-3 px-4">Discard</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Change Password -->
+        <div class="section-card">
+            <h6 class="fw-bold mb-4"><i class="ti ti-lock me-2 text-warning"></i>Change Password</h6>
+            <form>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label fw-medium">Current Password <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control rounded-3" placeholder="Enter current password">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">New Password <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control rounded-3" placeholder="Enter new password">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-medium">Confirm New Password <span
+                                class="text-danger">*</span></label>
+                        <input type="password" class="form-control rounded-3" placeholder="Repeat new password">
+                    </div>
+                    <div class="col-12">
+                        <div class="rounded-3 p-3"
+                            style="background:#F9FAFB;border:1px solid #E5E7EB;font-size:.85rem;">
+                            Password must be 8–12 characters with uppercase, lowercase, number, and special character.
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-warning rounded-3 px-4 fw-medium text-dark"><i
+                            class="ti ti-key me-2"></i>Update Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

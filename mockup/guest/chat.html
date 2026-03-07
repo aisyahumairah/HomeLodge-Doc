@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .guest-nav {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+        }
+
+        .chat-layout {
+            display: flex;
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            overflow: hidden;
+            height: calc(100vh - 130px);
+        }
+
+        .chat-sidebar {
+            width: 280px;
+            border-right: 1px solid #E5E7EB;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid #E5E7EB;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .conv-item {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .conv-item:hover,
+        .conv-item.active {
+            background: #EFF6FF;
+        }
+
+        .conv-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #2563EB;
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .conv-name {
+            font-weight: 600;
+            font-size: .9rem;
+            color: #111827;
+        }
+
+        .conv-last {
+            font-size: .78rem;
+            color: #9CA3AF;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 140px;
+        }
+
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .msg-bubble {
+            max-width: 70%;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: .9rem;
+            line-height: 1.5;
+        }
+
+        .msg-bubble.from-user {
+            background: #2563EB;
+            color: white;
+            border-radius: 12px 12px 4px 12px;
+            align-self: flex-end;
+        }
+
+        .msg-bubble.from-admin {
+            background: #F3F4F6;
+            color: #374151;
+            border-radius: 12px 12px 12px 4px;
+            align-self: flex-start;
+        }
+
+        .msg-time {
+            font-size: .72rem;
+            opacity: .65;
+            margin-top: 2px;
+        }
+
+        .msg-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .msg-group.user-msg {
+            align-items: flex-end;
+        }
+
+        .msg-group.admin-msg {
+            align-items: flex-start;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            padding: 10px 16px;
+            background: #F3F4F6;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #9CA3AF;
+            animation: typing 1.2s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .chat-input-area {
+            padding: 16px 20px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 10px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: .9rem;
+            resize: none;
+            outline: none;
+            transition: border-color .2s;
+        }
+
+        .chat-input:focus {
+            border-color: #2563EB;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="guest-nav">
+        <div class="container py-2" style="max-width:1200px;">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="fw-bold fs-4 text-primary text-decoration-none" href="home.html">🏠 HomeLodge</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="nav-link text-dark" href="home.html">Home</a>
+                    <a class="nav-link text-dark" href="my-bookings.html">My Bookings</a>
+                    <a class="nav-link fw-semibold text-primary" href="chat.html">Chat</a>
+                    <a class="nav-link text-dark position-relative" href="notifications.html"><i
+                            class="ti ti-bell fs-4"></i><span class="position-absolute"
+                            style="top:-2px;right:-6px;background:#DC2626;color:white;font-size:.6rem;border-radius:999px;padding:1px 5px;">2</span></a>
+                    <div class="dropdown"><button
+                            class="btn btn-sm d-flex align-items-center gap-2 border rounded-3 py-1 px-2"
+                            data-bs-toggle="dropdown">
+                            <div
+                                style="width:28px;height:28px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;">
+                                A</div><span class="fw-medium" style="font-size:.9rem;">Ahmad</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-3">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-3" style="max-width:1100px;flex:1;">
+        <div class="chat-layout">
+            <!-- Sidebar -->
+            <div class="chat-sidebar">
+                <div class="chat-sidebar-header">
+                    <i class="ti ti-messages me-2 text-primary"></i>Messages
+                </div>
+                <div class="conv-item active">
+                    <div class="conv-avatar">HL</div>
+                    <div class="flex-grow-1 overflow-hidden">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="conv-name">HomeLodge Admin</div>
+                            <div style="font-size:.72rem;color:#9CA3AF;">10:30 AM</div>
+                        </div>
+                        <div class="conv-last">Sure, please let us know...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main chat -->
+            <div class="chat-main">
+                <div class="chat-header">
+                    <div
+                        style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#0F766E);color:white;font-weight:700;display:flex;align-items:center;justify-content:center;">
+                        HL</div>
+                    <div>
+                        <div class="fw-semibold" style="color:#111827;">HomeLodge Admin</div>
+                        <div style="font-size:.8rem;color:#22C55E;">● Online</div>
+                    </div>
+                </div>
+
+                <div class="chat-messages">
+                    <!-- Date separator -->
+                    <div class="text-center"><span
+                            style="background:#F3F4F6;color:#9CA3AF;font-size:.75rem;padding:4px 12px;border-radius:999px;">6
+                            March 2026</span></div>
+
+                    <div class="msg-group admin-msg">
+                        <div class="msg-bubble from-admin">Hello Ahmad! 👋 Welcome to HomeLodge. How can I help you
+                            today?</div>
+                        <div class="msg-time text-muted">9:00 AM</div>
+                    </div>
+
+                    <div class="msg-group user-msg">
+                        <div class="msg-bubble from-user">Hi! I wanted to ask about the amenities available at the
+                            property.</div>
+                        <div class="msg-time" style="color:#9CA3AF;">9:02 AM</div>
+                    </div>
+
+                    <div class="msg-group admin-msg">
+                        <div class="msg-bubble from-admin">Of course! The property includes 3 bedrooms, 2 bathrooms,
+                            fully equipped kitchen, WiFi, air conditioning, smart TV, and QR code door access. Is there
+                            anything specific you need?</div>
+                        <div class="msg-time text-muted">9:05 AM</div>
+                    </div>
+
+                    <div class="msg-group user-msg">
+                        <div class="msg-bubble from-user">That's great! Does it have parking?</div>
+                        <div class="msg-time" style="color:#9CA3AF;">9:06 AM</div>
+                    </div>
+
+                    <div class="msg-group admin-msg">
+                        <div class="msg-bubble from-admin">Yes, there's a covered parking spot available for 1 car, free
+                            of charge during your stay. 🚗</div>
+                        <div class="msg-time text-muted">9:08 AM</div>
+                    </div>
+
+                    <!-- Date separator -->
+                    <div class="text-center"><span
+                            style="background:#F3F4F6;color:#9CA3AF;font-size:.75rem;padding:4px 12px;border-radius:999px;">Today</span>
+                    </div>
+
+                    <div class="msg-group user-msg">
+                        <div class="msg-bubble from-user">I've submitted booking #BK-2026-001. Can you confirm
+                            everything is set for our check-in on 15 March?</div>
+                        <div class="msg-time" style="color:#9CA3AF;">10:25 AM</div>
+                    </div>
+
+                    <div class="msg-group admin-msg">
+                        <div class="msg-bubble from-admin">Your booking is confirmed and payment has been received ✅.
+                            Your QR code for door access is already generated and available in your booking details.
+                            Check-in is at 3:00 PM. See you then!</div>
+                        <div class="msg-time text-muted">10:30 AM</div>
+                    </div>
+
+                    <div class="msg-group user-msg">
+                        <div class="msg-bubble from-user">Thank you so much! Looking forward to it 😊</div>
+                        <div class="msg-time" style="color:#9CA3AF;">10:32 AM</div>
+                    </div>
+
+                    <!-- Typing indicator -->
+                    <div class="msg-group admin-msg">
+                        <div class="typing-indicator">
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                        </div>
+                        <div class="msg-time text-muted">Admin is typing...</div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <textarea class="chat-input" rows="1" placeholder="Type your message..."></textarea>
+                    <button class="btn btn-primary rounded-3 px-3 py-2">
+                        <i class="ti ti-send fs-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

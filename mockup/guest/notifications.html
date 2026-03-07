@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notifications – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+        }
+
+        .guest-nav {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .notif-item {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #E5E7EB;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        .notif-item:hover {
+            border-color: #BFDBFE;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, .08);
+        }
+
+        .notif-item.unread {
+            border-left: 4px solid #2563EB;
+            background: #FAFBFF;
+        }
+
+        .notif-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .notif-meta {
+            font-size: .78rem;
+            color: #9CA3AF;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="guest-nav">
+        <div class="container py-2" style="max-width:1200px;">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="fw-bold fs-4 text-primary text-decoration-none" href="home.html">🏠 HomeLodge</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a class="nav-link text-dark" href="home.html">Home</a>
+                    <a class="nav-link text-dark" href="my-bookings.html">My Bookings</a>
+                    <a class="nav-link text-dark" href="chat.html">Chat</a>
+                    <a class="nav-link fw-semibold text-primary position-relative" href="notifications.html"><i
+                            class="ti ti-bell fs-4"></i><span class="position-absolute"
+                            style="top:-2px;right:-6px;background:#DC2626;color:white;font-size:.6rem;border-radius:999px;padding:1px 5px;">2</span></a>
+                    <div class="dropdown"><button
+                            class="btn btn-sm d-flex align-items-center gap-2 border rounded-3 py-1 px-2"
+                            data-bs-toggle="dropdown">
+                            <div
+                                style="width:28px;height:28px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;">
+                                A</div><span class="fw-medium" style="font-size:.9rem;">Ahmad</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-3">
+                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4" style="max-width:700px;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h4 class="fw-bold mb-1" style="color:#111827;">Notifications</h4>
+                <p class="text-muted mb-0">You have <strong>2 unread</strong> notifications</p>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary rounded-3">Mark all as read</button>
+        </div>
+
+        <!-- Today -->
+        <div class="text-muted mb-2"
+            style="font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Today</div>
+
+        <div class="notif-item unread">
+            <div class="notif-icon bg-warning-subtle text-warning"><i class="ti ti-clock"></i></div>
+            <div class="flex-grow-1">
+                <div class="fw-semibold" style="color:#111827;">Payment Reminder</div>
+                <div class="text-muted" style="font-size:.9rem;">You have <strong>23 hours</strong> remaining to
+                    complete payment for booking <a href="booking-detail.html" class="text-primary">#BK-2026-002</a>.
+                    Complete payment to avoid cancellation.</div>
+                <div class="notif-meta"><i class="ti ti-clock fs-3 me-1"></i>2 hours ago · <span
+                        class="text-warning fw-semibold">Action Required</span></div>
+            </div>
+            <div class="ms-2"><span
+                    style="width:8px;height:8px;background:#2563EB;border-radius:50%;display:block;"></span></div>
+        </div>
+
+        <div class="notif-item unread">
+            <div class="notif-icon bg-primary-subtle text-primary"><i class="ti ti-calendar-check"></i></div>
+            <div class="flex-grow-1">
+                <div class="fw-semibold" style="color:#111827;">New Booking Submitted</div>
+                <div class="text-muted" style="font-size:.9rem;">Your booking <a href="booking-detail.html"
+                        class="text-primary">#BK-2026-002</a> for 22–24 March 2026 has been received. Awaiting payment.
+                </div>
+                <div class="notif-meta"><i class="ti ti-clock fs-3 me-1"></i>3 hours ago</div>
+            </div>
+            <div class="ms-2"><span
+                    style="width:8px;height:8px;background:#2563EB;border-radius:50%;display:block;"></span></div>
+        </div>
+
+        <!-- Yesterday -->
+        <div class="text-muted mb-2 mt-4"
+            style="font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Yesterday</div>
+
+        <div class="notif-item">
+            <div class="notif-icon bg-success-subtle text-success"><i class="ti ti-check-circle"></i></div>
+            <div class="flex-grow-1">
+                <div class="fw-semibold" style="color:#111827;">Payment Successful ✓</div>
+                <div class="text-muted" style="font-size:.9rem;">Payment of <strong>RM 600.00</strong> for booking <a
+                        href="booking-detail.html" class="text-primary">#BK-2026-001</a> was successful. Your booking is
+                    now confirmed!</div>
+                <div class="notif-meta"><i class="ti ti-clock fs-3 me-1"></i>Yesterday, 10:32 AM</div>
+            </div>
+        </div>
+
+        <div class="notif-item">
+            <div class="notif-icon bg-primary-subtle text-primary"><i class="ti ti-bell"></i></div>
+            <div class="flex-grow-1">
+                <div class="fw-semibold" style="color:#111827;">Check-in Reminder</div>
+                <div class="text-muted" style="font-size:.9rem;">Your stay at HomeLodge KL starts in <strong>8
+                        days</strong> (15 March 2026). Your QR code is ready in your booking details.</div>
+                <div class="notif-meta"><i class="ti ti-clock fs-3 me-1"></i>Yesterday, 9:00 AM</div>
+            </div>
+        </div>
+
+        <!-- Older -->
+        <div class="text-muted mb-2 mt-4"
+            style="font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Older</div>
+
+        <div class="notif-item">
+            <div class="notif-icon bg-secondary-subtle" style="color:#0F766E;"><i class="ti ti-message-circle"></i>
+            </div>
+            <div class="flex-grow-1">
+                <div class="fw-semibold" style="color:#111827;">New Message from Admin</div>
+                <div class="text-muted" style="font-size:.9rem;">"Hello Ahmad, your booking has been confirmed. Please
+                    let us know if you need anything. Check-in time is 3:00 PM."</div>
+                <div class="notif-meta"><i class="ti ti-clock fs-3 me-1"></i>6 Mar 2026 · <a href="chat.html"
+                        class="text-primary">Reply</a></div>
+            </div>
+        </div>
+
+        <div class="notif-item">
+            <div class="notif-icon bg-danger-subtle text-danger"><i class="ti ti-calendar-x"></i></div>
+            <div class="flex-grow-1">
+                <div class="fw-semibold" style="color:#111827;">Booking Cancelled</div>
+                <div class="text-muted" style="font-size:.9rem;">Booking <a href="booking-detail.html"
+                        class="text-primary">#BK-2026-004</a> (10–12 January 2026) has been cancelled. Refund of RM
+                    300.00 will be processed in 3–5 business days.</div>
+                <div class="notif-meta"><i class="ti ti-clock fs-3 me-1"></i>5 Jan 2026</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

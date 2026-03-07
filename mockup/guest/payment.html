@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+        }
+
+        .guest-nav {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .bill-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #F3F4F6;
+            font-size: .9rem;
+        }
+
+        .bill-row:last-child {
+            border-bottom: none;
+        }
+
+        .pay-btn {
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            border: none;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .pay-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, .35);
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .8rem;
+            color: #6B7280;
+        }
+
+        .countdown {
+            background: #FEF3C7;
+            border: 1px solid #FDE68A;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: .9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="guest-nav">
+        <div class="container py-2" style="max-width:1200px;">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="fw-bold fs-4 text-primary text-decoration-none" href="home.html">🏠 HomeLodge</a>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="my-bookings.html" class="nav-link text-dark">My Bookings</a>
+                    <div class="dropdown"><button
+                            class="btn btn-sm d-flex align-items-center gap-2 border rounded-3 py-1 px-2"
+                            data-bs-toggle="dropdown">
+                            <div
+                                style="width:28px;height:28px;border-radius:50%;background:#2563EB;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;">
+                                A</div><span class="fw-medium" style="font-size:.9rem;">Ahmad</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-3">
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4" style="max-width:800px;">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="my-bookings.html">My Bookings</a></li>
+                <li class="breadcrumb-item"><a href="booking-detail.html">#BK-2026-002</a></li>
+                <li class="breadcrumb-item active">Payment</li>
+            </ol>
+        </nav>
+
+        <h4 class="fw-bold mb-4" style="color:#111827;"><i class="ti ti-credit-card me-2 text-primary"></i>Complete
+            Payment</h4>
+
+        <!-- Timer -->
+        <div class="countdown d-flex align-items-center gap-3 mb-4">
+            <i class="ti ti-clock text-warning fs-4"></i>
+            <div>
+                <strong>Payment Window Closing:</strong> Please complete your payment within <strong
+                    id="timer">23:45:12</strong> to secure your booking dates.
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <!-- Bill Summary -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3">Bill Summary</h6>
+                    <div class="bill-row"><span class="text-muted">Bill Number</span><span
+                            class="fw-semibold text-primary">#BILL-2026-002</span></div>
+                    <div class="bill-row"><span class="text-muted">Booking ID</span><span>#BK-2026-002</span></div>
+                    <div class="bill-row"><span class="text-muted">Property</span><span>HomeLodge KL</span></div>
+                    <div class="bill-row"><span class="text-muted">Check-in</span><span>22 Mar 2026, 3:00 PM</span>
+                    </div>
+                    <div class="bill-row"><span class="text-muted">Check-out</span><span>24 Mar 2026, 12:00 PM</span>
+                    </div>
+                    <div class="bill-row"><span class="text-muted">Duration</span><span>2 nights</span></div>
+                </div>
+
+                <!-- Amount Breakdown -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3">Amount Breakdown</h6>
+                    <div class="bill-row"><span class="text-muted">Room Rate (2 × RM 250)</span><span>RM 500.00</span>
+                    </div>
+                    <div class="bill-row"><span class="text-muted">Refundable Deposit</span><span>RM 100.00</span></div>
+                    <div class="bill-row"
+                        style="background:#F9FAFB;margin:0 -24px;padding:12px 24px;border-top:2px solid #E5E7EB;border-bottom:none;">
+                        <span class="fw-bold fs-5">Total Payable</span>
+                        <span class="fw-bold fs-4 text-primary">RM 600.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Payment Gateway -->
+                <div class="info-card">
+                    <h6 class="fw-bold mb-3">
+                        <i class="ti ti-lock text-success me-2"></i>Secure Payment
+                    </h6>
+                    <p class="text-muted mb-4" style="font-size:.9rem;">You will be redirected to our secure payment
+                        gateway to complete your transaction.</p>
+
+                    <div class="rounded-3 p-3 mb-4" style="background:#F0FDF4;border:1px solid #BBF7D0;">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="ti ti-check-circle text-success"></i>
+                            <span class="fw-semibold text-success" style="font-size:.9rem;">256-bit SSL Encrypted</span>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge"
+                                style="background:#F3F4F6;color:#374151;font-size:.75rem;padding:6px 10px;">💳 Credit
+                                Card</span>
+                            <span class="badge"
+                                style="background:#F3F4F6;color:#374151;font-size:.75rem;padding:6px 10px;">🏦 Online
+                                Banking</span>
+                            <span class="badge"
+                                style="background:#F3F4F6;color:#374151;font-size:.75rem;padding:6px 10px;">📱
+                                e-Wallet</span>
+                            <span class="badge"
+                                style="background:#F3F4F6;color:#374151;font-size:.75rem;padding:6px 10px;">🏧 Debit
+                                Card</span>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <div style="font-size:2rem;">RM 600.00</div>
+                        <div class="text-muted" style="font-size:.85rem;">Total amount to pay</div>
+                    </div>
+
+                    <button class="pay-btn mb-3" onclick="window.location='booking-detail.html'">
+                        <i class="ti ti-credit-card me-2"></i>Pay RM 600.00 Securely
+                    </button>
+
+                    <div class="d-flex justify-content-center gap-3">
+                        <div class="secure-badge"><i class="ti ti-lock"></i> Secure</div>
+                        <div class="secure-badge"><i class="ti ti-shield-check"></i> Encrypted</div>
+                        <div class="secure-badge"><i class="ti ti-circle-check"></i> Verified</div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="booking-detail.html" class="btn btn-outline-secondary rounded-3">Cancel Payment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Countdown timer
+        var sec = 23 * 3600 + 45 * 60 + 12;
+        setInterval(function () {
+            sec--;
+            var h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+            document.getElementById('timer').textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+
+</html>
