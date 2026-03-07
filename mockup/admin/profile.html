@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Profile – HomeLodge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-link.active-link {
+            background: #EFF6FF;
+            color: #2563EB !important;
+            border-radius: 8px;
+        }
+
+        .sidebar-link.active-link i {
+            color: #2563EB !important;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, .1);
+        }
+
+        .avatar-area {
+            position: relative;
+            display: inline-block;
+        }
+
+        .avatar-circle {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563EB, #0F766E);
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-edit {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #2563EB;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+
+        .strength-bar {
+            height: 4px;
+            border-radius: 4px;
+            background: #E5E7EB;
+            margin-top: 8px;
+        }
+
+        .strength-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width .3s;
+        }
+
+        .req-item {
+            font-size: .8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .req-item.met {
+            color: #16A34A;
+        }
+
+        .req-item.unmet {
+            color: #9CA3AF;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #9CA3AF;
+            border: none;
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <aside class="left-sidebar">
+            <div>
+                <div class="brand-logo d-flex align-items-center justify-content-between">
+                    <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">🏠
+                            HomeLodge</span></a>
+                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"><i class="ti ti-x fs-6"></i>
+                    </div>
+                </div>
+                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Main</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html"><i
+                                    class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Bookings</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="booking-calendar.html"><i
+                                    class="ti ti-calendar"></i><span class="hide-menu">Booking Calendar</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="all-bookings.html"><i
+                                    class="ti ti-list"></i><span class="hide-menu">All Bookings</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Payments</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="bills.html"><i
+                                    class="ti ti-file-invoice"></i><span class="hide-menu">Bills</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="payments.html"><i
+                                    class="ti ti-cash"></i><span class="hide-menu">Payments</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Users</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="manage-users.html"><i
+                                    class="ti ti-users"></i><span class="hide-menu">Manage Users</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Access Control</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="roles.html"><i
+                                    class="ti ti-shield"></i><span class="hide-menu">Roles</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="permissions.html"><i
+                                    class="ti ti-lock"></i><span class="hide-menu">Permissions</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Communication</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="chat-admin.html"><i
+                                    class="ti ti-message-circle"></i><span class="hide-menu">Chat</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">System</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="settings.html"><i
+                                    class="ti ti-settings"></i><span class="hide-menu">Settings</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="audit-logs.html"><i
+                                    class="ti ti-clipboard-list"></i><span class="hide-menu">Audit Logs</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="body-wrapper">
+            <header class="app-header">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="javascript:void(0)"
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
+                        <li class="nav-item"><a href="javascript:void(0)" class="nav-link nav-icon-hover"><i
+                                    class="ti ti-bell-ringing fs-5"></i></a></li>
+                        <li class="nav-item dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown"
+                                class="d-flex align-items-center gap-2 text-decoration-none">
+                                <div
+                                    style="width:34px;height:34px;border-radius:50%;background:#2563EB;color:white;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;">
+                                    AD</div><span class="fw-medium" style="font-size:.9rem;">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end rounded-3 shadow-sm">
+                                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container-fluid py-3">
+                <h4 class="fw-bold mb-4">My Profile</h4>
+                <div class="row g-3">
+                    <div class="col-lg-8">
+                        <!-- Profile Info -->
+                        <div class="section-card">
+                            <h6 class="fw-bold mb-4"><i class="ti ti-user me-2 text-primary"></i>Personal Information
+                            </h6>
+                            <div class="d-flex align-items-center gap-4 mb-4">
+                                <div class="avatar-area">
+                                    <div class="avatar-circle">AD</div>
+                                    <div class="avatar-edit" title="Change photo"><i class="ti ti-camera"
+                                            style="font-size:.85rem;"></i></div>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold fs-5">Admin User</div>
+                                    <div class="text-muted" style="font-size:.85rem;">admin@homelodge.com</div>
+                                    <span class="badge"
+                                        style="background:#EFF6FF;color:#2563EB;border-radius:999px;padding:4px 12px;font-size:.78rem;margin-top:4px;display:inline-block;">Admin</span>
+                                </div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">First Name</label>
+                                    <input type="text" class="form-control rounded-3" value="Admin">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Last Name</label>
+                                    <input type="text" class="form-control rounded-3" value="User">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Email</label>
+                                    <input type="email" class="form-control rounded-3" value="admin@homelodge.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Phone</label>
+                                    <input type="tel" class="form-control rounded-3" value="+60 12-000 0001">
+                                </div>
+                            </div>
+                            <div class="mt-4"><button class="btn btn-primary rounded-3 px-4 fw-medium"
+                                    onclick="this.textContent='✓ Profile Updated'"><i class="ti ti-check me-2"></i>Save
+                                    Changes</button></div>
+                        </div>
+
+                        <!-- Change Password -->
+                        <div class="section-card">
+                            <h6 class="fw-bold mb-4"><i class="ti ti-lock me-2 text-warning"></i>Change Password</h6>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-medium">Current Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-control rounded-3" id="curPwd"
+                                            placeholder="Enter current password">
+                                        <button type="button" class="password-toggle"
+                                            onclick="togglePwd('curPwd',this)"><i
+                                                class="ti ti-eye-off fs-4"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-control rounded-3" id="newPwd"
+                                            placeholder="New password" oninput="checkStrength(this.value)">
+                                        <button type="button" class="password-toggle"
+                                            onclick="togglePwd('newPwd',this)"><i
+                                                class="ti ti-eye-off fs-4"></i></button>
+                                    </div>
+                                    <div class="strength-bar">
+                                        <div class="strength-fill" id="strBar" style="width:0%;background:#E5E7EB;">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-2 mt-2">
+                                        <div class="req-item unmet" id="r-len"><i class="ti ti-circle fs-3"></i> 8–12
+                                            chars</div>
+                                        <div class="req-item unmet" id="r-up"><i class="ti ti-circle fs-3"></i>
+                                            Uppercase</div>
+                                        <div class="req-item unmet" id="r-lo"><i class="ti ti-circle fs-3"></i>
+                                            Lowercase</div>
+                                        <div class="req-item unmet" id="r-nu"><i class="ti ti-circle fs-3"></i> Number
+                                        </div>
+                                        <div class="req-item unmet" id="r-sp"><i class="ti ti-circle fs-3"></i> Special
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-medium">Confirm New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-control rounded-3" id="confPwd"
+                                            placeholder="Confirm new password">
+                                        <button type="button" class="password-toggle"
+                                            onclick="togglePwd('confPwd',this)"><i
+                                                class="ti ti-eye-off fs-4"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4"><button class="btn btn-warning rounded-3 px-4 fw-medium"
+                                    onclick="this.textContent='✓ Password Changed'"><i
+                                        class="ti ti-lock me-2"></i>Change Password</button></div>
+                        </div>
+                    </div>
+
+                    <!-- Account Info -->
+                    <div class="col-lg-4">
+                        <div class="section-card">
+                            <h6 class="fw-bold mb-3"><i class="ti ti-info-circle me-2 text-primary"></i>Account Info
+                            </h6>
+                            <div class="mb-3 pb-3 border-bottom">
+                                <div class="text-muted mb-1" style="font-size:.85rem;">Role</div><span class="badge"
+                                    style="background:#EFF6FF;color:#2563EB;border-radius:999px;padding:5px 14px;">Admin</span>
+                            </div>
+                            <div class="mb-3 pb-3 border-bottom">
+                                <div class="text-muted mb-1" style="font-size:.85rem;">Auth Method</div><span
+                                    class="badge bg-light text-dark px-2 py-1 rounded-2">Local Account</span>
+                            </div>
+                            <div class="mb-3 pb-3 border-bottom">
+                                <div class="text-muted mb-1" style="font-size:.85rem;">Account Status</div><span
+                                    class="badge"
+                                    style="background:#DCFCE7;color:#166534;border-radius:999px;padding:5px 14px;">Active</span>
+                            </div>
+                            <div class="mb-3 pb-3 border-bottom">
+                                <div class="text-muted mb-1" style="font-size:.85rem;">Registered</div>
+                                <div class="fw-medium" style="font-size:.9rem;">1 January 2026</div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="text-muted mb-1" style="font-size:.85rem;">Last Login</div>
+                                <div class="fw-medium" style="font-size:.9rem;">7 March 2026, 9:00 AM</div>
+                            </div>
+                        </div>
+
+                        <div class="section-card" style="background:#FEF2F2;border-color:#FECACA;">
+                            <h6 class="fw-bold mb-2 text-danger"><i class="ti ti-alert-triangle me-2"></i>Danger Zone
+                            </h6>
+                            <p class="text-muted mb-3" style="font-size:.85rem;">Permanently delete your account. This
+                                action cannot be undone.</p>
+                            <button class="btn btn-outline-danger rounded-3 w-100" data-bs-toggle="modal"
+                                data-bs-target="#delAccountModal">Delete My Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="delAccountModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-3">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold text-danger"><i class="ti ti-trash me-2"></i>Delete Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">This will permanently delete your admin account. All data will remain
+                        preserved for audit purposes.</p><input type="text" class="form-control rounded-3"
+                        placeholder="Type 'DELETE' to confirm">
+                </div>
+                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                        data-bs-dismiss="modal">Cancel</button><button class="btn btn-danger rounded-3">Delete
+                        Account</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+    <script>
+        function togglePwd(id, btn) { var i = document.getElementById(id); i.type = i.type === 'password' ? 'text' : 'password'; btn.innerHTML = i.type === 'text' ? '<i class="ti ti-eye fs-4"></i>' : '<i class="ti ti-eye-off fs-4"></i>'; }
+        function checkStrength(v) {
+            var c = { len: /^.{8,12}$/, up: /[A-Z]/, lo: /[a-z]/, nu: /[0-9]/, sp: /[^A-Za-z0-9]/ };
+            var met = Object.keys(c).filter(k => c[k].test(v)).length;
+            var col = ['#E5E7EB', '#DC2626', '#D97706', '#D97706', '#16A34A', '#16A34A'];
+            document.getElementById('strBar').style.width = (met * 20) + '%'; document.getElementById('strBar').style.background = col[met];
+            var m = { 'len': 'r-len', 'up': 'r-up', 'lo': 'r-lo', 'nu': 'r-nu', 'sp': 'r-sp' };
+            Object.keys(m).forEach(k => { var el = document.getElementById(m[k]); if (c[k].test(v)) { el.className = 'req-item met'; el.querySelector('i').className = 'ti ti-circle-check fs-3'; } else { el.className = 'req-item unmet'; el.querySelector('i').className = 'ti ti-circle fs-3'; } });
+        }
+    </script>
+</body>
+
+</html>

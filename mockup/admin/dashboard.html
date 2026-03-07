@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard – HomeLodge Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            padding: 24px;
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .table th {
+            background: #F9FAFB;
+            font-size: .8rem;
+            font-weight: 600;
+            color: #6B7280;
+            text-transform: uppercase;
+        }
+
+        .table td {
+            vertical-align: middle;
+            font-size: .9rem;
+        }
+
+        .status-badge {
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: .78rem;
+            font-weight: 600;
+        }
+
+        .badge-confirmed {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .badge-pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .badge-cancelled {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .badge-completed {
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .sidebar-link.active-link {
+            background: #EFF6FF;
+            color: #2563EB !important;
+            border-radius: 8px;
+        }
+
+        .sidebar-link.active-link i {
+            color: #2563EB !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar -->
+        <aside class="left-sidebar">
+            <div>
+                <div class="brand-logo d-flex align-items-center justify-content-between">
+                    <a href="dashboard.html" class="text-nowrap logo-img">
+                        <span class="fw-bold fs-5 text-primary">🏠 HomeLodge</span>
+                    </a>
+                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"><i
+                            class="ti ti-x fs-6"></i></div>
+                </div>
+                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Main</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link active-link" href="dashboard.html"><i
+                                    class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Bookings</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="booking-calendar.html"><i
+                                    class="ti ti-calendar"></i><span class="hide-menu">Booking Calendar</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="all-bookings.html"><i
+                                    class="ti ti-list"></i><span class="hide-menu">All Bookings</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Payments</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="bills.html"><i
+                                    class="ti ti-file-invoice"></i><span class="hide-menu">Bills</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="payments.html"><i
+                                    class="ti ti-cash"></i><span class="hide-menu">Payments</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Users</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="manage-users.html"><i
+                                    class="ti ti-users"></i><span class="hide-menu">Manage Users</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Access Control</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="roles.html"><i
+                                    class="ti ti-shield"></i><span class="hide-menu">Roles</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="permissions.html"><i
+                                    class="ti ti-lock"></i><span class="hide-menu">Permissions</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">Communication</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="chat-admin.html"><i
+                                    class="ti ti-message-circle"></i><span class="hide-menu">Chat</span></a></li>
+                        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                                class="hide-menu">System</span></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="settings.html"><i
+                                    class="ti ti-settings"></i><span class="hide-menu">Settings</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="audit-logs.html"><i
+                                    class="ti ti-clipboard-list"></i><span class="hide-menu">Audit Logs</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- Main wrapper -->
+        <div class="body-wrapper">
+            <header class="app-header">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="javascript:void(0)"
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"><i
+                                    class="ti ti-menu-2"></i></a></li>
+                    </ul>
+                    <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link nav-icon-hover position-relative" href="javascript:void(0)"
+                                data-bs-toggle="dropdown">
+                                <i class="ti ti-bell-ringing fs-5"></i>
+                                <span class="position-absolute"
+                                    style="top:2px;right:2px;width:8px;height:8px;background:#DC2626;border-radius:50%;border:2px solid white;"></span>
+                            </a>
+                            <div class="dropdown-menu content-dd dropdown-menu-end" style="min-width:320px;">
+                                <div class="d-flex align-items-center justify-content-between py-3 px-4 border-bottom">
+                                    <h6 class="mb-0 fw-semibold">Notifications</h6>
+                                    <span class="badge bg-danger">3 New</span>
+                                </div>
+                                <div class="py-2">
+                                    <a href="booking-detail.html" class="dropdown-item py-3 px-4 d-flex gap-3">
+                                        <div
+                                            style="width:36px;height:36px;border-radius:10px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <i class="ti ti-calendar-plus text-primary"></i></div>
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:.85rem;">New Booking #BK-2026-002
+                                            </div>
+                                            <div class="text-muted" style="font-size:.78rem;">Ahmad Razif · 5 min ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="payments.html" class="dropdown-item py-3 px-4 d-flex gap-3">
+                                        <div
+                                            style="width:36px;height:36px;border-radius:10px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                            <i class="ti ti-cash text-success"></i></div>
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:.85rem;">Payment Received #PAY-001
+                                            </div>
+                                            <div class="text-muted" style="font-size:.78rem;">RM 600.00 · 1 hour ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" data-bs-toggle="dropdown"
+                                class="d-flex align-items-center gap-2 text-decoration-none">
+                                <div
+                                    style="width:34px;height:34px;border-radius:50%;background:#2563EB;color:white;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;">
+                                    AD</div>
+                                <span class="fw-medium" style="font-size:.9rem;">Admin</span>
+                                <i class="ti ti-chevron-down fs-4 text-muted"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end rounded-3 shadow-sm">
+                                <li class="px-3 py-2 border-bottom">
+                                    <div class="fw-semibold">Admin User</div>
+                                    <div class="text-muted" style="font-size:.8rem;">admin@homelodge.com</div>
+                                </li>
+                                <li><a class="dropdown-item" href="profile.html"><i
+                                            class="ti ti-user me-2 text-primary"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="settings.html"><i
+                                            class="ti ti-settings me-2 text-secondary"></i>Settings</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="../auth/login.html"><i
+                                            class="ti ti-logout me-2"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="container-fluid py-3">
+                <!-- Page Header -->
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div>
+                        <h4 class="fw-bold mb-1" style="color:#111827;">Dashboard</h4>
+                        <p class="text-muted mb-0" style="font-size:.9rem;">Welcome back, Admin! Here's what's happening
+                            today.</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <a href="booking-calendar.html" class="btn btn-outline-primary rounded-3 px-3"><i
+                                class="ti ti-calendar me-2"></i>View Calendar</a>
+                        <a href="all-bookings.html" class="btn btn-primary rounded-3 px-3"><i
+                                class="ti ti-plus me-2"></i>New Booking</a>
+                    </div>
+                </div>
+
+                <!-- Stat Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Total Bookings</div>
+                                    <div class="fw-bold" style="font-size:2rem;color:#111827;">48</div>
+                                    <div style="font-size:.8rem;color:#16A34A;"><i class="ti ti-arrow-up-right"></i>
+                                        +12% this month</div>
+                                </div>
+                                <div class="stat-icon bg-primary-subtle text-primary"><i
+                                        class="ti ti-calendar-check"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Pending Payments</div>
+                                    <div class="fw-bold" style="font-size:2rem;color:#D97706;">3</div>
+                                    <div style="font-size:.8rem;color:#D97706;"><i class="ti ti-clock"></i> Awaiting
+                                        payment</div>
+                                </div>
+                                <div class="stat-icon bg-warning-subtle text-warning"><i class="ti ti-clock-dollar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Active Users</div>
+                                    <div class="fw-bold" style="font-size:2rem;color:#111827;">24</div>
+                                    <div style="font-size:.8rem;color:#16A34A;"><i class="ti ti-arrow-up-right"></i> +3
+                                        new this week</div>
+                                </div>
+                                <div class="stat-icon bg-success-subtle text-success"><i class="ti ti-users"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Revenue (March)</div>
+                                    <div class="fw-bold" style="font-size:2rem;color:#111827;">RM 7.2k</div>
+                                    <div style="font-size:.8rem;color:#16A34A;"><i class="ti ti-arrow-up-right"></i> +8%
+                                        vs Feb</div>
+                                </div>
+                                <div class="stat-icon" style="background:#F0FDFA;color:#0F766E;"><i
+                                        class="ti ti-cash"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Bookings + Quick Actions -->
+                <div class="row g-3">
+                    <div class="col-lg-8">
+                        <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
+                            <div class="d-flex align-items-center justify-content-between p-4 border-bottom">
+                                <h6 class="fw-bold mb-0">Recent Bookings</h6>
+                                <a href="all-bookings.html" class="btn btn-sm btn-outline-primary rounded-3">View
+                                    All</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="px-4">Booking ID</th>
+                                            <th>Guest</th>
+                                            <th>Check-in</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="px-4 fw-semibold text-primary">#BK-2026-002</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div
+                                                        style="width:28px;height:28px;border-radius:50%;background:#DBEAFE;color:#2563EB;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;">
+                                                        A</div>Ahmad Razif
+                                                </div>
+                                            </td>
+                                            <td>22 Mar 2026</td>
+                                            <td><span class="status-badge badge-pending">Pending Payment</span></td>
+                                            <td><a href="booking-detail.html"
+                                                    class="btn btn-sm btn-outline-primary rounded-2">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 fw-semibold text-primary">#BK-2026-001</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div
+                                                        style="width:28px;height:28px;border-radius:50%;background:#DCFCE7;color:#16A34A;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;">
+                                                        A</div>Ahmad Razif
+                                                </div>
+                                            </td>
+                                            <td>15 Mar 2026</td>
+                                            <td><span class="status-badge badge-confirmed">Confirmed</span></td>
+                                            <td><a href="booking-detail.html"
+                                                    class="btn btn-sm btn-outline-primary rounded-2">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 fw-semibold text-primary">#BK-2026-003</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div
+                                                        style="width:28px;height:28px;border-radius:50%;background:#FEF3C7;color:#D97706;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;">
+                                                        S</div>Siti Aminah
+                                                </div>
+                                            </td>
+                                            <td>5 Feb 2026</td>
+                                            <td><span class="status-badge badge-completed">Completed</span></td>
+                                            <td><a href="booking-detail.html"
+                                                    class="btn btn-sm btn-outline-secondary rounded-2">View</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-4 fw-semibold text-primary">#BK-2026-004</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div
+                                                        style="width:28px;height:28px;border-radius:50%;background:#FEE2E2;color:#DC2626;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;">
+                                                        M</div>Mohamed Faiz
+                                                </div>
+                                            </td>
+                                            <td>10 Jan 2026</td>
+                                            <td><span class="status-badge badge-cancelled">Cancelled</span></td>
+                                            <td><a href="booking-detail.html"
+                                                    class="btn btn-sm btn-outline-secondary rounded-2">View</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div
+                            style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:24px;margin-bottom:16px;">
+                            <h6 class="fw-bold mb-3">Quick Actions</h6>
+                            <div class="d-grid gap-2">
+                                <a href="all-bookings.html" class="btn btn-outline-primary rounded-3 text-start"><i
+                                        class="ti ti-calendar-plus me-2"></i>Create New Booking</a>
+                                <a href="manage-users.html" class="btn btn-outline-success rounded-3 text-start"><i
+                                        class="ti ti-user-plus me-2"></i>Add New User</a>
+                                <a href="booking-calendar.html" class="btn btn-outline-warning rounded-3 text-start"><i
+                                        class="ti ti-ban me-2"></i>Block Dates</a>
+                                <a href="audit-logs.html" class="btn btn-outline-secondary rounded-3 text-start"><i
+                                        class="ti ti-clipboard-list me-2"></i>View Audit Logs</a>
+                            </div>
+                        </div>
+                        <div
+                            style="background:linear-gradient(135deg,#EFF6FF,#F0FDFA);border-radius:12px;border:1px solid #BFDBFE;padding:24px;">
+                            <h6 class="fw-bold mb-3" style="color:#1E40AF;">Today's Overview</h6>
+                            <div class="d-flex justify-content-between mb-2" style="font-size:.9rem;"><span
+                                    class="text-muted">Check-ins today</span><span
+                                    class="fw-semibold text-success">1</span></div>
+                            <div class="d-flex justify-content-between mb-2" style="font-size:.9rem;"><span
+                                    class="text-muted">Check-outs today</span><span
+                                    class="fw-semibold text-primary">0</span></div>
+                            <div class="d-flex justify-content-between mb-2" style="font-size:.9rem;"><span
+                                    class="text-muted">Pending payments</span><span
+                                    class="fw-semibold text-warning">3</span></div>
+                            <div class="d-flex justify-content-between" style="font-size:.9rem;"><span
+                                    class="text-muted">Unread messages</span><span
+                                    class="fw-semibold text-secondary">2</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+</body>
+
+</html>
