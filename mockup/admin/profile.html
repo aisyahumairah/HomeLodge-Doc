@@ -113,6 +113,29 @@
             border: none;
             background: none;
         }
+
+        .app-header {
+            background: #ffffff !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid #E5E7EB !important;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+            top: 0 !important;
+        }
+
+        .left-sidebar {
+            z-index: 1100 !important;
+            top: 0 !important;
+        }
+
+        .body-wrapper {
+            padding-top: 0 !important;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .body-wrapper-inner {
+            padding-top: 70px !important;
+        }
     </style>
 </head>
 
@@ -124,7 +147,8 @@
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">🏠
                             HomeLodge</span></a>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"><i class="ti ti-x fs-6"></i>
+                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"><i
+                            class="ti ti-x fs-6"></i>
                     </div>
                 </div>
                 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
@@ -174,7 +198,8 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="javascript:void(0)"
-                                class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a>
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"><i
+                                    class="ti ti-menu-2"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
@@ -197,183 +222,198 @@
                     </ul>
                 </nav>
             </header>
-            <div class="container-fluid py-3">
-                <h4 class="fw-bold mb-4">My Profile</h4>
-                <div class="row g-3">
-                    <div class="col-lg-8">
-                        <!-- Profile Info -->
-                        <div class="section-card">
-                            <h6 class="fw-bold mb-4"><i class="ti ti-user me-2 text-primary"></i>Personal Information
-                            </h6>
-                            <div class="d-flex align-items-center gap-4 mb-4">
-                                <div class="avatar-area">
-                                    <div class="avatar-circle">AD</div>
-                                    <div class="avatar-edit" title="Change photo"><i class="ti ti-camera"
-                                            style="font-size:.85rem;"></i></div>
+            <div class="body-wrapper-inner">
+                <div class="container-fluid py-3">
+                    <h4 class="fw-bold mb-4">My Profile</h4>
+                    <div class="row g-3">
+                        <div class="col-lg-8">
+                            <!-- Profile Info -->
+                            <div class="section-card">
+                                <h6 class="fw-bold mb-4"><i class="ti ti-user me-2 text-primary"></i>Personal
+                                    Information
+                                </h6>
+                                <div class="d-flex align-items-center gap-4 mb-4">
+                                    <div class="avatar-area">
+                                        <div class="avatar-circle">AD</div>
+                                        <div class="avatar-edit" title="Change photo"><i class="ti ti-camera"
+                                                style="font-size:.85rem;"></i></div>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold fs-5">Admin User</div>
+                                        <div class="text-muted" style="font-size:.85rem;">admin@homelodge.com</div>
+                                        <span class="badge"
+                                            style="background:#EFF6FF;color:#2563EB;border-radius:999px;padding:4px 12px;font-size:.78rem;margin-top:4px;display:inline-block;">Admin</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div class="fw-semibold fs-5">Admin User</div>
-                                    <div class="text-muted" style="font-size:.85rem;">admin@homelodge.com</div>
-                                    <span class="badge"
-                                        style="background:#EFF6FF;color:#2563EB;border-radius:999px;padding:4px 12px;font-size:.78rem;margin-top:4px;display:inline-block;">Admin</span>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium">First Name</label>
+                                        <input type="text" class="form-control rounded-3" value="Admin">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium">Last Name</label>
+                                        <input type="text" class="form-control rounded-3" value="User">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium">Email</label>
+                                        <input type="email" class="form-control rounded-3" value="admin@homelodge.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium">Phone</label>
+                                        <input type="tel" class="form-control rounded-3" value="+60 12-000 0001">
+                                    </div>
                                 </div>
+                                <div class="mt-4"><button class="btn btn-primary rounded-3 px-4 fw-medium"
+                                        onclick="this.textContent='✓ Profile Updated'"><i
+                                            class="ti ti-check me-2"></i>Save
+                                        Changes</button></div>
                             </div>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">First Name</label>
-                                    <input type="text" class="form-control rounded-3" value="Admin">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">Last Name</label>
-                                    <input type="text" class="form-control rounded-3" value="User">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">Email</label>
-                                    <input type="email" class="form-control rounded-3" value="admin@homelodge.com">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">Phone</label>
-                                    <input type="tel" class="form-control rounded-3" value="+60 12-000 0001">
-                                </div>
-                            </div>
-                            <div class="mt-4"><button class="btn btn-primary rounded-3 px-4 fw-medium"
-                                    onclick="this.textContent='✓ Profile Updated'"><i class="ti ti-check me-2"></i>Save
-                                    Changes</button></div>
-                        </div>
 
-                        <!-- Change Password -->
-                        <div class="section-card">
-                            <h6 class="fw-bold mb-4"><i class="ti ti-lock me-2 text-warning"></i>Change Password</h6>
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <label class="form-label fw-medium">Current Password</label>
-                                    <div class="password-wrapper">
-                                        <input type="password" class="form-control rounded-3" id="curPwd"
-                                            placeholder="Enter current password">
-                                        <button type="button" class="password-toggle"
-                                            onclick="togglePwd('curPwd',this)"><i
-                                                class="ti ti-eye-off fs-4"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">New Password</label>
-                                    <div class="password-wrapper">
-                                        <input type="password" class="form-control rounded-3" id="newPwd"
-                                            placeholder="New password" oninput="checkStrength(this.value)">
-                                        <button type="button" class="password-toggle"
-                                            onclick="togglePwd('newPwd',this)"><i
-                                                class="ti ti-eye-off fs-4"></i></button>
-                                    </div>
-                                    <div class="strength-bar">
-                                        <div class="strength-fill" id="strBar" style="width:0%;background:#E5E7EB;">
+                            <!-- Change Password -->
+                            <div class="section-card">
+                                <h6 class="fw-bold mb-4"><i class="ti ti-lock me-2 text-warning"></i>Change Password
+                                </h6>
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label class="form-label fw-medium">Current Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-control rounded-3" id="curPwd"
+                                                placeholder="Enter current password">
+                                            <button type="button" class="password-toggle"
+                                                onclick="togglePwd('curPwd',this)"><i
+                                                    class="ti ti-eye-off fs-4"></i></button>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-wrap gap-2 mt-2">
-                                        <div class="req-item unmet" id="r-len"><i class="ti ti-circle fs-3"></i> 8–12
-                                            chars</div>
-                                        <div class="req-item unmet" id="r-up"><i class="ti ti-circle fs-3"></i>
-                                            Uppercase</div>
-                                        <div class="req-item unmet" id="r-lo"><i class="ti ti-circle fs-3"></i>
-                                            Lowercase</div>
-                                        <div class="req-item unmet" id="r-nu"><i class="ti ti-circle fs-3"></i> Number
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium">New Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-control rounded-3" id="newPwd"
+                                                placeholder="New password" oninput="checkStrength(this.value)">
+                                            <button type="button" class="password-toggle"
+                                                onclick="togglePwd('newPwd',this)"><i
+                                                    class="ti ti-eye-off fs-4"></i></button>
                                         </div>
-                                        <div class="req-item unmet" id="r-sp"><i class="ti ti-circle fs-3"></i> Special
+                                        <div class="strength-bar">
+                                            <div class="strength-fill" id="strBar" style="width:0%;background:#E5E7EB;">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-wrap gap-2 mt-2">
+                                            <div class="req-item unmet" id="r-len"><i class="ti ti-circle fs-3"></i>
+                                                8–12
+                                                chars</div>
+                                            <div class="req-item unmet" id="r-up"><i class="ti ti-circle fs-3"></i>
+                                                Uppercase</div>
+                                            <div class="req-item unmet" id="r-lo"><i class="ti ti-circle fs-3"></i>
+                                                Lowercase</div>
+                                            <div class="req-item unmet" id="r-nu"><i class="ti ti-circle fs-3"></i>
+                                                Number
+                                            </div>
+                                            <div class="req-item unmet" id="r-sp"><i class="ti ti-circle fs-3"></i>
+                                                Special
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-medium">Confirm New Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-control rounded-3" id="confPwd"
+                                                placeholder="Confirm new password">
+                                            <button type="button" class="password-toggle"
+                                                onclick="togglePwd('confPwd',this)"><i
+                                                    class="ti ti-eye-off fs-4"></i></button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fw-medium">Confirm New Password</label>
-                                    <div class="password-wrapper">
-                                        <input type="password" class="form-control rounded-3" id="confPwd"
-                                            placeholder="Confirm new password">
-                                        <button type="button" class="password-toggle"
-                                            onclick="togglePwd('confPwd',this)"><i
-                                                class="ti ti-eye-off fs-4"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-4"><button class="btn btn-warning rounded-3 px-4 fw-medium"
-                                    onclick="this.textContent='✓ Password Changed'"><i
-                                        class="ti ti-lock me-2"></i>Change Password</button></div>
-                        </div>
-                    </div>
-
-                    <!-- Account Info -->
-                    <div class="col-lg-4">
-                        <div class="section-card">
-                            <h6 class="fw-bold mb-3"><i class="ti ti-info-circle me-2 text-primary"></i>Account Info
-                            </h6>
-                            <div class="mb-3 pb-3 border-bottom">
-                                <div class="text-muted mb-1" style="font-size:.85rem;">Role</div><span class="badge"
-                                    style="background:#EFF6FF;color:#2563EB;border-radius:999px;padding:5px 14px;">Admin</span>
-                            </div>
-                            <div class="mb-3 pb-3 border-bottom">
-                                <div class="text-muted mb-1" style="font-size:.85rem;">Auth Method</div><span
-                                    class="badge bg-light text-dark px-2 py-1 rounded-2">Local Account</span>
-                            </div>
-                            <div class="mb-3 pb-3 border-bottom">
-                                <div class="text-muted mb-1" style="font-size:.85rem;">Account Status</div><span
-                                    class="badge"
-                                    style="background:#DCFCE7;color:#166534;border-radius:999px;padding:5px 14px;">Active</span>
-                            </div>
-                            <div class="mb-3 pb-3 border-bottom">
-                                <div class="text-muted mb-1" style="font-size:.85rem;">Registered</div>
-                                <div class="fw-medium" style="font-size:.9rem;">1 January 2026</div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="text-muted mb-1" style="font-size:.85rem;">Last Login</div>
-                                <div class="fw-medium" style="font-size:.9rem;">7 March 2026, 9:00 AM</div>
+                                <div class="mt-4"><button class="btn btn-warning rounded-3 px-4 fw-medium"
+                                        onclick="this.textContent='✓ Password Changed'"><i
+                                            class="ti ti-lock me-2"></i>Change Password</button></div>
                             </div>
                         </div>
 
-                        <div class="section-card" style="background:#FEF2F2;border-color:#FECACA;">
-                            <h6 class="fw-bold mb-2 text-danger"><i class="ti ti-alert-triangle me-2"></i>Danger Zone
-                            </h6>
-                            <p class="text-muted mb-3" style="font-size:.85rem;">Permanently delete your account. This
-                                action cannot be undone.</p>
-                            <button class="btn btn-outline-danger rounded-3 w-100" data-bs-toggle="modal"
-                                data-bs-target="#delAccountModal">Delete My Account</button>
+                        <!-- Account Info -->
+                        <div class="col-lg-4">
+                            <div class="section-card">
+                                <h6 class="fw-bold mb-3"><i class="ti ti-info-circle me-2 text-primary"></i>Account
+                                    Info
+                                </h6>
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Role</div><span class="badge"
+                                        style="background:#EFF6FF;color:#2563EB;border-radius:999px;padding:5px 14px;">Admin</span>
+                                </div>
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Auth Method</div><span
+                                        class="badge bg-light text-dark px-2 py-1 rounded-2">Local Account</span>
+                                </div>
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Account Status</div><span
+                                        class="badge"
+                                        style="background:#DCFCE7;color:#166534;border-radius:999px;padding:5px 14px;">Active</span>
+                                </div>
+                                <div class="mb-3 pb-3 border-bottom">
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Registered</div>
+                                    <div class="fw-medium" style="font-size:.9rem;">1 January 2026</div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="text-muted mb-1" style="font-size:.85rem;">Last Login</div>
+                                    <div class="fw-medium" style="font-size:.9rem;">7 March 2026, 9:00 AM</div>
+                                </div>
+                            </div>
+
+                            <div class="section-card" style="background:#FEF2F2;border-color:#FECACA;">
+                                <h6 class="fw-bold mb-2 text-danger"><i class="ti ti-alert-triangle me-2"></i>Danger
+                                    Zone
+                                </h6>
+                                <p class="text-muted mb-3" style="font-size:.85rem;">Permanently delete your
+                                    account.
+                                    This
+                                    action cannot be undone.</p>
+                                <button class="btn btn-outline-danger rounded-3 w-100" data-bs-toggle="modal"
+                                    data-bs-target="#delAccountModal">Delete My Account</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="delAccountModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-3">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold text-danger"><i class="ti ti-trash me-2"></i>Delete Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal fade" id="delAccountModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold text-danger"><i class="ti ti-trash me-2"></i>Delete Account
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-muted">This will permanently delete your admin account. All data will remain
+                            preserved for audit purposes.</p><input type="text" class="form-control rounded-3"
+                            placeholder="Type 'DELETE' to confirm">
+                    </div>
+                    <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                            data-bs-dismiss="modal">Cancel</button><button class="btn btn-danger rounded-3">Delete
+                            Account</button></div>
                 </div>
-                <div class="modal-body">
-                    <p class="text-muted">This will permanently delete your admin account. All data will remain
-                        preserved for audit purposes.</p><input type="text" class="form-control rounded-3"
-                        placeholder="Type 'DELETE' to confirm">
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
-                        data-bs-dismiss="modal">Cancel</button><button class="btn btn-danger rounded-3">Delete
-                        Account</button></div>
             </div>
         </div>
-    </div>
 
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
-    <script>
-        function togglePwd(id, btn) { var i = document.getElementById(id); i.type = i.type === 'password' ? 'text' : 'password'; btn.innerHTML = i.type === 'text' ? '<i class="ti ti-eye fs-4"></i>' : '<i class="ti ti-eye-off fs-4"></i>'; }
-        function checkStrength(v) {
-            var c = { len: /^.{8,12}$/, up: /[A-Z]/, lo: /[a-z]/, nu: /[0-9]/, sp: /[^A-Za-z0-9]/ };
-            var met = Object.keys(c).filter(k => c[k].test(v)).length;
-            var col = ['#E5E7EB', '#DC2626', '#D97706', '#D97706', '#16A34A', '#16A34A'];
-            document.getElementById('strBar').style.width = (met * 20) + '%'; document.getElementById('strBar').style.background = col[met];
-            var m = { 'len': 'r-len', 'up': 'r-up', 'lo': 'r-lo', 'nu': 'r-nu', 'sp': 'r-sp' };
-            Object.keys(m).forEach(k => { var el = document.getElementById(m[k]); if (c[k].test(v)) { el.className = 'req-item met'; el.querySelector('i').className = 'ti ti-circle-check fs-3'; } else { el.className = 'req-item unmet'; el.querySelector('i').className = 'ti ti-circle fs-3'; } });
-        }
-    </script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+        <script
+            src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+        <script>
+            function togglePwd(id, btn) { var i = document.getElementById(id); i.type = i.type === 'password' ? 'text' : 'password'; btn.innerHTML = i.type === 'text' ? '<i class="ti ti-eye fs-4"></i>' : '<i class="ti ti-eye-off fs-4"></i>'; }
+            function checkStrength(v) {
+                var c = { len: /^.{8,12}$/, up: /[A-Z]/, lo: /[a-z]/, nu: /[0-9]/, sp: /[^A-Za-z0-9]/ };
+                var met = Object.keys(c).filter(k => c[k].test(v)).length;
+                var col = ['#E5E7EB', '#DC2626', '#D97706', '#D97706', '#16A34A', '#16A34A'];
+                document.getElementById('strBar').style.width = (met * 20) + '%'; document.getElementById('strBar').style.background = col[met];
+                var m = { 'len': 'r-len', 'up': 'r-up', 'lo': 'r-lo', 'nu': 'r-nu', 'sp': 'r-sp' };
+                Object.keys(m).forEach(k => { var el = document.getElementById(m[k]); if (c[k].test(v)) { el.className = 'req-item met'; el.querySelector('i').className = 'ti ti-circle-check fs-3'; } else { el.className = 'req-item unmet'; el.querySelector('i').className = 'ti ti-circle fs-3'; } });
+            }
+        </script>
 </body>
 
 </html>

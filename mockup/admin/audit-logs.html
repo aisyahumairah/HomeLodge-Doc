@@ -73,6 +73,29 @@
             background: #F0FDFA;
             color: #0F766E;
         }
+
+        .app-header {
+            background: #ffffff !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid #E5E7EB !important;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+            top: 0 !important;
+        }
+
+        .left-sidebar {
+            z-index: 1100 !important;
+            top: 0 !important;
+        }
+
+        .body-wrapper {
+            padding-top: 0 !important;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .body-wrapper-inner {
+            padding-top: 70px !important;
+        }
     </style>
 </head>
 
@@ -84,7 +107,8 @@
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">🏠
                             HomeLodge</span></a>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"><i class="ti ti-x fs-6"></i>
+                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"><i
+                            class="ti ti-x fs-6"></i>
                     </div>
                 </div>
                 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
@@ -134,7 +158,8 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="javascript:void(0)"
-                                class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a>
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"><i
+                                    class="ti ti-menu-2"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
@@ -157,219 +182,228 @@
                     </ul>
                 </nav>
             </header>
-            <div class="container-fluid py-3">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div>
-                        <h4 class="fw-bold mb-1">Audit Logs</h4>
-                        <p class="text-muted mb-0" style="font-size:.9rem;">Track all system activity and changes</p>
-                    </div>
-                    <button class="btn btn-outline-secondary rounded-3"><i class="ti ti-download me-2"></i>Export
-                        Logs</button>
-                </div>
-
-                <!-- Filters -->
-                <div
-                    style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:16px;margin-bottom:20px;">
-                    <div class="row g-2 align-items-end">
-                        <div class="col-md-3">
-                            <div class="input-group"><span class="input-group-text"><i
-                                        class="ti ti-search"></i></span><input type="text" class="form-control"
-                                    placeholder="Search user or action..."></div>
+            <div class="body-wrapper-inner">
+                <div class="container-fluid py-3">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <h4 class="fw-bold mb-1">Audit Logs</h4>
+                            <p class="text-muted mb-0" style="font-size:.9rem;">Track all system activity and changes
+                            </p>
                         </div>
-                        <div class="col-md-2"><select class="form-select">
-                                <option>All Modules</option>
-                                <option>Bookings</option>
-                                <option>Payments</option>
-                                <option>Users</option>
-                                <option>Settings</option>
-                                <option>Auth</option>
-                            </select></div>
-                        <div class="col-md-2"><select class="form-select">
-                                <option>All Actions</option>
-                                <option>Created</option>
-                                <option>Updated</option>
-                                <option>Deleted</option>
-                                <option>Login</option>
-                                <option>Cancelled</option>
-                            </select></div>
-                        <div class="col-md-2"><input type="date" class="form-control" value="2026-03-01"></div>
-                        <div class="col-md-2"><input type="date" class="form-control" value="2026-03-07"></div>
-                        <div class="col-md-1"><button class="btn btn-primary rounded-3 w-100"><i
-                                    class="ti ti-filter"></i></button></div>
+                        <button class="btn btn-outline-secondary rounded-3"><i class="ti ti-download me-2"></i>Export
+                            Logs</button>
+                    </div>
+
+                    <!-- Filters -->
+                    <div
+                        style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:16px;margin-bottom:20px;">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-md-3">
+                                <div class="input-group"><span class="input-group-text"><i
+                                            class="ti ti-search"></i></span><input type="text" class="form-control"
+                                        placeholder="Search user or action..."></div>
+                            </div>
+                            <div class="col-md-2"><select class="form-select">
+                                    <option>All Modules</option>
+                                    <option>Bookings</option>
+                                    <option>Payments</option>
+                                    <option>Users</option>
+                                    <option>Settings</option>
+                                    <option>Auth</option>
+                                </select></div>
+                            <div class="col-md-2"><select class="form-select">
+                                    <option>All Actions</option>
+                                    <option>Created</option>
+                                    <option>Updated</option>
+                                    <option>Deleted</option>
+                                    <option>Login</option>
+                                    <option>Cancelled</option>
+                                </select></div>
+                            <div class="col-md-2"><input type="date" class="form-control" value="2026-03-01"></div>
+                            <div class="col-md-2"><input type="date" class="form-control" value="2026-03-07"></div>
+                            <div class="col-md-1"><button class="btn btn-primary rounded-3 w-100"><i
+                                        class="ti ti-filter"></i></button></div>
+                        </div>
+                    </div>
+
+                    <!-- Log Table -->
+                    <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4">Timestamp</th>
+                                        <th>Actor</th>
+                                        <th>Action</th>
+                                        <th>Module</th>
+                                        <th>Record</th>
+                                        <th>IP Address</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">7 Mar 2026, 10:32 AM
+                                        </td>
+                                        <td><span class="fw-medium">Ahmad Razif</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Guest</div>
+                                        </td>
+                                        <td><span class="action-badge act-pay">Payment Made</span></td>
+                                        <td>Payments</td>
+                                        <td class="text-primary">#PAY-2026-001</td>
+                                        <td class="text-muted">192.168.1.104</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">7 Mar 2026, 9:05 AM</td>
+                                        <td><span class="fw-medium">Ahmad Razif</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Guest</div>
+                                        </td>
+                                        <td><span class="action-badge act-create">Created</span></td>
+                                        <td>Bookings</td>
+                                        <td class="text-primary">#BK-2026-001</td>
+                                        <td class="text-muted">192.168.1.104</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">7 Mar 2026, 9:00 AM</td>
+                                        <td><span class="fw-medium">Ahmad Razif</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Guest</div>
+                                        </td>
+                                        <td><span class="action-badge act-login">Login</span></td>
+                                        <td>Auth</td>
+                                        <td class="text-muted">—</td>
+                                        <td class="text-muted">192.168.1.104</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">6 Mar 2026, 3:15 PM</td>
+                                        <td><span class="fw-medium">Admin</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Admin</div>
+                                        </td>
+                                        <td><span class="action-badge act-update">Updated</span></td>
+                                        <td>Settings</td>
+                                        <td class="text-muted">SMTP Config</td>
+                                        <td class="text-muted">192.168.1.1</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">5 Mar 2026, 11:00 AM
+                                        </td>
+                                        <td><span class="fw-medium">Admin</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Admin</div>
+                                        </td>
+                                        <td><span class="action-badge act-create">Created</span></td>
+                                        <td>Users</td>
+                                        <td class="text-primary">Siti Aminah</td>
+                                        <td class="text-muted">192.168.1.1</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">4 Mar 2026, 5:45 PM</td>
+                                        <td><span class="fw-medium">Mohamed Faiz</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Guest</div>
+                                        </td>
+                                        <td><span class="action-badge act-cancel">Cancelled</span></td>
+                                        <td>Bookings</td>
+                                        <td class="text-primary">#BK-2026-004</td>
+                                        <td class="text-muted">10.0.0.52</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 text-muted" style="white-space:nowrap;">2 Mar 2026, 10:00 AM
+                                        </td>
+                                        <td><span class="fw-medium">Admin</span>
+                                            <div class="text-muted" style="font-size:.75rem;">Admin</div>
+                                        </td>
+                                        <td><span class="action-badge act-delete">Deleted</span></td>
+                                        <td>Bookings</td>
+                                        <td class="text-muted">#BK-2025-999</td>
+                                        <td class="text-muted">192.168.1.1</td>
+                                        <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
+                                                data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between p-4 border-top">
+                            <span class="text-muted" style="font-size:.85rem;">Showing 7 of 128 logs</span>
+                            <nav>
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled"><a class="page-link rounded-2" href="#">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link rounded-2" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link rounded-2" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link rounded-2" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link rounded-2" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <!-- Log Table -->
-                <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="px-4">Timestamp</th>
-                                    <th>Actor</th>
-                                    <th>Action</th>
-                                    <th>Module</th>
-                                    <th>Record</th>
-                                    <th>IP Address</th>
-                                    <th>Details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">7 Mar 2026, 10:32 AM</td>
-                                    <td><span class="fw-medium">Ahmad Razif</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Guest</div>
-                                    </td>
-                                    <td><span class="action-badge act-pay">Payment Made</span></td>
-                                    <td>Payments</td>
-                                    <td class="text-primary">#PAY-2026-001</td>
-                                    <td class="text-muted">192.168.1.104</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">7 Mar 2026, 9:05 AM</td>
-                                    <td><span class="fw-medium">Ahmad Razif</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Guest</div>
-                                    </td>
-                                    <td><span class="action-badge act-create">Created</span></td>
-                                    <td>Bookings</td>
-                                    <td class="text-primary">#BK-2026-001</td>
-                                    <td class="text-muted">192.168.1.104</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">7 Mar 2026, 9:00 AM</td>
-                                    <td><span class="fw-medium">Ahmad Razif</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Guest</div>
-                                    </td>
-                                    <td><span class="action-badge act-login">Login</span></td>
-                                    <td>Auth</td>
-                                    <td class="text-muted">—</td>
-                                    <td class="text-muted">192.168.1.104</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">6 Mar 2026, 3:15 PM</td>
-                                    <td><span class="fw-medium">Admin</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Admin</div>
-                                    </td>
-                                    <td><span class="action-badge act-update">Updated</span></td>
-                                    <td>Settings</td>
-                                    <td class="text-muted">SMTP Config</td>
-                                    <td class="text-muted">192.168.1.1</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">5 Mar 2026, 11:00 AM</td>
-                                    <td><span class="fw-medium">Admin</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Admin</div>
-                                    </td>
-                                    <td><span class="action-badge act-create">Created</span></td>
-                                    <td>Users</td>
-                                    <td class="text-primary">Siti Aminah</td>
-                                    <td class="text-muted">192.168.1.1</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">4 Mar 2026, 5:45 PM</td>
-                                    <td><span class="fw-medium">Mohamed Faiz</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Guest</div>
-                                    </td>
-                                    <td><span class="action-badge act-cancel">Cancelled</span></td>
-                                    <td>Bookings</td>
-                                    <td class="text-primary">#BK-2026-004</td>
-                                    <td class="text-muted">10.0.0.52</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 text-muted" style="white-space:nowrap;">2 Mar 2026, 10:00 AM</td>
-                                    <td><span class="fw-medium">Admin</span>
-                                        <div class="text-muted" style="font-size:.75rem;">Admin</div>
-                                    </td>
-                                    <td><span class="action-badge act-delete">Deleted</span></td>
-                                    <td>Bookings</td>
-                                    <td class="text-muted">#BK-2025-999</td>
-                                    <td class="text-muted">192.168.1.1</td>
-                                    <td><button class="btn btn-sm btn-outline-primary rounded-2 py-0 px-2"
-                                            data-bs-toggle="modal" data-bs-target="#logModal">View</button></td>
-                                </tr>
-                            </tbody>
+        <!-- Log Detail Modal -->
+        <div class="modal fade" id="logModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold"><i class="ti ti-clipboard-list me-2 text-primary"></i>Log Detail
+                        </h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td class="text-muted" style="width:130px;">Timestamp</td>
+                                <td class="fw-medium">7 Mar 2026, 10:32 AM</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Actor</td>
+                                <td class="fw-medium">Ahmad Razif (Guest)</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Action</td>
+                                <td><span class="action-badge act-pay">Payment Made</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Module</td>
+                                <td class="fw-medium">Payments</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Record</td>
+                                <td class="fw-medium text-primary">#PAY-2026-001</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">IP Address</td>
+                                <td class="fw-medium">192.168.1.104</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Description</td>
+                                <td class="fw-medium">Payment of RM 600.00 completed via Online Banking for booking
+                                    #BK-2026-001.</td>
+                            </tr>
                         </table>
                     </div>
-                    <div class="d-flex align-items-center justify-content-between p-4 border-top">
-                        <span class="text-muted" style="font-size:.85rem;">Showing 7 of 128 logs</span>
-                        <nav>
-                            <ul class="pagination pagination-sm mb-0">
-                                <li class="page-item disabled"><a class="page-link rounded-2" href="#">Previous</a></li>
-                                <li class="page-item active"><a class="page-link rounded-2" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link rounded-2" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link rounded-2" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link rounded-2" href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                            data-bs-dismiss="modal">Close</button></div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Log Detail Modal -->
-    <div class="modal fade" id="logModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-3">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold"><i class="ti ti-clipboard-list me-2 text-primary"></i>Log Detail
-                    </h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-sm table-borderless">
-                        <tr>
-                            <td class="text-muted" style="width:130px;">Timestamp</td>
-                            <td class="fw-medium">7 Mar 2026, 10:32 AM</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Actor</td>
-                            <td class="fw-medium">Ahmad Razif (Guest)</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Action</td>
-                            <td><span class="action-badge act-pay">Payment Made</span></td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Module</td>
-                            <td class="fw-medium">Payments</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Record</td>
-                            <td class="fw-medium text-primary">#PAY-2026-001</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">IP Address</td>
-                            <td class="fw-medium">192.168.1.104</td>
-                        </tr>
-                        <tr>
-                            <td class="text-muted">Description</td>
-                            <td class="fw-medium">Payment of RM 600.00 completed via Online Banking for booking
-                                #BK-2026-001.</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
-                        data-bs-dismiss="modal">Close</button></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+        <script
+            src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>

@@ -1,76 +1,326 @@
-﻿<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Roles - HomeLodge Admin</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css"><link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css"><style>body{font-family:"Inter",sans-serif;}.sidebar-link.active-link{background:#EFF6FF;color:#2563EB!important;border-radius:8px;}.sidebar-link.active-link i{color:#2563EB!important;}.table th{background:#F9FAFB;font-size:.8rem;font-weight:600;color:#6B7280;text-transform:uppercase;}.table td{vertical-align:middle;font-size:.9rem;}.status-badge{border-radius:999px;padding:4px 12px;font-size:.78rem;font-weight:600;}.info-card{background:white;border-radius:12px;border:1px solid #E5E7EB;padding:24px;margin-bottom:20px;}.form-control:focus,.form-select:focus{border-color:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.1);}.perm-check th,.perm-check td{padding:10px 12px;vertical-align:middle;font-size:.9rem;}.section-card{background:white;border-radius:12px;border:1px solid #E5E7EB;padding:24px;margin-bottom:20px;}</style></head><body><div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">  <aside class="left-sidebar">
-    <div>
-      <div class="brand-logo d-flex align-items-center justify-content-between">
-        <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">&#127968; HomeLodge</span></a>
-        <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"><i class="ti ti-x fs-6"></i></div>
-      </div>
-      <nav class="sidebar-nav scroll-sidebar" data-simplebar=""><ul id="sidebarnav">
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Main</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html"><i class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Bookings</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="booking-calendar.html"><i class="ti ti-calendar"></i><span class="hide-menu">Booking Calendar</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="all-bookings.html"><i class="ti ti-list"></i><span class="hide-menu">All Bookings</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Payments</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="bills.html"><i class="ti ti-file-invoice"></i><span class="hide-menu">Bills</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="payments.html"><i class="ti ti-cash"></i><span class="hide-menu">Payments</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Users</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="manage-users.html"><i class="ti ti-users"></i><span class="hide-menu">Manage Users</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Access Control</span></li>
-        <li class="sidebar-item"><a class="sidebar-link active-link" href="roles.html"><i class="ti ti-shield"></i><span class="hide-menu">Roles</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="permissions.html"><i class="ti ti-lock"></i><span class="hide-menu">Permissions</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Communication</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="chat-admin.html"><i class="ti ti-message-circle"></i><span class="hide-menu">Chat</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">System</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="settings.html"><i class="ti ti-settings"></i><span class="hide-menu">Settings</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="audit-logs.html"><i class="ti ti-clipboard-list"></i><span class="hide-menu">Audit Logs</span></a></li>
-      </ul></nav>
-    </div>
-  </aside><div class="body-wrapper"><header class="app-header"><nav class="navbar navbar-expand-lg navbar-light"><ul class="navbar-nav"><li class="nav-item"><a href="javascript:void(0)" class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a></li></ul><ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2"><li class="nav-item"><a href="javascript:void(0)" class="nav-link nav-icon-hover"><i class="ti ti-bell-ringing fs-5"></i></a></li><li class="nav-item dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown" class="d-flex align-items-center gap-2 text-decoration-none"><div style="width:34px;height:34px;border-radius:50%;background:#2563EB;color:white;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;">AD</div><span class="fw-medium" style="font-size:.9rem;">Admin</span></a><ul class="dropdown-menu dropdown-menu-end rounded-3 shadow-sm"><li><a class="dropdown-item" href="profile.html">Profile</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li></ul></li></ul></nav></header><div class="container-fluid py-3"><div class="d-flex align-items-center justify-content-between mb-4">
-  <div><h4 class="fw-bold mb-1">Roles</h4><p class="text-muted mb-0" style="font-size:.9rem;">Manage system roles and their associated permissions</p></div>
-  <button class="btn btn-primary rounded-3 px-3" data-bs-toggle="modal" data-bs-target="#addRoleModal"><i class="ti ti-plus me-2"></i>Add Role</button>
-</div>
-<div class="row g-3">
-  <div class="col-lg-4">
-    <div class="info-card">
-      <div class="d-flex align-items-center justify-content-between mb-1">
-        <h6 class="fw-bold mb-0"><i class="ti ti-shield me-2 text-primary"></i>Admin</h6>
-        <span class="badge bg-primary-subtle text-primary rounded-pill">System</span>
-      </div>
-      <p class="text-muted mb-3" style="font-size:.85rem;">Full access to all system features and settings.</p>
-      <div class="mb-3">
-        <div class="text-muted mb-2" style="font-size:.8rem;">PERMISSIONS</div>
-        <div class="d-flex flex-wrap gap-1">
-          <span class="badge bg-light text-dark rounded-2">all:*</span>
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roles - HomeLodge Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+  <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    .sidebar-link.active-link {
+      background: #EFF6FF;
+      color: #2563EB !important;
+      border-radius: 8px;
+    }
+
+    .sidebar-link.active-link i {
+      color: #2563EB !important;
+    }
+
+    .table th {
+      background: #F9FAFB;
+      font-size: .8rem;
+      font-weight: 600;
+      color: #6B7280;
+      text-transform: uppercase;
+    }
+
+    .table td {
+      vertical-align: middle;
+      font-size: .9rem;
+    }
+
+    .status-badge {
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .1);
+    }
+
+    .perm-check th,
+    .perm-check td {
+      padding: 10px 12px;
+      vertical-align: middle;
+      font-size: .9rem;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .app-header {
+      background: #fff !important;
+      z-index: 1000 !important;
+      border-bottom: 1px solid #E5E7EB !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+      top: 0 !important;
+    }
+
+    .left-sidebar {
+      z-index: 1100 !important;
+      top: 0 !important;
+    }
+
+    .body-wrapper {
+      padding-top: 0 !important;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+
+    .body-wrapper-inner {
+      padding-top: 70px !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">&#127968;
+              HomeLodge</span></a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"><i
+              class="ti ti-x fs-6"></i></div>
         </div>
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Main</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html"><i
+                  class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Bookings</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="booking-calendar.html"><i
+                  class="ti ti-calendar"></i><span class="hide-menu">Booking Calendar</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="all-bookings.html"><i class="ti ti-list"></i><span
+                  class="hide-menu">All Bookings</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Payments</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="bills.html"><i class="ti ti-file-invoice"></i><span
+                  class="hide-menu">Bills</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="payments.html"><i class="ti ti-cash"></i><span
+                  class="hide-menu">Payments</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Users</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="manage-users.html"><i class="ti ti-users"></i><span
+                  class="hide-menu">Manage Users</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Access
+                Control</span></li>
+            <li class="sidebar-item"><a class="sidebar-link active-link" href="roles.html"><i
+                  class="ti ti-shield"></i><span class="hide-menu">Roles</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="permissions.html"><i class="ti ti-lock"></i><span
+                  class="hide-menu">Permissions</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Communication</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="chat-admin.html"><i
+                  class="ti ti-message-circle"></i><span class="hide-menu">Chat</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">System</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="settings.html"><i class="ti ti-settings"></i><span
+                  class="hide-menu">Settings</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="audit-logs.html"><i
+                  class="ti ti-clipboard-list"></i><span class="hide-menu">Audit Logs</span></a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="d-flex gap-2">
-        <a href="permissions.html" class="btn btn-sm btn-outline-primary rounded-3">View Permissions</a>
+    </aside>
+    <div class="body-wrapper">
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="javascript:void(0)" class="nav-link sidebartoggler nav-icon-hover ms-n3"
+                id="headerCollapse"><i class="ti ti-menu-2"></i></a></li>
+          </ul>
+          <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
+            <li class="nav-item"><a href="javascript:void(0)" class="nav-link nav-icon-hover"><i
+                  class="ti ti-bell-ringing fs-5"></i></a></li>
+            <li class="nav-item dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown"
+                class="d-flex align-items-center gap-2 text-decoration-none">
+                <div
+                  style="width:34px;height:34px;border-radius:50%;background:#2563EB;color:white;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;">
+                  AD</div><span class="fw-medium" style="font-size:.9rem;">Admin</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end rounded-3 shadow-sm">
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="body-wrapper-inner">
+        <div class="container-fluid py-3">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+              <h4 class="fw-bold mb-1">Roles</h4>
+              <p class="text-muted mb-0" style="font-size:.9rem;">Manage system roles and their associated permissions
+              </p>
+            </div>
+            <button class="btn btn-primary rounded-3 px-3" data-bs-toggle="modal" data-bs-target="#addRoleModal"><i
+                class="ti ti-plus me-2"></i>Add Role</button>
+          </div>
+          <div class="row g-3">
+            <div class="col-lg-4">
+              <div class="info-card">
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                  <h6 class="fw-bold mb-0"><i class="ti ti-shield me-2 text-primary"></i>Admin</h6>
+                  <span class="badge bg-primary-subtle text-primary rounded-pill">System</span>
+                </div>
+                <p class="text-muted mb-3" style="font-size:.85rem;">Full access to all system features and settings.
+                </p>
+                <div class="mb-3">
+                  <div class="text-muted mb-2" style="font-size:.8rem;">PERMISSIONS</div>
+                  <div class="d-flex flex-wrap gap-1">
+                    <span class="badge bg-light text-dark rounded-2">all:*</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="permissions.html" class="btn btn-sm btn-outline-primary rounded-3">View Permissions</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-card">
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                  <h6 class="fw-bold mb-0"><i class="ti ti-user me-2 text-success"></i>Guest</h6>
+                  <span class="badge bg-success-subtle text-success rounded-pill">Default</span>
+                </div>
+                <p class="text-muted mb-3" style="font-size:.85rem;">Standard user role for guests who make bookings.
+                </p>
+                <div class="mb-3">
+                  <div class="text-muted mb-2" style="font-size:.8rem;">PERMISSIONS</div>
+                  <div class="d-flex flex-wrap gap-1">
+                    <span class="badge bg-light text-dark rounded-2">booking:create</span>
+                    <span class="badge bg-light text-dark rounded-2">booking:view</span>
+                    <span class="badge bg-light text-dark rounded-2">payment:view</span>
+                    <span class="badge bg-light text-dark rounded-2">chat:use</span>
+                    <span class="badge bg-light text-dark rounded-2">profile:edit</span>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-sm btn-outline-primary rounded-3" data-bs-toggle="modal"
+                    data-bs-target="#editPermModal">Edit Permissions</button>
+                  <button class="btn btn-sm btn-outline-secondary rounded-3">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="addRoleModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content rounded-3">
+                <div class="modal-header border-0">
+                  <h5 class="modal-title fw-bold">Add New Role</h5><button type="button" class="btn-close"
+                    data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3"><label class="form-label fw-medium">Role Name *</label><input type="text"
+                      class="form-control rounded-3" placeholder="e.g. Housekeeping"></div>
+                  <div class="mb-3"><label class="form-label fw-medium">Description</label><textarea
+                      class="form-control rounded-3" rows="2" placeholder="Role description..."></textarea></div>
+                </div>
+                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                    data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary rounded-3">Create
+                    Role</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="editPermModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content rounded-3">
+                <div class="modal-header border-0">
+                  <h5 class="modal-title fw-bold">Edit Permissions – Guest Role</h5><button type="button"
+                    class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div style="overflow-x:auto;">
+                    <table class="table table-bordered mb-0 perm-check">
+                      <thead>
+                        <tr>
+                          <th>Module</th>
+                          <th>View</th>
+                          <th>Create</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Bookings</td>
+                          <td><input type="checkbox" class="form-check-input" checked></td>
+                          <td><input type="checkbox" class="form-check-input" checked></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                        </tr>
+                        <tr>
+                          <td>Payments</td>
+                          <td><input type="checkbox" class="form-check-input" checked></td>
+                          <td><input type="checkbox" class="form-check-input" checked></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                        </tr>
+                        <tr>
+                          <td>Chat</td>
+                          <td><input type="checkbox" class="form-check-input" checked></td>
+                          <td><input type="checkbox" class="form-check-input" checked></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                        </tr>
+                        <tr>
+                          <td>Users</td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                          <td><input type="checkbox" class="form-check-input"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                    data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary rounded-3">Save
+                    Permissions</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-4">
-    <div class="info-card">
-      <div class="d-flex align-items-center justify-content-between mb-1">
-        <h6 class="fw-bold mb-0"><i class="ti ti-user me-2 text-success"></i>Guest</h6>
-        <span class="badge bg-success-subtle text-success rounded-pill">Default</span>
-      </div>
-      <p class="text-muted mb-3" style="font-size:.85rem;">Standard user role for guests who make bookings.</p>
-      <div class="mb-3">
-        <div class="text-muted mb-2" style="font-size:.8rem;">PERMISSIONS</div>
-        <div class="d-flex flex-wrap gap-1">
-          <span class="badge bg-light text-dark rounded-2">booking:create</span>
-          <span class="badge bg-light text-dark rounded-2">booking:view</span>
-          <span class="badge bg-light text-dark rounded-2">payment:view</span>
-          <span class="badge bg-light text-dark rounded-2">chat:use</span>
-          <span class="badge bg-light text-dark rounded-2">profile:edit</span>
-        </div>
-      </div>
-      <div class="d-flex gap-2">
-        <button class="btn btn-sm btn-outline-primary rounded-3" data-bs-toggle="modal" data-bs-target="#editPermModal">Edit Permissions</button>
-        <button class="btn btn-sm btn-outline-secondary rounded-3">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="addRoleModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content rounded-3"><div class="modal-header border-0"><h5 class="modal-title fw-bold">Add New Role</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="mb-3"><label class="form-label fw-medium">Role Name *</label><input type="text" class="form-control rounded-3" placeholder="e.g. Housekeeping"></div><div class="mb-3"><label class="form-label fw-medium">Description</label><textarea class="form-control rounded-3" rows="2" placeholder="Role description..."></textarea></div></div><div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary rounded-3">Create Role</button></div></div></div></div>
-<div class="modal fade" id="editPermModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content rounded-3"><div class="modal-header border-0"><h5 class="modal-title fw-bold">Edit Permissions – Guest Role</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div style="overflow-x:auto;"><table class="table table-bordered mb-0 perm-check"><thead><tr><th>Module</th><th>View</th><th>Create</th><th>Edit</th><th>Delete</th></tr></thead><tbody><tr><td>Bookings</td><td><input type="checkbox" class="form-check-input" checked></td><td><input type="checkbox" class="form-check-input" checked></td><td><input type="checkbox" class="form-check-input"></td><td><input type="checkbox" class="form-check-input"></td></tr><tr><td>Payments</td><td><input type="checkbox" class="form-check-input" checked></td><td><input type="checkbox" class="form-check-input" checked></td><td><input type="checkbox" class="form-check-input"></td><td><input type="checkbox" class="form-check-input"></td></tr><tr><td>Chat</td><td><input type="checkbox" class="form-check-input" checked></td><td><input type="checkbox" class="form-check-input" checked></td><td><input type="checkbox" class="form-check-input"></td><td><input type="checkbox" class="form-check-input"></td></tr><tr><td>Users</td><td><input type="checkbox" class="form-check-input"></td><td><input type="checkbox" class="form-check-input"></td><td><input type="checkbox" class="form-check-input"></td><td><input type="checkbox" class="form-check-input"></td></tr></tbody></table></div></div><div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary rounded-3">Save Permissions</button></div></div></div></div>    </div></div></div><script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script><script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script><script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script><script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script></body></html>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

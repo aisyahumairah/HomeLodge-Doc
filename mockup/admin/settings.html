@@ -72,6 +72,29 @@
             color: #9CA3AF;
             font-size: .8rem;
         }
+
+        .app-header {
+            background: #ffffff !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid #E5E7EB !important;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+            top: 0 !important;
+        }
+
+        .left-sidebar {
+            z-index: 1100 !important;
+            top: 0 !important;
+        }
+
+        .body-wrapper {
+            padding-top: 0 !important;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .body-wrapper-inner {
+            padding-top: 70px !important;
+        }
     </style>
 </head>
 
@@ -133,7 +156,8 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="javascript:void(0)"
-                                class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a>
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"><i
+                                    class="ti ti-menu-2"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
@@ -156,226 +180,239 @@
                     </ul>
                 </nav>
             </header>
-            <div class="container-fluid py-3">
-                <h4 class="fw-bold mb-4">System Settings</h4>
-                <div class="row g-3">
-                    <div class="col-lg-3">
-                        <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:12px;">
-                            <nav class="settings-nav nav flex-column">
-                                <a class="nav-link active" href="#smtp" data-bs-toggle="tab"><i
-                                        class="ti ti-mail me-2"></i>SMTP / Email</a>
-                                <a class="nav-link" href="#booking" data-bs-toggle="tab"><i
-                                        class="ti ti-calendar me-2"></i>Booking Policy</a>
-                                <a class="nav-link" href="#refund" data-bs-toggle="tab"><i
-                                        class="ti ti-cash-banknote me-2"></i>Refund Policy</a>
-                                <a class="nav-link" href="#security" data-bs-toggle="tab"><i
-                                        class="ti ti-shield me-2"></i>Security</a>
-                                <a class="nav-link" href="#notif" data-bs-toggle="tab"><i
-                                        class="ti ti-bell me-2"></i>Notifications</a>
-                            </nav>
+            <div class="body-wrapper-inner">
+                <div class="container-fluid py-3">
+                    <h4 class="fw-bold mb-4">System Settings</h4>
+                    <div class="row g-3">
+                        <div class="col-lg-3">
+                            <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:12px;">
+                                <nav class="settings-nav nav flex-column">
+                                    <a class="nav-link active" href="#smtp" data-bs-toggle="tab"><i
+                                            class="ti ti-mail me-2"></i>SMTP / Email</a>
+                                    <a class="nav-link" href="#booking" data-bs-toggle="tab"><i
+                                            class="ti ti-calendar me-2"></i>Booking Policy</a>
+                                    <a class="nav-link" href="#refund" data-bs-toggle="tab"><i
+                                            class="ti ti-cash-banknote me-2"></i>Refund Policy</a>
+                                    <a class="nav-link" href="#security" data-bs-toggle="tab"><i
+                                            class="ti ti-shield me-2"></i>Security</a>
+                                    <a class="nav-link" href="#notif" data-bs-toggle="tab"><i
+                                            class="ti ti-bell me-2"></i>Notifications</a>
+                                </nav>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="tab-content">
-                            <!-- SMTP -->
-                            <div class="tab-pane active" id="smtp">
-                                <div class="section-card">
-                                    <h6 class="fw-bold mb-4"><i class="ti ti-mail me-2 text-primary"></i>Email / SMTP
-                                        Configuration</h6>
-                                    <div class="row g-3">
-                                        <div class="col-md-6"><label class="form-label fw-medium">SMTP
-                                                Host</label><input type="text" class="form-control rounded-3"
-                                                value="smtp.gmail.com"></div>
-                                        <div class="col-md-3"><label class="form-label fw-medium">SMTP
-                                                Port</label><input type="number" class="form-control rounded-3"
-                                                value="587"></div>
-                                        <div class="col-md-3"><label
-                                                class="form-label fw-medium">Encryption</label><select
-                                                class="form-select rounded-3">
-                                                <option>TLS</option>
-                                                <option>SSL</option>
-                                                <option>None</option>
-                                            </select></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Username /
-                                                Email</label><input type="email" class="form-control rounded-3"
-                                                value="noreply@homelodge.com"></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Password</label><input
-                                                type="password" class="form-control rounded-3" value="**********"></div>
-                                        <div class="col-12"><label class="form-label fw-medium">From Name</label><input
-                                                type="text" class="form-control rounded-3" value="HomeLodge"></div>
-                                    </div>
-                                    <div class="d-flex gap-2 mt-4">
-                                        <button class="btn btn-primary rounded-3 px-4"><i
-                                                class="ti ti-check me-2"></i>Save SMTP Settings</button>
-                                        <button class="btn btn-outline-secondary rounded-3"
-                                            onclick="this.textContent='✓ Test Email Sent!';"><i
-                                                class="ti ti-send me-2"></i>Send Test Email</button>
+                        <div class="col-lg-9">
+                            <div class="tab-content">
+                                <!-- SMTP -->
+                                <div class="tab-pane active" id="smtp">
+                                    <div class="section-card">
+                                        <h6 class="fw-bold mb-4"><i class="ti ti-mail me-2 text-primary"></i>Email /
+                                            SMTP
+                                            Configuration</h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-6"><label class="form-label fw-medium">SMTP
+                                                    Host</label><input type="text" class="form-control rounded-3"
+                                                    value="smtp.gmail.com"></div>
+                                            <div class="col-md-3"><label class="form-label fw-medium">SMTP
+                                                    Port</label><input type="number" class="form-control rounded-3"
+                                                    value="587"></div>
+                                            <div class="col-md-3"><label
+                                                    class="form-label fw-medium">Encryption</label><select
+                                                    class="form-select rounded-3">
+                                                    <option>TLS</option>
+                                                    <option>SSL</option>
+                                                    <option>None</option>
+                                                </select></div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Username /
+                                                    Email</label><input type="email" class="form-control rounded-3"
+                                                    value="noreply@homelodge.com"></div>
+                                            <div class="col-md-6"><label
+                                                    class="form-label fw-medium">Password</label><input type="password"
+                                                    class="form-control rounded-3" value="**********"></div>
+                                            <div class="col-12"><label class="form-label fw-medium">From
+                                                    Name</label><input type="text" class="form-control rounded-3"
+                                                    value="HomeLodge"></div>
+                                        </div>
+                                        <div class="d-flex gap-2 mt-4">
+                                            <button class="btn btn-primary rounded-3 px-4"><i
+                                                    class="ti ti-check me-2"></i>Save SMTP Settings</button>
+                                            <button class="btn btn-outline-secondary rounded-3"
+                                                onclick="this.textContent='✓ Test Email Sent!';"><i
+                                                    class="ti ti-send me-2"></i>Send Test Email</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Booking Policy -->
-                            <div class="tab-pane" id="booking">
-                                <div class="section-card">
-                                    <h6 class="fw-bold mb-4"><i class="ti ti-calendar me-2 text-primary"></i>Booking
-                                        Policy</h6>
-                                    <div class="row g-3">
-                                        <div class="col-md-6"><label class="form-label fw-medium">Rate Per Night
-                                                (RM)</label><input type="number" class="form-control rounded-3"
-                                                value="250"></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Deposit Amount
-                                                (RM)</label><input type="number" class="form-control rounded-3"
-                                                value="100"></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Check-in
-                                                Time</label><input type="time" class="form-control rounded-3"
-                                                value="15:00"></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Check-out
-                                                Time</label><input type="time" class="form-control rounded-3"
-                                                value="12:00"></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Payment Window
-                                                (hours)</label><input type="number" class="form-control rounded-3"
-                                                value="24"></div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Max Booking Advance
-                                                (days)</label><input type="number" class="form-control rounded-3"
-                                                value="90"></div>
+                                <!-- Booking Policy -->
+                                <div class="tab-pane" id="booking">
+                                    <div class="section-card">
+                                        <h6 class="fw-bold mb-4"><i class="ti ti-calendar me-2 text-primary"></i>Booking
+                                            Policy</h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-6"><label class="form-label fw-medium">Rate Per Night
+                                                    (RM)</label><input type="number" class="form-control rounded-3"
+                                                    value="250"></div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Deposit Amount
+                                                    (RM)</label><input type="number" class="form-control rounded-3"
+                                                    value="100"></div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Check-in
+                                                    Time</label><input type="time" class="form-control rounded-3"
+                                                    value="15:00"></div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Check-out
+                                                    Time</label><input type="time" class="form-control rounded-3"
+                                                    value="12:00"></div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Payment Window
+                                                    (hours)</label><input type="number" class="form-control rounded-3"
+                                                    value="24"></div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Max Booking
+                                                    Advance
+                                                    (days)</label><input type="number" class="form-control rounded-3"
+                                                    value="90"></div>
+                                        </div>
+                                        <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
+                                                    class="ti ti-check me-2"></i>Save Booking Settings</button></div>
                                     </div>
-                                    <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
-                                                class="ti ti-check me-2"></i>Save Booking Settings</button></div>
                                 </div>
-                            </div>
-                            <!-- Refund Policy -->
-                            <div class="tab-pane" id="refund">
-                                <div class="section-card">
-                                    <h6 class="fw-bold mb-4"><i class="ti ti-cash-banknote me-2 text-success"></i>Refund
-                                        / Cancellation Policy</h6>
-                                    <div class="row g-3">
-                                        <div class="col-md-6"><label class="form-label fw-medium">Less than 3 days
-                                                before check-in</label>
-                                            <div class="input-group"><input type="number" class="form-control rounded-3"
-                                                    value="0"><span class="input-group-text">% refund</span></div>
+                                <!-- Refund Policy -->
+                                <div class="tab-pane" id="refund">
+                                    <div class="section-card">
+                                        <h6 class="fw-bold mb-4"><i
+                                                class="ti ti-cash-banknote me-2 text-success"></i>Refund
+                                            / Cancellation Policy</h6>
+                                        <div class="row g-3">
+                                            <div class="col-md-6"><label class="form-label fw-medium">Less than 3 days
+                                                    before check-in</label>
+                                                <div class="input-group"><input type="number"
+                                                        class="form-control rounded-3" value="0"><span
+                                                        class="input-group-text">% refund</span></div>
+                                            </div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">1 week before
+                                                    check-in</label>
+                                                <div class="input-group"><input type="number"
+                                                        class="form-control rounded-3" value="25"><span
+                                                        class="input-group-text">% refund</span></div>
+                                            </div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">2 weeks before
+                                                    check-in</label>
+                                                <div class="input-group"><input type="number"
+                                                        class="form-control rounded-3" value="50"><span
+                                                        class="input-group-text">% refund</span></div>
+                                            </div>
+                                            <div class="col-md-6"><label class="form-label fw-medium">Refund Processing
+                                                    (days)</label><input type="number" class="form-control rounded-3"
+                                                    value="5"></div>
                                         </div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">1 week before
-                                                check-in</label>
-                                            <div class="input-group"><input type="number" class="form-control rounded-3"
-                                                    value="25"><span class="input-group-text">% refund</span></div>
-                                        </div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">2 weeks before
-                                                check-in</label>
-                                            <div class="input-group"><input type="number" class="form-control rounded-3"
-                                                    value="50"><span class="input-group-text">% refund</span></div>
-                                        </div>
-                                        <div class="col-md-6"><label class="form-label fw-medium">Refund Processing
-                                                (days)</label><input type="number" class="form-control rounded-3"
-                                                value="5"></div>
+                                        <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
+                                                    class="ti ti-check me-2"></i>Save Refund Policy</button></div>
                                     </div>
-                                    <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
-                                                class="ti ti-check me-2"></i>Save Refund Policy</button></div>
                                 </div>
-                            </div>
-                            <!-- Security -->
-                            <div class="tab-pane" id="security">
-                                <div class="section-card">
-                                    <h6 class="fw-bold mb-4"><i class="ti ti-shield me-2 text-warning"></i>Security
-                                        Settings</h6>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Account Lockout</div>
-                                            <div class="toggle-desc">Lock account after failed login attempts</div>
+                                <!-- Security -->
+                                <div class="tab-pane" id="security">
+                                    <div class="section-card">
+                                        <h6 class="fw-bold mb-4"><i class="ti ti-shield me-2 text-warning"></i>Security
+                                            Settings</h6>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Account Lockout</div>
+                                                <div class="toggle-desc">Lock account after failed login attempts</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" id="lockout" checked
+                                                    style="width:48px;height:24px;">
+                                            </div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" id="lockout" checked style="width:48px;height:24px;">
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Max Login Attempts</div>
+                                                <div class="toggle-desc">Number before lockout</div>
+                                            </div>
+                                            <input type="number" class="form-control rounded-3" value="5"
+                                                style="width:80px;">
                                         </div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Lockout Duration (minutes)</div>
+                                                <div class="toggle-desc">Duration before account is unlocked</div>
+                                            </div>
+                                            <input type="number" class="form-control rounded-3" value="15"
+                                                style="width:80px;">
+                                        </div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Password Reset Token Expiry (minutes)</div>
+                                                <div class="toggle-desc">How long reset links are valid</div>
+                                            </div>
+                                            <input type="number" class="form-control rounded-3" value="60"
+                                                style="width:80px;">
+                                        </div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Remember Device Duration (days)</div>
+                                                <div class="toggle-desc">How long "remember me" persists</div>
+                                            </div>
+                                            <input type="number" class="form-control rounded-3" value="30"
+                                                style="width:80px;">
+                                        </div>
+                                        <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
+                                                    class="ti ti-check me-2"></i>Save Security Settings</button></div>
                                     </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Max Login Attempts</div>
-                                            <div class="toggle-desc">Number before lockout</div>
-                                        </div>
-                                        <input type="number" class="form-control rounded-3" value="5"
-                                            style="width:80px;">
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Lockout Duration (minutes)</div>
-                                            <div class="toggle-desc">Duration before account is unlocked</div>
-                                        </div>
-                                        <input type="number" class="form-control rounded-3" value="15"
-                                            style="width:80px;">
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Password Reset Token Expiry (minutes)</div>
-                                            <div class="toggle-desc">How long reset links are valid</div>
-                                        </div>
-                                        <input type="number" class="form-control rounded-3" value="60"
-                                            style="width:80px;">
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Remember Device Duration (days)</div>
-                                            <div class="toggle-desc">How long "remember me" persists</div>
-                                        </div>
-                                        <input type="number" class="form-control rounded-3" value="30"
-                                            style="width:80px;">
-                                    </div>
-                                    <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
-                                                class="ti ti-check me-2"></i>Save Security Settings</button></div>
                                 </div>
-                            </div>
-                            <!-- Notifications -->
-                            <div class="tab-pane" id="notif">
-                                <div class="section-card">
-                                    <h6 class="fw-bold mb-4"><i class="ti ti-bell me-2 text-primary"></i>Notification
-                                        Settings</h6>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Booking Confirmation Email</div>
-                                            <div class="toggle-desc">Send email when booking is created</div>
+                                <!-- Notifications -->
+                                <div class="tab-pane" id="notif">
+                                    <div class="section-card">
+                                        <h6 class="fw-bold mb-4"><i
+                                                class="ti ti-bell me-2 text-primary"></i>Notification
+                                            Settings</h6>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Booking Confirmation Email</div>
+                                                <div class="toggle-desc">Send email when booking is created</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" checked style="width:48px;height:24px;"></div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" checked style="width:48px;height:24px;"></div>
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Payment Receipt Email</div>
-                                            <div class="toggle-desc">Send receipt after successful payment</div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Payment Receipt Email</div>
+                                                <div class="toggle-desc">Send receipt after successful payment</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" checked style="width:48px;height:24px;"></div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" checked style="width:48px;height:24px;"></div>
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Payment Reminder</div>
-                                            <div class="toggle-desc">Remind guests about pending payment</div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Payment Reminder</div>
+                                                <div class="toggle-desc">Remind guests about pending payment</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" checked style="width:48px;height:24px;"></div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" checked style="width:48px;height:24px;"></div>
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Cancellation Notification</div>
-                                            <div class="toggle-desc">Notify on booking cancellation</div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Cancellation Notification</div>
+                                                <div class="toggle-desc">Notify on booking cancellation</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" checked style="width:48px;height:24px;"></div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" checked style="width:48px;height:24px;"></div>
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Check-in Reminder</div>
-                                            <div class="toggle-desc">Remind guests 24 hours before check-in</div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Check-in Reminder</div>
+                                                <div class="toggle-desc">Remind guests 24 hours before check-in</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" checked style="width:48px;height:24px;"></div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" checked style="width:48px;height:24px;"></div>
-                                    </div>
-                                    <div class="toggle-row">
-                                        <div>
-                                            <div class="toggle-label">Admin Notifications</div>
-                                            <div class="toggle-desc">Notify admin on new bookings & payments</div>
+                                        <div class="toggle-row">
+                                            <div>
+                                                <div class="toggle-label">Admin Notifications</div>
+                                                <div class="toggle-desc">Notify admin on new bookings & payments</div>
+                                            </div>
+                                            <div class="form-check form-switch"><input class="form-check-input"
+                                                    type="checkbox" checked style="width:48px;height:24px;"></div>
                                         </div>
-                                        <div class="form-check form-switch"><input class="form-check-input"
-                                                type="checkbox" checked style="width:48px;height:24px;"></div>
+                                        <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
+                                                    class="ti ti-check me-2"></i>Save Notification Settings</button>
+                                        </div>
                                     </div>
-                                    <div class="mt-4"><button class="btn btn-primary rounded-3 px-4"><i
-                                                class="ti ti-check me-2"></i>Save Notification Settings</button></div>
                                 </div>
                             </div>
                         </div>
@@ -383,23 +420,25 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
-    <script>
-        document.querySelectorAll('.settings-nav .nav-link').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelectorAll('.settings-nav .nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                var target = this.getAttribute('href');
-                document.querySelectorAll('.tab-pane').forEach(p => { p.classList.remove('active'); });
-                document.querySelector(target).classList.add('active');
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+        <script
+            src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+        <script>
+            document.querySelectorAll('.settings-nav .nav-link').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.settings-nav .nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    var target = this.getAttribute('href');
+                    document.querySelectorAll('.tab-pane').forEach(p => { p.classList.remove('active'); });
+                    document.querySelector(target).classList.add('active');
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>

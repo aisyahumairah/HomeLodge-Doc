@@ -169,6 +169,29 @@
         .chat-input:focus {
             border-color: #2563EB;
         }
+
+        .app-header {
+            background: #ffffff !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid #E5E7EB !important;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+            top: 0 !important;
+        }
+
+        .left-sidebar {
+            z-index: 1100 !important;
+            top: 0 !important;
+        }
+
+        .body-wrapper {
+            padding-top: 0 !important;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .body-wrapper-inner {
+            padding-top: 70px !important;
+        }
     </style>
 </head>
 
@@ -180,7 +203,8 @@
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">🏠
                             HomeLodge</span></a>
-                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"><i class="ti ti-x fs-6"></i>
+                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"><i
+                            class="ti ti-x fs-6"></i>
                     </div>
                 </div>
                 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
@@ -230,7 +254,8 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="javascript:void(0)"
-                                class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a>
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"><i
+                                    class="ti ti-menu-2"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
@@ -256,139 +281,144 @@
                     </ul>
                 </nav>
             </header>
-            <div class="container-fluid py-3">
-                <div class="chat-outer">
-                    <!-- Conversation List -->
-                    <div class="conv-sidebar">
-                        <div class="conv-hdr">
-                            <span><i class="ti ti-messages me-2 text-primary"></i>Chats</span>
-                            <span class="badge bg-danger">2</span>
-                        </div>
-                        <div style="padding:12px;border-bottom:1px solid #E5E7EB;">
-                            <div class="input-group input-group-sm"><span class="input-group-text bg-transparent"><i
-                                        class="ti ti-search"></i></span><input type="text" class="form-control"
-                                    placeholder="Search conversations..."></div>
-                        </div>
-                        <div style="overflow-y:auto;flex:1;">
-                            <div class="conv-item active-conv" onclick="">
-                                <div class="conv-avatar" style="background:#DBEAFE;color:#2563EB;">A</div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-semibold" style="font-size:.9rem;">Ahmad Razif</div>
-                                        <div style="font-size:.72rem;color:#9CA3AF;">10:32 AM</div>
+            <div class="body-wrapper-inner">
+                <div class="container-fluid py-3">
+                    <div class="chat-outer">
+                        <!-- Conversation List -->
+                        <div class="conv-sidebar">
+                            <div class="conv-hdr">
+                                <span><i class="ti ti-messages me-2 text-primary"></i>Chats</span>
+                                <span class="badge bg-danger">2</span>
+                            </div>
+                            <div style="padding:12px;border-bottom:1px solid #E5E7EB;">
+                                <div class="input-group input-group-sm"><span class="input-group-text bg-transparent"><i
+                                            class="ti ti-search"></i></span><input type="text" class="form-control"
+                                        placeholder="Search conversations..."></div>
+                            </div>
+                            <div style="overflow-y:auto;flex:1;">
+                                <div class="conv-item active-conv" onclick="">
+                                    <div class="conv-avatar" style="background:#DBEAFE;color:#2563EB;">A</div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="fw-semibold" style="font-size:.9rem;">Ahmad Razif</div>
+                                            <div style="font-size:.72rem;color:#9CA3AF;">10:32 AM</div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="text-muted"
+                                                style="font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px;">
+                                                Thank you so much!</div>
+                                            <span class="unread-badge">2</span>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                                <div class="conv-item">
+                                    <div class="conv-avatar" style="background:#DCFCE7;color:#16A34A;">S</div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="fw-semibold" style="font-size:.9rem;">Siti Aminah</div>
+                                            <div style="font-size:.72rem;color:#9CA3AF;">Yesterday</div>
+                                        </div>
                                         <div class="text-muted"
-                                            style="font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px;">
-                                            Thank you so much!</div>
-                                        <span class="unread-badge">2</span>
+                                            style="font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                            Hi, I would like to ask about...</div>
+                                    </div>
+                                </div>
+                                <div class="conv-item">
+                                    <div class="conv-avatar" style="background:#FEE2E2;color:#DC2626;">M</div>
+                                    <div class="flex-grow-1 overflow-hidden">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="fw-semibold" style="font-size:.9rem;">Mohamed Faiz</div>
+                                            <div style="font-size:.72rem;color:#9CA3AF;">5 Jan</div>
+                                        </div>
+                                        <div class="text-muted"
+                                            style="font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                            Regarding the refund for my...</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="conv-item">
-                                <div class="conv-avatar" style="background:#DCFCE7;color:#16A34A;">S</div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-semibold" style="font-size:.9rem;">Siti Aminah</div>
-                                        <div style="font-size:.72rem;color:#9CA3AF;">Yesterday</div>
+                        </div>
+
+                        <!-- Chat Main -->
+                        <div class="chat-main">
+                            <div class="chat-hdr">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div
+                                        style="width:38px;height:38px;border-radius:50%;background:#DBEAFE;color:#2563EB;font-weight:700;display:flex;align-items:center;justify-content:center;">
+                                        A</div>
+                                    <div>
+                                        <div class="fw-semibold">Ahmad Razif</div>
+                                        <div style="font-size:.8rem;color:#22C55E;">● Online</div>
                                     </div>
-                                    <div class="text-muted"
-                                        style="font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                        Hi, I would like to ask about...</div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <a href="booking-detail.html" class="btn btn-sm btn-outline-primary rounded-3"><i
+                                            class="ti ti-calendar me-1"></i>View Booking</a>
+                                    <a href="manage-users.html" class="btn btn-sm btn-outline-secondary rounded-3"><i
+                                            class="ti ti-user me-1"></i>User Profile</a>
                                 </div>
                             </div>
-                            <div class="conv-item">
-                                <div class="conv-avatar" style="background:#FEE2E2;color:#DC2626;">M</div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-semibold" style="font-size:.9rem;">Mohamed Faiz</div>
-                                        <div style="font-size:.72rem;color:#9CA3AF;">5 Jan</div>
+
+                            <div class="chat-msgs">
+                                <div class="text-center"><span
+                                        style="background:#F3F4F6;color:#9CA3AF;font-size:.75rem;padding:4px 12px;border-radius:999px;">6
+                                        March 2026</span></div>
+                                <div class="msg-group guest-msg">
+                                    <div class="msg-bubble from-guest">Hello, I wanted to ask about the amenities
+                                        available
+                                        at the property.</div>
+                                    <div class="msg-time text-muted">9:00 AM</div>
+                                </div>
+                                <div class="msg-group admin-msg">
+                                    <div class="msg-bubble from-admin">Hi Ahmad! The property includes 3 bedrooms, 2
+                                        bathrooms, fully equipped kitchen, WiFi, air conditioning, smart TV, and QR code
+                                        door access!</div>
+                                    <div class="msg-time" style="color:#9CA3AF;">9:05 AM</div>
+                                </div>
+                                <div class="msg-group guest-msg">
+                                    <div class="msg-bubble from-guest">That's great! Does it have parking?</div>
+                                    <div class="msg-time text-muted">9:06 AM</div>
+                                </div>
+                                <div class="msg-group admin-msg">
+                                    <div class="msg-bubble from-admin">Yes, there's covered parking for 1 car, free of
+                                        charge during your stay. 🚗</div>
+                                    <div class="msg-time" style="color:#9CA3AF;">9:08 AM</div>
+                                </div>
+                                <div class="text-center"><span
+                                        style="background:#F3F4F6;color:#9CA3AF;font-size:.75rem;padding:4px 12px;border-radius:999px;">Today</span>
+                                </div>
+                                <div class="msg-group guest-msg">
+                                    <div class="msg-bubble from-guest">I've submitted booking #BK-2026-001. Can you
+                                        confirm
+                                        everything is set for our check-in on 15 March?</div>
+                                    <div class="msg-time text-muted">10:25 AM</div>
+                                </div>
+                                <div class="msg-group admin-msg">
+                                    <div class="msg-bubble from-admin">Your booking is confirmed and payment has been
+                                        received ✅. Your QR code for door access is already generated. Check-in is at
+                                        3:00
+                                        PM!</div>
+                                    <div class="msg-time" style="color:#9CA3AF;">10:30 AM</div>
+                                </div>
+                                <div class="msg-group guest-msg">
+                                    <div class="msg-bubble from-guest">Thank you so much!</div>
+                                    <div class="msg-time text-muted">10:32 AM</div>
+                                </div>
+                            </div>
+
+                            <div class="chat-input-area">
+                                <div class="d-flex flex-column flex-grow-1 gap-1">
+                                    <div
+                                        style="background:#EFF6FF;border-radius:8px;padding:8px 12px;font-size:.8rem;color:#2563EB;">
+                                        <i class="ti ti-info-circle me-1"></i>Replying to Ahmad Razif · Booking <a
+                                            href="booking-detail.html" class="text-primary fw-semibold">#BK-2026-001</a>
                                     </div>
-                                    <div class="text-muted"
-                                        style="font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                        Regarding the refund for my...</div>
+                                    <textarea class="chat-input" rows="2"
+                                        placeholder="Type your message to Ahmad..."></textarea>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Chat Main -->
-                    <div class="chat-main">
-                        <div class="chat-hdr">
-                            <div class="d-flex align-items-center gap-3">
-                                <div
-                                    style="width:38px;height:38px;border-radius:50%;background:#DBEAFE;color:#2563EB;font-weight:700;display:flex;align-items:center;justify-content:center;">
-                                    A</div>
-                                <div>
-                                    <div class="fw-semibold">Ahmad Razif</div>
-                                    <div style="font-size:.8rem;color:#22C55E;">● Online</div>
+                                <div class="d-flex flex-column gap-2">
+                                    <button class="btn btn-primary rounded-3 px-3 py-2"><i
+                                            class="ti ti-send fs-4"></i></button>
                                 </div>
-                            </div>
-                            <div class="d-flex align-items-center gap-2">
-                                <a href="booking-detail.html" class="btn btn-sm btn-outline-primary rounded-3"><i
-                                        class="ti ti-calendar me-1"></i>View Booking</a>
-                                <a href="manage-users.html" class="btn btn-sm btn-outline-secondary rounded-3"><i
-                                        class="ti ti-user me-1"></i>User Profile</a>
-                            </div>
-                        </div>
-
-                        <div class="chat-msgs">
-                            <div class="text-center"><span
-                                    style="background:#F3F4F6;color:#9CA3AF;font-size:.75rem;padding:4px 12px;border-radius:999px;">6
-                                    March 2026</span></div>
-                            <div class="msg-group guest-msg">
-                                <div class="msg-bubble from-guest">Hello, I wanted to ask about the amenities available
-                                    at the property.</div>
-                                <div class="msg-time text-muted">9:00 AM</div>
-                            </div>
-                            <div class="msg-group admin-msg">
-                                <div class="msg-bubble from-admin">Hi Ahmad! The property includes 3 bedrooms, 2
-                                    bathrooms, fully equipped kitchen, WiFi, air conditioning, smart TV, and QR code
-                                    door access!</div>
-                                <div class="msg-time" style="color:#9CA3AF;">9:05 AM</div>
-                            </div>
-                            <div class="msg-group guest-msg">
-                                <div class="msg-bubble from-guest">That's great! Does it have parking?</div>
-                                <div class="msg-time text-muted">9:06 AM</div>
-                            </div>
-                            <div class="msg-group admin-msg">
-                                <div class="msg-bubble from-admin">Yes, there's covered parking for 1 car, free of
-                                    charge during your stay. 🚗</div>
-                                <div class="msg-time" style="color:#9CA3AF;">9:08 AM</div>
-                            </div>
-                            <div class="text-center"><span
-                                    style="background:#F3F4F6;color:#9CA3AF;font-size:.75rem;padding:4px 12px;border-radius:999px;">Today</span>
-                            </div>
-                            <div class="msg-group guest-msg">
-                                <div class="msg-bubble from-guest">I've submitted booking #BK-2026-001. Can you confirm
-                                    everything is set for our check-in on 15 March?</div>
-                                <div class="msg-time text-muted">10:25 AM</div>
-                            </div>
-                            <div class="msg-group admin-msg">
-                                <div class="msg-bubble from-admin">Your booking is confirmed and payment has been
-                                    received ✅. Your QR code for door access is already generated. Check-in is at 3:00
-                                    PM!</div>
-                                <div class="msg-time" style="color:#9CA3AF;">10:30 AM</div>
-                            </div>
-                            <div class="msg-group guest-msg">
-                                <div class="msg-bubble from-guest">Thank you so much!</div>
-                                <div class="msg-time text-muted">10:32 AM</div>
-                            </div>
-                        </div>
-
-                        <div class="chat-input-area">
-                            <div class="d-flex flex-column flex-grow-1 gap-1">
-                                <div
-                                    style="background:#EFF6FF;border-radius:8px;padding:8px 12px;font-size:.8rem;color:#2563EB;">
-                                    <i class="ti ti-info-circle me-1"></i>Replying to Ahmad Razif · Booking <a
-                                        href="booking-detail.html" class="text-primary fw-semibold">#BK-2026-001</a>
-                                </div>
-                                <textarea class="chat-input" rows="2"
-                                    placeholder="Type your message to Ahmad..."></textarea>
-                            </div>
-                            <div class="d-flex flex-column gap-2">
-                                <button class="btn btn-primary rounded-3 px-3 py-2"><i
-                                        class="ti ti-send fs-4"></i></button>
                             </div>
                         </div>
                     </div>
@@ -398,8 +428,10 @@
     </div>
     <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
     <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>

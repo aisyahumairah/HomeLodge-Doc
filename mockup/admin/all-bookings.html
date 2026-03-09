@@ -62,6 +62,29 @@
             background: #DBEAFE;
             color: #1E40AF;
         }
+
+        .app-header {
+            background: #ffffff !important;
+            z-index: 1000 !important;
+            border-bottom: 1px solid #E5E7EB !important;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+            top: 0 !important;
+        }
+
+        .left-sidebar {
+            z-index: 1100 !important;
+            top: 0 !important;
+        }
+
+        .body-wrapper {
+            padding-top: 0 !important;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .body-wrapper-inner {
+            padding-top: 70px !important;
+        }
     </style>
 </head>
 
@@ -123,7 +146,8 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="javascript:void(0)"
-                                class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a>
+                                class="nav-link sidebartoggler nav-icon-hover ms-n3" id="headerCollapse"><i
+                                    class="ti ti-menu-2"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
@@ -149,260 +173,274 @@
                     </ul>
                 </nav>
             </header>
-            <div class="container-fluid py-3">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div>
-                        <h4 class="fw-bold mb-1">All Bookings</h4>
-                        <p class="text-muted mb-0" style="font-size:.9rem;">Manage and track all bookings in the system
-                        </p>
+            <div class="body-wrapper-inner">
+                <div class="container-fluid py-3">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <h4 class="fw-bold mb-1">All Bookings</h4>
+                            <p class="text-muted mb-0" style="font-size:.9rem;">Manage and track all bookings in the
+                                system
+                            </p>
+                        </div>
+                        <button class="btn btn-primary rounded-3 px-3" data-bs-toggle="modal"
+                            data-bs-target="#createBookingModal">
+                            <i class="ti ti-plus me-2"></i>Create Booking
+                        </button>
                     </div>
-                    <button class="btn btn-primary rounded-3 px-3" data-bs-toggle="modal"
-                        data-bs-target="#createBookingModal">
-                        <i class="ti ti-plus me-2"></i>Create Booking
-                    </button>
-                </div>
 
-                <!-- Filters -->
-                <div
-                    style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;margin-bottom:20px;">
-                    <div class="row g-3 align-items-end">
-                        <div class="col-md-3">
-                            <label class="form-label fw-medium" style="font-size:.85rem;">Search</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="ti ti-search"></i></span>
-                                <input type="text" class="form-control" placeholder="Search booking ID or guest..."
-                                    value="#">
+                    <!-- Filters -->
+                    <div
+                        style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;margin-bottom:20px;">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-md-3">
+                                <label class="form-label fw-medium" style="font-size:.85rem;">Search</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ti ti-search"></i></span>
+                                    <input type="text" class="form-control" placeholder="Search booking ID or guest..."
+                                        value="#">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label fw-medium" style="font-size:.85rem;">Status</label>
+                                <select class="form-select">
+                                    <option value="">All Status</option>
+                                    <option>Confirmed</option>
+                                    <option>Pending Payment</option>
+                                    <option>Cancelled</option>
+                                    <option>Completed</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label fw-medium" style="font-size:.85rem;">From Date</label>
+                                <input type="date" class="form-control" value="2026-01-01">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label fw-medium" style="font-size:.85rem;">To Date</label>
+                                <input type="date" class="form-control" value="2026-03-31">
+                            </div>
+                            <div class="col-md-3 d-flex gap-2">
+                                <button class="btn btn-primary rounded-3 flex-grow-1"><i
+                                        class="ti ti-filter me-1"></i>Filter</button>
+                                <button class="btn btn-outline-secondary rounded-3">Reset</button>
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <label class="form-label fw-medium" style="font-size:.85rem;">Status</label>
-                            <select class="form-select">
-                                <option value="">All Status</option>
-                                <option>Confirmed</option>
-                                <option>Pending Payment</option>
-                                <option>Cancelled</option>
-                                <option>Completed</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label fw-medium" style="font-size:.85rem;">From Date</label>
-                            <input type="date" class="form-control" value="2026-01-01">
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label fw-medium" style="font-size:.85rem;">To Date</label>
-                            <input type="date" class="form-control" value="2026-03-31">
-                        </div>
-                        <div class="col-md-3 d-flex gap-2">
-                            <button class="btn btn-primary rounded-3 flex-grow-1"><i
-                                    class="ti ti-filter me-1"></i>Filter</button>
-                            <button class="btn btn-outline-secondary rounded-3">Reset</button>
-                        </div>
                     </div>
-                </div>
 
-                <!-- Table -->
-                <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
-                    <div class="d-flex align-items-center justify-content-between p-4 border-bottom">
-                        <span class="text-muted" style="font-size:.9rem;">Showing 5 of 48 bookings</span>
-                        <button class="btn btn-sm btn-outline-secondary rounded-3"><i
-                                class="ti ti-download me-1"></i>Export</button>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="px-4">Booking ID</th>
-                                    <th>Guest</th>
-                                    <th>Check-in</th>
-                                    <th>Check-out</th>
-                                    <th>Nights</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th>Payment</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="px-4"><a href="booking-detail.html"
-                                            class="fw-semibold text-primary text-decoration-none">#BK-2026-002</a></td>
-                                    <td>Ahmad Razif</td>
-                                    <td>22 Mar 2026</td>
-                                    <td>24 Mar 2026</td>
-                                    <td>2</td>
-                                    <td class="fw-semibold">RM 600.00</td>
-                                    <td><span class="status-badge badge-pending">Pending Payment</span></td>
-                                    <td><span class="status-badge badge-pending">Unpaid</span></td>
-                                    <td>
-                                        <div class="d-flex gap-1">
-                                            <a href="booking-detail.html" title="View"
-                                                class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
-                                                    class="ti ti-eye fs-4"></i></a>
-                                            <a href="booking-detail.html" title="Edit"
-                                                class="btn btn-sm btn-outline-success rounded-2 p-1"><i
-                                                    class="ti ti-edit fs-4"></i></a>
-                                            <button title="Delete" class="btn btn-sm btn-outline-danger rounded-2 p-1"
-                                                data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                    class="ti ti-trash fs-4"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4"><a href="booking-detail.html"
-                                            class="fw-semibold text-primary text-decoration-none">#BK-2026-001</a></td>
-                                    <td>Ahmad Razif</td>
-                                    <td>15 Mar 2026</td>
-                                    <td>17 Mar 2026</td>
-                                    <td>2</td>
-                                    <td class="fw-semibold">RM 600.00</td>
-                                    <td><span class="status-badge badge-confirmed">Confirmed</span></td>
-                                    <td><span class="status-badge badge-confirmed">Paid</span></td>
-                                    <td>
-                                        <div class="d-flex gap-1">
-                                            <a href="booking-detail.html" title="View"
-                                                class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
-                                                    class="ti ti-eye fs-4"></i></a>
-                                            <a href="booking-detail.html" title="Edit"
-                                                class="btn btn-sm btn-outline-success rounded-2 p-1"><i
-                                                    class="ti ti-edit fs-4"></i></a>
-                                            <button title="Delete" class="btn btn-sm btn-outline-danger rounded-2 p-1"
-                                                data-bs-toggle="modal" data-bs-target="#deleteModal"><i
-                                                    class="ti ti-trash fs-4"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4"><a href="booking-detail.html"
-                                            class="fw-semibold text-primary text-decoration-none">#BK-2026-003</a></td>
-                                    <td>Siti Aminah</td>
-                                    <td>5 Feb 2026</td>
-                                    <td>7 Feb 2026</td>
-                                    <td>2</td>
-                                    <td class="fw-semibold">RM 600.00</td>
-                                    <td><span class="status-badge badge-completed">Completed</span></td>
-                                    <td><span class="status-badge badge-confirmed">Paid</span></td>
-                                    <td>
-                                        <div class="d-flex gap-1">
-                                            <a href="booking-detail.html" title="View"
-                                                class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
-                                                    class="ti ti-eye fs-4"></i></a>
-                                            <button title="Delete"
-                                                class="btn btn-sm btn-outline-danger rounded-2 p-1"><i
-                                                    class="ti ti-trash fs-4"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4"><a href="booking-detail.html"
-                                            class="fw-semibold text-primary text-decoration-none">#BK-2026-004</a></td>
-                                    <td>Mohamed Faiz</td>
-                                    <td>10 Jan 2026</td>
-                                    <td>12 Jan 2026</td>
-                                    <td>2</td>
-                                    <td class="fw-semibold">RM 600.00</td>
-                                    <td><span class="status-badge badge-cancelled">Cancelled</span></td>
-                                    <td><span class="status-badge"
-                                            style="background:#F3F4F6;color:#6B7280;">Refunded</span></td>
-                                    <td>
-                                        <div class="d-flex gap-1">
-                                            <a href="booking-detail.html" title="View"
-                                                class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
-                                                    class="ti ti-eye fs-4"></i></a>
-                                            <button title="Delete"
-                                                class="btn btn-sm btn-outline-danger rounded-2 p-1"><i
-                                                    class="ti ti-trash fs-4"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Pagination -->
-                    <div class="d-flex align-items-center justify-content-between p-4 border-top">
-                        <span class="text-muted" style="font-size:.85rem;">Page 1 of 10</span>
-                        <nav>
-                            <ul class="pagination pagination-sm mb-0">
-                                <li class="page-item disabled"><a class="page-link rounded-2" href="#">Previous</a></li>
-                                <li class="page-item active"><a class="page-link rounded-2" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link rounded-2" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link rounded-2" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link rounded-2" href="#">Next</a></li>
-                            </ul>
-                        </nav>
+                    <!-- Table -->
+                    <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
+                        <div class="d-flex align-items-center justify-content-between p-4 border-bottom">
+                            <span class="text-muted" style="font-size:.9rem;">Showing 5 of 48 bookings</span>
+                            <button class="btn btn-sm btn-outline-secondary rounded-3"><i
+                                    class="ti ti-download me-1"></i>Export</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4">Booking ID</th>
+                                        <th>Guest</th>
+                                        <th>Check-in</th>
+                                        <th>Check-out</th>
+                                        <th>Nights</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Payment</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4"><a href="booking-detail.html"
+                                                class="fw-semibold text-primary text-decoration-none">#BK-2026-002</a>
+                                        </td>
+                                        <td>Ahmad Razif</td>
+                                        <td>22 Mar 2026</td>
+                                        <td>24 Mar 2026</td>
+                                        <td>2</td>
+                                        <td class="fw-semibold">RM 600.00</td>
+                                        <td><span class="status-badge badge-pending">Pending Payment</span></td>
+                                        <td><span class="status-badge badge-pending">Unpaid</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1">
+                                                <a href="booking-detail.html" title="View"
+                                                    class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
+                                                        class="ti ti-eye fs-4"></i></a>
+                                                <a href="booking-detail.html" title="Edit"
+                                                    class="btn btn-sm btn-outline-success rounded-2 p-1"><i
+                                                        class="ti ti-edit fs-4"></i></a>
+                                                <button title="Delete"
+                                                    class="btn btn-sm btn-outline-danger rounded-2 p-1"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"><i
+                                                        class="ti ti-trash fs-4"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4"><a href="booking-detail.html"
+                                                class="fw-semibold text-primary text-decoration-none">#BK-2026-001</a>
+                                        </td>
+                                        <td>Ahmad Razif</td>
+                                        <td>15 Mar 2026</td>
+                                        <td>17 Mar 2026</td>
+                                        <td>2</td>
+                                        <td class="fw-semibold">RM 600.00</td>
+                                        <td><span class="status-badge badge-confirmed">Confirmed</span></td>
+                                        <td><span class="status-badge badge-confirmed">Paid</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1">
+                                                <a href="booking-detail.html" title="View"
+                                                    class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
+                                                        class="ti ti-eye fs-4"></i></a>
+                                                <a href="booking-detail.html" title="Edit"
+                                                    class="btn btn-sm btn-outline-success rounded-2 p-1"><i
+                                                        class="ti ti-edit fs-4"></i></a>
+                                                <button title="Delete"
+                                                    class="btn btn-sm btn-outline-danger rounded-2 p-1"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal"><i
+                                                        class="ti ti-trash fs-4"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4"><a href="booking-detail.html"
+                                                class="fw-semibold text-primary text-decoration-none">#BK-2026-003</a>
+                                        </td>
+                                        <td>Siti Aminah</td>
+                                        <td>5 Feb 2026</td>
+                                        <td>7 Feb 2026</td>
+                                        <td>2</td>
+                                        <td class="fw-semibold">RM 600.00</td>
+                                        <td><span class="status-badge badge-completed">Completed</span></td>
+                                        <td><span class="status-badge badge-confirmed">Paid</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1">
+                                                <a href="booking-detail.html" title="View"
+                                                    class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
+                                                        class="ti ti-eye fs-4"></i></a>
+                                                <button title="Delete"
+                                                    class="btn btn-sm btn-outline-danger rounded-2 p-1"><i
+                                                        class="ti ti-trash fs-4"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4"><a href="booking-detail.html"
+                                                class="fw-semibold text-primary text-decoration-none">#BK-2026-004</a>
+                                        </td>
+                                        <td>Mohamed Faiz</td>
+                                        <td>10 Jan 2026</td>
+                                        <td>12 Jan 2026</td>
+                                        <td>2</td>
+                                        <td class="fw-semibold">RM 600.00</td>
+                                        <td><span class="status-badge badge-cancelled">Cancelled</span></td>
+                                        <td><span class="status-badge"
+                                                style="background:#F3F4F6;color:#6B7280;">Refunded</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1">
+                                                <a href="booking-detail.html" title="View"
+                                                    class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
+                                                        class="ti ti-eye fs-4"></i></a>
+                                                <button title="Delete"
+                                                    class="btn btn-sm btn-outline-danger rounded-2 p-1"><i
+                                                        class="ti ti-trash fs-4"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Pagination -->
+                        <div class="d-flex align-items-center justify-content-between p-4 border-top">
+                            <span class="text-muted" style="font-size:.85rem;">Page 1 of 10</span>
+                            <nav>
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled"><a class="page-link rounded-2" href="#">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link rounded-2" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link rounded-2" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link rounded-2" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link rounded-2" href="#">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Delete Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-3">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold text-danger"><i class="ti ti-trash me-2"></i>Delete Booking</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold text-danger"><i class="ti ti-trash me-2"></i>Delete Booking</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to permanently delete this booking? This action cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                            data-bs-dismiss="modal">Cancel</button><button class="btn btn-danger rounded-3">Delete
+                            Booking</button></div>
                 </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to permanently delete this booking? This action cannot be undone.</p>
-                </div>
-                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
-                        data-bs-dismiss="modal">Cancel</button><button class="btn btn-danger rounded-3">Delete
-                        Booking</button></div>
             </div>
         </div>
-    </div>
 
-    <!-- Create Booking Modal -->
-    <div class="modal fade" id="createBookingModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content rounded-3">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold"><i class="ti ti-calendar-plus me-2 text-primary"></i>Create New
-                        Booking</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label fw-medium">Guest (User) <span class="text-danger">*</span></label>
-                            <select class="form-select rounded-3">
-                                <option>Select user...</option>
-                                <option>Ahmad Razif (ahmad@email.com)</option>
-                                <option>Siti Aminah</option>
-                                <option>Mohamed Faiz</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label fw-medium">Booking For <span class="text-danger">*</span></label>
-                            <select class="form-select rounded-3">
-                                <option>Selected User</option>
-                                <option>Own Booking (Admin)</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3"><label class="form-label fw-medium">Check-in Date</label><input
-                                type="date" class="form-control rounded-3" value="2026-04-01"></div>
-                        <div class="col-md-3"><label class="form-label fw-medium">Check-in Time</label><input
-                                type="time" class="form-control rounded-3" value="15:00"></div>
-                        <div class="col-md-3"><label class="form-label fw-medium">Check-out Date</label><input
-                                type="date" class="form-control rounded-3" value="2026-04-03"></div>
-                        <div class="col-md-3"><label class="form-label fw-medium">Check-out Time</label><input
-                                type="time" class="form-control rounded-3" value="12:00"></div>
-                        <div class="col-12"><label class="form-label fw-medium">Notes</label><textarea
-                                class="form-control rounded-3" rows="2" placeholder="Internal notes..."></textarea>
+        <!-- Create Booking Modal -->
+        <div class="modal fade" id="createBookingModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content rounded-3">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold"><i class="ti ti-calendar-plus me-2 text-primary"></i>Create New
+                            Booking</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Guest (User) <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select rounded-3">
+                                    <option>Select user...</option>
+                                    <option>Ahmad Razif (ahmad@email.com)</option>
+                                    <option>Siti Aminah</option>
+                                    <option>Mohamed Faiz</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">Booking For <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select rounded-3">
+                                    <option>Selected User</option>
+                                    <option>Own Booking (Admin)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3"><label class="form-label fw-medium">Check-in Date</label><input
+                                    type="date" class="form-control rounded-3" value="2026-04-01"></div>
+                            <div class="col-md-3"><label class="form-label fw-medium">Check-in Time</label><input
+                                    type="time" class="form-control rounded-3" value="15:00"></div>
+                            <div class="col-md-3"><label class="form-label fw-medium">Check-out Date</label><input
+                                    type="date" class="form-control rounded-3" value="2026-04-03"></div>
+                            <div class="col-md-3"><label class="form-label fw-medium">Check-out Time</label><input
+                                    type="time" class="form-control rounded-3" value="12:00"></div>
+                            <div class="col-12"><label class="form-label fw-medium">Notes</label><textarea
+                                    class="form-control rounded-3" rows="2" placeholder="Internal notes..."></textarea>
+                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
+                            data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary rounded-3"
+                            onclick="window.location='booking-detail.html'">Create Booking</button></div>
                 </div>
-                <div class="modal-footer border-0"><button class="btn btn-outline-secondary rounded-3"
-                        data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary rounded-3"
-                        onclick="window.location='booking-detail.html'">Create Booking</button></div>
             </div>
         </div>
-    </div>
 
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
-    <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+        <script
+            src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+        <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>

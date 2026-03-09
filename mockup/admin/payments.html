@@ -1,59 +1,333 @@
-﻿<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Payments – HomeLodge Admin</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css"><link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css"><style>body{font-family:'Inter',sans-serif;}.sidebar-link.active-link{background:#EFF6FF;color:#2563EB!important;border-radius:8px;}.sidebar-link.active-link i{color:#2563EB!important;}.table th{background:#F9FAFB;font-size:.8rem;font-weight:600;color:#6B7280;text-transform:uppercase;}.table td{vertical-align:middle;font-size:.9rem;}.status-badge{border-radius:999px;padding:4px 12px;font-size:.78rem;font-weight:600;}.badge-confirmed{background:#DCFCE7;color:#166534;}.badge-pending{background:#FEF3C7;color:#92400E;}.badge-cancelled{background:#FEE2E2;color:#991B1B;}.badge-completed{background:#DBEAFE;color:#1E40AF;}.info-card{background:white;border-radius:12px;border:1px solid #E5E7EB;padding:24px;margin-bottom:20px;}.form-control:focus,.form-select:focus{border-color:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.1);}</style></head><body><div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">  <aside class="left-sidebar">
-    <div>
-      <div class="brand-logo d-flex align-items-center justify-content-between">
-        <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">🏠 HomeLodge</span></a>
-        <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"><i class="ti ti-x fs-6"></i></div>
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payments – HomeLodge Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/styles.min.css">
+  <link rel="stylesheet" href="../../modernize-bootstrap-free-v2/src/assets/css/icons/tabler-icons/tabler-icons.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .sidebar-link.active-link {
+      background: #EFF6FF;
+      color: #2563EB !important;
+      border-radius: 8px;
+    }
+
+    .sidebar-link.active-link i {
+      color: #2563EB !important;
+    }
+
+    .table th {
+      background: #F9FAFB;
+      font-size: .8rem;
+      font-weight: 600;
+      color: #6B7280;
+      text-transform: uppercase;
+    }
+
+    .table td {
+      vertical-align: middle;
+      font-size: .9rem;
+    }
+
+    .status-badge {
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .badge-confirmed {
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    .badge-pending {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .badge-cancelled {
+      background: #FEE2E2;
+      color: #991B1B;
+    }
+
+    .badge-completed {
+      background: #DBEAFE;
+      color: #1E40AF;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #E5E7EB;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #2563EB;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, .1);
+    }
+
+    .app-header {
+      background: #fff !important;
+      z-index: 1000 !important;
+      border-bottom: 1px solid #E5E7EB !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+      top: 0 !important;
+    }
+
+    .left-sidebar {
+      z-index: 1100 !important;
+      top: 0 !important;
+    }
+
+    .body-wrapper {
+      padding-top: 0 !important;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+
+    .body-wrapper-inner {
+      padding-top: 70px !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <aside class="left-sidebar">
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="dashboard.html" class="text-nowrap logo-img"><span class="fw-bold fs-5 text-primary">🏠
+              HomeLodge</span></a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse"><i
+              class="ti ti-x fs-6"></i></div>
+        </div>
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Main</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html"><i
+                  class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Bookings</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="booking-calendar.html"><i
+                  class="ti ti-calendar"></i><span class="hide-menu">Booking Calendar</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="all-bookings.html"><i class="ti ti-list"></i><span
+                  class="hide-menu">All Bookings</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Payments</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="bills.html"><i class="ti ti-file-invoice"></i><span
+                  class="hide-menu">Bills</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link active-link" href="payments.html"><i
+                  class="ti ti-cash"></i><span class="hide-menu">Payments</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Users</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="manage-users.html"><i class="ti ti-users"></i><span
+                  class="hide-menu">Manage Users</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Access
+                Control</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="roles.html"><i class="ti ti-shield"></i><span
+                  class="hide-menu">Roles</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="permissions.html"><i class="ti ti-lock"></i><span
+                  class="hide-menu">Permissions</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">Communication</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="chat-admin.html"><i
+                  class="ti ti-message-circle"></i><span class="hide-menu">Chat</span></a></li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span
+                class="hide-menu">System</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="settings.html"><i class="ti ti-settings"></i><span
+                  class="hide-menu">Settings</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="audit-logs.html"><i
+                  class="ti ti-clipboard-list"></i><span class="hide-menu">Audit Logs</span></a></li>
+          </ul>
+        </nav>
       </div>
-      <nav class="sidebar-nav scroll-sidebar" data-simplebar=""><ul id="sidebarnav">
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Main</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="dashboard.html"><i class="ti ti-layout-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Bookings</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="booking-calendar.html"><i class="ti ti-calendar"></i><span class="hide-menu">Booking Calendar</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="all-bookings.html"><i class="ti ti-list"></i><span class="hide-menu">All Bookings</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Payments</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="bills.html"><i class="ti ti-file-invoice"></i><span class="hide-menu">Bills</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link active-link" href="payments.html"><i class="ti ti-cash"></i><span class="hide-menu">Payments</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Users</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="manage-users.html"><i class="ti ti-users"></i><span class="hide-menu">Manage Users</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Access Control</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="roles.html"><i class="ti ti-shield"></i><span class="hide-menu">Roles</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="permissions.html"><i class="ti ti-lock"></i><span class="hide-menu">Permissions</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">Communication</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="chat-admin.html"><i class="ti ti-message-circle"></i><span class="hide-menu">Chat</span></a></li>
-        <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-4"></i><span class="hide-menu">System</span></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="settings.html"><i class="ti ti-settings"></i><span class="hide-menu">Settings</span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="audit-logs.html"><i class="ti ti-clipboard-list"></i><span class="hide-menu">Audit Logs</span></a></li>
-      </ul></nav>
+    </aside>
+    <div class="body-wrapper">
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="javascript:void(0)" class="nav-link sidebartoggler nav-icon-hover ms-n3"
+                id="headerCollapse"><i class="ti ti-menu-2"></i></a></li>
+          </ul>
+          <ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2">
+            <li class="nav-item"><a href="javascript:void(0)" class="nav-link nav-icon-hover"><i
+                  class="ti ti-bell-ringing fs-5"></i></a></li>
+            <li class="nav-item dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown"
+                class="d-flex align-items-center gap-2 text-decoration-none">
+                <div
+                  style="width:34px;height:34px;border-radius:50%;background:#2563EB;color:white;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;">
+                  AD</div><span class="fw-medium" style="font-size:.9rem;">Admin</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end rounded-3 shadow-sm">
+                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="body-wrapper-inner">
+        <div class="container-fluid py-3">
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+              <h4 class="fw-bold mb-1">Payments</h4>
+              <p class="text-muted mb-0" style="font-size:.9rem;">Track all payment transactions</p>
+            </div>
+            <button class="btn btn-outline-secondary rounded-3"><i class="ti ti-download me-2"></i>Export</button>
+          </div>
+          <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;margin-bottom:20px;">
+            <div class="row g-3 align-items-end">
+              <div class="col-md-3"><label class="form-label fw-medium" style="font-size:.85rem;">Search</label>
+                <div class="input-group"><span class="input-group-text"><i class="ti ti-search"></i></span><input
+                    type="text" class="form-control" placeholder="Payment # or guest..."></div>
+              </div>
+              <div class="col-md-2"><label class="form-label fw-medium" style="font-size:.85rem;">Status</label><select
+                  class="form-select">
+                  <option>All</option>
+                  <option>Success</option>
+                  <option>Pending</option>
+                  <option>Failed</option>
+                  <option>Refunded</option>
+                </select></div>
+              <div class="col-md-2"><label class="form-label fw-medium" style="font-size:.85rem;">From</label><input
+                  type="date" class="form-control" value="2026-01-01"></div>
+              <div class="col-md-2"><label class="form-label fw-medium" style="font-size:.85rem;">To</label><input
+                  type="date" class="form-control" value="2026-03-31"></div>
+              <div class="col-md-3 d-flex gap-2"><button class="btn btn-primary rounded-3 flex-grow-1"><i
+                    class="ti ti-filter me-1"></i>Filter</button><button
+                  class="btn btn-outline-secondary rounded-3">Reset</button></div>
+            </div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-3">
+              <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                <div class="text-muted mb-1" style="font-size:.85rem;">Total Collected</div>
+                <div class="fw-bold fs-3 text-success">RM 29,400</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                <div class="text-muted mb-1" style="font-size:.85rem;">Pending</div>
+                <div class="fw-bold fs-3 text-warning">RM 1,800</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                <div class="text-muted mb-1" style="font-size:.85rem;">Refunded</div>
+                <div class="fw-bold fs-3 text-danger">RM 600</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;">
+                <div class="text-muted mb-1" style="font-size:.85rem;">Transactions</div>
+                <div class="fw-bold fs-3">52</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th class="px-4">Payment #</th>
+                    <th>Bill #</th>
+                    <th>Guest</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Method</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="px-4 fw-semibold text-primary">#PAY-2026-001</td>
+                    <td><a href="bills.html" class="text-primary">#BILL-2026-001</a></td>
+                    <td>Ahmad Razif</td>
+                    <td>7 Mar 2026, 10:32 AM</td>
+                    <td class="fw-semibold">RM 600.00</td>
+                    <td>Online Banking</td>
+                    <td><span class="status-badge badge-confirmed">Success</span></td>
+                    <td>
+                      <div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary rounded-2 p-1"
+                          title="View"><i class="ti ti-eye fs-4"></i></button><button
+                          class="btn btn-sm btn-outline-success rounded-2 p-1" title="Download Receipt"><i
+                            class="ti ti-download fs-4"></i></button><button
+                          class="btn btn-sm btn-outline-secondary rounded-2 p-1" title="Regenerate"><i
+                            class="ti ti-refresh fs-4"></i></button></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 text-muted">—</td>
+                    <td><a href="bills.html" class="text-primary">#BILL-2026-002</a></td>
+                    <td>Ahmad Razif</td>
+                    <td>Pending</td>
+                    <td class="fw-semibold">RM 600.00</td>
+                    <td>—</td>
+                    <td><span class="status-badge badge-pending">Pending</span></td>
+                    <td>
+                      <div class="d-flex gap-1"><button class="btn btn-sm btn-outline-warning rounded-2 p-1"
+                          title="Send Reminder"><i class="ti ti-send fs-4"></i></button></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 fw-semibold text-primary">#PAY-2026-003</td>
+                    <td><a href="bills.html" class="text-primary">#BILL-2026-003</a></td>
+                    <td>Siti Aminah</td>
+                    <td>1 Feb 2026, 2:15 PM</td>
+                    <td class="fw-semibold">RM 600.00</td>
+                    <td>Credit Card</td>
+                    <td><span class="status-badge badge-confirmed">Success</span></td>
+                    <td>
+                      <div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
+                            class="ti ti-eye fs-4"></i></button><button
+                          class="btn btn-sm btn-outline-success rounded-2 p-1"><i
+                            class="ti ti-download fs-4"></i></button></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 fw-semibold text-primary">#PAY-2026-004</td>
+                    <td><a href="bills.html" class="text-primary">#BILL-2026-004</a></td>
+                    <td>Mohamed Faiz</td>
+                    <td>6 Jan 2026</td>
+                    <td class="fw-semibold">RM 300.00</td>
+                    <td>e-Wallet</td>
+                    <td><span class="status-badge badge-cancelled">Refunded</span></td>
+                    <td>
+                      <div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary rounded-2 p-1"><i
+                            class="ti ti-eye fs-4"></i></button></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </aside>  <div class="body-wrapper"><header class="app-header"><nav class="navbar navbar-expand-lg navbar-light"><ul class="navbar-nav"><li class="nav-item"><a href="javascript:void(0)" class="nav-link sidebartoggler nav-icon-hover ms-n3"><i class="ti ti-menu-2"></i></a></li></ul><ul class="navbar-nav quick-links ms-auto d-flex align-items-center gap-2"><li class="nav-item"><a href="javascript:void(0)" class="nav-link nav-icon-hover"><i class="ti ti-bell-ringing fs-5"></i></a></li><li class="nav-item dropdown"><a href="javascript:void(0)" data-bs-toggle="dropdown" class="d-flex align-items-center gap-2 text-decoration-none"><div style="width:34px;height:34px;border-radius:50%;background:#2563EB;color:white;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem;">AD</div><span class="fw-medium" style="font-size:.9rem;">Admin</span></a><ul class="dropdown-menu dropdown-menu-end rounded-3 shadow-sm"><li><a class="dropdown-item" href="profile.html">Profile</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="../auth/login.html">Logout</a></li></ul></li></ul></nav></header><div class="container-fluid py-3"><div class="d-flex align-items-center justify-content-between mb-4">
-  <div><h4 class="fw-bold mb-1">Payments</h4><p class="text-muted mb-0" style="font-size:.9rem;">Track all payment transactions</p></div>
-  <button class="btn btn-outline-secondary rounded-3"><i class="ti ti-download me-2"></i>Export</button>
-</div>
-<div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;margin-bottom:20px;">
-  <div class="row g-3 align-items-end">
-    <div class="col-md-3"><label class="form-label fw-medium" style="font-size:.85rem;">Search</label><div class="input-group"><span class="input-group-text"><i class="ti ti-search"></i></span><input type="text" class="form-control" placeholder="Payment # or guest..."></div></div>
-    <div class="col-md-2"><label class="form-label fw-medium" style="font-size:.85rem;">Status</label><select class="form-select"><option>All</option><option>Success</option><option>Pending</option><option>Failed</option><option>Refunded</option></select></div>
-    <div class="col-md-2"><label class="form-label fw-medium" style="font-size:.85rem;">From</label><input type="date" class="form-control" value="2026-01-01"></div>
-    <div class="col-md-2"><label class="form-label fw-medium" style="font-size:.85rem;">To</label><input type="date" class="form-control" value="2026-03-31"></div>
-    <div class="col-md-3 d-flex gap-2"><button class="btn btn-primary rounded-3 flex-grow-1"><i class="ti ti-filter me-1"></i>Filter</button><button class="btn btn-outline-secondary rounded-3">Reset</button></div>
   </div>
-</div>
-<div class="row g-3 mb-4">
-  <div class="col-md-3"><div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;"><div class="text-muted mb-1" style="font-size:.85rem;">Total Collected</div><div class="fw-bold fs-3 text-success">RM 29,400</div></div></div>
-  <div class="col-md-3"><div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;"><div class="text-muted mb-1" style="font-size:.85rem;">Pending</div><div class="fw-bold fs-3 text-warning">RM 1,800</div></div></div>
-  <div class="col-md-3"><div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;"><div class="text-muted mb-1" style="font-size:.85rem;">Refunded</div><div class="fw-bold fs-3 text-danger">RM 600</div></div></div>
-  <div class="col-md-3"><div style="background:white;border-radius:12px;border:1px solid #E5E7EB;padding:20px;"><div class="text-muted mb-1" style="font-size:.85rem;">Transactions</div><div class="fw-bold fs-3">52</div></div></div>
-</div>
-<div style="background:white;border-radius:12px;border:1px solid #E5E7EB;overflow:hidden;">
-  <div class="table-responsive">
-    <table class="table table-hover mb-0">
-      <thead><tr><th class="px-4">Payment #</th><th>Bill #</th><th>Guest</th><th>Date</th><th>Amount</th><th>Method</th><th>Status</th><th>Actions</th></tr></thead>
-      <tbody>
-        <tr><td class="px-4 fw-semibold text-primary">#PAY-2026-001</td><td><a href="bills.html" class="text-primary">#BILL-2026-001</a></td><td>Ahmad Razif</td><td>7 Mar 2026, 10:32 AM</td><td class="fw-semibold">RM 600.00</td><td>Online Banking</td><td><span class="status-badge badge-confirmed">Success</span></td><td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary rounded-2 p-1" title="View"><i class="ti ti-eye fs-4"></i></button><button class="btn btn-sm btn-outline-success rounded-2 p-1" title="Download Receipt"><i class="ti ti-download fs-4"></i></button><button class="btn btn-sm btn-outline-secondary rounded-2 p-1" title="Regenerate"><i class="ti ti-refresh fs-4"></i></button></div></td></tr>
-        <tr><td class="px-4 text-muted">—</td><td><a href="bills.html" class="text-primary">#BILL-2026-002</a></td><td>Ahmad Razif</td><td>Pending</td><td class="fw-semibold">RM 600.00</td><td>—</td><td><span class="status-badge badge-pending">Pending</span></td><td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-warning rounded-2 p-1" title="Send Reminder"><i class="ti ti-send fs-4"></i></button></div></td></tr>
-        <tr><td class="px-4 fw-semibold text-primary">#PAY-2026-003</td><td><a href="bills.html" class="text-primary">#BILL-2026-003</a></td><td>Siti Aminah</td><td>1 Feb 2026, 2:15 PM</td><td class="fw-semibold">RM 600.00</td><td>Credit Card</td><td><span class="status-badge badge-confirmed">Success</span></td><td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary rounded-2 p-1"><i class="ti ti-eye fs-4"></i></button><button class="btn btn-sm btn-outline-success rounded-2 p-1"><i class="ti ti-download fs-4"></i></button></div></td></tr>
-        <tr><td class="px-4 fw-semibold text-primary">#PAY-2026-004</td><td><a href="bills.html" class="text-primary">#BILL-2026-004</a></td><td>Mohamed Faiz</td><td>6 Jan 2026</td><td class="fw-semibold">RM 300.00</td><td>e-Wallet</td><td><span class="status-badge badge-cancelled">Refunded</span></td><td><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary rounded-2 p-1"><i class="ti ti-eye fs-4"></i></button></div></td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>    </div></div></div><script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script><script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script><script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script><script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script></body></html>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/js/sidebarmenu.js"></script>
+  <script src="../../modernize-bootstrap-free-v2/src/assets/js/app.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
