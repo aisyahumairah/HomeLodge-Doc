@@ -26,6 +26,12 @@ The system serves two primary roles:
 
 ---
 
+## HomeLodge Mockup
+
+URL: https://aisyahumairah.github.io/HomeLodge-Mockup/
+
+---
+
 ## Key Features
 
 | Feature | Users | Admin |
@@ -59,6 +65,7 @@ All documentation is stored in the `/docs` directory and is split into two audie
 | [TECH_STACK.md](./TECH_STACK.md) | Technology stack and architectural decisions |
 | [UI_UX.md](./UI_UX.md) | UI/UX guidelines, design system, and screen flows |
 | [DB_SCHEMA.md](./DB_SCHEMA.md) | Database schema and entity-relationship documentation |
+| [USE_CASE_DIAGRAMS.md](./USE_CASE_DIAGRAMS.md) | Use Case Diagrams |
 
 ### `/docs/users` — User Documentation
 
