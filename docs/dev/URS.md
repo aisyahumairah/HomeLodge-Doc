@@ -31,7 +31,7 @@ This document serves as the basis for deriving functional requirements in the [P
 
 ### 1.2 System Overview
 
-HomeLodge is a web-based homestay booking management system that allows guests to discover, book, and pay for homestay accommodation. It also provides the homestay operator (admin) with tools to manage bookings, guests, payments, and physical property access.
+HomeLodge is a web-based homestay booking management system that allows guests to browse multiple homestay units, check availability, and book accommodation. It also provides the homestay operator (admin) with tools to manage multiple properties, bookings, guests, payments, and physical property access.
 
 ### 1.3 Document Conventions
 
@@ -71,15 +71,16 @@ HomeLodge is a web-based homestay booking management system that allows guests t
 
 | ID | User Requirement | Priority |
 |---|---|---|
-| URS-U-BK-01 | As a guest, I want to see which dates are available and which are not, so that I can choose a suitable date before attempting to book. | Must Have |
-| URS-U-BK-02 | As a guest, I want to select my preferred check-in and check-out dates and times, so that I can define my stay. | Must Have |
-| URS-U-BK-03 | As a guest, I want the system to immediately tell me if my selected dates are unavailable, so that I don't waste time on a booking that will fail. | Must Have |
-| URS-U-BK-04 | As a guest, I want to submit my booking once availability is confirmed, so that I can secure the dates. | Must Have |
-| URS-U-BK-05 | As a guest, I want to view a list of my current and upcoming bookings, so that I can keep track of my reservations. | Must Have |
-| URS-U-BK-06 | As a guest, I want to view my booking history, so that I can reference past stays. | Should Have |
-| URS-U-BK-07 | As a guest, I want to view the full details of each booking, so that I know what I have booked. | Must Have |
-| URS-U-BK-08 | As a guest, I want to cancel a booking, so that I can change my plans when necessary. | Must Have |
-| URS-U-BK-09 | As a guest, I want to be clearly informed of the cancellation policy and the refund I will receive before I confirm a cancellation, so that I can make an informed decision. | Must Have |
+| URS-U-BK-01 | As a guest, I want to browse all available homestay units and view their details, so that I can choose a property that suits my needs. | Must Have |
+| URS-U-BK-02 | As a guest, I want to see which dates are available and which are not for a specific units, so that I can choose a suitable date before attempting to book. | Must Have |
+| URS-U-BK-03 | As a guest, I want to select my preferred check-in and check-out dates and times for a chosen unit, so that I can define my stay. | Must Have |
+| URS-U-BK-04 | As a guest, I want the system to immediately tell me if my selected dates are unavailable for a unit, so that I don't waste time on a booking that will fail. | Must Have |
+| URS-U-BK-05 | As a guest, I want to submit my booking once availability is confirmed, so that I can secure the dates. | Must Have |
+| URS-U-BK-06 | As a guest, I want to view a list of my current and upcoming bookings, so that I can keep track of my reservations. | Must Have |
+| URS-U-BK-07 | As a guest, I want to view my booking history, so that I can reference past stays. | Should Have |
+| URS-U-BK-08 | As a guest, I want to view the full details of each booking, so that I know what I have booked. | Must Have |
+| URS-U-BK-09 | As a guest, I want to cancel a booking, so that I can change my plans when necessary. | Must Have |
+| URS-U-BK-10 | As a guest, I want to be clearly informed of the cancellation policy and the refund I will receive before I confirm a cancellation, so that I can make an informed decision. | Must Have |
 
 ### 3.3 Payment
 
@@ -195,6 +196,17 @@ HomeLodge is a web-based homestay booking management system that allows guests t
 |---|---|---|
 | URS-A-CHAT-01 | As an admin, I want to receive and reply to chat messages from guests in real time. | Should Have |
 
+### 4.11 Homestay Management
+
+| ID | User Requirement | Priority |
+|---|---|---|
+| URS-A-HS-01 | As an admin, I want to create a new homestay unit with a name, description, location, images, and pricing, so that guests can find and book it. | Must Have |
+| URS-A-HS-02 | As an admin, I want to edit the details of any existing homestay unit, so that the listing stays accurate. | Must Have |
+| URS-A-HS-03 | As an admin, I want to deactivate or delete a homestay unit, so that unavailable properties are no longer shown to guests. | Must Have |
+| URS-A-HS-04 | As an admin, I want to view all managed homestay units with their status and upcoming booking summary, so that I have a clear operational overview. | Must Have |
+| URS-A-HS-05 | As an admin, I want to set the base price, deposit amount, and default check-in/check-out times per unit, so that pricing is managed individually per property. | Must Have |
+| URS-A-HS-06 | As an admin, I want to upload and manage multiple images for each homestay unit, so that guests have a good visual representation of each property. | Should Have |
+
 ---
 
 ## 5. System-Level Requirements
@@ -204,7 +216,7 @@ HomeLodge is a web-based homestay booking management system that allows guests t
 | URS-SYS-01 | The system must be accessible via a standard web browser without requiring any special plugins or installations. | Must Have |
 | URS-SYS-02 | The system must support responsive layouts for both desktop and mobile screens. | Must Have |
 | URS-SYS-03 | The system must enforce HTTPS for all pages. | Must Have |
-| URS-SYS-04 | The system must prevent double bookings for the same dates. | Must Have |
+| URS-SYS-04 | The system must prevent double bookings for the same unit on the same dates. | Must Have |
 | URS-SYS-05 | All user passwords must be stored in a hashed format; plain-text passwords must never be stored. | Must Have |
 
 ---
@@ -213,10 +225,11 @@ HomeLodge is a web-based homestay booking management system that allows guests t
 
 | Term | Definition |
 |---|---|
-| **Booking** | A reservation made by a guest or admin for a specific date range at the homestay. |
+| **Booking** | A reservation made by a guest or admin for a specific date range at a homestay unit. |
+| **Homestay Unit** | A single managed property within the HomeLodge system, with its own profile, pricing, and availability. |
 | **Admin** | The homestay operator or manager who has full administrative access to the system. |
-| **Guest / User** | A registered individual who uses the system to browse availability and make bookings. |
-| **QR Code** | A machine-readable code generated per booking that grants physical door access. |
+| **Guest / User** | A registered individual who uses the system to browse units and make bookings. |
+| **QR Code** | A machine-readable code generated per booking that grants physical door access to the booked unit. |
 | **Webhook** | An HTTP callback used by the payment gateway to notify the system of payment status changes. |
 | **SSO** | Single Sign-On — in this context, authentication via Google OAuth 2.0. |
 | **Lockout** | A state where a user account is temporarily prevented from logging in due to excessive failed attempts. |

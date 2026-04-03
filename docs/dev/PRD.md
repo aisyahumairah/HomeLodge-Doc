@@ -41,7 +41,7 @@ This Product Requirements Document (PRD) defines the features, behaviour, and ac
 
 ## 2. Product Vision
 
-To provide a simple, reliable, and modern homestay booking platform that enables guests to seamlessly discover and reserve homestay accommodation, while giving operators (admins) full visibility and control over all bookings, payments, and property access.
+To provide a simple, reliable, and modern homestay booking platform that enables guests to discover multiple homestay units, compare availability, and reserve accommodation, while giving operators (admins) full visibility and control over all properties, bookings, payments, and access management.
 
 ---
 
@@ -50,14 +50,14 @@ To provide a simple, reliable, and modern homestay booking platform that enables
 **In Scope:**
 - Web application accessible via desktop and mobile browsers.
 - Two user roles: **User (Guest)** and **Admin**.
-- End-to-end booking flow from registration → booking → payment → check-in → check-out.
+- Multi-property support: the admin can manage multiple homestay units within the same system.
+- End-to-end booking flow from registration → unit selection → booking → payment → check-in → check-out.
 - Automated QR code generation for physical door access.
 - Real-time chat between users and admin.
 - Email and in-app notification system.
 
 **Out of Scope:**
 - Mobile native application (iOS/Android).
-- Multi-property support (initial version is single homestay).
 - Third-party OTA (Online Travel Agency) channel integration.
 
 ---
@@ -276,7 +276,24 @@ Applies to both **Users** and **Admins** unless otherwise stated.
 
 ---
 
-## 6. Non-Functional Requirements
+### 5.11 Homestay Management Module
+
+*Admin only.*
+
+| ID | Requirement | Priority |
+|---|---|---|
+| HS-01 | Admin can create a new homestay unit with name, description, location, images, and pricing. | High |
+| HS-02 | Admin can edit the details of any existing homestay unit. | High |
+| HS-03 | Admin can deactivate or delete a homestay unit. A unit with confirmed future bookings cannot be deleted. | High |
+| HS-04 | Admin can view all homestay units in a list, with status (active/inactive) and summary of upcoming bookings. | High |
+| HS-05 | Guests can browse all active homestay units and view the details and availability calendar for each unit before booking. | High |
+| HS-06 | Availability checks and bookings are scoped per homestay unit, so multiple units can be booked on the same date without conflict. | High |
+| HS-07 | Admin can upload and manage multiple images per homestay unit. | Medium |
+| HS-08 | Admin can set a base price, deposit amount, and check-in/check-out times per homestay unit. | High |
+
+---
+
+
 
 | ID | Requirement | Category |
 |---|---|---|
@@ -292,7 +309,7 @@ Applies to both **Users** and **Admins** unless otherwise stated.
 
 ## 7. Assumptions & Constraints
 
-- The system manages a **single homestay property** in version 1.0.
+- Multiple homestay units are supported; each unit has its own availability, pricing, and QR code access.
 - Payment gateway integration is handled by a third-party provider; specific provider TBD.
 - Google Calendar integration uses the Google Calendar API with OAuth 2.0.
 - WebSocket chat relies on a self-hosted or cloud-based service (e.g., Laravel Reverb or Pusher).

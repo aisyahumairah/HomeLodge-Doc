@@ -14,14 +14,14 @@
 1. [Overview](#1-overview)
 2. [Entity-Relationship Diagram](#2-entity-relationship-diagram)
 3. [Table Definitions](#3-table-definitions)
-   - [users](#31-users)
-   - [roles & permissions (Spatie)](#32-roles--permissions-spatie)
-   - [bookings](#33-bookings)
-   - [payments](#34-payments)
-   - [bills](#35-bills)
-   - [blocked_dates](#36-blocked_dates)
-   - [qr_codes](#37-qr_codes)
-   - [notifications](#38-notifications)
+   - [homestays](#31-homestays)
+   - [users](#32-users)
+   - [roles & permissions (Spatie)](#33-roles--permissions-spatie)
+   - [bookings](#34-bookings)
+   - [payments](#35-payments)
+   - [bills](#36-bills)
+   - [blocked_dates](#37-blocked_dates)
+   - [qr_codes](#38-qr_codes)
    - [chat_conversations](#39-chat_conversations)
    - [chat_messages](#310-chat_messages)
    - [activity_logs](#311-activity_logs)
@@ -47,6 +47,21 @@ All tables follow these conventions:
 
 ```mermaid
 erDiagram
+    homestays {
+        bigint id PK
+        string name
+        text description
+        string location
+        decimal base_price
+        decimal deposit_amount
+        time default_check_in_time
+        time default_check_out_time
+        boolean is_active
+        timestamps created_at
+        timestamps updated_at
+        timestamp deleted_at
+    }
+
     users {
         bigint id PK
         string name
@@ -83,6 +98,7 @@ erDiagram
     bookings {
         bigint id PK
         string booking_number
+        bigint homestay_id FK
         bigint user_id FK
         bigint created_by FK
         date check_in_date
@@ -140,6 +156,7 @@ erDiagram
 
     blocked_dates {
         bigint id PK
+        bigint homestay_id FK
         date blocked_date
         date to_date
         bigint blocked_by FK
@@ -187,6 +204,8 @@ erDiagram
         timestamps updated_at
     }
 
+    homestays ||--o{ bookings : "hosts"
+    homestays ||--o{ blocked_dates : "has"
     users ||--o{ bookings : "makes"
     users ||--o{ bills : "receives"
     users ||--o{ payments : "makes"
@@ -203,7 +222,32 @@ erDiagram
 
 ## 3. Table Definitions
 
-### 3.1 `users`
+### 3.1 `homestays`
+
+Stores all managed homestay units.
+
+| Column | Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `id` | BIGINT UNSIGNED | No | AUTO_INCREMENT | Primary key |
+| `name` | VARCHAR(255) | No | | Name of the homestay unit |
+| `description` | TEXT | Yes | NULL | Full description shown to guests |
+| `location` | VARCHAR(255) | No | | Address or area |
+| `base_price` | DECIMAL(10,2) | No | | Nightly rate |
+| `deposit_amount` | DECIMAL(10,2) | No | `0.00` | Required deposit per booking |
+| `default_check_in_time` | TIME | No | `15:00:00` | Default check-in time for this unit |
+| `default_check_out_time` | TIME | No | `12:00:00` | Default check-out time for this unit |
+| `is_active` | BOOLEAN | No | `true` | Whether the unit is visible and bookable |
+| `created_at` | TIMESTAMP | No | | |
+| `updated_at` | TIMESTAMP | No | | |
+| `deleted_at` | TIMESTAMP | Yes | NULL | Soft delete timestamp |
+
+**Indexes:** `INDEX(is_active)`
+
+> **Related table:** `homestay_images` — stores one or more image paths per unit (`id`, `homestay_id` FK, `path`, `sort_order`, `created_at`).
+
+---
+
+### 3.2 `users`
 
 Stores all system users (guests and admins).
 
@@ -231,7 +275,7 @@ Stores all system users (guests and admins).
 
 ---
 
-### 3.2 Roles & Permissions (Spatie)
+### 3.3 Roles & Permissions (Spatie)
 
 Managed by the `spatie/laravel-permission` package. The following tables are created automatically:
 
@@ -254,14 +298,15 @@ Refer to [Spatie Laravel Permission documentation](https://spatie.be/docs/larave
 
 ---
 
-### 3.3 `bookings`
+### 3.4 `bookings`
 
-The central table for all homestay reservations.
+The central table for all homestay reservations. Each booking is linked to a specific homestay unit.
 
 | Column | Type | Nullable | Default | Description |
 |---|---|---|---|---|
 | `id` | BIGINT UNSIGNED | No | AUTO_INCREMENT | Primary key |
 | `booking_number` | VARCHAR(30) | No | | Unique human-readable booking reference (e.g., `BK-20260303-001`) |
+| `homestay_id` | BIGINT UNSIGNED | No | | The booked unit (FK → `homestays.id`) |
 | `user_id` | BIGINT UNSIGNED | No | | Guest who holds the booking (FK → `users.id`) |
 | `created_by` | BIGINT UNSIGNED | Yes | NULL | Admin who created booking on behalf of user (FK → `users.id`) |
 | `check_in_date` | DATE | No | | Check-in date |
@@ -286,11 +331,11 @@ The central table for all homestay reservations.
 | `cancelled` | Booking cancelled (by guest or admin) |
 | `completed` | Guest has checked out |
 
-**Indexes:** `UNIQUE(booking_number)`, `INDEX(user_id)`, `INDEX(check_in_date, check_out_date)`, `INDEX(status)`
+**Indexes:** `UNIQUE(booking_number)`, `INDEX(homestay_id)`, `INDEX(user_id)`, `INDEX(check_in_date, check_out_date)`, `INDEX(status)`
 
 ---
 
-### 3.4 `payments`
+### 3.5 `payments`
 
 Records each payment transaction processed by the payment gateway.
 
@@ -314,7 +359,7 @@ Records each payment transaction processed by the payment gateway.
 
 ---
 
-### 3.5 `bills`
+### 3.6 `bills`
 
 Stores billing documents generated per booking.
 
@@ -336,7 +381,7 @@ Stores billing documents generated per booking.
 
 ---
 
-### 3.6 `refunds`
+### 3.7 `refunds`
 
 Tracks refund records for cancelled bookings.
 
@@ -355,25 +400,26 @@ Tracks refund records for cancelled bookings.
 
 ---
 
-### 3.7 `blocked_dates`
+### 3.8 `blocked_dates`
 
-Dates that admin has locked to prevent bookings.
+Dates that admin has locked to prevent bookings on a specific unit.
 
 | Column | Type | Nullable | Default | Description |
 |---|---|---|---|---|
 | `id` | BIGINT UNSIGNED | No | AUTO_INCREMENT | Primary key |
-| `date` | DATE | No | | The blocked date |
-| `to_date` | DATE | No | | The blocked date |
+| `homestay_id` | BIGINT UNSIGNED | No | | The unit being blocked (FK → `homestays.id`) |
+| `date` | DATE | No | | Start of the blocked period |
+| `to_date` | DATE | No | | End of the blocked period |
 | `blocked_by` | BIGINT UNSIGNED | No | | Admin who set the block (FK → `users.id`) |
 | `reason` | TEXT | Yes | NULL | Internal admin reason (not shown to guests) |
 | `created_at` | TIMESTAMP | No | | |
 | `updated_at` | TIMESTAMP | No | | |
 
-**Indexes:** `UNIQUE(date)`
+**Indexes:** `INDEX(homestay_id)`, `INDEX(date)`
 
 ---
 
-### 3.8 `qr_codes`
+### 3.9 `qr_codes`
 
 QR codes generated per booking for physical door access.
 
@@ -395,7 +441,7 @@ QR codes generated per booking for physical door access.
 
 ---
 
-### 3.9 `chat_conversations`
+### 3.10 `chat_conversations`
 
 One conversation per user ↔ admin pairing.
 
@@ -411,7 +457,7 @@ One conversation per user ↔ admin pairing.
 
 ---
 
-### 3.10 `chat_messages`
+### 3.11 `chat_messages`
 
 Individual messages within a conversation.
 
@@ -430,7 +476,7 @@ Individual messages within a conversation.
 
 ---
 
-### 3.11 `activity_log` (Spatie Activity Log)
+### 3.12 `activity_log` (Spatie Activity Log)
 
 Managed by `spatie/laravel-activitylog`. Stores the audit trail.
 
@@ -448,7 +494,7 @@ Managed by `spatie/laravel-activitylog`. Stores the audit trail.
 
 ---
 
-### 3.12 `settings`
+### 3.13 `settings`
 
 Key-value store for all configurable system settings.
 
@@ -487,15 +533,16 @@ Key-value store for all configurable system settings.
 
 | Table | Key Type | Columns |
 |---|---|---|
+| `homestays` | INDEX | `is_active` |
 | `users` | UNIQUE | `email` |
 | `users` | INDEX | `google_id` |
 | `bookings` | UNIQUE | `booking_number` |
-| `bookings` | INDEX | `user_id`, `status`, `check_in_date` |
+| `bookings` | INDEX | `homestay_id`, `user_id`, `status`, `check_in_date` |
 | `bills` | UNIQUE | `bill_number` |
 | `bills` | INDEX | `booking_id` |
 | `payments` | UNIQUE | `payment_number`, `gateway_reference` |
 | `payments` | INDEX | `booking_id`, `status` |
-| `blocked_dates` | UNIQUE | `date` |
+| `blocked_dates` | INDEX | `homestay_id`, `date` |
 | `qr_codes` | UNIQUE | `token` |
 | `qr_codes` | INDEX | `booking_id`, `status` |
 | `chat_conversations` | UNIQUE | `user_id` |
