@@ -3,9 +3,9 @@
 
 | Field | Detail |
 |---|---|
-| **Document Version** | 1.0 |
+| **Document Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-03-03 |
+| **Last Updated** | 2026-04-05 |
 | **Owner** | Product Team |
 
 ---
@@ -27,6 +27,9 @@
    - [5.8 System Settings Module](#58-system-settings-module)
    - [5.9 Audit Logs Module](#59-audit-logs-module)
    - [5.10 QR Code Door Access Module](#510-qr-code-door-access-module)
+   - [5.11 Homestay Management Module](#511-homestay-management-module)
+   - [5.12 Reporting & Analytics Module](#512-reporting--analytics-module)
+   - [5.13 Guest Feedback Module](#513-guest-feedback-module)
 6. [Non-Functional Requirements](#6-non-functional-requirements)
 7. [Assumptions & Constraints](#7-assumptions--constraints)
 8. [Out of Scope](#8-out-of-scope)
@@ -52,9 +55,13 @@ To provide a simple, reliable, and modern homestay booking platform that enables
 - Two user roles: **User (Guest)** and **Admin**.
 - Multi-property support: the admin can manage multiple homestay units within the same system.
 - End-to-end booking flow from registration → unit selection → booking → payment → check-in → check-out.
-- Automated QR code generation for physical door access.
+- Automated QR code generation for physical door access, including admin-controlled validity extension.
 - Real-time chat between users and admin.
 - Email and in-app notification system.
+- Reporting and analytics dashboard for operational insights.
+- Per-homestay unit policies and house rules (fully configurable, with system-level defaults).
+- Guest feedback and rating system.
+- All operational parameters and charges are end-to-end configurable via system settings (no hardcoded values).
 
 **Out of Scope:**
 - Mobile native application (iOS/Android).
@@ -249,6 +256,22 @@ Applies to both **Users** and **Admins** unless otherwise stated.
 | SET-GEN-03 | Admin can configure payment and billing options. | High |
 | SET-GEN-04 | Admin can enable or disable email notification delivery system-wide. | Medium |
 
+#### Booking Extension Charges
+
+| ID | Requirement | Priority |
+|---|---|---|
+| SET-EXT-01 | Admin can configure the extra charge rate applied when a guest extends their booking time (per hour). | High |
+| SET-EXT-02 | Admin can configure the extra charge rate applied when a guest extends their booking date (per additional night). | High |
+| SET-EXT-03 | All extension charge configurations are stored in the system and applied dynamically — no values are hardcoded. | High |
+| SET-EXT-04 | Admin can configure the system-wide **default extension payment window** (in minutes) that guests have to pay the extension charge before it expires; the default value is **60 minutes (1 hour)**. | High |
+
+#### Default Homestay Policies
+
+| ID | Requirement | Priority |
+|---|---|---|
+| SET-POL-01 | Admin can configure the system-level default house policies applied to all newly created homestay units. | High |
+| SET-POL-02 | The default policies are pre-seeded as: **No Pets Allowed**, **No Durians**, **No Smoking**; these can be modified by the admin. | Medium |
+
 ---
 
 ### 5.9 Audit Logs Module
@@ -273,12 +296,20 @@ Applies to both **Users** and **Admins** unless otherwise stated.
 | QR-04 | Admin can manually regenerate a QR code for housekeeping purposes. | High |
 | QR-05 | After housekeeping is marked as complete, the system generates a new QR code for the next booking. | High |
 | QR-06 | Each booking is guaranteed to have a unique and distinct QR code. | High |
+| QR-07 | Admin can initiate a booking extension request when a guest requests to extend their check-out time or booking date. | High |
+| QR-08 | Before processing an extension, the system automatically checks availability for the extended period (no conflicting bookings). | High |
+| QR-09 | Upon admin approval of an extension, the system creates an **extension record** in `pending_payment` status and generates an additional charge bill for the guest. | High |
+| QR-10 | Extensions of booking time or date incur extra charges; the charge rates are configurable by the admin in System Settings. | High |
+| QR-11 | The guest must pay the extension charge within a **configurable payment window** (per homestay unit; system-wide default is **1 hour**). | High |
+| QR-12 | The QR code validity is **not** automatically extended at the time of the extension request — it is only updated **after** the extension payment is confirmed. | High |
+| QR-13 | If the guest does not pay within the configured payment window, the extension is automatically **cancelled**; the booking reverts to the original check-out date and time. | High |
+| QR-14 | After an extension payment is confirmed, the system updates the booking record with the new dates/times and regenerates/extends the QR code validity accordingly. | High |
 
 ---
 
 ### 5.11 Homestay Management Module
 
-*Admin only.*
+*Admin only (unless stated otherwise).*
 
 | ID | Requirement | Priority |
 |---|---|---|
@@ -290,10 +321,44 @@ Applies to both **Users** and **Admins** unless otherwise stated.
 | HS-06 | Availability checks and bookings are scoped per homestay unit, so multiple units can be booked on the same date without conflict. | High |
 | HS-07 | Admin can upload and manage multiple images per homestay unit. | Medium |
 | HS-08 | Admin can set a base price, deposit amount, and check-in/check-out times per homestay unit. | High |
+| HS-09 | Each homestay unit has its own configurable house policies and rules (e.g., no smoking, no pets, no durians, cleanliness requirements). | High |
+| HS-10 | The system provides a set of default policies applied to all newly created units: **No Pets Allowed**, **No Durians**, **No Smoking**. Admins can add, edit, or remove policies per unit. | High |
+| HS-11 | Guests can view the house policies for a unit before making a booking. | High |
+| HS-12 | Admin can manage system-level default policies that are pre-applied to every new homestay unit; these defaults are configurable and not hardcoded. | Medium |
+| HS-13 | Admin can configure a **per-unit extension payment window** (in minutes) that overrides the system-wide default when guests make extension requests for that unit. | High |
 
 ---
 
+### 5.12 Reporting & Analytics Module
 
+*Admin only.*
+
+| ID | Requirement | Priority |
+|---|---|---|
+| RPT-01 | Admin can access a reporting and analytics dashboard displaying key operational metrics. | High |
+| RPT-02 | The dashboard shows summary statistics: total bookings, revenue, occupancy rate, and cancellation rate. | High |
+| RPT-03 | Admin can view booking trends over time (daily, weekly, monthly). | High |
+| RPT-04 | Admin can view revenue reports filtered by date range, homestay unit, and payment status. | High |
+| RPT-05 | Admin can view a breakdown of bookings by homestay unit. | Medium |
+| RPT-06 | Admin can view guest feedback and rating summaries per homestay unit. | Medium |
+| RPT-07 | Admin can export reports (e.g., PDF or CSV) for offline analysis. | Medium |
+
+---
+
+### 5.13 Guest Feedback Module
+
+| ID | Requirement | Priority |
+|---|---|---|
+| FB-U-01 | Guests can submit a rating (e.g., 1–5 stars) and written feedback for a homestay unit after their stay is completed. | High |
+| FB-U-02 | Guests can only submit feedback for bookings that have been completed (checked out). | High |
+| FB-U-03 | Each guest can submit only one feedback entry per completed booking. | High |
+| FB-U-04 | Guests can view their previously submitted feedback. | Medium |
+| FB-A-01 | Admin can view all feedback and ratings submitted for each homestay unit. | High |
+| FB-A-02 | Admin can respond to guest feedback on behalf of the homestay. | Medium |
+| FB-A-03 | Admin can moderate (hide or flag) feedback that violates the platform's content guidelines. | Medium |
+| FB-A-04 | The average rating per homestay unit is displayed on the unit's public listing page. | High |
+
+---
 
 | ID | Requirement | Category |
 |---|---|---|
@@ -309,17 +374,17 @@ Applies to both **Users** and **Admins** unless otherwise stated.
 
 ## 7. Assumptions & Constraints
 
-- Multiple homestay units are supported; each unit has its own availability, pricing, and QR code access.
+- Multiple homestay units are supported; each unit has its own availability, pricing, QR code access, and house policies.
 - Payment gateway integration is handled by a third-party provider; specific provider TBD.
 - Google Calendar integration uses the Google Calendar API with OAuth 2.0.
 - WebSocket chat relies on a self-hosted or cloud-based service (e.g., Laravel Reverb or Pusher).
 - QR code door access assumes a compatible smart lock device is installed on-site.
+- All system configurations (charges, policies, security settings, etc.) are managed via the admin panel with no hardcoded values.
+- Guest feedback can only be submitted after a booking is marked as completed (checked out).
 
 ---
 
 ## 8. Out of Scope
 
 - Native iOS or Android mobile applications.
-- Multi-property / multi-homestay management.
 - Direct integration with OTA platforms (Airbnb, Booking.com, etc.).
-- Complex revenue reporting and analytics dashboards (beyond basic payment lists).

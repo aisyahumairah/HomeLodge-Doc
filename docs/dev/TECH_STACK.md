@@ -3,9 +3,9 @@
 
 | Field | Detail |
 |---|---|
-| **Document Version** | 1.0 |
+| **Document Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-03-03 |
+| **Last Updated** | 2026-04-05 |
 
 ---
 
@@ -67,10 +67,11 @@ HomeLodge is built as a **monolithic web application** using the **Laravel** PHP
 | `laravel/sanctum` or `laravel/breeze` | Authentication scaffolding |
 | `spatie/laravel-permission` | Role and permission management |
 | `spatie/laravel-activitylog` | Audit logging |
-| `barryvdh/laravel-dompdf` | PDF generation for bills and receipts |
+| `barryvdh/laravel-dompdf` | PDF generation for bills, receipts, and report exports |
 | `simplesoftwareio/simple-qrcode` | QR code generation |
 | `laravel/socialite` | Google OAuth 2.0 / SSO |
 | `laravel/reverb` | WebSocket server for real-time chat |
+| `maatwebsite/excel` | CSV/Excel export for reporting module |
 
 ---
 
@@ -83,8 +84,9 @@ HomeLodge is built as a **monolithic web application** using the **Laravel** PHP
 | Build Tool | Vite |
 | CSS Framework | Bootstrap 5 / Custom CSS |
 | Icons | Font Awesome / Bootstrap Icons |
+| Charts (Reporting) | [Chart.js](https://www.chartjs.org) (via CDN or npm) |
 
-> **Note:** Heavy client-side interactions (calendar, chat, real-time updates) use Alpine.js and Laravel Echo (backed by Reverb or Pusher).
+> **Note:** Heavy client-side interactions (calendar, chat, real-time updates, charts) use Alpine.js and Laravel Echo (backed by Reverb or Pusher). Chart.js is used for the Reporting & Analytics dashboard.
 
 ---
 
@@ -95,7 +97,7 @@ HomeLodge is built as a **monolithic web application** using the **Laravel** PHP
 | Primary Database | MySQL 8.x / MariaDB 10.x |
 | ORM | Eloquent (Laravel built-in) |
 | Migrations | Laravel Migrations |
-| Seeders | Laravel Seeders (for roles, permissions, default settings) |
+| Seeders | Laravel Seeders (for roles, permissions, default settings, default homestay policies) |
 
 See [DB_SCHEMA.md](./DB_SCHEMA.md) for the full entity-relationship documentation and table definitions.
 
@@ -184,10 +186,12 @@ See [DB_SCHEMA.md](./DB_SCHEMA.md) for the full entity-relationship documentatio
 
 | Job | Schedule | Purpose |
 |---|---|---|
-| Auto-cancel unpaid bookings | Every hour | Cancel bookings where payment window has expired |
+| Auto-cancel unpaid bookings | Every hour | Cancel bookings where initial payment window has expired |
 | Upcoming booking reminders | Daily | Notify guests and admin of upcoming stays |
 | QR code expiry / regeneration | Triggered at checkout time | Invalidate old QR codes |
 | Payment reminders | Daily | Notify guests with pending payment |
+| Extension auto-revert | Every 1–5 minutes | Check for expired extension payment deadlines; revert booking to original dates and notify guest if unpaid |
+| QR extension update | On-demand (triggered by payment webhook) | Update QR `valid_until` only after extension payment confirmed |
 
 ---
 

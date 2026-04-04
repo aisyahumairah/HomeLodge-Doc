@@ -3,9 +3,9 @@
 
 | Field | Detail |
 |---|---|
-| **Document Version** | 1.0 |
+| **Document Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-03-28 |
+| **Last Updated** | 2026-04-05 |
 | **Owner** | Product / Business Analysis Team |
 
 ---
@@ -24,6 +24,8 @@
 10. [System Settings Module](#10-system-settings-module)
 11. [Audit Logs Module](#11-audit-logs-module)
 12. [QR Code Door Access Module](#12-qr-code-door-access-module)
+13. [Reporting & Analytics Module](#13-reporting--analytics-module)
+14. [Guest Feedback Module](#14-guest-feedback-module)
 
 ---
 
@@ -52,6 +54,8 @@ graph LR
         SET["System Settings"]
         AUDIT["Audit Logs"]
         QR["QR Code Door Access"]
+        RPT["Reporting & Analytics"]
+        FB["Guest Feedback"]
     end
 
     Guest --> AUTH
@@ -60,6 +64,7 @@ graph LR
     Guest --> PAY
     Guest --> NOTIF
     Guest --> CHAT
+    Guest --> FB
 
     Admin --> AUTH
     Admin --> HS
@@ -72,6 +77,8 @@ graph LR
     Admin --> SET
     Admin --> AUDIT
     Admin --> QR
+    Admin --> RPT
+    Admin --> FB
 
     PG --> PAY
     GCal --> NOTIF
@@ -125,7 +132,7 @@ flowchart LR
 
 ## 3. Homestay Management Module
 
-Covers listing, creation, editing, and deactivation of homestay units by the admin, and browsing of units by guests.
+Covers listing, creation, editing, and deactivation of homestay units by the admin, browsing of units by guests, and management of per-unit house policies.
 
 ```mermaid
 flowchart LR
@@ -135,27 +142,34 @@ flowchart LR
     subgraph Homestay Management Module
         UC1["Browse Homestay Units"]
         UC2["View Unit Details & Availability"]
-        UC3["Create Homestay Unit"]
-        UC4["Edit Homestay Unit"]
-        UC5["Deactivate / Delete Unit"]
-        UC6["Upload Unit Images"]
-        UC7["Set Pricing & Check-in/out Times"]
-        UC8["View All Units List"]
+        UC3["View House Policies"]
+        UC4["Create Homestay Unit"]
+        UC5["Edit Homestay Unit"]
+        UC6["Deactivate / Delete Unit"]
+        UC7["Upload Unit Images"]
+        UC8["Set Pricing & Check-in/out Times"]
+        UC9["View All Units List"]
+        UC10["Manage Unit House Policies"]
+        UC11["Apply Default Policies\n(On Unit Creation)"]
     end
 
     Guest --- UC1
     Guest --- UC2
+    Guest --- UC3
 
-    Admin --- UC3
     Admin --- UC4
     Admin --- UC5
     Admin --- UC6
     Admin --- UC7
     Admin --- UC8
+    Admin --- UC9
+    Admin --- UC10
 
-    UC3 -. "«includes»" .-> UC6
-    UC3 -. "«includes»" .-> UC7
-    UC5 -. "«extends»\n(Blocked if future bookings exist)" .-> UC5
+    UC4 -. "«includes»" .-> UC7
+    UC4 -. "«includes»" .-> UC8
+    UC4 -. "«includes»" .-> UC11
+    UC6 -. "«extends»\n(Blocked if future bookings exist)" .-> UC6
+    UC10 -. "«extends»" .-> UC5
 ```
 
 ---
@@ -412,6 +426,8 @@ flowchart LR
         UC6["Configure Payment &\nBilling Options"]
         UC7["Toggle Email\nNotifications"]
         UC8["Manage General Settings\n(Name, Logo)"]
+        UC9["Configure Extension\nCharge Rates"]
+        UC10["Manage Default\nHomestay Policies"]
     end
 
     Admin --- UC1
@@ -422,6 +438,8 @@ flowchart LR
     Admin --- UC6
     Admin --- UC7
     Admin --- UC8
+    Admin --- UC9
+    Admin --- UC10
 ```
 
 ---
@@ -457,7 +475,7 @@ flowchart LR
 
 ## 12. QR Code Door Access Module
 
-Covers QR code generation, invalidation, and housekeeping workflow. Each QR code is scoped to a specific booking and homestay unit.
+Covers QR code generation, invalidation, housekeeping workflow, and validity extension. Each QR code is scoped to a specific booking and homestay unit.
 
 ```mermaid
 flowchart LR
@@ -472,6 +490,91 @@ flowchart LR
         UC4["Mark Housekeeping\nComplete"]
         UC5["Auto-Invalidate QR Code\n(After Check-out)"]
         UC6["Auto-Generate QR Code\n(For Next Guest)"]
+        UC7["Initiate Booking Extension\n(Time or Date)"]
+        UC8["Check Availability\nBefore Extension"]
+        UC9["Generate Extension Bill\n& Set Payment Deadline"]
+        UC10["Notify Guest of Extension\nBill + Deadline"]
+        UC11["Guest Pays Extension\nCharge"]
+        UC12["Confirm Extension\n(Update Booking + QR)"]
+        UC13["Auto-Cancel Extension\n(Deadline Expired)"]
+        UC14["Revert Booking to\nOriginal Dates/Times"]
+        UC15["Configure Per-Unit\nExtension Payment Window"]
+    end
+
+    Guest --- UC1
+    Guest --- UC2
+    Guest --- UC11
+
+    Admin --- UC3
+    Admin --- UC4
+    Admin --- UC7
+    Admin --- UC15
+
+    System --- UC5
+    System --- UC6
+    System --- UC13
+
+    UC4 -. "«triggers»" .-> UC6
+    UC5 -. "«triggers»" .-> UC3
+    UC7 -. "«includes»" .-> UC8
+    UC7 -. "«includes»" .-> UC9
+    UC9 -. "«triggers»" .-> UC10
+    UC11 -. "«extends»\n(Payment Confirmed)" .-> UC12
+    UC13 -. "«includes»" .-> UC14
+    UC15 -. "«extends»" .-> UC9
+```
+
+---
+
+## 13. Reporting & Analytics Module
+
+Admin-only module for viewing operational metrics and generating reports.
+
+```mermaid
+flowchart LR
+    Admin["Admin"]
+
+    subgraph Reporting & Analytics Module
+        UC1["View Analytics Dashboard"]
+        UC2["View Booking Trends\n(Daily/Weekly/Monthly)"]
+        UC3["View Revenue Report"]
+        UC4["Filter Reports\n(Date/Unit/Status)"]
+        UC5["View Bookings\nBreakdown per Unit"]
+        UC6["View Feedback &\nRating Summary"]
+        UC7["Export Report\n(PDF/CSV)"]
+    end
+
+    Admin --- UC1
+    Admin --- UC2
+    Admin --- UC3
+    Admin --- UC5
+    Admin --- UC6
+    Admin --- UC7
+
+    UC3 -. "«includes»" .-> UC4
+    UC1 -. "«includes»" .-> UC2
+    UC1 -. "«includes»" .-> UC3
+    UC1 -. "«includes»" .-> UC6
+```
+
+---
+
+## 14. Guest Feedback Module
+
+Covers post-stay feedback submission by guests and moderation/response by the admin.
+
+```mermaid
+flowchart LR
+    Guest["Guest"]
+    Admin["Admin"]
+
+    subgraph Guest Feedback Module
+        UC1["Submit Rating & Feedback\n(After Stay Completed)"]
+        UC2["View Submitted Feedback"]
+        UC3["View All Unit Feedback"]
+        UC4["Respond to Feedback"]
+        UC5["Moderate/Hide Feedback"]
+        UC6["Display Average Rating\non Listing Page"]
     end
 
     Guest --- UC1
@@ -479,12 +582,10 @@ flowchart LR
 
     Admin --- UC3
     Admin --- UC4
+    Admin --- UC5
 
-    System --- UC5
-    System --- UC6
-
-    UC4 -. "«triggers»" .-> UC6
-    UC5 -. "«triggers»" .-> UC3
+    UC1 -. "«extends»\n(Only after check-out)" .-> UC1
+    UC6 -. "«derives from»" .-> UC1
 ```
 
 ---
@@ -496,13 +597,15 @@ The following table maps each use case diagram back to its source requirements i
 | Module | URS References | PRD References |
 |---|---|---|
 | Authentication | URS-U-AUTH-01 to 08, URS-A-AUTH-01 to 03 | AUTH-01 to 11 |
-| Homestay Management | URS-U-BK-01, URS-A-HS-01 to 06 | HS-01 to 08 |
+| Homestay Management | URS-U-BK-01, URS-U-POL-01, URS-A-HS-01 to 09 | HS-01 to 13 |
 | Booking | URS-U-BK-02 to 10, URS-A-BK-01 to 07 | BK-U-01 to 08, BK-A-01 to 07, BK-H-01 to 03 |
 | Payment | URS-U-PAY-01 to 06, URS-A-PAY-01 to 04 | PAY-U-01 to 05, PAY-A-01 to 05 |
 | Notification | URS-U-NOTIF-01 to 03, URS-A-NOTIF-01 to 03 | NOTIF-01 to 07 |
 | Chat | URS-U-CHAT-01, URS-A-CHAT-01 | CHAT-01 to 03 |
 | User Management | URS-A-USR-01 to 04 | USR-01 to 06 |
 | Role & Permission | URS-A-ROLE-01 to 03, URS-A-PERM-01 to 02 | ROLE-01 to 03, PERM-01 to 02 |
-| System Settings | URS-A-SET-01 to 04 | SET-SMTP-01, SET-SEC-01 to 03, SET-GEN-01 to 04 |
+| System Settings | URS-A-SET-01 to 08 | SET-SMTP-01, SET-SEC-01 to 03, SET-GEN-01 to 04, SET-EXT-01 to 04, SET-POL-01 to 02 |
 | Audit Logs | URS-A-AUDIT-01 | AUDIT-01 to 03 |
-| QR Code Door Access | URS-A-QR-01 to 03 | QR-01 to 06 |
+| QR Code Door Access | URS-U-EXT-01 to 03, URS-A-QR-01 to 08 | QR-01 to 14 |
+| Reporting & Analytics | URS-A-RPT-01 to 06 | RPT-01 to 07 |
+| Guest Feedback | URS-U-FB-01 to 02, URS-A-FB-01 to 03 | FB-U-01 to 04, FB-A-01 to 04 |

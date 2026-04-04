@@ -3,9 +3,9 @@
 
 | Field | Detail |
 |---|---|
-| **Document Version** | 1.0 |
+| **Document Version** | 1.2 |
 | **Status** | Active |
-| **Last Updated** | 2026-03-03 |
+| **Last Updated** | 2026-04-05 |
 
 ---
 
@@ -127,6 +127,10 @@
 | TASK-SET-03 | Admin: configurable refund policy values | SET-GEN-02 | 🔲 Todo | |
 | TASK-SET-04 | Admin: payment/billing configuration | SET-GEN-03 | 🔲 Todo | |
 | TASK-SET-05 | Admin: toggle email notifications globally | SET-GEN-04 | 🔲 Todo | |
+| TASK-SET-06 | Admin: configure booking time extension charge rate (per hour) | SET-EXT-01 | 🔲 Todo | Stored in `settings` table |
+| TASK-SET-07 | Admin: configure booking date extension charge rate (per night) | SET-EXT-02 | 🔲 Todo | Stored in `settings` table |
+| TASK-SET-08 | Admin: manage system-level default homestay policies | SET-POL-01, SET-POL-02 | 🔲 Todo | Seeded defaults: No Pets, No Durians, No Smoking |
+| TASK-SET-09 | Admin: configure system-wide default extension payment window (in minutes; default 60) | SET-EXT-04, URS-A-SET-08 | 🔲 Todo | Stored in `settings` table as `extension.payment_window_minutes` |
 
 ---
 
@@ -148,6 +152,48 @@
 | TASK-QR-02 | Invalidate and regenerate QR code after checkout time | QR-03 | 🔲 Todo | Scheduled job |
 | TASK-QR-03 | Admin: manual QR regeneration for housekeeping | QR-04 | 🔲 Todo | |
 | TASK-QR-04 | Auto-generate new QR after housekeeping completion | QR-05 | 🔲 Todo | |
+| TASK-QR-05 | Admin: initiate booking extension (time or date) — check availability, calculate charge, set payment deadline | QR-07, QR-08, QR-09, QR-10 | 🔲 Todo | Creates `booking_extensions` record with `pending_payment` status |
+| TASK-QR-06 | Notify guest of approved extension with bill and payment deadline | QR-11, URS-U-EXT-01, URS-U-EXT-02 | 🔲 Todo | In-app + email notification |
+| TASK-QR-07 | Gate QR validity update — only extend `valid_until` after extension payment confirmed | QR-12, QR-14 | 🔲 Todo | QR not auto-extended on extension request |
+| TASK-QR-08 | Scheduled job: auto-cancel unpaid extensions after payment deadline; revert booking to original dates/times | QR-13 | 🔲 Todo | Runs every minute or every 5 min; notify guest of revert |
+
+---
+
+## Module 11 – Homestay Management (Policies)
+
+| ID | Task | Requirement Refs | Status | Notes |
+|---|---|---|---|---|
+| TASK-HS-01 | Admin: CRUD homestay units (name, description, location, images, pricing) | HS-01, HS-02, HS-03, HS-04 | 🔲 Todo | |
+| TASK-HS-02 | Admin: manage per-unit house policies (add, edit, remove) | HS-09, HS-10 | 🔲 Todo | Inherits system defaults on creation |
+| TASK-HS-03 | Seed system-level default policies (No Pets, No Durians, No Smoking) | HS-10, SET-POL-02 | 🔲 Todo | Via database seeder |
+| TASK-HS-04 | Guest: view house policies on unit detail page before booking | HS-11, URS-U-POL-01 | 🔲 Todo | |
+| TASK-HS-05 | Admin: configure per-unit extension payment window (in minutes; overrides system default) | HS-13, URS-A-HS-09 | 🔲 Todo | Stored in `homestays.extension_payment_window_minutes` |
+
+---
+
+## Module 12 – Reporting & Analytics
+
+| ID | Task | Requirement Refs | Status | Notes |
+|---|---|---|---|---|
+| TASK-RPT-01 | Build analytics dashboard with key metrics (bookings, revenue, occupancy, cancellation rate) | RPT-01, RPT-02 | 🔲 Todo | |
+| TASK-RPT-02 | Build booking trends chart (daily/weekly/monthly) | RPT-03 | 🔲 Todo | |
+| TASK-RPT-03 | Build revenue report with filters (date range, unit, payment status) | RPT-04 | 🔲 Todo | |
+| TASK-RPT-04 | Build per-unit booking breakdown report | RPT-05 | 🔲 Todo | |
+| TASK-RPT-05 | Display feedback/rating summary in dashboard | RPT-06 | 🔲 Todo | |
+| TASK-RPT-06 | Implement PDF/CSV export for reports | RPT-07 | 🔲 Todo | |
+
+---
+
+## Module 13 – Guest Feedback
+
+| ID | Task | Requirement Refs | Status | Notes |
+|---|---|---|---|---|
+| TASK-FB-01 | Guest: submit star rating + written feedback after stay completed | FB-U-01, FB-U-02, FB-U-03 | 🔲 Todo | Gate: booking must be `completed` status |
+| TASK-FB-02 | Guest: view own previously submitted feedback | FB-U-04 | 🔲 Todo | |
+| TASK-FB-03 | Admin: view all feedback and ratings per homestay unit | FB-A-01 | 🔲 Todo | |
+| TASK-FB-04 | Admin: respond to guest feedback | FB-A-02 | 🔲 Todo | |
+| TASK-FB-05 | Admin: moderate / hide policy-violating feedback | FB-A-03 | 🔲 Todo | |
+| TASK-FB-06 | Display average rating on homestay unit listing page | FB-A-04 | 🔲 Todo | Calculated from approved feedback |
 
 ---
 
@@ -157,7 +203,8 @@
 |---|---|---|---|
 | TASK-INFRA-01 | Set up project (Laravel + Vite) | Refer to TECH_STACK.md | 🔲 Todo |
 | TASK-INFRA-02 | Configure database and run initial migrations | Refer to DB_SCHEMA.md | 🔲 Todo |
-| TASK-INFRA-03 | Set up scheduled task runner (cron) for jobs | Auto-cancel, reminders, QR expiry | 🔲 Todo |
+| TASK-INFRA-03 | Set up scheduled task runner (cron) for jobs | Auto-cancel, reminders, QR expiry, extension revert | 🔲 Todo |
 | TASK-INFRA-04 | Configure HTTPS / SSL certificate | NFR-02 | 🔲 Todo |
 | TASK-INFRA-05 | Write feature tests for booking flow | | 🔲 Todo |
 | TASK-INFRA-06 | Write feature tests for payment flow | | 🔲 Todo |
+| TASK-INFRA-07 | Write feature tests for extension payment window / auto-revert flow | QR-11, QR-12, QR-13, QR-14 | 🔲 Todo |

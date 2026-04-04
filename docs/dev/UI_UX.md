@@ -3,9 +3,9 @@
 
 | Field | Detail |
 |---|---|
-| **Document Version** | 1.0 |
+| **Document Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-03-03 |
+| **Last Updated** | 2026-04-05 |
 
 ---
 
@@ -95,6 +95,7 @@ Use an **8px base grid**. Common spacing values:
 | Cancelled | `--color-danger` (red) | Muted |
 | Blocked | `--color-neutral-700` (grey) | Muted |
 | Completed | `--color-primary` (blue) | Muted |
+| Extended | `--color-secondary` (teal) | Filled |
 
 ---
 
@@ -141,9 +142,12 @@ Use an **8px base grid**. Common spacing values:
 
 | Group | Items |
 |---|---|
-| **Dashboard** | Dashboard Overview |
+| **Dashboard** | Dashboard Overview, Reports & Analytics |
+| **Homestays** | All Units, Policies & Rules |
 | **Bookings** | Booking Calendar, All Bookings |
 | **Payments** | Bills, Payments |
+| **QR Access** | QR Codes, Housekeeping |
+| **Guests** | Feedback & Ratings |
 | **Users** | Manage Users |
 | **Access Control** | Roles, Permissions |
 | **Communication** | Chat |
@@ -234,6 +238,81 @@ Use an **8px base grid**. Common spacing values:
 [System: Auto-generate new QR for next booking]
 ```
 
+### 4.5 Admin: QR Code Validity Extension Flow
+
+```
+[Guest requests extension (time or date)]
+      │
+      ▼
+[Admin: Open booking → "Extend Stay" action]
+      │
+      ▼
+[System: Check availability for extended period]
+      │
+      ├── Conflict Found → [Show conflict message] → [Admin selects different time/date]
+      │
+      └── Available → [Show extension summary + extra charge amount]
+                              │
+                    [Admin confirms extension]
+                              │
+                    [System: Create extension record (pending_payment)]
+                    [System: Generate additional charge bill]
+                    [System: Set payment deadline based on unit's extension payment window]
+                              │
+                    [Guest notified: bill + payment deadline]
+                    (QR code is NOT extended yet)
+                              │
+                  ┌──────────────────────────┐
+                  │                          │
+       [Guest pays within deadline]    [Deadline expires (no payment)]
+                  │                          │
+       [Extension CONFIRMED]           [Extension CANCELLED (auto)]
+       [Booking updated to new dates]  [Booking reverts to original dates/times]
+       [QR code extended (valid_until  [QR code NOT extended]
+        updated to new checkout)]      [Guest notified of revert]
+       [Guest notified: success]
+```
+
+### 4.6 Guest: Feedback Submission Flow
+
+```
+[My Bookings → Completed stays]
+      │
+      ▼
+[Booking Detail → "Leave a Review" button]
+(Only visible if booking status = completed and no prior review)
+      │
+      ▼
+[Feedback Form]
+  - Star rating (1–5)
+  - Written comment (optional)
+      │
+      ▼
+[Submit → Thank you confirmation]
+      │
+      ▼
+[Review visible on unit listing page (average rating updated)]
+```
+
+### 4.7 Admin: Reporting & Analytics Flow
+
+```
+[Sidebar → Reports & Analytics]
+      │
+      ▼
+[Analytics Dashboard]
+  ┌───────────────────┐
+  │  Summary Cards         │  (Total Bookings, Revenue, Occupancy Rate, Cancellation Rate)
+  └───────────────────┘
+      │
+      ├─── [Booking Trends Chart (Daily/Weekly/Monthly toggle)]
+      ├─── [Revenue Report with filters (Date Range / Unit / Status)]
+      ├─── [Per-Unit Booking Breakdown]
+      └─── [Feedback & Rating Summary per Unit]
+                              │
+                    [Export Button → PDF or CSV download]
+```
+
 ---
 
 ## 5. Component Guidelines
@@ -297,6 +376,30 @@ Use an **8px base grid**. Common spacing values:
 - Timestamps shown beneath each message.
 - Typing indicator shown when the other party is typing.
 - Unread message badge on the conversation list.
+
+### 5.8 Star Rating Component
+
+- Display 5 clickable stars; selected and hovered stars fill with `--color-warning` (amber).
+- Show average rating (e.g., *4.2 ★*) on listing pages, calculated from all visible feedbacks.
+- Rating must be selected before the feedback form can be submitted.
+- Read-only star display used in admin feedback management and on listing pages.
+
+### 5.9 House Policies Display
+
+- Show policies as a vertical checklist with a distinctive icon (e.g., ❌ or ✅) per rule.
+- Display on the unit detail page in a clearly labelled **"House Rules"** section.
+- Policies are shown before the booking form is presented to the guest, ensuring visibility.
+- Admin policy management uses a simple add/remove list with inline editing.
+
+### 5.10 Reporting & Analytics Charts
+
+- Use **Chart.js** for all charts.
+- **Summary cards** at the top of the page with a large number and small label (e.g., *Total Revenue: RM 12,500*).
+- **Line chart** for booking trends over time with daily/weekly/monthly toggle.
+- **Bar chart** for per-unit booking breakdown.
+- **Doughnut/Pie chart** for booking status distribution.
+- All charts are responsive and include tooltips on hover.
+- Export button placed top-right of the reports section.
 
 ---
 

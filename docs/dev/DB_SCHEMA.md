@@ -3,9 +3,9 @@
 
 | Field | Detail |
 |---|---|
-| **Document Version** | 1.0 |
+| **Document Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-03-03 |
+| **Last Updated** | 2026-04-05 |
 
 ---
 
@@ -15,17 +15,21 @@
 2. [Entity-Relationship Diagram](#2-entity-relationship-diagram)
 3. [Table Definitions](#3-table-definitions)
    - [homestays](#31-homestays)
-   - [users](#32-users)
-   - [roles & permissions (Spatie)](#33-roles--permissions-spatie)
-   - [bookings](#34-bookings)
-   - [payments](#35-payments)
-   - [bills](#36-bills)
-   - [blocked_dates](#37-blocked_dates)
-   - [qr_codes](#38-qr_codes)
-   - [chat_conversations](#39-chat_conversations)
-   - [chat_messages](#310-chat_messages)
-   - [activity_logs](#311-activity_logs)
-   - [settings](#312-settings)
+   - [homestay_policies](#32-homestay_policies)
+   - [users](#33-users)
+   - [roles & permissions (Spatie)](#34-roles--permissions-spatie)
+   - [bookings](#35-bookings)
+   - [booking_extensions](#36-booking_extensions)
+   - [payments](#37-payments)
+   - [bills](#38-bills)
+   - [refunds](#39-refunds)
+   - [blocked_dates](#310-blocked_dates)
+   - [qr_codes](#311-qr_codes)
+   - [feedbacks](#312-feedbacks)
+   - [chat_conversations](#313-chat_conversations)
+   - [chat_messages](#314-chat_messages)
+   - [activity_log](#315-activity_log-spatie-activity-log)
+   - [settings](#316-settings)
 4. [Indexes & Keys Summary](#4-indexes--keys-summary)
 5. [Naming Conventions](#5-naming-conventions)
 
@@ -57,9 +61,19 @@ erDiagram
         time default_check_in_time
         time default_check_out_time
         boolean is_active
+        int extension_payment_window_minutes
         timestamps created_at
         timestamps updated_at
         timestamp deleted_at
+    }
+
+    homestay_policies {
+        bigint id PK
+        bigint homestay_id FK
+        string policy
+        boolean is_active
+        timestamps created_at
+        timestamps updated_at
     }
 
     users {
@@ -176,6 +190,20 @@ erDiagram
         timestamps updated_at
     }
 
+    feedbacks {
+        bigint id PK
+        bigint booking_id FK
+        bigint homestay_id FK
+        bigint user_id FK
+        tinyint rating
+        text comment
+        text admin_reply
+        boolean is_visible
+        timestamp replied_at
+        timestamps created_at
+        timestamps updated_at
+    }
+
     chat_conversations {
         bigint id PK
         bigint user_id FK
@@ -204,15 +232,38 @@ erDiagram
         timestamps updated_at
     }
 
+    booking_extensions {
+        bigint id PK
+        bigint booking_id FK
+        bigint created_by FK
+        date original_check_out_date
+        time original_check_out_time
+        date extended_check_out_date
+        time extended_check_out_time
+        string extension_type
+        decimal extra_charge_amount
+        bigint bill_id FK
+        timestamp payment_deadline
+        string status
+        timestamps created_at
+        timestamps updated_at
+    }
+
     homestays ||--o{ bookings : "hosts"
     homestays ||--o{ blocked_dates : "has"
+    homestays ||--o{ homestay_policies : "has"
+    homestays ||--o{ feedbacks : "receives"
     users ||--o{ bookings : "makes"
     users ||--o{ bills : "receives"
     users ||--o{ payments : "makes"
+    users ||--o{ feedbacks : "submits"
     bookings ||--|| bills : "generates"
     bookings ||--o{ payments : "has"
     bookings ||--o{ qr_codes : "has"
     bookings ||--o| refunds : "may have"
+    bookings ||--o| feedbacks : "may have"
+    bookings ||--o{ booking_extensions : "has"
+    booking_extensions ||--o| bills : "generates"
     payments ||--o| refunds : "generates"
     users ||--o{ chat_conversations : "has"
     chat_conversations ||--o{ chat_messages : "contains"
@@ -237,6 +288,7 @@ Stores all managed homestay units.
 | `default_check_in_time` | TIME | No | `15:00:00` | Default check-in time for this unit |
 | `default_check_out_time` | TIME | No | `12:00:00` | Default check-out time for this unit |
 | `is_active` | BOOLEAN | No | `true` | Whether the unit is visible and bookable |
+| `extension_payment_window_minutes` | INT UNSIGNED | No | `60` | Minutes the guest has to pay an extension charge before it auto-cancels (overrides system default) |
 | `created_at` | TIMESTAMP | No | | |
 | `updated_at` | TIMESTAMP | No | | |
 | `deleted_at` | TIMESTAMP | Yes | NULL | Soft delete timestamp |
@@ -247,7 +299,26 @@ Stores all managed homestay units.
 
 ---
 
-### 3.2 `users`
+### 3.2 `homestay_policies`
+
+Stores configurable house policies and rules per homestay unit. On unit creation, system-level default policies are automatically copied here.
+
+| Column | Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `id` | BIGINT UNSIGNED | No | AUTO_INCREMENT | Primary key |
+| `homestay_id` | BIGINT UNSIGNED | No | | FK → `homestays.id` |
+| `policy` | VARCHAR(500) | No | | The policy text (e.g., "No Smoking", "No Pets Allowed") |
+| `is_active` | BOOLEAN | No | `true` | Whether this policy is currently shown to guests |
+| `created_at` | TIMESTAMP | No | | |
+| `updated_at` | TIMESTAMP | No | | |
+
+**Indexes:** `INDEX(homestay_id)`
+
+> **System Default Policies** (seeded, applied to every new unit): *No Pets Allowed*, *No Durians*, *No Smoking*. Managed via the `settings` table key `policy.defaults`.
+
+---
+
+### 3.3 `users`
 
 Stores all system users (guests and admins).
 
@@ -275,7 +346,7 @@ Stores all system users (guests and admins).
 
 ---
 
-### 3.3 Roles & Permissions (Spatie)
+### 3.4 Roles & Permissions (Spatie)
 
 Managed by the `spatie/laravel-permission` package. The following tables are created automatically:
 
@@ -298,7 +369,7 @@ Refer to [Spatie Laravel Permission documentation](https://spatie.be/docs/larave
 
 ---
 
-### 3.4 `bookings`
+### 3.5 `bookings`
 
 The central table for all homestay reservations. Each booking is linked to a specific homestay unit.
 
@@ -335,7 +406,40 @@ The central table for all homestay reservations. Each booking is linked to a spe
 
 ---
 
-### 3.5 `payments`
+### 3.6 `booking_extensions`
+
+Records each booking extension request, its lifecycle (pending → confirmed/cancelled), and the revert details if payment is not made in time.
+
+| Column | Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `id` | BIGINT UNSIGNED | No | AUTO_INCREMENT | Primary key |
+| `booking_id` | BIGINT UNSIGNED | No | | FK → `bookings.id` |
+| `created_by` | BIGINT UNSIGNED | No | | Admin who initiated the extension (FK → `users.id`) |
+| `extension_type` | ENUM | No | | `time` (extend check-out time same day) or `date` (extend to a later date) |
+| `original_check_out_date` | DATE | No | | Original check-out date before extension |
+| `original_check_out_time` | TIME | No | | Original check-out time before extension |
+| `extended_check_out_date` | DATE | No | | Requested new check-out date |
+| `extended_check_out_time` | TIME | No | | Requested new check-out time |
+| `extra_charge_amount` | DECIMAL(10,2) | No | | Charge amount calculated at time of extension |
+| `bill_id` | BIGINT UNSIGNED | Yes | NULL | FK → `bills.id` (bill generated for extension charge) |
+| `payment_deadline` | TIMESTAMP | No | | Deadline by which the guest must pay (based on unit's extension payment window) |
+| `status` | ENUM | No | `pending_payment` | See status values below |
+| `created_at` | TIMESTAMP | No | | |
+| `updated_at` | TIMESTAMP | No | | |
+
+**Extension Status Values:**
+
+| Status | Description |
+|---|---|
+| `pending_payment` | Extension approved by admin; waiting for guest payment |
+| `confirmed` | Payment received; booking and QR code updated to new dates/times |
+| `cancelled` | Payment not received within deadline; booking reverted to original dates/times |
+
+**Indexes:** `INDEX(booking_id)`, `INDEX(status)`, `INDEX(payment_deadline)`
+
+---
+
+### 3.7 `payments`
 
 Records each payment transaction processed by the payment gateway.
 
@@ -359,7 +463,7 @@ Records each payment transaction processed by the payment gateway.
 
 ---
 
-### 3.6 `bills`
+### 3.7 `bills`
 
 Stores billing documents generated per booking.
 
@@ -381,7 +485,7 @@ Stores billing documents generated per booking.
 
 ---
 
-### 3.7 `refunds`
+### 3.8 `refunds`
 
 Tracks refund records for cancelled bookings.
 
@@ -400,7 +504,7 @@ Tracks refund records for cancelled bookings.
 
 ---
 
-### 3.8 `blocked_dates`
+### 3.9 `blocked_dates`
 
 Dates that admin has locked to prevent bookings on a specific unit.
 
@@ -419,7 +523,7 @@ Dates that admin has locked to prevent bookings on a specific unit.
 
 ---
 
-### 3.9 `qr_codes`
+### 3.10 `qr_codes`
 
 QR codes generated per booking for physical door access.
 
@@ -441,7 +545,29 @@ QR codes generated per booking for physical door access.
 
 ---
 
-### 3.10 `chat_conversations`
+### 3.11 `feedbacks`
+
+Stores guest post-stay ratings and written reviews for homestay units. One entry per completed booking.
+
+| Column | Type | Nullable | Default | Description |
+|---|---|---|---|---|
+| `id` | BIGINT UNSIGNED | No | AUTO_INCREMENT | Primary key |
+| `booking_id` | BIGINT UNSIGNED | No | | FK → `bookings.id` (must be `completed` status) |
+| `homestay_id` | BIGINT UNSIGNED | No | | FK → `homestays.id` (denormalized for easy querying) |
+| `user_id` | BIGINT UNSIGNED | No | | FK → `users.id` (the guest who submitted) |
+| `rating` | TINYINT UNSIGNED | No | | Star rating from 1 to 5 |
+| `comment` | TEXT | Yes | NULL | Written feedback from the guest |
+| `admin_reply` | TEXT | Yes | NULL | Admin's response to the feedback |
+| `replied_at` | TIMESTAMP | Yes | NULL | When the admin replied |
+| `is_visible` | BOOLEAN | No | `true` | Whether this feedback is publicly shown (admin can hide) |
+| `created_at` | TIMESTAMP | No | | |
+| `updated_at` | TIMESTAMP | No | | |
+
+**Indexes:** `UNIQUE(booking_id)` (one feedback per booking), `INDEX(homestay_id)`, `INDEX(user_id)`, `INDEX(is_visible)`
+
+---
+
+### 3.12 `chat_conversations`
 
 One conversation per user ↔ admin pairing.
 
@@ -457,7 +583,7 @@ One conversation per user ↔ admin pairing.
 
 ---
 
-### 3.11 `chat_messages`
+### 3.13 `chat_messages`
 
 Individual messages within a conversation.
 
@@ -476,7 +602,7 @@ Individual messages within a conversation.
 
 ---
 
-### 3.12 `activity_log` (Spatie Activity Log)
+### 3.14 `activity_log` (Spatie Activity Log)
 
 Managed by `spatie/laravel-activitylog`. Stores the audit trail.
 
@@ -494,7 +620,7 @@ Managed by `spatie/laravel-activitylog`. Stores the audit trail.
 
 ---
 
-### 3.13 `settings`
+### 3.15 `settings`
 
 Key-value store for all configurable system settings.
 
@@ -526,6 +652,10 @@ Key-value store for all configurable system settings.
 | `payment.refund_1week_pct` | `payment` | Refund % for <1 week cancellation (default: 25) |
 | `payment.refund_2week_pct` | `payment` | Refund % for <2 week cancellation (default: 50) |
 | `notification.email_enabled` | `notification` | `true`/`false` — global email toggle |
+| `extension.charge_per_hour` | `extension` | Extra charge per hour for booking time extension (e.g., `20.00`) |
+| `extension.charge_per_night` | `extension` | Extra charge per additional night for booking date extension (e.g., `150.00`) |
+| `extension.payment_window_minutes` | `extension` | System-wide default payment window (minutes) for extension charges before auto-cancel (default: `60`) |
+| `policy.defaults` | `policy` | JSON array of default policy strings pre-applied to new homestay units |
 
 ---
 
@@ -534,10 +664,12 @@ Key-value store for all configurable system settings.
 | Table | Key Type | Columns |
 |---|---|---|
 | `homestays` | INDEX | `is_active` |
+| `homestay_policies` | INDEX | `homestay_id` |
 | `users` | UNIQUE | `email` |
 | `users` | INDEX | `google_id` |
 | `bookings` | UNIQUE | `booking_number` |
 | `bookings` | INDEX | `homestay_id`, `user_id`, `status`, `check_in_date` |
+| `booking_extensions` | INDEX | `booking_id`, `status`, `payment_deadline` |
 | `bills` | UNIQUE | `bill_number` |
 | `bills` | INDEX | `booking_id` |
 | `payments` | UNIQUE | `payment_number`, `gateway_reference` |
@@ -545,6 +677,8 @@ Key-value store for all configurable system settings.
 | `blocked_dates` | INDEX | `homestay_id`, `date` |
 | `qr_codes` | UNIQUE | `token` |
 | `qr_codes` | INDEX | `booking_id`, `status` |
+| `feedbacks` | UNIQUE | `booking_id` |
+| `feedbacks` | INDEX | `homestay_id`, `user_id`, `is_visible` |
 | `chat_conversations` | UNIQUE | `user_id` |
 | `settings` | UNIQUE | `key` |
 

@@ -18,11 +18,11 @@
 
 ## Project Overview
 
-**HomeLodge** is a web-based homestay booking system designed to manage the complete lifecycle of a homestay reservation — from account registration and booking, through payment processing and QR-code door access, to post-stay administration and audit logging.
+**HomeLodge** is a web-based homestay booking system designed to manage the complete lifecycle of a homestay reservation — from account registration and booking, through payment processing and QR-code door access, to post-stay feedback and analytics.
 
 The system serves two primary roles:
-- **Users (Guests):** Register, browse availability, create bookings, make payments, receive notifications, and communicate with admin via chat.
-- **Administrators:** Manage bookings, users, roles, permissions, payments, system settings, and monitor all activity through audit logs.
+- **Users (Guests):** Register, browse multiple homestay units with their individual policies, create bookings, make payments, receive notifications, communicate with admin via chat, and submit post-stay feedback.
+- **Administrators:** Manage bookings, users, roles, permissions, payments, system settings, QR code access (including validity extension), reporting & analytics, guest feedback, and homestay house policies. All operational values are end-to-end configurable — nothing is hardcoded.
 
 ---
 
@@ -31,15 +31,18 @@ The system serves two primary roles:
 | Feature | Users | Admin |
 |---|---|---|
 | Authentication (Email / Google SSO) | ✅ | ✅ |
-| Booking Management | ✅ | ✅ |
+| Multi-Homestay Browsing & Booking | ✅ | ✅ |
+| Homestay House Policies (per unit) | ✅ (view) | ✅ (manage) |
 | Payment Processing (Gateway + Webhook) | ✅ | ✅ |
-| QR Code Door Access | — | ✅ |
+| QR Code Door Access + Validity Extension | — | ✅ |
 | Real-time Chat (WebSocket) | ✅ | ✅ |
-| Notificaitons (In-App & Email) | ✅ | ✅ |
+| Notifications (In-App & Email) | ✅ | ✅ |
 | Google Calendar Integration | ✅ | ✅ |
+| Guest Feedback & Ratings | ✅ (submit) | ✅ (manage) |
+| Reporting & Analytics Dashboard | — | ✅ |
 | Role & Permission Management | — | ✅ |
 | User Management | — | ✅ |
-| System Settings & Security | — | ✅ |
+| System Settings (fully configurable) | — | ✅ |
 | Audit Logs | — | ✅ |
 
 ---
