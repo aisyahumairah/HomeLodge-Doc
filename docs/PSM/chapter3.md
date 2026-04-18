@@ -2,35 +2,37 @@
 
 ## 3.1 Introduction
 
-This chapter describes the approach used to develop HomeLodge. It begins by justifying the selection of the Waterfall model as the development methodology and then details each phase involved. The chapter then lists the hardware and software used during development, followed by a description of the technologies integrated into the system. It closes with a detailed specification of the system's inputs and outputs across all modules.
+This chapter describes the approach used to develop HomeLodge. It begins by justifying the selection of a hybrid development methodology that combines the Waterfall model for the planning and analysis phases with the Agile model for the implementation and testing phases. The Scrum framework and Kanban Board are used within the Agile phase to structure and track development work. The chapter then details each phase of the methodology, lists the hardware and software used during development, describes the technologies integrated into the system, and closes with a detailed specification of the system inputs and outputs across all modules.
 
 ---
 
 ## 3.2 Justification of Methodology Selection
 
-As established in Section 2.5, four software development methodologies were considered for this project: Waterfall, Agile, Rapid Application Development (RAD), and the Iterative model. Waterfall was selected. The reasons are specific to this project's constraints.
+As established in Section 2.5, four software development methodologies were considered for this project: Waterfall, Agile, Rapid Application Development (RAD), and the Iterative model. A hybrid methodology combining Waterfall and Agile was selected. The reasons are specific to this project's constraints.
 
-HomeLodge was designed with a fixed scope. All functional and non-functional requirements were gathered, reviewed, and documented in full before any implementation began. The system has thirteen defined modules, each with clear acceptance criteria. These requirements did not change between the design phase and the implementation phase. Under these conditions, the adaptive behaviour that Agile and RAD are built around — frequent scope adjustment, working software delivered in short cycles, sustained stakeholder review between cycles — becomes unnecessary overhead rather than a benefit.
+The planning and analysis phases of HomeLodge require the structured, document-driven approach of Waterfall. All functional and non-functional requirements must be gathered, reviewed, and documented in full before any implementation begins. The system has thirteen defined modules, each with clear acceptance criteria. These requirements are fixed before development starts. Under these conditions, producing formal phase-level documentation and a complete system design before writing any code is both necessary and practical. Waterfall imposes this discipline by requiring each phase to be completed and documented before the next begins, which aligns with the academic deliverables this report must produce.
 
-The Waterfall model structures development into sequential phases: requirements analysis, system design, implementation, testing, and deployment. Each phase produces a documented output, and the next phase does not begin until the previous one is complete. This structure suits a project where all requirements are known at the start and where changing them mid-development would require coordinated changes to several documents, database tables, and module interfaces simultaneously.
+The implementation and testing phases require a different approach. Developing thirteen modules sequentially within a single undivided implementation phase provides no mechanism for tracking progress at the task level, managing the order in which modules are built, or identifying stalled work before it affects the overall schedule. Agile addresses this through iterative delivery. Development is divided into time-boxed sprints using the Scrum framework. At the start of each sprint, a defined set of modules or features is selected for development. Progress within the sprint is tracked using a Kanban Board, which displays each task in one of three states: To Do, In Progress, or Done. This makes work-in-progress visible and allows impediments to be identified and resolved quickly.
 
-There is a second practical reason. The phases of the Waterfall model map directly onto the chapters of this report. The requirements analysis phase corresponds to the requirements gathered in Chapter 3. The system design phase corresponds to the database schema and module design also documented in this chapter. The implementation phase corresponds to Chapter 4. Testing corresponds to Chapter 5. A methodology that produces these specific outputs at defined intervals suits an academic project where documentation and software carry equal weight.
+The hybrid model retains the formal documentation structure of Waterfall for the phases where it is most valuable, and applies the iterative momentum and task-level transparency of Agile where they are needed most.
 
 ---
 
 ## 3.3 Software Development Methodology
 
-HomeLodge was developed following the Waterfall model, divided into five sequential phases as described below.
+HomeLodge was developed using a hybrid methodology that applies the Waterfall model to the planning and analysis phases and the Agile model to the implementation and testing phases. The Scrum framework governs sprint structure during the Agile phase, and a Kanban Board is used to track the status of each development task within every sprint. Figure 3.1 illustrates the overall methodology structure.
 
-### 3.3.1 Phase 1: Requirements Analysis
+The phases are described below.
 
-This phase involved collecting and documenting all user and system requirements for HomeLodge. The User Requirements Specification (URS) and Product Requirements Document (PRD) were produced during this phase. Requirements were gathered by examining how small-scale homestay operators currently manage bookings, identifying the recurring failures of the manual process, and comparing what existing platforms provide against what is specifically needed.
+### 3.3.1 Phase 1: Requirements Analysis (Waterfall)
 
-The output of this phase was a full requirements specification covering both user roles — Guest and Admin — across thirteen functional modules: Authentication, Homestay Management, Booking, Payment, Notification, Chat, User Management, Role and Permission Management, System Settings, Audit Logs, QR Code Door Access, Reporting and Analytics, and Guest Feedback.
+This phase followed the Waterfall approach. All user and system requirements for HomeLodge were collected and documented in full before any implementation began. The User Requirements Specification (URS) and Product Requirements Document (PRD) were produced during this phase. Requirements were gathered by examining how small-scale homestay operators currently manage bookings, identifying the recurring failures of the manual process, and comparing what existing platforms provide against what is specifically needed.
 
-### 3.3.2 Phase 2: System Design
+The output of this phase was a complete requirements specification covering both user roles — Guest and Admin — across thirteen functional modules: Authentication, Homestay Management, Booking, Payment, Notification, Chat, User Management, Role and Permission Management, System Settings, Audit Logs, QR Code Door Access, Reporting and Analytics, and Guest Feedback. This phase was completed and its outputs reviewed and approved before Phase 2 began.
 
-With the requirements fixed, the system design phase produced three outputs.
+### 3.3.2 Phase 2: System Design (Waterfall)
+
+This phase also followed the Waterfall approach. With the requirements fixed, three design outputs were produced.
 
 The first was the database schema. Each table was designed to support at least one functional requirement. Foreign key constraints, soft delete columns, and index definitions were established at this stage, before any migration files were written.
 
@@ -38,21 +40,34 @@ The second was the use case diagram. This documents the interactions each user r
 
 The third was the user interface design. Page layouts for both the guest interface and the admin interface were sketched, covering the booking flow, the admin dashboard, and the QR code management workflow.
 
-### 3.3.3 Phase 3: Implementation
+This phase was completed in full before implementation began. No module development started until the schema, use case diagram, and interface designs were finalised.
 
-The implementation phase translated the design outputs into working code. Development followed a module-by-module approach, starting with Authentication, then Homestay Management, then Booking, and proceeding through the remaining modules in an order that respected data dependencies — for example, the Payment module was not started until the Booking module was functional, because payment records reference confirmed booking records.
+### 3.3.3 Phase 3: Implementation (Agile — Scrum with Kanban Board)
 
-Each module was developed until it met the acceptance criteria defined in the PRD, at which point development of the next module began.
+The implementation phase applied the Agile approach. Development was organised into sprints using the Scrum framework. Each sprint targeted a defined set of modules. The sprint cycle began with sprint planning, during which the modules to be developed in that sprint were selected based on data dependencies — for example, the Payment module was not scheduled for a sprint until the Booking module was functional, because payment records reference confirmed booking records.
 
-### 3.3.4 Phase 4: Testing
+Within each sprint, a Kanban Board was used to manage and track task progress. Each development task was represented as a card on the board and moved through the following columns as work progressed:
 
-Once all modules were implemented, the system was tested against the functional and non-functional requirements. Testing covered authentication flows, booking availability checks, payment integration, QR code generation and expiry, extension auto-cancellation, role-based access enforcement, and notification delivery.
+| Column | Description |
+|---|---|
+| To Do | Tasks planned for the current sprint that have not yet started |
+| In Progress | Tasks actively under development |
+| In Review / Testing | Tasks completed and under self-review or unit testing |
+| Done | Tasks that meet the acceptance criteria defined in the PRD |
+
+Each module was developed until it met its acceptance criteria, at which point its card was moved to Done and the next module's sprint began.
+
+### 3.3.4 Phase 4: Testing (Agile — Scrum with Kanban Board)
+
+Testing was conducted iteratively alongside and immediately after implementation, in keeping with the Agile approach. Each module was tested against its functional and non-functional requirements as soon as it was implemented, rather than deferring all testing to the end of development.
+
+The Kanban Board continued to be used during this phase. Testing tasks were tracked as separate cards alongside implementation tasks, allowing defects to be identified, fixed, and re-tested within the same or the following sprint. Testing covered authentication flows, booking availability checks, payment integration, QR code generation and expiry, extension auto-cancellation, role-based access enforcement, and notification delivery.
 
 The full test results and discussion are documented in Chapter 5.
 
-### 3.3.5 Phase 5: Deployment
+### 3.3.5 Phase 5: Deployment (Waterfall)
 
-The completed system was deployed to a server environment with Nginx, PHP-FPM, MySQL 8, and Redis. Queue workers were started for background job processing, and the Laravel Scheduler was configured to run at one-minute intervals through the server's cron service. SSL/TLS was enabled using Let's Encrypt.
+The completed and fully tested system was deployed to a server environment with Nginx, PHP-FPM, MySQL 8, and Redis. Queue workers were started for background job processing, and the Laravel Scheduler was configured to run at one-minute intervals through the server's cron service. SSL/TLS was enabled using Let's Encrypt. Deployment followed a sequential checklist consistent with the Waterfall phase structure, as all prior phases were complete before this step began.
 
 ---
 
@@ -372,7 +387,7 @@ This section lists all outputs produced by the system. An output is any informat
 
 ## 3.6 Chapter Summary
 
-This chapter described the development approach used for HomeLodge. The Waterfall model was selected because the system requirements were fully defined before development began, the scope did not change once implementation started, and the phase structure produces the specific documentation outputs that this report requires. Each Waterfall phase — requirements analysis, system design, implementation, testing, and deployment — is completed sequentially, and the output of each phase forms the basis of the next.
+This chapter described the development approach used for HomeLodge. A hybrid methodology combining Waterfall and Agile was selected. Waterfall governs the planning and analysis phases — requirements analysis and system design — where stable, formal documentation must be produced before any implementation begins. Agile, structured through the Scrum framework and managed using a Kanban Board, governs the implementation and testing phases. Development was divided into sprints, with each sprint targeting a defined set of modules. The Kanban Board tracked each task's status throughout the sprint, making progress visible and enabling impediments to be resolved quickly. Deployment concluded the process following a sequential checklist once all prior phases were complete.
 
 The technologies used in the system are Laravel 11 with PHP 8.2 for the backend, Blade with Alpine.js and Bootstrap 5 for the frontend, MySQL 8 with Eloquent ORM for the database, and Laravel Reverb with Echo for real-time communication. Supporting packages handle authentication, role-based access control, QR code generation, audit logging, PDF generation, and notification delivery. The payload and scheduling structure of the application's background jobs are designed to handle auto-cancellation, QR expiry, and extension revert without manual administrative intervention.
 

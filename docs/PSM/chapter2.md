@@ -104,13 +104,15 @@ The Waterfall model is a sequential software development approach in which each 
 
 Each phase produces a documented output, which makes progress traceable and the scope of each stage well-defined. This property is useful for projects with formal milestone reviews and fixed deliverables. The limitation is inflexibility: if a requirement is found to be incomplete or incorrect during implementation, the team must return to an earlier phase, which can disrupt the schedule.
 
-For HomeLodge, the system requirements were documented in full before development began and the scope does not change once implementation starts. In this context, the sequential structure of Waterfall is a practical match rather than a constraint.
+For HomeLodge, the sequential structure of Waterfall is applied to the early phases of the project — requirements analysis and system design — where comprehensive, stable documentation must be produced before any code is written. This ensures that the full scope is established and agreed upon before implementation begins.
 
 ### 2.5.2 Agile Model
 
 The Agile model is an iterative and incremental approach to software development. Development is divided into short cycles, typically two to four weeks long, with a working version of the system delivered at the end of each cycle (Beck et al., 2001). Requirements are expected to evolve throughout the project, and the development team adjusts priorities based on feedback received at the end of each cycle.
 
-Agile is appropriate when the final requirements cannot be fully defined at the start and when stakeholders are available to give feedback regularly. In an academic project setting, sustained stakeholder availability throughout development is difficult to guarantee, and the absence of formal phase-level documentation can make it harder to structure the written report around the development process.
+Agile frameworks such as Scrum structure development work into time-boxed iterations called sprints. Within each sprint, tasks are managed and tracked using a Kanban Board — a visual workflow tool that organises work items into columns representing their current state, typically To Do, In Progress, and Done. The Kanban Board provides continuous visibility of task status and prevents work from stalling by making bottlenecks immediately apparent.
+
+For HomeLodge, Agile practices are applied to the implementation and testing phases, where the thirteen system modules are developed incrementally. Scrum provides the sprint structure that governs how modules are prioritised and delivered. The Kanban Board tracks the status of each development task within every sprint, ensuring that progress remains visible and manageable throughout the implementation phase.
 
 ### 2.5.3 Rapid Application Development (RAD)
 
@@ -124,7 +126,7 @@ The Iterative model develops a system through a series of repeated cycles, each 
 
 The model is useful when a large system must be broken into independently deliverable pieces for verification, or when design decisions made in early cycles need to be adjusted before the next cycle begins. This reduces the risk of a significant late-stage design error requiring rework of the entire system.
 
-The limitation for this project is similar to Agile: the iterative model works best when requirements are not fully defined at the start and when there is room to refine scope between cycles. For HomeLodge, the full requirements were documented and fixed before development began. The flexibility that the iterative model provides is not needed here, and the additional planning overhead of managing multiple iteration boundaries does not add value when the system scope is already known in full.
+The limitation for this project is that the iterative model works best when requirements are not fully defined at the start. For HomeLodge, the full requirements were documented and fixed before development began, so the additional planning overhead of managing multiple iteration boundaries does not add value when the system scope is already known in full.
 
 ### 2.5.5 Methodology Comparison and Selection
 
@@ -141,7 +143,9 @@ Table 2.2: Comparison of Software Development Methodologies
 | Risk of technical debt | Low | Medium | High | Low |
 | Stakeholder involvement required | Low | High | Medium | Low |
 
-As Table 2.2 shows, the Waterfall model scores highest on documentation output and suitability for a fixed-scope academic project. The system requirements were fully defined before development began, the scope does not change once implementation is underway, and the phase-based structure produces the specific outputs that a PSM report requires at each stage: a requirements specification, a system design, implementation records, and test results. These outputs correspond to Chapters 3, 4, and 5 of this report. Agile, RAD, and the Iterative model each provide flexibility that is well-suited to projects where requirements are expected to change, but that flexibility is not applicable here. Waterfall was selected as the development methodology for HomeLodge.
+As Table 2.2 shows, no single methodology satisfies every requirement of this project in isolation. Waterfall produces extensive documentation and is well-suited to a fixed-scope academic project, but its sequential structure makes implementation progress difficult to manage and track within a single large phase. Agile provides an effective framework for managing and delivering incremental development work, but it is not designed to produce the formal upfront documentation that a PSM report requires.
+
+A hybrid methodology combining Waterfall and Agile was therefore selected for HomeLodge. Under this model, the Waterfall approach governs the planning and analysis phases: requirements are gathered and documented in full, and the system is designed completely before any implementation begins. This ensures the stability and traceability that a formal academic project demands. Once the design phase is complete, the Agile approach governs the implementation and testing phases. Development is divided into sprints using the Scrum framework, and a Kanban Board is used to track the status of each task throughout each sprint. This combination retains the structured documentation of Waterfall for the phases where it is most valuable, while applying the momentum and transparency of Agile where sustained iterative progress is needed.
 
 ---
 
@@ -295,6 +299,6 @@ The current systems analysis found that the specific tools used — WhatsApp, Te
 
 The comparison of Airbnb, Booking.com, and MySyok showed that each platform handles availability and payment adequately, but all three operate as public marketplaces. None supports QR code door access, booking extensions with a payment workflow, fine-grained role-based access control, or private operation without public listing and per-booking commission. These are the gaps HomeLodge is built to fill.
 
-The methodology review compared four approaches: Waterfall, Agile, Rapid Application Development, and the Iterative model. All four are established methodologies for software development projects, but they differ in how well they suit a project with fixed requirements and formal documentation deliverables. Waterfall was selected because the requirements for HomeLodge are fully defined before development begins, the scope does not change once implementation starts, and the phase outputs that Waterfall requires — requirements specification, system design, implementation, and test report — map directly to the chapters of this PSM report.
+The methodology review compared four approaches: Waterfall, Agile, Rapid Application Development, and the Iterative model. No single methodology satisfies all requirements of this project in isolation. A hybrid methodology combining Waterfall and Agile was selected. Waterfall governs the planning and analysis phases, producing the complete requirements specification and system design before implementation begins. Agile, structured through Scrum and managed using a Kanban Board, governs the implementation and testing phases, providing an incremental and trackable approach to delivering the thirteen functional modules of HomeLodge.
 
 The technology review selected Laravel 11 as the backend framework, Blade with Alpine.js and Bootstrap 5 for the frontend, MySQL 8 with Eloquent ORM for the database, Laravel Reverb and Echo for real-time communication, and supporting packages for authentication, RBAC, QR code generation, payment, and notifications. Each choice was made to reduce external dependencies, keep the integration surface small, and focus development effort on the system's business logic rather than its infrastructure.
