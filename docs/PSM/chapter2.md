@@ -10,11 +10,11 @@ This chapter reviews existing literature and related systems relevant to the dev
 
 ### 2.2.1 Background of the Organisation
 
-This project is based on the operational situation of independent homestay operators in Malaysia who manage between two and five residential properties. The properties are typically terrace houses, apartments, or studio units, rented to guests for short stays ranging from one night to a few weeks. The operator is usually absent during the guest's stay, and the guest occupies the entire property rather than a shared room within a larger building.
+This project is based on the operational situation of independent homestay operators in Malaysia who manage between two and five residential properties. The properties are typically terrace houses, apartments, or studio units rented to guests for short stays ranging from one night to a few weeks. The operator is usually absent during the guest's stay, and the guest occupies the entire property rather than a shared room within a larger building.
 
 The short-term rental market in Malaysia has grown over the past decade alongside domestic tourism. Many operators started with one property and added more over time. A single unit is manageable: bookings are infrequent enough to track without a formal system, payments follow a predictable pattern, and the whole operation fits within a single person's phone. The situation changes when a second or third unit is added. Five units running simultaneously requires five separate availability records to be maintained, five sets of payments to be monitored, and on a busy weekend, five different guests potentially checking in and out on the same day. That volume of coordination does not work when the only tool available is a mobile phone and a collection of chat threads.
 
-HomeLodge is designed for this operational context. It is not intended for hotel chains or online travel agencies. The target user is an operator with a small number of properties who manages the business personally and requires a booking system that they own and configure independently.
+HomeLodge is designed for this operational context. It is not intended for hotel chains or online travel agencies. The target user is an operator with a small number of properties who manages the business personally and needs a booking system that they own and configure independently.
 
 ### 2.2.2 Manual Operations
 
@@ -22,9 +22,9 @@ The booking process used by these operators is not documented anywhere. It is su
 
 When a guest enquires about availability, the operator consults a personal calendar or an Excel spreadsheet and checks the dates against booking records stored in a notes application or an earlier chat thread. If the requested dates are free, the operator confirms this and instructs the guest to pay by bank transfer. The guest sends a screenshot of the transfer, the operator verifies it manually, and the booking is recorded in the calendar with the guest's name and contact number.
 
-Access to the property requires a physical handover. The operator, or a member of their family, meets the guest at the property to hand over the key. When two properties have guests arriving at similar times, the operator cannot be present at both simultaneously. At check-out, the guest returns the key or leaves it inside the property. The operator then visits to collect it, inspect the unit, and arrange cleaning before the next guest's arrival.
+Access to the property requires a physical handover. The operator, or a member of their family, meets the guest at the property to hand over the key. When two properties have guests arriving at similar times, the operator cannot be present at both simultaneously. At check-out, the guest returns the key or leaves it inside the property. The operator then visits to collect it, inspect the unit, and arrange cleaning before the next guest arrives.
 
-Reminders for upcoming check-ins, pending payments, and check-outs are sent manually through a messaging application, one at a time. When several units are active in the same week, it is straightforward to lose track of which reminders have been sent to which guests. A payment reminder that is not sent can result in a booking that lapses without either party becoming aware until after the date has passed.
+Reminders for upcoming check-ins, pending payments, and check-outs are sent manually through a messaging application, one at a time. When several units are active in the same week, it is easy to lose track of which reminders have been sent to which guests. A payment reminder that is not sent can result in a booking that lapses without either party noticing until after the date has passed.
 
 Booking extensions are handled informally. The guest makes a request over chat, the operator checks whether the unit is available, quotes an additional charge verbally, and waits for a further bank transfer before confirming. No formal record is created. If a dispute arises later regarding whether the extension was agreed or whether payment was received, the only available evidence is the chat thread.
 
@@ -42,7 +42,7 @@ Google Calendar and Microsoft Excel fill some of the gaps left by the messaging 
 
 These tools do not integrate with one another. The complete sequence of steps for processing a single booking typically involves confirming availability in the calendar, replying to the guest in WhatsApp, waiting for a payment screenshot, verifying the screenshot, updating the Excel record, updating the calendar, and remembering to send the check-in instructions at the right time. None of these steps is automated. If one is skipped or recorded incorrectly, the error propagates silently until it causes a visible problem — a double booking, a missing payment record, or a guest who arrives without receiving access instructions.
 
-These tools were not designed for homestay management. They are general-purpose applications used for a specific operational purpose, and the reliability of that use depends entirely on the operator executing every manual step correctly, every time.
+These tools were not designed for homestay management. They are general-purpose applications repurposed for a specific operational task, and the reliability of that use depends entirely on the operator executing every manual step correctly, every time.
 
 ---
 
@@ -56,7 +56,7 @@ Airbnb is an online accommodation marketplace founded in 2008. Hosts list proper
 
 For an operator currently managing bookings through WhatsApp and a spreadsheet, Airbnb addresses several of the problems described in Section 2.2. Availability is centralised in one place, payment is processed and deposited automatically, and communication with guests happens within the platform rather than in a personal messaging application. The host dashboard shows upcoming bookings and cumulative earnings without requiring the operator to maintain a separate spreadsheet.
 
-The limitation is structural. Airbnb governs the platform, not the operator. The rules for cancellations, dispute resolution, and service fees are set by Airbnb and cannot be changed by the host. Every confirmed booking incurs a platform commission. Properties must be listed publicly, which means the operator's guest records and pricing are held on a third-party platform. Operators who want to manage direct bookings without public marketplace exposure and without per-booking fees cannot achieve this through Airbnb. The platform has no QR code door access feature and no structured workflow for booking extensions.
+The limitation is structural. Airbnb governs the platform, not the operator. The rules for cancellations, dispute resolution, and service fees are set by Airbnb and cannot be changed by the host. Every confirmed booking incurs a platform commission. Properties must be listed publicly, which means the operator's guest records and pricing are held on a third-party platform. Operators who want to manage direct bookings without public marketplace exposure and without per-booking fees cannot do this through Airbnb. The platform has no QR code door access feature and no structured workflow for booking extensions.
 
 ### 2.4.2 Booking.com
 
@@ -70,7 +70,7 @@ The same structural constraint that applies to Airbnb applies to Booking.com. It
 
 MySyok is a Malaysian short-term rental platform that connects property owners with domestic travellers (MySyok, 2024). Property owners list units, manage availability, and receive bookings through the platform. It supports Bahasa Malaysia and is oriented to the local rental market.
 
-MySyok addresses localisation requirements that Airbnb and Booking.com do not meet, including local payment methods and language support. However, it operates on the same marketplace model. Operators list publicly and are subject to the platform's commission and policy structure. There is no in-platform messaging between guest and host, no QR code door access feature, no role and permission management system, and no booking extension workflow. The house policies that guests can see are limited to whatever the platform exposes, not what the operator configures independently.
+MySyok addresses localisation requirements that Airbnb and Booking.com do not meet, including local payment methods and language support. However, it operates on the same marketplace model. Operators list publicly and are subject to the platform's commission and policy structure. There is no in-platform messaging between guest and host, no QR code door access feature, no role and permission management system, and no booking extension workflow. The house policies visible to guests are limited to whatever the platform exposes, not what the operator configures independently.
 
 ### 2.4.4 Comparison Summary
 
@@ -92,7 +92,7 @@ Table 2.1: Comparison of Existing Booking Systems
 | Configurable system settings | No | No | No | Yes |
 | No per-booking marketplace commission | No | No | No | Yes |
 
-Table 2.1 shows that all three platforms provide online availability management and payment processing, which removes the most immediate failures of the manual process described in Section 2.2. What none of them provides is the ability to operate privately without marketplace exposure, manage physical door access through QR codes, process booking extensions through a formal payment workflow, or apply role-based access control to administrative functions. These are the specific requirements that HomeLodge addresses.
+Table 2.1 shows that all three platforms provide online availability management and payment processing, which removes the most immediate failures of the manual process described in Section 2.2. What none of them provides is the ability to operate privately without marketplace exposure, manage physical door access through QR codes, process booking extensions through a formal payment workflow, or apply role-based access control to administrative functions. These are the specific gaps HomeLodge is built to address.
 
 ---
 
@@ -100,7 +100,7 @@ Table 2.1 shows that all three platforms provide online availability management 
 
 ### 2.5.1 Waterfall Model
 
-The Waterfall model is a sequential software development approach in which each phase — requirements gathering, system design, implementation, testing, and deployment — must be completed before the next begins (Royce, 1970). The model is founded on the assumption that requirements can be fully captured and agreed on before any code is written, and that they will not change substantively during development.
+The Waterfall model is a sequential software development approach in which each phase — requirements gathering, system design, implementation, testing, and deployment — must be completed before the next begins (Royce, 1970). The model assumes that requirements can be fully captured and agreed on before any code is written, and that they will not change materially during development.
 
 Each phase produces a documented output, which makes progress traceable and the scope of each stage well-defined. This property is useful for projects with formal milestone reviews and fixed deliverables. The limitation is inflexibility: if a requirement is found to be incomplete or incorrect during implementation, the team must return to an earlier phase, which can disrupt the schedule.
 
@@ -118,11 +118,11 @@ For HomeLodge, Agile practices are applied to the implementation and testing pha
 
 Rapid Application Development prioritises working prototypes over formal upfront planning (Martin, 1991). Users review working prototypes early in the process, and the system is refined through repeated short cycles of building and incorporating feedback.
 
-RAD is appropriate when the project scope is narrow and the developer can move quickly between versions. The risk specific to this project is that RAD treats documentation as secondary to delivery speed. In a final year project where the written documentation carries equal academic weight to the software itself, a methodology that minimises documentation effort creates a conflict with the project's assessment requirements.
+RAD is appropriate when the project scope is narrow and the developer can move quickly between versions. The risk specific to this project is that RAD treats documentation as secondary to delivery speed. In a final year project where the written documentation carries equal academic weight to the software itself, a methodology that minimises documentation effort conflicts directly with the project's assessment requirements.
 
 ### 2.5.4 Iterative Model
 
-The Iterative model develops a system through a series of repeated cycles, each of which produces a more complete version of the system than the one before (Larman & Basili, 2003). Unlike Agile, it does not require short fixed-length sprints or continuous stakeholder review sessions. Each cycle covers requirements analysis, design, implementation, and testing, but only for a defined portion of the system's functionality. The output of each cycle informs the scope of the next.
+The Iterative model develops a system through a series of repeated cycles, each producing a more complete version of the system than the one before (Larman & Basili, 2003). Unlike Agile, it does not require short fixed-length sprints or continuous stakeholder review sessions. Each cycle covers requirements analysis, design, implementation, and testing, but only for a defined portion of the system's functionality. The output of each cycle informs the scope of the next.
 
 The model is useful when a large system must be broken into independently deliverable pieces for verification, or when design decisions made in early cycles need to be adjusted before the next cycle begins. This reduces the risk of a significant late-stage design error requiring rework of the entire system.
 
@@ -143,7 +143,7 @@ Table 2.2: Comparison of Software Development Methodologies
 | Risk of technical debt | Low | Medium | High | Low |
 | Stakeholder involvement required | Low | High | Medium | Low |
 
-As Table 2.2 shows, no single methodology satisfies every requirement of this project in isolation. Waterfall produces extensive documentation and is well-suited to a fixed-scope academic project, but its sequential structure makes implementation progress difficult to manage and track within a single large phase. Agile provides an effective framework for managing and delivering incremental development work, but it is not designed to produce the formal upfront documentation that a PSM report requires.
+As Table 2.2 shows, no single methodology satisfies every requirement of this project in isolation. Waterfall produces extensive documentation and is well-suited to a fixed-scope academic project, but its sequential structure makes implementation progress difficult to manage and track within a single large phase. Agile provides an effective framework for delivering incremental development work, but it is not designed to produce the formal upfront documentation that a PSM report requires.
 
 A hybrid methodology combining Waterfall and Agile was therefore selected for HomeLodge. Under this model, the Waterfall approach governs the planning and analysis phases: requirements are gathered and documented in full, and the system is designed completely before any implementation begins. This ensures the stability and traceability that a formal academic project demands. Once the design phase is complete, the Agile approach governs the implementation and testing phases. Development is divided into sprints using the Scrum framework, and a Kanban Board is used to track the status of each task throughout each sprint. This combination retains the structured documentation of Waterfall for the phases where it is most valuable, while applying the momentum and transparency of Agile where sustained iterative progress is needed.
 
@@ -177,7 +177,7 @@ Blade with Alpine.js and Bootstrap 5 was selected for the frontend.
 
 MySQL is a relational database management system that stores data in structured tables, enforces referential integrity through foreign key constraints, and supports atomic transactions (MySQL Documentation, 2024). A transaction is a group of database operations that must all succeed or all be reversed together. Transactions are relevant to HomeLodge because operations such as booking confirmation involve writing to several tables simultaneously — the booking record, the billing record, and the QR code record — and all of those writes must either complete together or be rolled back together if one fails.
 
-Eloquent ORM is Laravel's built-in mapping layer between PHP model classes and MySQL tables. It represents relationships between tables as method calls on model objects, which keeps query logic consistent across the codebase and reduces the amount of raw SQL written directly. In HomeLodge, a booking record relates to a user, a homestay unit, one or more payment records, a QR code record, and potentially one or more extension records; Eloquent manages these relationships without requiring custom join logic in every query.
+Eloquent ORM is Laravel's built-in mapping layer between PHP model classes and MySQL tables. It represents relationships between tables as method calls on model objects, keeping query logic consistent across the codebase and reducing the amount of raw SQL written directly. In HomeLodge, a booking record relates to a user, a homestay unit, one or more payment records, a QR code record, and potentially one or more extension records; Eloquent manages these relationships without requiring custom join logic in every query.
 
 MariaDB was considered as an alternative. It is binary-compatible with MySQL and performs comparably on typical web application workloads. MySQL was chosen because it is the default database in the majority of Laravel hosting environments and has broader coverage in Laravel-specific documentation and community resources.
 
@@ -259,11 +259,11 @@ This section reviews academic and industry literature relevant to the major tech
 
 Web application frameworks provide pre-built abstractions for routing, data access, session management, and input handling. The JetBrains Developer Ecosystem Survey (2023), which collected responses from over 26,000 software developers globally, recorded Laravel as the most widely used PHP framework among professional developers. W3Techs (2024) reports that PHP is used as the server-side language by approximately 77% of all websites whose server-side technology is identifiable, which reflects the scale and activity of the PHP ecosystem.
 
-Waheed, Ahmad, and Iqbal (2021) compared PHP, Python, and Node.js as backend options for web-based information management systems. Their evaluation found that PHP frameworks combined with an MVC architecture produce maintainable codebases comparable to Node.js for server-rendered applications, with less initial configuration overhead for small development teams. The finding supports the selection of Laravel for a single-developer project where setup cost and integrated tooling coverage are more relevant considerations than raw concurrency performance.
+Waheed, Ahmad, and Iqbal (2021) compared PHP, Python, and Node.js as backend options for web-based information management systems. Their evaluation found that PHP frameworks combined with an MVC architecture produce maintainable codebases comparable to Node.js for server-rendered applications, with less initial configuration overhead for small development teams. This finding supports the selection of Laravel for a single-developer project where setup cost and integrated tooling coverage are more relevant considerations than raw concurrency performance.
 
 ### 2.6.10.2 Relational Database Management Systems
 
-Coronel and Morris (2019) define a relational database management system as one that organises data into tables with defined relationships, uses SQL for data manipulation, and enforces data integrity through key constraints and transaction support. Their definition establishes that the distinguishing characteristic of a relational system is its capacity to guarantee consistency across related data through atomic transactions.
+Coronel and Morris (2019) define a relational database management system as one that organises data into tables with defined relationships, uses SQL for data manipulation, and enforces data integrity through key constraints and transaction support. The distinguishing characteristic of a relational system, by their definition, is its capacity to guarantee consistency across related data through atomic transactions.
 
 Cattell (2011) compared relational and non-relational (NoSQL) database systems for web application use and concluded that relational systems are the appropriate choice when data consistency and referential integrity are required and when the entity relationships are well-defined before implementation. For HomeLodge, these conditions hold: the database schema was designed in full before development began, bookings have mandatory relationships to users, homestay units, payment records, and QR code records, and operations such as booking confirmation must write to several tables as a unit. A document or key-value store does not enforce these relationships at the database level; enforcing them in the application layer instead would increase the risk of inconsistency. MySQL, as a relational system, manages this at the database level.
 
@@ -271,7 +271,7 @@ Cattell (2011) compared relational and non-relational (NoSQL) database systems f
 
 Pimentel and Nickerson (2012) evaluated four approaches to server-push communication: periodic HTTP polling, long polling, Server-Sent Events, and WebSockets. Their analysis measured message latency, bandwidth consumption, and server resource usage. WebSocket connections produced the lowest message latency and the lowest per-message overhead among the four options for applications that require bidirectional real-time data exchange. The WebSocket protocol is formally specified in IETF RFC 6455 (Fette & Melnikov, 2011), which defines the handshake procedure, message framing, and connection lifecycle that server implementations must follow.
 
-For the HomeLodge chat module, HTTP-based alternatives introduce delays that are proportional to the polling interval or the server's long-poll timeout window. Pimentel and Nickerson (2012) found these delays to be inappropriate for applications where messages must arrive within one second of being sent. The literature supports WebSocket as the correct protocol for this requirement.
+For the HomeLodge chat module, HTTP-based alternatives introduce delays proportional to the polling interval or the server's long-poll timeout window. Pimentel and Nickerson (2012) found these delays inappropriate for applications where messages must arrive within one second of being sent. The literature supports WebSocket as the correct protocol for this requirement.
 
 ### 2.6.10.4 QR Code-Based Access Control
 

@@ -2,51 +2,51 @@
 
 ## 3.1 Introduction
 
-This chapter describes the approach used to develop HomeLodge. It begins by justifying the selection of a hybrid development methodology that combines the Waterfall model for the planning and analysis phases with the Agile model for the implementation and testing phases. The Scrum framework and Kanban Board are used within the Agile phase to structure and track development work. The chapter then details each phase of the methodology, lists the hardware and software used during development, describes the technologies integrated into the system, and closes with a detailed specification of the system inputs and outputs across all modules.
+This chapter describes how HomeLodge was developed. It justifies the selection of a hybrid methodology that applies the Waterfall model to planning and analysis, and the Agile model to implementation and testing. Within the Agile phase, the Scrum framework structures sprint cycles while a Kanban Board tracks individual tasks. The chapter then walks through each phase of the methodology, lists the hardware and software used during development, describes the technologies in the system, and closes with the full input and output specifications for all modules.
 
 ---
 
 ## 3.2 Justification of Methodology Selection
 
-As established in Section 2.5, four software development methodologies were considered for this project: Waterfall, Agile, Rapid Application Development (RAD), and the Iterative model. A hybrid methodology combining Waterfall and Agile was selected. The reasons are specific to this project's constraints.
+Section 2.5 reviewed four software development methodologies: Waterfall, Agile, Rapid Application Development (RAD), and the Iterative model. A hybrid of Waterfall and Agile was selected. The reasons follow from the constraints of this project.
 
-The planning and analysis phases of HomeLodge require the structured, document-driven approach of Waterfall. All functional and non-functional requirements must be gathered, reviewed, and documented in full before any implementation begins. The system has thirteen defined modules, each with clear acceptance criteria. These requirements are fixed before development starts. Under these conditions, producing formal phase-level documentation and a complete system design before writing any code is both necessary and practical. Waterfall imposes this discipline by requiring each phase to be completed and documented before the next begins, which aligns with the academic deliverables this report must produce.
+The planning and analysis phases of HomeLodge need a structured, document-driven approach. All functional and non-functional requirements had to be gathered, reviewed, and documented in full before any implementation began. The system has thirteen defined modules, each with specific acceptance criteria, and those requirements were fixed before development started. Under these conditions, producing formal documentation and a complete system design before writing any code was both necessary and practical. Waterfall imposes this discipline: each phase must be completed and documented before the next begins. That constraint aligns with the academic deliverables this report must produce.
 
-The implementation and testing phases require a different approach. Developing thirteen modules sequentially within a single undivided implementation phase provides no mechanism for tracking progress at the task level, managing the order in which modules are built, or identifying stalled work before it affects the overall schedule. Agile addresses this through iterative delivery. Development is divided into time-boxed sprints using the Scrum framework. At the start of each sprint, a defined set of modules or features is selected for development. Progress within the sprint is tracked using a Kanban Board, which displays each task in one of three states: To Do, In Progress, or Done. This makes work-in-progress visible and allows impediments to be identified and resolved quickly.
+The implementation and testing phases need a different approach. Developing thirteen modules inside a single undivided implementation phase offers no way to track progress at the task level, manage build order, or spot stalled work before it disrupts the schedule. Agile addresses this by dividing development into time-boxed sprints under the Scrum framework. At the start of each sprint, a defined set of modules or features is selected. Progress is tracked on a Kanban Board that shows each task in one of three states: To Do, In Progress, or Done. Bottlenecks become visible immediately.
 
-The hybrid model retains the formal documentation structure of Waterfall for the phases where it is most valuable, and applies the iterative momentum and task-level transparency of Agile where they are needed most.
+The hybrid model keeps Waterfall's formal documentation structure for the phases that need it, and applies Agile's iterative delivery and task-level tracking where they are needed.
 
 ---
 
 ## 3.3 Software Development Methodology
 
-HomeLodge was developed using a hybrid methodology that applies the Waterfall model to the planning and analysis phases and the Agile model to the implementation and testing phases. The Scrum framework governs sprint structure during the Agile phase, and a Kanban Board is used to track the status of each development task within every sprint. Figure 3.1 illustrates the overall methodology structure.
+HomeLodge was developed using a hybrid methodology. Waterfall governs the planning and analysis phases; Agile governs implementation and testing. The Scrum framework structures sprint cycles during the Agile phase, and a Kanban Board tracks each task within every sprint. Figure 3.1 illustrates the overall methodology structure.
 
 The phases are described below.
 
 ### 3.3.1 Phase 1: Requirements Analysis (Waterfall)
 
-This phase followed the Waterfall approach. All user and system requirements for HomeLodge were collected and documented in full before any implementation began. The User Requirements Specification (URS) and Product Requirements Document (PRD) were produced during this phase. Requirements were gathered by examining how small-scale homestay operators currently manage bookings, identifying the recurring failures of the manual process, and comparing what existing platforms provide against what is specifically needed.
+This phase followed the Waterfall approach. All user and system requirements for HomeLodge were collected and documented before implementation began. Two documents were produced: the User Requirements Specification (URS) and the Product Requirements Document (PRD). The requirements were derived from three sources: an examination of how small-scale homestay operators currently manage bookings, the recurring failures of that manual process, and a comparison of what existing platforms provide against what HomeLodge specifically needs.
 
-The output of this phase was a complete requirements specification covering both user roles — Guest and Admin — across thirteen functional modules: Authentication, Homestay Management, Booking, Payment, Notification, Chat, User Management, Role and Permission Management, System Settings, Audit Logs, QR Code Door Access, Reporting and Analytics, and Guest Feedback. This phase was completed and its outputs reviewed and approved before Phase 2 began.
+The output was a complete requirements specification covering both user roles (Guest and Admin) across thirteen functional modules: Authentication, Homestay Management, Booking, Payment, Notification, Chat, User Management, Role and Permission Management, System Settings, Audit Logs, QR Code Door Access, Reporting and Analytics, and Guest Feedback. The outputs were reviewed and approved before Phase 2 began.
 
 ### 3.3.2 Phase 2: System Design (Waterfall)
 
-This phase also followed the Waterfall approach. With the requirements fixed, three design outputs were produced.
+This phase also followed Waterfall. With the requirements fixed, three design outputs were produced.
 
-The first was the database schema. Each table was designed to support at least one functional requirement. Foreign key constraints, soft delete columns, and index definitions were established at this stage, before any migration files were written.
+The first was the database schema. Each table was designed to support at least one functional requirement. Foreign key constraints, soft delete columns, and index definitions were all established at this stage, before any migration files were written.
 
-The second was the use case diagram. This documents the interactions each user role has with each module, based on the requirements gathered in Phase 1.
+The second was the use case diagram, which documents how each user role interacts with each module based on the requirements from Phase 1.
 
-The third was the user interface design. Page layouts for both the guest interface and the admin interface were sketched, covering the booking flow, the admin dashboard, and the QR code management workflow.
+The third was the user interface design. Page layouts for the guest interface and the admin interface were sketched, covering the booking flow, the admin dashboard, and the QR code management workflow.
 
-This phase was completed in full before implementation began. No module development started until the schema, use case diagram, and interface designs were finalised.
+No module development started until the schema, use case diagram, and interface designs were finalised.
 
-### 3.3.3 Phase 3: Implementation (Agile — Scrum with Kanban Board)
+### 3.3.3 Phase 3: Implementation (Agile with Scrum and Kanban Board)
 
-The implementation phase applied the Agile approach. Development was organised into sprints using the Scrum framework. Each sprint targeted a defined set of modules. The sprint cycle began with sprint planning, during which the modules to be developed in that sprint were selected based on data dependencies — for example, the Payment module was not scheduled for a sprint until the Booking module was functional, because payment records reference confirmed booking records.
+Implementation applied the Agile approach. Development was organised into sprints under the Scrum framework, with each sprint targeting a defined set of modules. Sprint planning determined which modules to develop based on data dependencies. For example, the Payment module was not scheduled until the Booking module was functional, because payment records reference confirmed booking records.
 
-Within each sprint, a Kanban Board was used to manage and track task progress. Each development task was represented as a card on the board and moved through the following columns as work progressed:
+Within each sprint, a Kanban Board tracked task progress. Each task was a card on the board, moved through the following columns as work progressed:
 
 | Column | Description |
 |---|---|
@@ -55,29 +55,29 @@ Within each sprint, a Kanban Board was used to manage and track task progress. E
 | In Review / Testing | Tasks completed and under self-review or unit testing |
 | Done | Tasks that meet the acceptance criteria defined in the PRD |
 
-Each module was developed until it met its acceptance criteria, at which point its card was moved to Done and the next module's sprint began.
+A module was considered complete when it met its acceptance criteria. Its card was then moved to Done and the next sprint began.
 
-### 3.3.4 Phase 4: Testing (Agile — Scrum with Kanban Board)
+### 3.3.4 Phase 4: Testing (Agile with Scrum and Kanban Board)
 
-Testing was conducted iteratively alongside and immediately after implementation, in keeping with the Agile approach. Each module was tested against its functional and non-functional requirements as soon as it was implemented, rather than deferring all testing to the end of development.
+Testing ran iteratively alongside implementation and immediately after it, consistent with the Agile approach. Each module was tested against its functional and non-functional requirements as soon as it was implemented, rather than deferring all testing to the end.
 
-The Kanban Board continued to be used during this phase. Testing tasks were tracked as separate cards alongside implementation tasks, allowing defects to be identified, fixed, and re-tested within the same or the following sprint. Testing covered authentication flows, booking availability checks, payment integration, QR code generation and expiry, extension auto-cancellation, role-based access enforcement, and notification delivery.
+Testing tasks were tracked on the Kanban Board as separate cards alongside implementation tasks. Defects were identified, fixed, and re-tested within the same sprint or the next. The areas tested included authentication flows, booking availability checks, payment integration, QR code generation and expiry, extension auto-cancellation, role-based access enforcement, and notification delivery.
 
-The full test results and discussion are documented in Chapter 5.
+The full test results are documented in Chapter 5.
 
 ### 3.3.5 Phase 5: Deployment (Waterfall)
 
-The completed and fully tested system was deployed to a server environment with Nginx, PHP-FPM, MySQL 8, and Redis. Queue workers were started for background job processing, and the Laravel Scheduler was configured to run at one-minute intervals through the server's cron service. SSL/TLS was enabled using Let's Encrypt. Deployment followed a sequential checklist consistent with the Waterfall phase structure, as all prior phases were complete before this step began.
+The completed system was deployed to a server running Nginx, PHP-FPM, MySQL 8, and Redis. Queue workers were started for background job processing. The Laravel Scheduler was configured to run at one-minute intervals through the server's cron service, and SSL/TLS was enabled using Let's Encrypt. Deployment followed a sequential checklist, consistent with the Waterfall structure, since all prior phases were already complete.
 
 ---
 
 ## 3.4 Description of Technologies Used
 
-The complete technology justification is provided in Section 2.6. This section lists the technologies used in HomeLodge and their roles within the system.
+The complete technology justification is in Section 2.6. This section lists the technologies used in HomeLodge and what each one does within the system.
 
 ### 3.4.1 Backend: Laravel 11 and PHP 8.2
 
-Laravel is the application framework. It handles routing, controller logic, database access through Eloquent ORM, background job queuing, scheduled tasks, and email delivery. PHP 8.2 is the language in which the application is written.
+Laravel is the application framework. It handles routing, controller logic, database access through Eloquent ORM, background job queuing, scheduled tasks, and email delivery. The application is written in PHP 8.2.
 
 The following Laravel packages are used:
 
@@ -94,31 +94,31 @@ The following Laravel packages are used:
 
 ### 3.4.2 Frontend: Blade, Alpine.js, and Bootstrap 5
 
-Laravel Blade is the server-side templating engine. It processes view files on the server and delivers complete HTML to the browser. Alpine.js handles the lightweight client-side behaviour that requires state in the browser between user interactions, including the booking date calendar, the real-time notification indicator, and the chat interface. Bootstrap 5 provides the grid layout system and pre-built UI components used across all pages. Chart.js, loaded via CDN, renders the statistical charts on the reporting dashboard.
+Laravel Blade is the server-side templating engine. It processes view files on the server and sends complete HTML to the browser. Alpine.js adds lightweight client-side behaviour where the browser needs to hold state between user interactions: the booking date calendar, the real-time notification indicator, and the chat interface. Bootstrap 5 provides the grid layout system and pre-built UI components used across all pages. Chart.js, loaded via CDN, renders the charts on the reporting dashboard.
 
 ### 3.4.3 Database: MySQL 8 and Eloquent ORM
 
-MySQL 8 stores all relational data for the system. Eloquent ORM manages the mapping between PHP model classes and database tables, and handles the relationship traversal between related records — bookings to users, bookings to QR codes, bookings to payment records, and so on. Laravel Migrations manage all schema changes, and Laravel Seeders populate the database with initial roles, permissions, system settings, and default homestay policies.
+MySQL 8 stores all relational data. Eloquent ORM maps PHP model classes to database tables and traverses the relationships between related records (bookings to users, bookings to QR codes, bookings to payment records, and so on). Laravel Migrations manage schema changes. Laravel Seeders populate the database with initial roles, permissions, system settings, and default homestay policies.
 
 ### 3.4.4 Real-Time Communication: Laravel Reverb and Laravel Echo
 
-Laravel Reverb runs as a self-hosted WebSocket server process alongside the Laravel application. It manages connection lifecycles and routes broadcast events to connected clients. Laravel Echo is the JavaScript library that establishes a WebSocket connection in the browser, subscribes to the relevant broadcast channel, and delivers incoming events to the chat interface in real time.
+Laravel Reverb runs as a self-hosted WebSocket server process alongside the Laravel application. It manages connection lifecycles and routes broadcast events to connected clients. Laravel Echo is the JavaScript library on the browser side: it opens a WebSocket connection, subscribes to the relevant broadcast channel, and passes incoming events to the chat interface.
 
 ### 3.4.5 Authentication and Access Control
 
-Session-based authentication uses Laravel's built-in authentication guard. Google Single Sign-On is implemented through `laravel/socialite`, which manages the OAuth 2.0 redirect, token exchange, and user account lookup. The `spatie/laravel-permission` package implements role-based access control: permissions are assigned to roles, and roles are assigned to users. Every route and controller action that requires a specific permission uses a middleware check against this system.
+Session-based authentication uses Laravel's built-in authentication guard. Google Single Sign-On is implemented through `laravel/socialite`, which handles the OAuth 2.0 redirect, token exchange, and user account lookup. The `spatie/laravel-permission` package implements role-based access control: permissions are assigned to roles, roles are assigned to users, and every route or controller action that requires a specific permission checks it through middleware.
 
 ### 3.4.6 QR Code Generation
 
-The `simplesoftwareio/simple-qrcode` package generates QR codes locally within the application as SVG images. No external API call is made during QR code generation. Each QR code encodes a unique secure token that is valid from the guest's check-in time to their check-out time. The token is stored in the `qr_codes` table and its expiry is enforced by the Laravel Scheduler.
+The `simplesoftwareio/simple-qrcode` package generates QR codes locally as SVG images. No external API call is involved. Each QR code encodes a unique secure token that is valid from the guest's check-in time to their check-out time. The token is stored in the `qr_codes` table, and the Laravel Scheduler enforces its expiry.
 
 ### 3.4.7 Payment Gateway
 
-Payments are processed through an online payment gateway using a server-side API integration. The gateway sends a webhook callback to HomeLodge when a payment event occurs, and the application updates the booking and billing records based on the webhook payload. Webhook processing is idempotent, meaning if the same notification is received more than once, the system produces the same result without creating duplicate records. The specific gateway is selected at deployment based on regional availability and fee structure. Billplz, Toyyibpay, and Stripe are the shortlisted options; all three are compatible with the webhook-driven integration model used by the system.
+Payments are processed through an online payment gateway via a server-side API integration. When a payment event occurs, the gateway sends a webhook callback to HomeLodge, and the application updates the booking and billing records accordingly. Webhook processing is idempotent: if the same notification arrives more than once, the system produces the same result without creating duplicate records. The specific gateway is selected at deployment based on regional availability and fee structure. Billplz, Toyyibpay, and Stripe are the shortlisted options, and all three work with the webhook-driven integration model the system uses.
 
 ### 3.4.8 Notifications
 
-Email notifications are sent through Laravel Mail using SMTP credentials configured by the administrator through the system settings. The administrator can switch providers without modifying any application code. In-app notifications use Laravel's database notification driver: each notification is stored as a record and read by the application when the user loads any page.
+Email notifications are sent through Laravel Mail using SMTP credentials that the administrator configures in the system settings. The administrator can switch SMTP providers without modifying any application code. In-app notifications use Laravel's database notification driver: each notification is stored as a database record and loaded when the user opens any page.
 
 ### 3.4.9 Scheduled Jobs
 
@@ -159,7 +159,7 @@ The following hardware was used during development and is required for deploymen
 | Server Storage | 20 GB SSD minimum | Database files, media uploads, application logs |
 | Smart Lock Device | QR-code-compatible smart lock | Physical door access controlled by the QR code module |
 
-The smart lock hardware is not developed as part of this project. The system generates the QR code and the token it encodes; the lock manufacturer's firmware or SDK is responsible for validating the token at the door.
+The smart lock hardware is not developed as part of this project. The system generates the QR code and the token it encodes; the lock manufacturer's firmware or SDK validates the token at the door.
 
 ### 3.5.2 Software Justification
 
@@ -198,7 +198,7 @@ The following software is required for development and deployment.
 
 ### 3.5.3 Input Specification
 
-This section lists all inputs accepted by the system across its modules. An input is any data that a user submits to the system, whether through a form, a button action, or an external callback.
+This section lists every input the system accepts, organised by module. An input is any data submitted to the system through a form, a button action, or an external callback.
 
 **Authentication Module**
 
@@ -300,7 +300,7 @@ This section lists all inputs accepted by the system across its modules. An inpu
 
 ### 3.5.4 Output Specification
 
-This section lists all outputs produced by the system. An output is any information the system displays, generates, transmits, or stores in response to a user action or a scheduled event.
+This section lists every output the system produces. An output is any information the system displays, generates, transmits, or stores in response to a user action or a scheduled event.
 
 **Authentication Module**
 
@@ -387,8 +387,8 @@ This section lists all outputs produced by the system. An output is any informat
 
 ## 3.6 Chapter Summary
 
-This chapter described the development approach used for HomeLodge. A hybrid methodology combining Waterfall and Agile was selected. Waterfall governs the planning and analysis phases — requirements analysis and system design — where stable, formal documentation must be produced before any implementation begins. Agile, structured through the Scrum framework and managed using a Kanban Board, governs the implementation and testing phases. Development was divided into sprints, with each sprint targeting a defined set of modules. The Kanban Board tracked each task's status throughout the sprint, making progress visible and enabling impediments to be resolved quickly. Deployment concluded the process following a sequential checklist once all prior phases were complete.
+This chapter described how HomeLodge was developed. A hybrid methodology was selected: Waterfall for the planning and analysis phases, Agile for implementation and testing. The Waterfall phases produced the complete requirements specification and system design before any code was written. The Agile phases, structured through Scrum sprints and tracked on a Kanban Board, broke the thirteen modules into manageable increments. Deployment followed a sequential checklist once all modules had been implemented and tested.
 
-The technologies used in the system are Laravel 11 with PHP 8.2 for the backend, Blade with Alpine.js and Bootstrap 5 for the frontend, MySQL 8 with Eloquent ORM for the database, and Laravel Reverb with Echo for real-time communication. Supporting packages handle authentication, role-based access control, QR code generation, audit logging, PDF generation, and notification delivery. The payload and scheduling structure of the application's background jobs are designed to handle auto-cancellation, QR expiry, and extension revert without manual administrative intervention.
+The system runs on Laravel 11 with PHP 8.2, Blade with Alpine.js and Bootstrap 5, MySQL 8 with Eloquent ORM, and Laravel Reverb with Echo for real-time chat. Supporting packages cover authentication, role-based access control, QR code generation, audit logging, PDF generation, and notifications. Background jobs for auto-cancellation, QR expiry, and extension revert run on a schedule without manual intervention.
 
-The hardware requirements for deployment are modest: a two-vCPU server with four gigabytes of RAM is sufficient to run all application processes concurrently. The software requirements are standard for a Laravel application and are fully documented in Section 3.5.2. The input and output specifications in Sections 3.5.3 and 3.5.4 define, in exact terms, what data each module accepts from users and what it produces in return, covering all thirteen functional modules of HomeLodge.
+A two-vCPU server with four gigabytes of RAM is sufficient to run all application processes. The software requirements are standard for a Laravel deployment and are documented in Section 3.5.2. Sections 3.5.3 and 3.5.4 specify what data each of the thirteen modules accepts and what each one produces.
