@@ -196,11 +196,15 @@ The following software is required for development and deployment.
 | Node.js + npm | 18+ | Required to run `npm run build` during deployment |
 | Let's Encrypt (Certbot) | Latest | SSL/TLS certificate provisioning |
 
-### 3.5.3 Input Specification
+### 3.5.3 Input and Output Specifications
 
-This section lists every input the system accepts, organised by module. An input is any data submitted to the system through a form, a button action, or an external callback.
+This section details every piece of data that flows into and out of HomeLodge. As required by the guideline, all inputs and outputs involved in the system are listed comprehensively, organised by module. An input refers to any data a user submits through a form field, a button action, or an external callback such as a payment webhook. An output refers to any information the system displays on screen, generates as a document, transmits as a notification, or persists in the database in response to a user action or a scheduled event.
 
-**Authentication Module**
+#### Authentication Module
+
+The Authentication module handles user registration, login, password recovery, and Google Single Sign-On. The table below shows what data users provide to authenticate and what the system produces in return.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -209,7 +213,20 @@ This section lists every input the system accepts, organised by module. An input
 | Google OAuth response | Redirect callback | Google OAuth 2.0 | Access token and user profile provided by Google; validated by `laravel/socialite` |
 | Password reset token | URL token | Email link sent by system | Validated against hashed token stored in database; expires after use |
 
-**Homestay Management Module**
+**Outputs**
+
+| Output | Description |
+|---|---|
+| Session token | Active session established upon successful login |
+| Password reset email | Email containing a time-limited reset link sent to the registered address |
+| Password strength indicator | Real-time feedback displayed in the password input field during registration |
+| Account lockout message | Displayed when the login attempt limit is exceeded; includes remaining lockout duration |
+
+#### Homestay Management Module
+
+This module allows the administrator to create, update, and manage homestay units. Guests see the published unit listings and their details. Below are the data fields the administrator enters when configuring a unit and the resulting pages the system presents.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -224,7 +241,19 @@ This section lists every input the system accepts, organised by module. An input
 | House policy text | Text | Admin form | Required per policy entry |
 | Extension payment window | Integer (minutes) | Admin form | Required, minimum 1 |
 
-**Booking Module**
+**Outputs**
+
+| Output | Description |
+|---|---|
+| Homestay unit listing | A list of all active units, visible to guests on the browse page |
+| Unit detail page | Images, description, pricing, policies, and availability calendar for a single unit |
+| Admin unit management list | All units with status (active/inactive) and upcoming booking summary |
+
+#### Booking Module
+
+The Booking module is the core transactional part of the system. Guests select dates and a unit to book, and the system responds with availability results, booking records, and a visual calendar. The administrator can also create bookings on behalf of guests and block out dates for maintenance or personal use.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -237,7 +266,22 @@ This section lists every input the system accepts, organised by module. An input
 | Cancellation confirmation | Button action | Guest or Admin | Triggers cancellation and applies the configured refund policy |
 | Blocked date range | Date range | Admin form | Required; internal reason is optional |
 
-**Payment Module**
+**Outputs**
+
+| Output | Description |
+|---|---|
+| Availability check result | Confirmation that selected dates are available, or a message that the unit is already booked for the selected period |
+| Booking confirmation | Booking record created with `pending_payment` status; selected dates held for 24 hours |
+| Booking list | Guest's current and upcoming bookings; admin's full booking list across all units |
+| Booking detail page | All booking information including dates, times, homestay unit, status, and amount |
+| Booking calendar view | Visual calendar showing confirmed, blocked, and pending dates; available to both guests and admin |
+| Cancellation confirmation | Updated booking status set to `cancelled`; refund calculation displayed to user before confirmation |
+
+#### Payment Module
+
+When a guest proceeds to pay, this module redirects them to the payment gateway and listens for a webhook callback to confirm or reject the transaction. The administrator can also regenerate bills when needed. Below are the actions and data involved.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -245,7 +289,21 @@ This section lists every input the system accepts, organised by module. An input
 | Payment result webhook | HTTP POST | Payment gateway | Payload is verified against gateway signature before processing |
 | Bill regeneration request | Button action | Admin | Requires a valid existing booking |
 
-**QR Code Door Access Module**
+**Outputs**
+
+| Output | Description |
+|---|---|
+| Bill document (PDF) | Generated at booking creation; includes booking reference, amount, deposit, and total payable |
+| Payment receipt (PDF) | Generated after successful payment and stored against the booking record |
+| Payment status update | Booking status changes to `confirmed` after webhook reports a successful payment |
+| Payment history list | Filterable list of payment records for the guest or admin |
+| Auto-cancellation | Booking status set to `cancelled` automatically if payment is not received within 24 hours |
+
+#### QR Code Door Access Module
+
+This module generates time-bound QR codes that guests use to unlock the homestay door. The administrator manages stay extensions and housekeeping turnovers through this module as well.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -255,7 +313,21 @@ This section lists every input the system accepts, organised by module. An input
 | Housekeeping complete | Button action | Admin | Triggers QR code regeneration for the next booking |
 | QR code regeneration request | Button action | Admin | Operator-initiated, for housekeeping or administrative purposes |
 
-**User Management Module**
+**Outputs**
+
+| Output | Description |
+|---|---|
+| Guest QR code | Unique QR image displayed to the guest after booking is confirmed; valid from check-in to check-out |
+| Housekeeping QR code | Separate code generated by admin between bookings; expires once housekeeping is marked complete |
+| Extension charge bill | PDF bill generated for the guest when an extension request is approved by admin |
+| QR code validity update | `valid_until` timestamp in `qr_codes` table extended after extension payment is confirmed |
+| Extension revert | Booking reverted to original check-out date and time if payment is not received within the configured window |
+
+#### User Management Module
+
+The administrator uses this module to create user accounts, assign roles, and handle password resets. The inputs are straightforward form fields, and the main output is the updated user record.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -264,7 +336,11 @@ This section lists every input the system accepts, organised by module. An input
 | Role assignment | Selection | Admin form | Required |
 | Password reset action | Button action | Admin | Resets password to default (`Abc@123`) and flags `must_change_password` |
 
-**Role and Permission Module**
+#### Role and Permission Module
+
+This module defines the roles that exist in the system and the permissions each role carries. Every route and controller action that requires authorisation checks its permission through middleware.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -272,7 +348,11 @@ This section lists every input the system accepts, organised by module. An input
 | Permission name | Text | Admin form | Required; unique |
 | Permission assignment | Selection (multi) | Admin form | One or more permissions assigned to a role |
 
-**System Settings Module**
+#### System Settings Module
+
+System Settings lets the administrator configure operational parameters without touching any application code. Changes here affect behaviour across multiple modules — for example, updating the SMTP credentials changes how every email notification is sent.
+
+**Inputs**
 
 | Input | Type | Source | Validation |
 |---|---|---|---|
@@ -285,72 +365,11 @@ This section lists every input the system accepts, organised by module. An input
 | Default extension payment window | Integer (minutes) | Admin form | Required, minimum 1 |
 | Refund policy parameters | Decimal (percentage) and Integer (days) | Admin form | Required; percentages between 0 and 100 |
 
-**Guest Feedback Module**
+#### Notification Module
 
-| Input | Type | Source | Validation |
-|---|---|---|---|
-| Star rating | Integer (1–5) | Guest form | Required; only available after booking status is `completed` |
-| Written comment | Long text | Guest form | Optional |
+The Notification module does not accept direct user input; it is triggered by events in other modules. Its outputs are the notifications themselves, delivered through three channels.
 
-**Chat Module**
-
-| Input | Type | Source | Validation |
-|---|---|---|---|
-| Chat message | Text | Guest or Admin | Required, non-empty |
-
-### 3.5.4 Output Specification
-
-This section lists every output the system produces. An output is any information the system displays, generates, transmits, or stores in response to a user action or a scheduled event.
-
-**Authentication Module**
-
-| Output | Description |
-|---|---|
-| Session token | Active session established upon successful login |
-| Password reset email | Email containing a time-limited reset link sent to the registered address |
-| Password strength indicator | Real-time feedback displayed in the password input field during registration |
-| Account lockout message | Displayed when the login attempt limit is exceeded; includes remaining lockout duration |
-
-**Homestay Management Module**
-
-| Output | Description |
-|---|---|
-| Homestay unit listing | A list of all active units, visible to guests on the browse page |
-| Unit detail page | Images, description, pricing, policies, and availability calendar for a single unit |
-| Admin unit management list | All units with status (active/inactive) and upcoming booking summary |
-
-**Booking Module**
-
-| Output | Description |
-|---|---|
-| Availability check result | Confirmation that selected dates are available, or a message that the unit is already booked for the selected period |
-| Booking confirmation | Booking record created with `pending_payment` status; selected dates held for 24 hours |
-| Booking list | Guest's current and upcoming bookings; admin's full booking list across all units |
-| Booking detail page | All booking information including dates, times, homestay unit, status, and amount |
-| Booking calendar view | Visual calendar showing confirmed, blocked, and pending dates; available to both guests and admin |
-| Cancellation confirmation | Updated booking status set to `cancelled`; refund calculation displayed to user before confirmation |
-
-**Payment Module**
-
-| Output | Description |
-|---|---|
-| Bill document (PDF) | Generated at booking creation; includes booking reference, amount, deposit, and total payable |
-| Payment receipt (PDF) | Generated after successful payment and stored against the booking record |
-| Payment status update | Booking status changes to `confirmed` after webhook reports a successful payment |
-| Payment history list | Filterable list of payment records for the guest or admin |
-| Auto-cancellation | Booking status set to `cancelled` automatically if payment is not received within 24 hours |
-
-**QR Code Door Access Module**
-
-| Output | Description |
-|---|---|
-| Guest QR code | Unique QR image displayed to the guest after booking is confirmed; valid from check-in to check-out |
-| Housekeeping QR code | Separate code generated by admin between bookings; expires once housekeeping is marked complete |
-| Extension charge bill | PDF bill generated for the guest when an extension request is approved by admin |
-| QR code validity update | `valid_until` timestamp in `qr_codes` table extended after extension payment is confirmed |
-| Extension revert | Booking reverted to original check-out date and time if payment is not received within the configured window |
-
-**Notification Module**
+**Outputs**
 
 | Output | Description |
 |---|---|
@@ -358,7 +377,40 @@ This section lists every output the system produces. An output is any informatio
 | Email notification | Sent via SMTP for booking confirmation, payment success/failure, payment reminder, upcoming check-in/check-out reminder, and extension payment request |
 | Google Calendar event | Booking added to the guest's and admin's Google Calendar upon booking confirmation |
 
-**Reporting and Analytics Module**
+#### Guest Feedback Module
+
+After a completed stay, guests can leave a rating and an optional written comment. The administrator can respond to feedback, and the aggregated ratings appear on each unit's public listing.
+
+**Inputs**
+
+| Input | Type | Source | Validation |
+|---|---|---|---|
+| Star rating | Integer (1–5) | Guest form | Required; only available after booking status is `completed` |
+| Written comment | Long text | Guest form | Optional |
+
+**Outputs**
+
+| Output | Description |
+|---|---|
+| Published feedback entry | Submitted rating and comment visible on the unit's listing page (subject to admin moderation) |
+| Average unit rating | Aggregated star rating displayed on the homestay unit's public page |
+| Admin reply | Response written by admin and displayed below the guest's feedback entry |
+
+#### Chat Module
+
+The Chat module enables real-time messaging between guests and the administrator. Messages are delivered instantly through a WebSocket connection.
+
+**Inputs**
+
+| Input | Type | Source | Validation |
+|---|---|---|---|
+| Chat message | Text | Guest or Admin | Required, non-empty |
+
+#### Reporting and Analytics Module
+
+This module produces the dashboards, charts, and exportable reports that help the administrator understand business performance. It consumes data from the Booking, Payment, and Feedback modules and does not accept direct form input.
+
+**Outputs**
 
 | Output | Description |
 |---|---|
@@ -369,19 +421,15 @@ This section lists every output the system produces. An output is any informatio
 | Guest rating summary | Average rating and total feedback count per unit |
 | Report export | PDF or CSV file containing the reported data for offline use |
 
-**Audit Logs Module**
+#### Audit Logs Module
+
+The Audit Logs module records every significant action in the system. It produces a single, immutable output.
+
+**Outputs**
 
 | Output | Description |
 |---|---|
 | Audit trail | Read-only timestamped records of all user actions, administrative changes, authentication events, and system events |
-
-**Guest Feedback Module**
-
-| Output | Description |
-|---|---|
-| Published feedback entry | Submitted rating and comment visible on the unit's listing page (subject to admin moderation) |
-| Average unit rating | Aggregated star rating displayed on the homestay unit's public page |
-| Admin reply | Response written by admin and displayed below the guest's feedback entry |
 
 ---
 
@@ -391,4 +439,4 @@ This chapter described how HomeLodge was developed. A hybrid methodology was sel
 
 The system runs on Laravel 11 with PHP 8.2, Blade with Alpine.js and Bootstrap 5, MySQL 8 with Eloquent ORM, and Laravel Reverb with Echo for real-time chat. Supporting packages cover authentication, role-based access control, QR code generation, audit logging, PDF generation, and notifications. Background jobs for auto-cancellation, QR expiry, and extension revert run on a schedule without manual intervention.
 
-A two-vCPU server with four gigabytes of RAM is sufficient to run all application processes. The software requirements are standard for a Laravel deployment and are documented in Section 3.5.2. Sections 3.5.3 and 3.5.4 specify what data each of the thirteen modules accepts and what each one produces.
+A two-vCPU server with four gigabytes of RAM is sufficient to run all application processes. The software requirements are standard for a Laravel deployment and are documented in Section 3.5.2. Section 3.5.3 specifies the complete input and output data for each of the thirteen modules.
