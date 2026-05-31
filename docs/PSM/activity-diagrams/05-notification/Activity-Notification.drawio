@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+
+  <diagram id="act-notif-01" name="UC-NOTIF-01 Receive System Notification">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="UC-NOTIF-01: Receive System Notification" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="280" y="10" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="567" y="50" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="a1" value="System event triggers notification (booking confirmed, payment received, cancellation, reminder, etc.)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="100" width="200" height="75" as="geometry" /></mxCell>
+        <mxCell id="a2" value="System determines target user(s) and notification type" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="205" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a3" value="Create in-app notification record (stored in database, shown in notification bell)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="290" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="d1" value="Email notification required?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="490" y="380" width="180" height="60" as="geometry" /></mxCell>
+        <mxCell id="a4" value="Send email notification using configured SMTP/mail service" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="470" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="d2" value="Email delivery successful?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="500" y="555" width="160" height="60" as="geometry" /></mxCell>
+        <mxCell id="e1" value="Log delivery failure. In-app notification still available." style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1"><mxGeometry x="710" y="560" width="190" height="55" as="geometry" /></mxCell>
+        <mxCell id="a5" value="User views notification in app or reads email" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="645" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="end1" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="565" y="723" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="es1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="start" target="a1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a1" target="a2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a2" target="a3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea3d1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a3" target="d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="a4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1no" value="No (in-app only)" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="a5" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="430" y="410"/><mxPoint x="430" y="670"/></Array></mxGeometry></mxCell>
+        <mxCell id="ea4d2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a4" target="d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2no" value="Failed" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="e1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee1a5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="e1" target="a5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2yes" value="Success" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="a5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea5end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a5" target="end1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="act-notif-02" name="UC-NOTIF-02 Google Calendar Integration">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="UC-NOTIF-02: Google Calendar Integration" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="280" y="10" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="567" y="50" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="a1" value="Booking is confirmed (payment received)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="100" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="d1" value="Guest has Google Calendar linked?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="490" y="180" width="180" height="65" as="geometry" /></mxCell>
+        <mxCell id="a2" value="Create Google Calendar event: check-in/out dates, unit name, booking ref" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="275" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="d2" value="Google API call successful?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="500" y="365" width="160" height="60" as="geometry" /></mxCell>
+        <mxCell id="e1" value="Log error. Calendar event not created. In-app notification remains." style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1"><mxGeometry x="710" y="370" width="190" height="55" as="geometry" /></mxCell>
+        <mxCell id="a3" value="Calendar event created with reminder set" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="455" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="end1" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="565" y="533" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="end2" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="710" y="200" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="es1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="start" target="a1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea1d1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a1" target="d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1no" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="end2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="a2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea2d2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a2" target="d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2no" value="Failed" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="e1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee1end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="e1" target="end1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2yes" value="Success" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="a3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea3end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a3" target="end1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>

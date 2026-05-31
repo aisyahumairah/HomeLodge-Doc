@@ -1,0 +1,101 @@
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+
+  <diagram id="act-pay-01" name="UC-PAY-01 Make Payment">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="UC-PAY-01: Make Payment (Online Gateway)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="280" y="10" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="567" y="50" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="a1" value="Guest clicks Pay Now from booking detail or bill view" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="100" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a2" value="Create payment request with gateway (ToyyibPay / Stripe)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="185" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a3" value="Redirect guest to payment gateway page" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="270" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="d1" value="Guest completes payment?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="490" y="350" width="180" height="60" as="geometry" /></mxCell>
+        <mxCell id="e1" value="Guest abandons page. No webhook received. Booking remains pending_payment until deadline." style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1"><mxGeometry x="710" y="348" width="200" height="65" as="geometry" /></mxCell>
+        <mxCell id="a4" value="Gateway processes payment and sends webhook callback" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="440" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a5" value="System validates webhook signature and payload" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="525" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="d2" value="Payment successful?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="500" y="610" width="160" height="60" as="geometry" /></mxCell>
+        <mxCell id="e2" value="Update payment record to failed. Redirect guest with error and Try Again option." style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1"><mxGeometry x="710" y="613" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="a6" value="Update payment record: status=paid. Set booking status=confirmed." style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="700" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="a7" value="Generate QR code for door access (UC-QR-01)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="790" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a8" value="Send payment confirmation notification (in-app and email) with receipt" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="875" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="a9" value="Redirect guest to booking confirmation page" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="965" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="end1" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="565" y="1043" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="end2" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="797" y="368" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="end3" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="797" y="638" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="es1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="start" target="a1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a1" target="a2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a2" target="a3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea3d1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a3" target="d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1no" value="No (abandons)" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="e1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee1end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="e1" target="end2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="a4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea4a5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a4" target="a5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea5d2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a5" target="d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2no" value="Failed / Declined" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="e2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee2end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="e2" target="end3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2yes" value="Success" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="a6" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea6a7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a6" target="a7" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea7a8" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a7" target="a8" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea8a9" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a8" target="a9" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea9end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a9" target="end1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="act-pay-02" name="UC-PAY-02 View Payment and Billing Records">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="UC-PAY-02: View Payment &amp; Billing Records" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="280" y="10" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="567" y="50" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="a1" value="Guest / Admin navigates to Payment &amp; Billing section" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="100" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a2" value="Retrieve billing and payment records (scoped by role: guest sees own, admin sees all)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="185" width="200" height="65" as="geometry" /></mxCell>
+        <mxCell id="a3" value="Display records table: bill number, booking ref, amount, status, date, actions" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="280" width="200" height="65" as="geometry" /></mxCell>
+        <mxCell id="d1" value="User applies filters? (status, date range, search)" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="480" y="375" width="200" height="65" as="geometry" /></mxCell>
+        <mxCell id="a4" value="Apply filters and refresh results" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="470" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="d2" value="User clicks a record?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="500" y="550" width="160" height="60" as="geometry" /></mxCell>
+        <mxCell id="a5" value="Display full bill/payment detail with line items and download option" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="640" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="end1" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="565" y="728" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="es1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="start" target="a1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a1" target="a2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a2" target="a3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea3d1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a3" target="d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="a4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1no" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="d2" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="730" y="407"/><mxPoint x="730" y="580"/></Array></mxGeometry></mxCell>
+        <mxCell id="ea4d2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a4" target="d2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="a5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed2no" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d2" target="end1" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="430" y="580"/><mxPoint x="430" y="743"/></Array></mxGeometry></mxCell>
+        <mxCell id="ea5end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a5" target="end1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="act-pay-03" name="UC-PAY-03 Regenerate Bill Receipt">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="UC-PAY-03: Regenerate Bill / Receipt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="280" y="10" width="600" height="28" as="geometry" /></mxCell>
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="567" y="50" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="a1" value="Admin navigates to billing record for a booking" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="100" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a2" value="Admin clicks Regenerate Bill or Regenerate Receipt" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="185" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a3" value="System re-queries booking and payment data for accuracy" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="270" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="d1" value="Document generation successful?" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="490" y="355" width="180" height="60" as="geometry" /></mxCell>
+        <mxCell id="e1" value="Display error: Unable to generate document. Log error." style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1"><mxGeometry x="710" y="360" width="190" height="55" as="geometry" /></mxCell>
+        <mxCell id="a4" value="Generate PDF bill/receipt with current data and formatting" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="445" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="a5" value="Offer download and optionally email to guest" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1"><mxGeometry x="480" y="530" width="200" height="55" as="geometry" /></mxCell>
+        <mxCell id="end1" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="565" y="613" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="end2" value="" style="ellipse;aspect=fixed;shape=doubleEllipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="795" y="375" width="26" height="26" as="geometry" /></mxCell>
+        <mxCell id="es1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="start" target="a1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a1" target="a2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a2" target="a3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea3d1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a3" target="d1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1no" value="No" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="e1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ee1end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="e1" target="end2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;" edge="1" source="d1" target="a4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea4a5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a4" target="a5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea5end" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" source="a5" target="end1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>
