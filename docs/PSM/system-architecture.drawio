@@ -1,0 +1,103 @@
+<mxfile host="Electron" agent="Mozilla/5.0">
+  <diagram id="sys-arch" name="System Architecture">
+    <mxGraphModel dx="725" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client_group" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Client (Browser)" vertex="1">
+          <mxGeometry height="200" width="300" x="120" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="blade" parent="client_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Laravel Blade&#xa;(Server-rendered HTML)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="alpine" parent="client_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Alpine.js&#xa;(Client-side interactivity)" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="echo" parent="client_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Laravel Echo&#xa;(WebSocket client)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bootstrap" parent="client_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Bootstrap 5&#xa;(CSS framework)" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="server_group" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Application Server" vertex="1">
+          <mxGeometry height="280" width="460" x="40" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="nginx" parent="server_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Apache&lt;br&gt;(Web server)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="php" parent="server_group" style="rounded=1;whiteSpace=wrap;html=1;" value="PHP-FPM 8.3" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="laravel" parent="server_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Laravel 13 Application" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="reverb" parent="server_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Laravel Reverb&#xa;(WebSocket server)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="queue" parent="server_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Queue Worker&#xa;(Background jobs)" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="scheduler" parent="server_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Laravel Scheduler&#xa;(Cron jobs)" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="data_group" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Data Layer" vertex="1">
+          <mxGeometry height="200" width="160" x="540" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="mysql" parent="data_group" style="shape=cylinder3;whiteSpace=wrap;html=1;" value="MySQL 8&#xa;(Primary database)" vertex="1">
+          <mxGeometry height="60" width="80" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" parent="data_group" style="shape=cylinder3;whiteSpace=wrap;html=1;" value="Redis 7&#xa;(Cache/Queue)" vertex="1">
+          <mxGeometry height="60" width="80" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="external_group" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="External Services" vertex="1">
+          <mxGeometry height="120" width="460" x="40" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="pg" parent="external_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Payment Gateway" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="google" parent="external_group" style="rounded=1;whiteSpace=wrap;html=1;" value="Google OAuth &amp; Cal" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="smtp" parent="external_group" style="rounded=1;whiteSpace=wrap;html=1;" value="SMTP Server" vertex="1">
+          <mxGeometry height="60" width="120" x="300" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="client_group" target="nginx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="nginx" target="php">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="php" target="laravel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="laravel" target="mysql">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="laravel" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="laravel" target="queue">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="laravel" target="scheduler">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="echo" target="reverb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="reverb" target="laravel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="laravel" target="pg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="laravel" target="google">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="laravel" target="smtp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
