@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<mxGraphModel dx="1422" dy="804" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1600" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="homestays" value="&lt;b&gt;homestays&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;name: string&lt;br&gt;description: text&lt;br&gt;location: string&lt;br&gt;base_price: decimal&lt;br&gt;deposit_amount: decimal&lt;br&gt;default_check_in_time: time&lt;br&gt;default_check_out_time: time&lt;br&gt;is_active: boolean&lt;br&gt;extension_payment_window_minutes: int" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="450" y="450" width="240" height="230" as="geometry"/>
+    </mxCell>
+    <mxCell id="users" value="&lt;b&gt;users&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;name: string&lt;br&gt;email: string&lt;br&gt;password: string&lt;br&gt;google_id: string&lt;br&gt;is_active: boolean&lt;br&gt;must_change_password: boolean&lt;br&gt;failed_login_attempts: int&lt;br&gt;locked_until: timestamp" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="100" width="240" height="210" as="geometry"/>
+    </mxCell>
+    <mxCell id="bookings" value="&lt;b&gt;bookings&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;booking_number: string&lt;br&gt;FK homestay_id: bigint&lt;br&gt;FK user_id: bigint&lt;br&gt;check_in_date: date&lt;br&gt;check_out_date: date&lt;br&gt;status: string&lt;br&gt;total_amount: decimal&lt;br&gt;payment_deadline: timestamp" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="450" y="100" width="240" height="210" as="geometry"/>
+    </mxCell>
+    <mxCell id="booking_extensions" value="&lt;b&gt;booking_extensions&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK booking_id: bigint&lt;br&gt;extension_type: string&lt;br&gt;original_check_out_date: date&lt;br&gt;extended_check_out_date: date&lt;br&gt;extra_charge_amount: decimal&lt;br&gt;payment_deadline: timestamp&lt;br&gt;status: string" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="850" y="100" width="240" height="190" as="geometry"/>
+    </mxCell>
+    <mxCell id="bills" value="&lt;b&gt;bills&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;bill_number: string&lt;br&gt;FK booking_id: bigint&lt;br&gt;total_amount: decimal&lt;br&gt;status: string" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="850" y="400" width="240" height="130" as="geometry"/>
+    </mxCell>
+    <mxCell id="payments" value="&lt;b&gt;payments&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;payment_number: string&lt;br&gt;FK bill_id: bigint&lt;br&gt;FK booking_id: bigint&lt;br&gt;amount: decimal&lt;br&gt;gateway: string&lt;br&gt;status: string" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="850" y="650" width="240" height="170" as="geometry"/>
+    </mxCell>
+    <mxCell id="refunds" value="&lt;b&gt;refunds&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK payment_id: bigint&lt;br&gt;FK booking_id: bigint&lt;br&gt;amount: decimal&lt;br&gt;percentage: decimal&lt;br&gt;status: string" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="1200" y="650" width="240" height="150" as="geometry"/>
+    </mxCell>
+    <mxCell id="qr_codes" value="&lt;b&gt;qr_codes&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK booking_id: bigint&lt;br&gt;token: string&lt;br&gt;status: string&lt;br&gt;valid_from: timestamp&lt;br&gt;valid_until: timestamp" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="850" y="900" width="240" height="150" as="geometry"/>
+    </mxCell>
+    <mxCell id="feedbacks" value="&lt;b&gt;feedbacks&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK booking_id: bigint&lt;br&gt;FK homestay_id: bigint&lt;br&gt;FK user_id: bigint&lt;br&gt;rating: tinyint&lt;br&gt;comment: text&lt;br&gt;is_visible: boolean" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="450" y="1050" width="240" height="170" as="geometry"/>
+    </mxCell>
+    <mxCell id="homestay_policies" value="&lt;b&gt;homestay_policies&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK homestay_id: bigint&lt;br&gt;policy: string&lt;br&gt;is_active: boolean" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="950" width="240" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="blocked_dates" value="&lt;b&gt;blocked_dates&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK homestay_id: bigint&lt;br&gt;date: date&lt;br&gt;to_date: date" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="450" y="850" width="240" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="chat_conversations" value="&lt;b&gt;chat_conversations&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK user_id: bigint&lt;br&gt;last_message_at: timestamp" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="500" width="240" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="chat_messages" value="&lt;b&gt;chat_messages&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;FK conversation_id: bigint&lt;br&gt;FK sender_id: bigint&lt;br&gt;message: text" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="750" width="240" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="settings" value="&lt;b&gt;settings&lt;/b&gt;&lt;br&gt;&lt;hr&gt;PK id: bigint&lt;br&gt;key: string&lt;br&gt;value: text&lt;br&gt;group: string" style="shape=rect;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=4;spacingRight=4;spacingBottom=4;rounded=1;" vertex="1" parent="1">
+      <mxGeometry x="100" y="1150" width="240" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_0" value="hosts (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="homestays" target="bookings">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_1" value="has (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="homestays" target="blocked_dates">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_2" value="has (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="homestays" target="homestay_policies">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_3" value="receives (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="homestays" target="feedbacks">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_4" value="makes (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="users" target="bookings">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_5" value="generates (1..1)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="bookings" target="bills">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_6" value="has (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="bookings" target="payments">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_7" value="has (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="bookings" target="qr_codes">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_8" value="may have (0..1)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="bookings" target="refunds">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_9" value="may have (0..1)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="bookings" target="feedbacks">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_10" value="has (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="bookings" target="booking_extensions">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_11" value="generates (0..1)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="booking_extensions" target="bills">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_12" value="generates (0..1)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="payments" target="refunds">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_13" value="has (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="users" target="chat_conversations">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="edge_14" value="contains (1..N)" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="chat_conversations" target="chat_messages">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
