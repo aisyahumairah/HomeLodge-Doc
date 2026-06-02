@@ -1,0 +1,166 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="2">
+  <!-- Page 1: View/Update Profile -->
+  <diagram id="wf-auth-05-profile" name="Update Profile">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <mxCell id="nav3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=left;spacingLeft=15;fontSize=11;fontColor=#333333;fontStyle=1;" value="Profile" vertex="1">
+          <mxGeometry x="10" y="180" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Page title -->
+        <mxCell id="content_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="My Profile" vertex="1">
+          <mxGeometry x="240" y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Tabs -->
+        <mxCell id="tab_container" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="240" y="90" width="510" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tab1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;fontColor=#4A90D9;fontSize=12;fontStyle=1;align=center;" value="Personal Details" vertex="1">
+          <mxGeometry x="240" y="95" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab1_line" parent="1" style="line;strokeColor=#4A90D9;strokeWidth=2;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="123" width="120" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="tab2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;fontColor=#666666;fontSize=12;align=center;" value="Change Password" vertex="1">
+          <mxGeometry x="370" y="95" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab_line" parent="1" style="line;strokeColor=#cccccc;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="123" width="510" height="1" as="geometry" />
+        </mxCell>
+
+        <!-- Success Banner -->
+        <mxCell id="success" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=10;fontSize=10;fontColor=#3c763d;" value="Profile updated successfully." vertex="1">
+          <mxGeometry x="240" y="140" width="500" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Photo -->
+        <mxCell id="photo" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=#cccccc;fontSize=24;fontColor=#999999;" value="👤" vertex="1">
+          <mxGeometry x="240" y="190" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_photo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontSize=10;fontColor=#333333;" value="Change Photo" vertex="1">
+          <mxGeometry x="340" y="215" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Name -->
+        <mxCell id="lbl_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;fontStyle=1;" value="Full Name" vertex="1">
+          <mxGeometry x="240" y="290" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_name" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="Ahmad Bin Ali" vertex="1">
+          <mxGeometry x="240" y="310" width="500" height="36" as="geometry" />
+        </mxCell>
+        
+        <!-- Email -->
+        <mxCell id="lbl_email" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;fontStyle=1;" value="Email Address" vertex="1">
+          <mxGeometry x="240" y="360" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_email" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#888888;fontStyle=2;" value="ahmad@example.com (Cannot be changed)" vertex="1">
+          <mxGeometry x="240" y="380" width="500" height="36" as="geometry" />
+        </mxCell>
+        
+        <!-- Phone -->
+        <mxCell id="lbl_phone" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;fontStyle=1;" value="Phone Number" vertex="1">
+          <mxGeometry x="240" y="430" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_phone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="+60123456789" vertex="1">
+          <mxGeometry x="240" y="450" width="500" height="36" as="geometry" />
+        </mxCell>
+        
+        <!-- Save btn -->
+        <mxCell id="btn_save" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;" value="Save Changes" vertex="1">
+          <mxGeometry x="240" y="510" width="120" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- Page 2: Change Password -->
+  <diagram id="wf-auth-05-password" name="Change Password">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="2" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <mxCell id="nav3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=left;spacingLeft=15;fontSize=11;fontColor=#333333;fontStyle=1;" value="Profile" vertex="1">
+          <mxGeometry x="10" y="180" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Page title -->
+        <mxCell id="content_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="My Profile" vertex="1">
+          <mxGeometry x="240" y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Tabs -->
+        <mxCell id="tab_container" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="240" y="90" width="510" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tab1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;fontColor=#666666;fontSize=12;align=center;" value="Personal Details" vertex="1">
+          <mxGeometry x="240" y="95" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;fontColor=#4A90D9;fontSize=12;fontStyle=1;align=center;" value="Change Password" vertex="1">
+          <mxGeometry x="370" y="95" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab2_line" parent="1" style="line;strokeColor=#4A90D9;strokeWidth=2;html=1;" value="" vertex="1">
+          <mxGeometry x="370" y="123" width="120" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="tab_line" parent="1" style="line;strokeColor=#cccccc;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="123" width="510" height="1" as="geometry" />
+        </mxCell>
+
+        <!-- Form Area -->
+        <mxCell id="form_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Update Password" vertex="1">
+          <mxGeometry x="240" y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Current Password -->
+        <mxCell id="lbl_curr" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;fontStyle=1;" value="Current Password" vertex="1">
+          <mxGeometry x="240" y="190" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_curr" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="••••••••" vertex="1">
+          <mxGeometry x="240" y="210" width="400" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- New Password -->
+        <mxCell id="lbl_new" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;fontStyle=1;" value="New Password" vertex="1">
+          <mxGeometry x="240" y="270" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_new" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#999999;" value="Enter new password" vertex="1">
+          <mxGeometry x="240" y="290" width="400" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Confirm New Password -->
+        <mxCell id="lbl_conf" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;fontStyle=1;" value="Confirm New Password" vertex="1">
+          <mxGeometry x="240" y="340" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_conf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#999999;" value="Re-enter new password" vertex="1">
+          <mxGeometry x="240" y="360" width="400" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Policy Note -->
+        <mxCell id="pwd_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="Password must be at least 8 characters long and contain numbers and letters." vertex="1">
+          <mxGeometry x="240" y="400" width="400" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Update btn -->
+        <mxCell id="btn_update" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;" value="Update Password" vertex="1">
+          <mxGeometry x="240" y="440" width="140" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,123 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="2">
+  <diagram id="wf-hs-01-main" name="Browse Units — Results">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="780" as="geometry" />
+        </mxCell>
+        <!-- Header -->
+        <mxCell id="header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="HomeLodge" vertex="1">
+          <mxGeometry x="30" y="25" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_login" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontColor=#4A90D9;fontStyle=1;" value="Log In" vertex="1">
+          <mxGeometry x="710" y="30" width="50" height="20" as="geometry" />
+        </mxCell>
+        <!-- Page Title -->
+        <mxCell id="page_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;" value="Available Homestays" vertex="1">
+          <mxGeometry x="30" y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Unit Card 1 -->
+        <mxCell id="card1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="30" y="140" width="220" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="img1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=center;fontSize=24;fontColor=#999999;" value="[ Image ]" vertex="1">
+          <mxGeometry x="30" y="140" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="title1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Sunset Villa" vertex="1">
+          <mxGeometry x="40" y="290" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="loc1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="📍 Langkawi, Kedah" vertex="1">
+          <mxGeometry x="40" y="310" width="200" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="price1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#4A90D9;" value="RM 250 / night" vertex="1">
+          <mxGeometry x="40" y="335" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rating1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#e8a838;" value="★ 4.8" vertex="1">
+          <mxGeometry x="200" y="335" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="btn1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontSize=11;fontColor=#333333;" value="View Details" vertex="1">
+          <mxGeometry x="40" y="375" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- Unit Card 2 -->
+        <mxCell id="card2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="280" y="140" width="220" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="img2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=center;fontSize=24;fontColor=#999999;" value="[ Image ]" vertex="1">
+          <mxGeometry x="280" y="140" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="title2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Cozy Apartment" vertex="1">
+          <mxGeometry x="290" y="290" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="loc2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="📍 Kuala Lumpur" vertex="1">
+          <mxGeometry x="290" y="310" width="200" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="price2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#4A90D9;" value="RM 180 / night" vertex="1">
+          <mxGeometry x="290" y="335" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rating2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#e8a838;" value="★ 4.5" vertex="1">
+          <mxGeometry x="450" y="335" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="btn2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontSize=11;fontColor=#333333;" value="View Details" vertex="1">
+          <mxGeometry x="290" y="375" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- Unit Card 3 -->
+        <mxCell id="card3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="530" y="140" width="220" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="img3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=center;fontSize=24;fontColor=#999999;" value="[ Image ]" vertex="1">
+          <mxGeometry x="530" y="140" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="title3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Seaview Retreat" vertex="1">
+          <mxGeometry x="540" y="290" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="loc3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="📍 Penang" vertex="1">
+          <mxGeometry x="540" y="310" width="200" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="price3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#4A90D9;" value="RM 320 / night" vertex="1">
+          <mxGeometry x="540" y="335" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="rating3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#e8a838;" value="★ 4.9" vertex="1">
+          <mxGeometry x="700" y="335" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="btn3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontSize=11;fontColor=#333333;" value="View Details" vertex="1">
+          <mxGeometry x="540" y="375" width="200" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="wf-hs-01-empty" name="Browse Units — Empty">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="780" as="geometry" />
+        </mxCell>
+        <mxCell id="header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="HomeLodge" vertex="1">
+          <mxGeometry x="30" y="25" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="page_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;" value="Available Homestays" vertex="1">
+          <mxGeometry x="30" y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Empty State -->
+        <mxCell id="empty_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=#e0e0e0;strokeWidth=2;dashed=1;" value="" vertex="1">
+          <mxGeometry x="150" y="200" width="500" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="empty_icon" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=48;fontColor=#cccccc;" value="🏡" vertex="1">
+          <mxGeometry x="360" y="240" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="empty_msg" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#666666;" value="No homestay units are currently available.&lt;br&gt;Please check back later." vertex="1">
+          <mxGeometry x="200" y="330" width="400" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

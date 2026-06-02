@@ -1,0 +1,96 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="1">
+  <diagram id="wf-chat-02" name="View Chat History">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        
+        <!-- Sidebar Navigation (Main App) -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <!-- Header -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Chat History (Archived)" vertex="1">
+          <mxGeometry x="240" y="50" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Filter/Search Bar -->
+        <mxCell id="filter_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="240" y="100" width="510" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="f_search" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#999999;" value="🔍 Search keywords, guest name, or booking ref..." vertex="1">
+          <mxGeometry x="250" y="115" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="f_btn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=11;" value="Search" vertex="1">
+          <mxGeometry x="600" y="115" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Results List -->
+        <mxCell id="list_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="180" width="510" height="380" as="geometry" />
+        </mxCell>
+        
+        <!-- Result Item 1 -->
+        <mxCell id="res1_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="240" y="180" width="510" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="res1_avatar" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="260" y="200" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="res1_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="John Smith" vertex="1">
+          <mxGeometry x="320" y="195" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res1_bkg" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="Ref: BKG-20251105 (Sunset Villa)" vertex="1">
+          <mxGeometry x="320" y="215" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res1_match" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;fontStyle=2;" value="&quot;...can we leave the &lt;b&gt;keys&lt;/b&gt; on the table?&quot;" vertex="1">
+          <mxGeometry x="320" y="235" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res1_date" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="07 Nov 2025" vertex="1">
+          <mxGeometry x="640" y="195" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res1_btn" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="View Thread" vertex="1">
+          <mxGeometry x="640" y="235" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="line1" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="260" width="510" height="1" as="geometry" />
+        </mxCell>
+
+        <!-- Result Item 2 -->
+        <mxCell id="res2_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="240" y="261" width="510" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="res2_avatar" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cccccc;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="260" y="281" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="res2_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Emily Chen" vertex="1">
+          <mxGeometry x="320" y="276" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res2_bkg" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="Ref: BKG-20250812 (Cozy Apt)" vertex="1">
+          <mxGeometry x="320" y="296" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res2_match" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;fontStyle=2;" value="&quot;...the &lt;b&gt;keys&lt;/b&gt; are not working properly.&quot;" vertex="1">
+          <mxGeometry x="320" y="316" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res2_date" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="14 Aug 2025" vertex="1">
+          <mxGeometry x="640" y="276" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="res2_btn" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="View Thread" vertex="1">
+          <mxGeometry x="640" y="316" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="line2" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="341" width="510" height="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Pagination -->
+        <mxCell id="pagin" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="&lt; Prev  |  Page 1 of 5  |  Next &gt;" vertex="1">
+          <mxGeometry x="395" y="520" width="200" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

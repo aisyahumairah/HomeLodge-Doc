@@ -1,0 +1,143 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="2">
+  <!-- Page 1: Submit Feedback Form -->
+  <diagram id="wf-fb-01" name="Submit Rating &amp; Feedback">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Navbar -->
+        <mxCell id="navbar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="HomeLodge" vertex="1">
+          <mxGeometry x="30" y="20" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_links" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontColor=#666666;" value="Home &amp;nbsp;&amp;nbsp;&amp;nbsp; My Bookings &amp;nbsp;&amp;nbsp;&amp;nbsp; Profile" vertex="1">
+          <mxGeometry x="500" y="20" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Content Area -->
+        <mxCell id="content_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="140" y="100" width="520" height="420" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Rate Your Stay" vertex="1">
+          <mxGeometry x="250" y="130" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="desc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;" value="How was your stay at &lt;b&gt;Sunset Villa (Unit 104)&lt;/b&gt;?&lt;br&gt;Your feedback helps us improve." vertex="1">
+          <mxGeometry x="200" y="160" width="400" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Star Rating -->
+        <mxCell id="stars" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=36;fontColor=#f0ad4e;" value="★ ★ ★ ★ ☆" vertex="1">
+          <mxGeometry x="250" y="210" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Comments -->
+        <mxCell id="lbl_comment" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#333333;" value="Share your experience (Optional)" vertex="1">
+          <mxGeometry x="180" y="270" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_comment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fontSize=12;fontColor=#999999;" value="The place was great and clean, but the Wi-Fi was a bit slow..." vertex="1">
+          <mxGeometry x="180" y="290" width="440" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Submit Button -->
+        <mxCell id="btn_submit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;" value="Submit Feedback" vertex="1">
+          <mxGeometry x="180" y="420" width="440" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_skip" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#999999;fontStyle=4;" value="Skip for now" vertex="1">
+          <mxGeometry x="350" y="470" width="100" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <!-- Page 2: View Submitted Feedback -->
+  <diagram id="wf-fb-02" name="My Feedback (Guest)">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="2" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Navbar -->
+        <mxCell id="navbar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="HomeLodge" vertex="1">
+          <mxGeometry x="30" y="20" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_links" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontColor=#666666;" value="Home &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;b&gt;My Bookings&lt;/b&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp; Profile" vertex="1">
+          <mxGeometry x="500" y="20" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Sub-navigation -->
+        <mxCell id="subnav_box" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="140" y="80" width="520" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tab1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#666666;" value="Active &amp; Upcoming" vertex="1">
+          <mxGeometry x="140" y="85" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#666666;" value="Past Bookings" vertex="1">
+          <mxGeometry x="310" y="85" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#4A90D9;" value="My Reviews" vertex="1">
+          <mxGeometry x="450" y="85" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab_line" parent="1" style="line;strokeColor=#4A90D9;strokeWidth=2;html=1;" value="" vertex="1">
+          <mxGeometry x="450" y="115" width="100" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="full_line" parent="1" style="line;strokeColor=#cccccc;html=1;" value="" vertex="1">
+          <mxGeometry x="140" y="115" width="520" height="1" as="geometry" />
+        </mxCell>
+
+        <!-- Review Card 1 -->
+        <mxCell id="rev1_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="140" y="140" width="520" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_unit" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Sunset Villa (Unit 104)" vertex="1">
+          <mxGeometry x="160" y="150" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_date" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="Reviewed on: 07 Nov 2025" vertex="1">
+          <mxGeometry x="500" y="150" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_stars" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=16;fontColor=#f0ad4e;" value="★ ★ ★ ★ ☆" vertex="1">
+          <mxGeometry x="160" y="170" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;fontColor=#666666;" value="&quot;The place was great and clean, but the Wi-Fi was a bit slow. Otherwise, a perfect stay!&quot;" vertex="1">
+          <mxGeometry x="160" y="200" width="480" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Admin Reply -->
+        <mxCell id="r1_reply_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=none;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="160" y="240" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_reply_txt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="&lt;b&gt;Host Reply:&lt;/b&gt; Thank you for the feedback! We are upgrading our router next week." vertex="1">
+          <mxGeometry x="170" y="245" width="460" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Review Card 2 -->
+        <mxCell id="rev2_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="140" y="310" width="520" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_unit" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Ocean View Suite (Unit 201)" vertex="1">
+          <mxGeometry x="160" y="320" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_date" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="Reviewed on: 15 Aug 2025" vertex="1">
+          <mxGeometry x="500" y="320" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_stars" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=16;fontColor=#f0ad4e;" value="★ ★ ★ ★ ★" vertex="1">
+          <mxGeometry x="160" y="340" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_text" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;fontColor=#666666;" value="&quot;Absolutely stunning view and very comfortable beds. Highly recommended.&quot;" vertex="1">
+          <mxGeometry x="160" y="370" width="480" height="40" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

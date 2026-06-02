@@ -1,0 +1,85 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="1">
+  <diagram id="wf-bk-03" name="View Bookings (List)">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <mxCell id="nav2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=left;spacingLeft=15;fontSize=11;fontColor=#333333;fontStyle=1;" value="My Bookings" vertex="1">
+          <mxGeometry x="10" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="My Bookings" vertex="1">
+          <mxGeometry x="240" y="50" width="200" height="30" as="geometry" />
+        </mxCell>
+        <!-- Tabs -->
+        <mxCell id="tab1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;align=center;fontSize=12;fontStyle=1;fontColor=#4A90D9;borderBottom=2;borderColor=#4A90D9;" value="Current &amp; Upcoming" vertex="1">
+          <mxGeometry x="240" y="100" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab1_line" parent="1" style="line;strokeColor=#4A90D9;strokeWidth=2;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="128" width="150" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="tab2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;align=center;fontSize=12;fontColor=#666666;" value="Past Bookings" vertex="1">
+          <mxGeometry x="400" y="100" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tab_base" parent="1" style="line;strokeColor=#cccccc;html=1;" value="" vertex="1">
+          <mxGeometry x="240" y="130" width="510" height="1" as="geometry" />
+        </mxCell>
+        <!-- Filters (Admin perspective example included) -->
+        <mxCell id="filter_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=#e0e0e0;align=left;spacingLeft=10;fontSize=10;fontColor=#666666;" value="Filter by Status  ▼   |   Filter by Date Range  ▼" vertex="1">
+          <mxGeometry x="240" y="150" width="510" height="36" as="geometry" />
+        </mxCell>
+        <!-- Booking Card 1 (Pending Payment) -->
+        <mxCell id="card1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="240" y="210" width="510" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_id" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="#BKG-20260601-A12B" vertex="1">
+          <mxGeometry x="250" y="220" width="150" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Sunset Villa" vertex="1">
+          <mxGeometry x="250" y="235" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_dates" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="11 Jun - 14 Jun 2026 (3 nights)" vertex="1">
+          <mxGeometry x="250" y="260" width="200" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcf8e3;strokeColor=#faebcc;fontColor=#8a6d3b;fontSize=9;align=center;" value="Pending Payment" vertex="1">
+          <mxGeometry x="540" y="220" width="100" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_action" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=10;" value="View Details" vertex="1">
+          <mxGeometry x="650" y="245" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_price" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#333333;" value="RM 850.00" vertex="1">
+          <mxGeometry x="540" y="245" width="100" height="25" as="geometry" />
+        </mxCell>
+        <!-- Booking Card 2 (Confirmed) -->
+        <mxCell id="card2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="240" y="300" width="510" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_id" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="#BKG-20260515-C89X" vertex="1">
+          <mxGeometry x="250" y="310" width="150" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#333333;" value="Cozy Apartment" vertex="1">
+          <mxGeometry x="250" y="325" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_dates" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="20 Jul - 25 Jul 2026 (5 nights)" vertex="1">
+          <mxGeometry x="250" y="350" width="200" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dff0d8;strokeColor=#d6e9c6;fontColor=#3c763d;fontSize=9;align=center;" value="Confirmed" vertex="1">
+          <mxGeometry x="540" y="310" width="100" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_action" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=10;" value="View Details" vertex="1">
+          <mxGeometry x="650" y="335" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_price" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#333333;" value="RM 1000.00" vertex="1">
+          <mxGeometry x="540" y="335" width="100" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

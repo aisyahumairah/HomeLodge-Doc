@@ -1,0 +1,208 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="4">
+  <!-- Page 1: Roles List -->
+  <diagram id="wf-role-list" name="Manage Roles - List">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_roles" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=left;spacingLeft=15;fontSize=11;fontColor=#333333;fontStyle=1;" value="Roles &amp; Permissions" vertex="1">
+          <mxGeometry x="10" y="180" width="200" height="40" as="geometry" />
+        </mxCell>
+        <!-- Header -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Roles" vertex="1">
+          <mxGeometry x="240" y="50" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_perms" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;fontColor=#333333;fontSize=11;" value="Manage Permissions" vertex="1">
+          <mxGeometry x="510" y="50" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_create" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=none;fontColor=#ffffff;fontSize=11;fontStyle=1;" value="+ Create Role" vertex="1">
+          <mxGeometry x="650" y="50" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Table -->
+        <mxCell id="tbl_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="100" width="510" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="tbl_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="100" width="510" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Role Name" vertex="1"><mxGeometry x="250" y="105" width="100" height="20" as="geometry" /></mxCell>
+        <mxCell id="th2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Users" vertex="1"><mxGeometry x="360" y="105" width="50" height="20" as="geometry" /></mxCell>
+        <mxCell id="th3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Permissions" vertex="1"><mxGeometry x="420" y="105" width="150" height="20" as="geometry" /></mxCell>
+        <mxCell id="th4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Actions" vertex="1"><mxGeometry x="650" y="105" width="90" height="20" as="geometry" /></mxCell>
+        
+        <!-- Row 1 -->
+        <mxCell id="td1_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Super Admin" vertex="1"><mxGeometry x="250" y="140" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="2" vertex="1"><mxGeometry x="360" y="140" width="50" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#666666;" value="All Permissions (Bypass)" vertex="1"><mxGeometry x="420" y="140" width="150" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="System Role" vertex="1"><mxGeometry x="650" y="140" width="90" height="30" as="geometry" /></mxCell>
+        <mxCell id="row1_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="175" width="510" height="1" as="geometry" /></mxCell>
+        
+        <!-- Row 2 -->
+        <mxCell id="td2_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Manager" vertex="1"><mxGeometry x="250" y="180" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="5" vertex="1"><mxGeometry x="360" y="180" width="50" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#666666;" value="manage_bookings, manage_units..." vertex="1"><mxGeometry x="420" y="180" width="150" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="Edit | Delete" vertex="1"><mxGeometry x="650" y="180" width="90" height="30" as="geometry" /></mxCell>
+        <mxCell id="row2_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="215" width="510" height="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- Page 2: Create/Edit Role -->
+  <diagram id="wf-role-edit" name="Create/Edit Role">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="2" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <!-- Header -->
+        <mxCell id="back" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="&lt; Back to Roles" vertex="1">
+          <mxGeometry x="240" y="50" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Edit Role: Manager" vertex="1">
+          <mxGeometry x="240" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Form Fields -->
+        <mxCell id="lbl_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Role Name" vertex="1">
+          <mxGeometry x="240" y="130" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_name" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="Manager" vertex="1">
+          <mxGeometry x="240" y="150" width="510" height="35" as="geometry" />
+        </mxCell>
+        
+        <!-- Permissions Checkboxes -->
+        <mxCell id="lbl_perms" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Assign Permissions" vertex="1">
+          <mxGeometry x="240" y="200" width="150" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Group 1 -->
+        <mxCell id="grp1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=#cccccc;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fontSize=12;fontStyle=1;fontColor=#333333;" value="Bookings" vertex="1">
+          <mxGeometry x="240" y="220" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="chk1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=#cccccc;" value="" vertex="1"><mxGeometry x="250" y="250" width="12" height="12" as="geometry" /></mxCell>
+        <mxCell id="lbl_chk1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#333333;" value="view_bookings" vertex="1"><mxGeometry x="270" y="246" width="150" height="20" as="geometry" /></mxCell>
+        <mxCell id="chk2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=#cccccc;" value="" vertex="1"><mxGeometry x="250" y="270" width="12" height="12" as="geometry" /></mxCell>
+        <mxCell id="lbl_chk2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#333333;" value="manage_bookings" vertex="1"><mxGeometry x="270" y="266" width="150" height="20" as="geometry" /></mxCell>
+        
+        <!-- Group 2 -->
+        <mxCell id="grp2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=#cccccc;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fontSize=12;fontStyle=1;fontColor=#333333;" value="Settings" vertex="1">
+          <mxGeometry x="510" y="220" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="chk3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1"><mxGeometry x="520" y="250" width="12" height="12" as="geometry" /></mxCell>
+        <mxCell id="lbl_chk3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#333333;" value="manage_settings" vertex="1"><mxGeometry x="540" y="246" width="150" height="20" as="geometry" /></mxCell>
+
+        <!-- Buttons -->
+        <mxCell id="btn_save" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;" value="Save Changes" vertex="1">
+          <mxGeometry x="380" y="360" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_cancel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=12;" value="Cancel" vertex="1">
+          <mxGeometry x="240" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <!-- Page 3: Permissions List -->
+  <diagram id="wf-perm-list" name="Manage Permissions - List">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="3" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <!-- Header -->
+        <mxCell id="back" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="&lt; Back to Roles" vertex="1">
+          <mxGeometry x="240" y="50" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Permissions List" vertex="1">
+          <mxGeometry x="240" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_create" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=none;fontColor=#ffffff;fontSize=11;fontStyle=1;" value="+ Create Permission" vertex="1">
+          <mxGeometry x="610" y="80" width="140" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Table -->
+        <mxCell id="tbl_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="130" width="510" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="tbl_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="130" width="510" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Permission Key" vertex="1"><mxGeometry x="250" y="135" width="150" height="20" as="geometry" /></mxCell>
+        <mxCell id="th2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Assigned To" vertex="1"><mxGeometry x="450" y="135" width="100" height="20" as="geometry" /></mxCell>
+        <mxCell id="th4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Actions" vertex="1"><mxGeometry x="650" y="135" width="90" height="20" as="geometry" /></mxCell>
+        
+        <!-- Row 1 -->
+        <mxCell id="td1_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="view_bookings" vertex="1"><mxGeometry x="250" y="170" width="150" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="3 Roles" vertex="1"><mxGeometry x="450" y="170" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="Edit | Delete" vertex="1"><mxGeometry x="650" y="170" width="90" height="30" as="geometry" /></mxCell>
+        <mxCell id="row1_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="205" width="510" height="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- Page 4: Create/Edit Permission Form -->
+  <diagram id="wf-perm-edit" name="Create/Edit Permission">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="4" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <!-- Header -->
+        <mxCell id="back" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;fontStyle=4;" value="&lt; Back to Permissions" vertex="1">
+          <mxGeometry x="240" y="50" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Create Permission" vertex="1">
+          <mxGeometry x="240" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Form Fields -->
+        <mxCell id="lbl_key" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Permission Key (Must be unique, lowercase, underscores)" vertex="1">
+          <mxGeometry x="240" y="130" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_key" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#999999;" value="e.g. edit_users" vertex="1">
+          <mxGeometry x="240" y="150" width="510" height="35" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lbl_cat" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Category Group" vertex="1">
+          <mxGeometry x="240" y="200" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_cat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#999999;" value="e.g. Users" vertex="1">
+          <mxGeometry x="240" y="220" width="510" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Buttons -->
+        <mxCell id="btn_save" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;" value="Save Permission" vertex="1">
+          <mxGeometry x="380" y="290" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_cancel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=12;" value="Cancel" vertex="1">
+          <mxGeometry x="240" y="290" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

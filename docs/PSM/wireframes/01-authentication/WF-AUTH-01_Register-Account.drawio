@@ -1,0 +1,96 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="1">
+  <diagram id="wf-auth-01-desk" name="Register Account (Desktop)">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Web Browser Window -->
+        <mxCell id="browser_frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;arcSize=2;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="980" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_top" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="980" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_dots" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontColor=#aaaaaa;" value="● ● ●" vertex="1">
+          <mxGeometry x="20" y="15" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_url" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;fontSize=12;fontColor=#666666;align=left;spacingLeft=10;" value="🔒 https://homelodge.example.com/register" vertex="1">
+          <mxGeometry x="120" y="15" width="600" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Two Column Layout Container -->
+        <mxCell id="main_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;shadow=1;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="100" y="100" width="800" height="520" as="geometry" />
+        </mxCell>
+
+        <!-- Left Column: Branding / Marketing -->
+        <mxCell id="left_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="100" y="100" width="350" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=32;fontStyle=1;fontColor=#ffffff;" value="HomeLodge" vertex="1">
+          <mxGeometry x="150" y="250" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tagline" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#e0e0e0;" value="Your home away from home.&lt;br&gt;Sign up to book your perfect stay." vertex="1">
+          <mxGeometry x="125" y="310" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Right Column: Registration Form -->
+        <mxCell id="form_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#333333;" value="Create an Account" vertex="1">
+          <mxGeometry x="500" y="140" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Full Name -->
+        <mxCell id="lbl_name" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Full Name" vertex="1">
+          <mxGeometry x="500" y="200" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_name" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=12;fontColor=#999999;" value="e.g. John Doe" vertex="1">
+          <mxGeometry x="500" y="220" width="340" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Email -->
+        <mxCell id="lbl_email" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Email Address" vertex="1">
+          <mxGeometry x="500" y="270" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_email" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=12;fontColor=#999999;" value="john@example.com" vertex="1">
+          <mxGeometry x="500" y="290" width="340" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Password -->
+        <mxCell id="lbl_pwd" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Password" vertex="1">
+          <mxGeometry x="500" y="340" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_pwd" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=12;fontColor=#999999;" value="Create a strong password" vertex="1">
+          <mxGeometry x="500" y="360" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Confirm Password -->
+        <mxCell id="lbl_pwd_conf" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Confirm Password" vertex="1">
+          <mxGeometry x="680" y="340" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_pwd_conf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=12;fontColor=#999999;" value="Re-enter password" vertex="1">
+          <mxGeometry x="680" y="360" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Phone Number -->
+        <mxCell id="lbl_phone" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#444444;" value="Phone Number" vertex="1">
+          <mxGeometry x="500" y="410" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="inp_phone" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=12;fontColor=#999999;" value="+60123456789" vertex="1">
+          <mxGeometry x="500" y="430" width="340" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Submit Button -->
+        <mxCell id="btn_submit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;" value="Register Account" vertex="1">
+          <mxGeometry x="500" y="490" width="340" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Login Link -->
+        <mxCell id="lnk_login" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;" value="Already have an account? &lt;font color='#4A90D9'&gt;&lt;b&gt;Log in&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry x="500" y="550" width="340" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

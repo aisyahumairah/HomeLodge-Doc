@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="1">
+  <!-- Deactivate Modal -->
+  <diagram id="wf-hs-05-deact" name="Deactivate Unit Modal">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Background (List View, faded) -->
+        <mxCell id="bg_blur" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;opacity=60;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Modal Overlay -->
+        <mxCell id="modal" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;shadow=1;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="200" y="150" width="400" height="250" as="geometry" />
+        </mxCell>
+        <!-- Icon -->
+        <mxCell id="icon" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fcf8e3;strokeColor=#faebcc;fontSize=24;fontColor=#8a6d3b;" value="⚠" vertex="1">
+          <mxGeometry x="370" y="170" width="60" height="60" as="geometry" />
+        </mxCell>
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;" value="Deactivate 'Sunset Villa'?" vertex="1">
+          <mxGeometry x="250" y="240" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Text -->
+        <mxCell id="msg" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=12;fontColor=#666666;" value="This unit will be hidden from guests, but existing&lt;br&gt;bookings will not be affected. You can reactivate it later." vertex="1">
+          <mxGeometry x="220" y="280" width="360" height="40" as="geometry" />
+        </mxCell>
+        <!-- Buttons -->
+        <mxCell id="btn_cancel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=11;fontStyle=1;" value="Cancel" vertex="1">
+          <mxGeometry x="250" y="340" width="140" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_confirm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0ad4e;strokeColor=none;fontColor=#ffffff;fontSize=11;fontStyle=1;" value="Yes, Deactivate" vertex="1">
+          <mxGeometry x="410" y="340" width="140" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <!-- Delete Modal with Error -->
+  <diagram id="wf-hs-05-del" name="Delete Unit (Blocked)">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg_blur" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;opacity=60;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Modal Overlay -->
+        <mxCell id="modal" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;shadow=1;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="200" y="150" width="400" height="250" as="geometry" />
+        </mxCell>
+        <!-- Icon (Error) -->
+        <mxCell id="icon" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f2dede;strokeColor=#ebccd1;fontSize=24;fontColor=#a94442;" value="✕" vertex="1">
+          <mxGeometry x="370" y="170" width="60" height="60" as="geometry" />
+        </mxCell>
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;" value="Cannot Delete Unit" vertex="1">
+          <mxGeometry x="250" y="240" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Text -->
+        <mxCell id="msg" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=12;fontColor=#a94442;" value="This unit has &lt;b&gt;3 active upcoming bookings&lt;/b&gt;.&lt;br&gt;You must cancel or reassign them before deleting." vertex="1">
+          <mxGeometry x="220" y="280" width="360" height="40" as="geometry" />
+        </mxCell>
+        <!-- Buttons -->
+        <mxCell id="btn_cancel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=11;fontStyle=1;" value="Go Back" vertex="1">
+          <mxGeometry x="330" y="340" width="140" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

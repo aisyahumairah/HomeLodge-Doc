@@ -1,0 +1,197 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="3">
+  <!-- Page 1: Housekeeper Mobile View -->
+  <diagram id="wf-qr-02-mobile" name="Manage Housekeeping Cycle">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="400" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Mobile Device Frame -->
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=10;" value="" vertex="1">
+          <mxGeometry x="20" y="20" width="360" height="660" as="geometry" />
+        </mxCell>
+        <!-- Status Bar -->
+        <mxCell id="status" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#333333;" value="10:00 &amp;nbsp;&amp;nbsp;&amp;nbsp; 📶 🔋" vertex="1">
+          <mxGeometry x="20" y="25" width="360" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Navbar -->
+        <mxCell id="navbar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="20" y="50" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontColor=#ffffff;fontStyle=1;" value="Housekeeping Mode" vertex="1">
+          <mxGeometry x="80" y="60" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_menu" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontColor=#ffffff;fontStyle=1;" value="≡" vertex="1">
+          <mxGeometry x="30" y="60" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Room Header Scanned via QR -->
+        <mxCell id="room_header" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Unit 104 (Sunset Villa)" vertex="1">
+          <mxGeometry x="40" y="120" width="320" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="room_status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcf8e3;strokeColor=#faebcc;fontColor=#8a6d3b;fontSize=11;align=center;" value="Status: Dirty" vertex="1">
+          <mxGeometry x="150" y="160" width="100" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Action Buttons -->
+        <!-- State 1: Start Cleaning -->
+        <mxCell id="box_start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;arcSize=5;" value="" vertex="1">
+          <mxGeometry x="40" y="210" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="desc_start" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;" value="Guest checked out. Unit requires cleaning." vertex="1">
+          <mxGeometry x="60" y="230" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0ad4e;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;" value="▶ Start Cleaning" vertex="1">
+          <mxGeometry x="80" y="280" width="240" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Divider -->
+        <mxCell id="div_line" parent="1" style="line;strokeColor=#eeeeee;html=1;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry x="40" y="390" width="320" height="1" as="geometry" />
+        </mxCell>
+        
+        <!-- State 2: End Cleaning (Shown conditionally) -->
+        <mxCell id="box_end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;arcSize=5;" value="" vertex="1">
+          <mxGeometry x="40" y="420" width="320" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="desc_end" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#666666;" value="Cleaning in progress since 10:05 AM." vertex="1">
+          <mxGeometry x="60" y="440" width="280" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=none;fontColor=#ffffff;fontSize=14;fontStyle=1;" value="✓ End Cleaning &amp; Mark Ready" vertex="1">
+          <mxGeometry x="60" y="500" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="note_end" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#999999;" value="*This will notify the next guest if early check-in is allowed." vertex="1">
+          <mxGeometry x="60" y="560" width="280" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <!-- Page 2: Admin Regenerate QR -->
+  <diagram id="wf-qr-02-admin" name="Admin - Regenerate HK QR">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="2" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_hk" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=left;spacingLeft=15;fontSize=11;fontColor=#333333;fontStyle=1;" value="Homestays &gt; HK QR Codes" vertex="1">
+          <mxGeometry x="10" y="140" width="200" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Header -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Housekeeping QR Codes" vertex="1">
+          <mxGeometry x="240" y="50" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="desc" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Manage the static QR codes placed in each unit for housekeeping staff to scan." vertex="1">
+          <mxGeometry x="240" y="80" width="510" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Filter -->
+        <mxCell id="f_search" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#999999;" value="🔍 Search Unit Name..." vertex="1">
+          <mxGeometry x="240" y="120" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Table -->
+        <mxCell id="tbl_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="170" width="510" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="tbl_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="170" width="510" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Homestay Unit" vertex="1"><mxGeometry x="250" y="175" width="200" height="20" as="geometry" /></mxCell>
+        <mxCell id="th2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Actions" vertex="1"><mxGeometry x="500" y="175" width="240" height="20" as="geometry" /></mxCell>
+        
+        <!-- Row 1 -->
+        <mxCell id="td1_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="&lt;b&gt;Unit 104&lt;/b&gt;&lt;br&gt;Sunset Villa" vertex="1"><mxGeometry x="250" y="210" width="200" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_btn1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=10;" value="🖨 Print QR" vertex="1"><mxGeometry x="480" y="210" width="80" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_btn2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcf8e3;strokeColor=#faebcc;fontColor=#8a6d3b;fontSize=10;fontStyle=1;" value="↻ Regenerate QR" vertex="1"><mxGeometry x="570" y="210" width="120" height="30" as="geometry" /></mxCell>
+        <mxCell id="row1_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="250" width="510" height="1" as="geometry" /></mxCell>
+        
+        <!-- Row 2 -->
+        <mxCell id="td2_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="&lt;b&gt;Unit 201&lt;/b&gt;&lt;br&gt;Ocean View Suite" vertex="1"><mxGeometry x="250" y="260" width="200" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_btn1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;fontColor=#333333;fontSize=10;" value="🖨 Print QR" vertex="1"><mxGeometry x="480" y="260" width="80" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_btn2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcf8e3;strokeColor=#faebcc;fontColor=#8a6d3b;fontSize=10;fontStyle=1;" value="↻ Regenerate QR" vertex="1"><mxGeometry x="570" y="260" width="120" height="30" as="geometry" /></mxCell>
+        <mxCell id="row2_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="300" width="510" height="1" as="geometry" /></mxCell>
+
+        <!-- Regeneration Alert Note -->
+        <mxCell id="alert_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9edf7;strokeColor=#bce8f1;align=left;verticalAlign=middle;spacingLeft=10;fontSize=11;fontColor=#31708f;" value="&lt;b&gt;Note:&lt;/b&gt; Regenerating a Housekeeping QR code will immediately invalidate the old code. You must print and physically replace the QR code inside the unit." vertex="1">
+          <mxGeometry x="240" y="390" width="510" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <!-- Page 3: Housekeeper Desktop Web View -->
+  <diagram id="wf-qr-02-web" name="Manage Housekeeping Cycle (Web)">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="3" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Web Browser Window -->
+        <mxCell id="browser_frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=2;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="980" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_top" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0f0f0;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="980" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_dots" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontColor=#cccccc;" value="● ● ●" vertex="1">
+          <mxGeometry x="20" y="15" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_url" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;fontSize=12;fontColor=#666666;align=left;spacingLeft=10;" value="🔒 https://homelodge.example.com/staff/housekeeping/unit/104" vertex="1">
+          <mxGeometry x="120" y="15" width="600" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Navbar -->
+        <mxCell id="navbar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="50" width="980" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;" value="HomeLodge Staff" vertex="1">
+          <mxGeometry x="40" y="65" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_links" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=14;fontColor=#666666;" value="Dashboard &amp;nbsp;&amp;nbsp;&amp;nbsp; Schedule &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;b&gt;Maria (Housekeeping) 👤&lt;/b&gt;" vertex="1">
+          <mxGeometry x="500" y="65" width="450" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Room Header -->
+        <mxCell id="room_header" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#333333;" value="Unit 104 (Sunset Villa)" vertex="1">
+          <mxGeometry x="250" y="150" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="room_status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fcf8e3;strokeColor=#faebcc;fontColor=#8a6d3b;fontSize=14;align=center;" value="Status: Dirty (Guest Checked Out)" vertex="1">
+          <mxGeometry x="380" y="200" width="240" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Panel -->
+        <mxCell id="panel_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;arcSize=2;" value="" vertex="1">
+          <mxGeometry x="250" y="260" width="500" height="250" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="desc_start" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontColor=#666666;" value="Please start the cleaning timer when you enter the unit.&lt;br&gt;This allows the system to track turnover time." vertex="1">
+          <mxGeometry x="300" y="290" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Action Buttons -->
+        <!-- Start Cleaning -->
+        <mxCell id="btn_start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0ad4e;strokeColor=none;fontColor=#ffffff;fontSize=16;fontStyle=1;" value="▶ Start Cleaning" vertex="1">
+          <mxGeometry x="350" y="360" width="300" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Simulated End Cleaning state in same view -->
+        <mxCell id="btn_end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=none;fontColor=#ffffff;fontSize=16;fontStyle=1;opacity=40;" value="✓ End Cleaning &amp; Mark Ready" vertex="1">
+          <mxGeometry x="350" y="430" width="300" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

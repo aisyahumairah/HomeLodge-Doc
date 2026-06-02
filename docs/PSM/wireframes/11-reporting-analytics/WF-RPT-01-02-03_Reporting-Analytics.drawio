@@ -1,0 +1,164 @@
+<mxfile host="Electron" agent="HomeLodge-Doc" pages="2">
+  <!-- Page 1: Analytics Dashboard -->
+  <diagram id="wf-rpt-01" name="Analytics Dashboard">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+        <mxCell id="nav_rpt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0e0e0;strokeColor=none;align=left;spacingLeft=15;fontSize=11;fontColor=#333333;fontStyle=1;" value="Reports &amp; Analytics" vertex="1">
+          <mxGeometry x="10" y="240" width="200" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Header -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Analytics Dashboard" vertex="1">
+          <mxGeometry x="240" y="50" width="300" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Filter Bar -->
+        <mxCell id="f_range" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="This Month ▼" vertex="1">
+          <mxGeometry x="240" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="f_unit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="All Units ▼" vertex="1">
+          <mxGeometry x="370" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Summary Cards -->
+        <mxCell id="card1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;align=center;" value="" vertex="1">
+          <mxGeometry x="240" y="140" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Total Revenue" vertex="1">
+          <mxGeometry x="240" y="150" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c1_val" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#4A90D9;" value="RM 12,450" vertex="1">
+          <mxGeometry x="240" y="180" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="card2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;align=center;" value="" vertex="1">
+          <mxGeometry x="415" y="140" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Total Bookings" vertex="1">
+          <mxGeometry x="415" y="150" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c2_val" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;" value="45" vertex="1">
+          <mxGeometry x="415" y="180" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="card3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;align=center;" value="" vertex="1">
+          <mxGeometry x="590" y="140" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c3_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#666666;" value="Occupancy Rate" vertex="1">
+          <mxGeometry x="590" y="150" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c3_val" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fontColor=#333333;" value="78%" vertex="1">
+          <mxGeometry x="590" y="180" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Charts Area -->
+        <mxCell id="chart_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="240" width="510" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="chart_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#333333;" value="Revenue Over Time" vertex="1">
+          <mxGeometry x="250" y="250" width="200" height="20" as="geometry" />
+        </mxCell>
+        <!-- Bar Chart Mockup -->
+        <mxCell id="bar1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1"><mxGeometry x="280" y="380" width="30" height="60" as="geometry" /></mxCell>
+        <mxCell id="bar2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1"><mxGeometry x="340" y="320" width="30" height="120" as="geometry" /></mxCell>
+        <mxCell id="bar3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1"><mxGeometry x="400" y="360" width="30" height="80" as="geometry" /></mxCell>
+        <mxCell id="bar4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1"><mxGeometry x="460" y="280" width="30" height="160" as="geometry" /></mxCell>
+        <mxCell id="bar5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#4A90D9;strokeColor=none;" value="" vertex="1"><mxGeometry x="520" y="340" width="30" height="100" as="geometry" /></mxCell>
+        <mxCell id="axis" parent="1" style="line;strokeColor=#cccccc;html=1;" value="" vertex="1"><mxGeometry x="260" y="440" width="450" height="1" as="geometry" /></mxCell>
+
+        <!-- View Reports Link -->
+        <mxCell id="lnk_rpt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=11;fontColor=#4A90D9;fontStyle=4;" value="View Detailed Revenue Reports &gt;" vertex="1">
+          <mxGeometry x="550" y="470" width="200" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <!-- Page 2: Revenue Report & Export -->
+  <diagram id="wf-rpt-02" name="Revenue Report &amp; Export">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="2" pageScale="1" pageWidth="800" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;arcSize=4;" value="" vertex="1">
+          <mxGeometry x="10" y="10" width="780" height="580" as="geometry" />
+        </mxCell>
+        <!-- Sidebar Navigation -->
+        <mxCell id="sidebar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="10" y="35" width="200" height="555" as="geometry" />
+        </mxCell>
+
+        <!-- Header -->
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;fontColor=#333333;" value="Revenue Report" vertex="1">
+          <mxGeometry x="240" y="50" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Filters & Export -->
+        <mxCell id="f_range" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="Custom: 01 Nov - 30 Nov ▼" vertex="1">
+          <mxGeometry x="240" y="100" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="f_unit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;align=left;spacingLeft=10;fontSize=11;fontColor=#333333;" value="All Units ▼" vertex="1">
+          <mxGeometry x="430" y="100" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_exp_pdf" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9534f;strokeColor=none;fontColor=#ffffff;fontSize=11;fontStyle=1;" value="Export PDF" vertex="1">
+          <mxGeometry x="570" y="100" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_exp_csv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5cb85c;strokeColor=none;fontColor=#ffffff;fontSize=11;fontStyle=1;" value="Export CSV" vertex="1">
+          <mxGeometry x="665" y="100" width="85" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Data Table -->
+        <mxCell id="tbl_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="150" width="510" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="tbl_head" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;" value="" vertex="1">
+          <mxGeometry x="240" y="150" width="510" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Booking Ref" vertex="1"><mxGeometry x="250" y="155" width="100" height="20" as="geometry" /></mxCell>
+        <mxCell id="th2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Unit" vertex="1"><mxGeometry x="350" y="155" width="100" height="20" as="geometry" /></mxCell>
+        <mxCell id="th3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Check-In" vertex="1"><mxGeometry x="450" y="155" width="80" height="20" as="geometry" /></mxCell>
+        <mxCell id="th4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#333333;" value="Total Paid (RM)" vertex="1"><mxGeometry x="630" y="155" width="100" height="20" as="geometry" /></mxCell>
+        
+        <!-- Row 1 -->
+        <mxCell id="td1_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;" value="BKG-20251101" vertex="1"><mxGeometry x="250" y="190" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#333333;" value="Sunset Villa" vertex="1"><mxGeometry x="350" y="190" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="01 Nov 2025" vertex="1"><mxGeometry x="450" y="190" width="80" height="30" as="geometry" /></mxCell>
+        <mxCell id="td1_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#333333;" value="850.00" vertex="1"><mxGeometry x="630" y="190" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="row1_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="230" width="510" height="1" as="geometry" /></mxCell>
+        
+        <!-- Row 2 -->
+        <mxCell id="td2_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#4A90D9;" value="BKG-20251105" vertex="1"><mxGeometry x="250" y="240" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#333333;" value="Ocean Suite" vertex="1"><mxGeometry x="350" y="240" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="05 Nov 2025" vertex="1"><mxGeometry x="450" y="240" width="80" height="30" as="geometry" /></mxCell>
+        <mxCell id="td2_4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#333333;" value="420.00" vertex="1"><mxGeometry x="630" y="240" width="100" height="30" as="geometry" /></mxCell>
+        <mxCell id="row2_line" parent="1" style="line;strokeColor=#eeeeee;html=1;" value="" vertex="1"><mxGeometry x="240" y="280" width="510" height="1" as="geometry" /></mxCell>
+
+        <!-- Footer Total -->
+        <mxCell id="foot_bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fcfcfc;strokeColor=none;" value="" vertex="1">
+          <mxGeometry x="240" y="420" width="510" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="foot_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#333333;" value="Total Report Revenue:" vertex="1">
+          <mxGeometry x="450" y="425" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="foot_val" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#333333;" value="RM 1,270.00" vertex="1">
+          <mxGeometry x="630" y="425" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Pagination -->
+        <mxCell id="pagin" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontColor=#666666;" value="&lt; Prev  |  Page 1 of 5  |  Next &gt;" vertex="1">
+          <mxGeometry x="395" y="470" width="200" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
