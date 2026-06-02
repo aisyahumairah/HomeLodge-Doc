@@ -1,0 +1,106 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-bk-02" name="UC-BK-02 Submit Booking">
+    <mxGraphModel dx="846" dy="558" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="900" width="850" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Guest" vertex="1">
+          <mxGeometry height="880" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Guest reviews booking summary:&#xa;unit, dates, times, total cost&#xa;including deposit" vertex="1">
+          <mxGeometry height="65" width="220" x="80" y="87" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Guest clicks Confirm Booking" vertex="1">
+          <mxGeometry height="50" width="200" x="90" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="880" width="470" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Re-validate availability&#xa;(prevent race conditions)" vertex="1">
+          <mxGeometry height="70" width="180" x="25" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Display conflict: dates now&#xa;unavailable. Guest must re-select." vertex="1">
+          <mxGeometry height="55" width="145" x="270" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Database operation successful?" vertex="1">
+          <mxGeometry height="60" width="180" x="25" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Display error. Allow retry." vertex="1">
+          <mxGeometry height="50" width="145" x="270" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Create booking record:&#xa;status=pending_payment,&#xa;payment_deadline = now + 1 day" vertex="1">
+          <mxGeometry height="65" width="200" x="15" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Auto-generate bill number and&#xa;billing record. Dates marked as held." vertex="1">
+          <mxGeometry height="60" width="200" x="15" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Send in-app and email notification&#xa;with bill and payment deadline" vertex="1">
+          <mxGeometry height="55" width="200" x="15" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Redirect guest to payment page" vertex="1">
+          <mxGeometry height="50" width="200" x="15" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="100" y="795" as="geometry" />
+        </mxCell>
+        <mxCell id="e_e1_err1" edge="1" parent="lane_sys" source="e1" style="endArrow=open;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="208" />
+              <mxPoint x="450" y="810" />
+            </Array>
+            <mxPoint x="343" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-BK-02: Submit Booking" vertex="1">
+          <mxGeometry height="28" width="450" x="170" y="-5" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_a1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a1_a2" edge="1" parent="1" source="a1" style="endArrow=open;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a2_d1" edge="1" parent="1" source="a2" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d1_e1" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="Unavailable">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d1_d2" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="d2" value="Available">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d2_e2" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;" target="e2" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d2_a3" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;" target="a3" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a3_a4" edge="1" parent="1" source="a3" style="endArrow=open;" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a4_a5" edge="1" parent="1" source="a4" style="endArrow=open;" target="a5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a5_a6" edge="1" parent="1" source="a5" style="endArrow=open;" target="a6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a6_end" edge="1" parent="1" source="a6" style="endArrow=open;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q_YZ2NJ1XOUVSUh5zZLq-3" edge="1" parent="1" source="e2" style="endArrow=open;exitX=1;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="550" as="sourcePoint" />
+            <mxPoint x="870" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

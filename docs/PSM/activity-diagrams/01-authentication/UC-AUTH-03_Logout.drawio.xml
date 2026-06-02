@@ -1,0 +1,69 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-auth-03" name="UC-AUTH-03 Logout">
+    <mxGraphModel dx="801" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="500" width="760" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="User" vertex="1">
+          <mxGeometry height="480" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Click Logout button" vertex="1">
+          <mxGeometry height="45" width="140" x="120" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="480" width="380" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Session still active?" vertex="1">
+          <mxGeometry height="65" width="140" x="130" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Invalidate and destroy&#xa;current session" vertex="1">
+          <mxGeometry height="50" width="160" x="120" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Clear remember-me&#xa;tokens if present" vertex="1">
+          <mxGeometry height="50" width="160" x="120" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Redirect to login page" vertex="1">
+          <mxGeometry height="50" width="160" x="120" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="185" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1d1" edge="1" parent="1" source="a1" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1y" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="a2" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1n" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="a4" value="No (expired)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="203" />
+              <mxPoint x="770" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ea2a3" edge="1" parent="1" source="a2" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3a4" edge="1" parent="1" source="a3" style="endArrow=open;" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4end" edge="1" parent="1" source="a4" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-AUTH-03: Logout" vertex="1">
+          <mxGeometry height="28" width="300" x="275" y="46" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

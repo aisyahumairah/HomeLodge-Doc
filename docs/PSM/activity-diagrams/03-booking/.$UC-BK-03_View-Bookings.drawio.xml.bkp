@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-bk-03" name="UC-BK-03 View Bookings">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-BK-03: View Bookings" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="10" width="450" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="920" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_user" value="Guest / Admin" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="460" height="620" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="460" y="20" width="460" height="620" as="geometry"/>
+        </mxCell>
+        <!-- Guest / Admin lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_user">
+          <mxGeometry x="200" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Guest / Admin navigates&#xa;to My Bookings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_user">
+          <mxGeometry x="115" y="70" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="end" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_user">
+          <mxGeometry x="200" y="560" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="d0" value="View tab selected?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="150" y="65" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Current branch (left column) -->
+        <mxCell id="a2" value="Retrieve confirmed / pending_payment&#xa;bookings. Display list with status&#xa;badge, dates, cost." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="10" y="170" width="200" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Guest clicks a booking?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="30" y="290" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="View full booking details&#xa;(UC-BK-04)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="20" y="400" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <!-- History branch (right column) -->
+        <mxCell id="a3" value="Retrieve completed / cancelled&#xa;bookings. Display list." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="250" y="170" width="200" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="Booking status = completed?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="260" y="290" width="180" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Show action links:&#xa;View Receipt, Leave a Review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="240" y="400" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Display cancelled booking&#xa;without action links" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="240" y="490" width="190" height="55" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e_start_a1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a1_d0" style="endArrow=open;" edge="1" parent="1" source="a1" target="d0"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d0_a2" value="Current" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d0" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d0_a3" value="History" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d0" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a2_d1" style="endArrow=open;" edge="1" parent="1" source="a2" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_a4" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_end" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="end"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a4_end" style="endArrow=open;" edge="1" parent="1" source="a4" target="end"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a3_d2" style="endArrow=open;" edge="1" parent="1" source="a3" target="d2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d2_a5" value="Completed" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d2_a6" value="Cancelled" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a5_end" style="endArrow=open;" edge="1" parent="1" source="a5" target="end"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a6_end" style="endArrow=open;" edge="1" parent="1" source="a6" target="end"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

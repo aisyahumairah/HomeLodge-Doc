@@ -1,0 +1,84 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-notif-02" name="UC-NOTIF-02 Google Calendar Integration">
+    <mxGraphModel dx="895" dy="591" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="720" width="890" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="User" vertex="1">
+          <mxGeometry height="700" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="700" width="510" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="155" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Booking is confirmed&#xa;(payment received)" vertex="1">
+          <mxGeometry height="50" width="160" x="90" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Guest has Google&#xa;Calendar linked?" vertex="1">
+          <mxGeometry height="65" width="160" x="90" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Create Google Calendar event:&#xa;check-in/out dates, unit name,&#xa;booking ref" vertex="1">
+          <mxGeometry height="60" width="200" x="70" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Google API call&#xa;successful?" vertex="1">
+          <mxGeometry height="60" width="150" x="95" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Calendar event created&#xa;with reminder set" vertex="1">
+          <mxGeometry height="50" width="160" x="90" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="155" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="lane_sys" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1d1" edge="1" parent="lane_sys" source="a1" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1no" edge="1" parent="lane_sys" source="d1" style="endArrow=open;fontSize=9;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end1" value="No">
+          <mxGeometry relative="1" x="-0.9375" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="30" y="203" />
+              <mxPoint x="30" y="670" />
+            </Array>
+            <mxPoint x="46.00000000000159" y="203" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ed1yes" edge="1" parent="lane_sys" source="d1" style="endArrow=open;fontSize=9;" target="a2" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2d2" edge="1" parent="lane_sys" source="a2" style="endArrow=open;" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2no" edge="1" parent="lane_sys" source="d2" style="endArrow=open;fontSize=9;" target="e1" value="Failed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ee1end" edge="1" parent="lane_sys" source="e1" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="405" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ed2yes" edge="1" parent="lane_sys" source="d2" style="endArrow=open;fontSize=9;" target="a3" value="Success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3end" edge="1" parent="lane_sys" source="a3" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Log error. Calendar event&#xa;not created. In-app notification&#xa;remains." vertex="1">
+          <mxGeometry height="55" width="170" x="320" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-NOTIF-02: Google Calendar Integration" vertex="1">
+          <mxGeometry height="28" width="400" x="245" y="-3" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

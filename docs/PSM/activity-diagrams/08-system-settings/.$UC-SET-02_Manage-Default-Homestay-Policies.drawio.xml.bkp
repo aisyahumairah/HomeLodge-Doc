@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-set-02" name="UC-SET-02 Manage Default Homestay Policies">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-SET-02: Manage Default Homestay Policies" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="450" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="640" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_admin" value="Admin" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="620" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="620" as="geometry"/>
+        </mxCell>
+        <!-- Admin lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_admin">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Admin navigates to Default Policies section in Settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="100" y="75" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="d0" value="Admin action?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="110" y="265" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="a2" value="Display list of current default policies (applied to new units)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="80" y="75" width="220" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa1" value="Add: Enter policy description. Save as new default policy." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="100" y="230" width="200" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa2" value="Edit: Modify existing policy text. Save." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="100" y="305" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa3" value="Remove: Confirm deletion. Remove default policy. (Existing unit copies unaffected.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="100" y="375" width="200" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Write audit log. Refresh list. Display success." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="465" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="end1" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="175" y="550" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e_start_a1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a1_a2" style="endArrow=open;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a2_d0" style="endArrow=open;" edge="1" parent="1" source="a2" target="d0"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d0_pa1" value="Add" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d0" target="pa1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d0_pa2" value="Edit" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d0" target="pa2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d0_pa3" value="Remove" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d0" target="pa3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_pa1_a3" style="endArrow=open;" edge="1" parent="1" source="pa1" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_pa2_a3" style="endArrow=open;" edge="1" parent="1" source="pa2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_pa3_a3" style="endArrow=open;" edge="1" parent="1" source="pa3" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a3_end" style="endArrow=open;" edge="1" parent="1" source="a3" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

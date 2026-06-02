@@ -1,0 +1,80 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-usr-01" name="UC-USR-01 Create User Account">
+    <mxGraphModel dx="1015" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="740" width="800" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_admin" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Admin" vertex="1">
+          <mxGeometry height="720" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_admin" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Navigate to User Management&#xa;→ Create User" vertex="1">
+          <mxGeometry height="55" width="180" x="100" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Enter: name, email, temporary&#xa;password, role assignment" vertex="1">
+          <mxGeometry height="60" width="180" x="100" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="720" width="420" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Validate inputs" vertex="1">
+          <mxGeometry height="70" width="160" x="40" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Show errors: email taken,&#xa;invalid format,&#xa;password rules." vertex="1">
+          <mxGeometry height="70" width="160" x="250" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Create user with&#xa;must_change_password = true.&#xa;Set assigned role." vertex="1">
+          <mxGeometry height="65" width="180" x="30" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Send welcome email with&#xa;temporary credentials" vertex="1">
+          <mxGeometry height="55" width="180" x="30" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Write audit log entry.&#xa;Display success." vertex="1">
+          <mxGeometry height="55" width="180" x="30" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="105" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-USR-01: Create User Account (Admin)" vertex="1">
+          <mxGeometry height="28" width="400" x="185" y="-4" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_a1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a1_a2" edge="1" parent="1" source="a1" style="endArrow=open;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a2_d1" edge="1" parent="1" source="a2" style="endArrow=open;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d1_e1" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="Invalid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_e1_a2" edge="1" parent="1" source="e1" style="endArrow=open;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="a2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="750" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_d1_s3" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="s3" value="Valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_s3_s4" edge="1" parent="1" source="s3" style="endArrow=open;" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_s4_s5" edge="1" parent="1" source="s4" style="endArrow=open;" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_s5_end" edge="1" parent="1" source="s5" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

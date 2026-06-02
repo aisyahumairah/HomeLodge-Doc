@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-rpt-03" name="UC-RPT-03 Export Report">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-RPT-03: Export Report" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="225" y="10" width="400" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="550" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_admin" value="Admin" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="530" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="530" as="geometry"/>
+        </mxCell>
+        <!-- Admin lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_admin">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="View a report&#xa;(dashboard or revenue report)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="100" y="75" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Click Export and&#xa;select format (PDF / CSV)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="100" y="160" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="s1" value="Generate report file&#xa;with current filters" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="150" y="75" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Generation&#xa;successful?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="180" y="165" width="140" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="err1" value="Display error:&#xa;Unable to generate export." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="10" y="265" width="140" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="Trigger file download&#xa;in browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="150" y="290" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="end1" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="235" y="390" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="end2" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="67" y="335" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="endArrow=open;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="endArrow=open;" edge="1" parent="1" source="a2" target="s1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="endArrow=open;" edge="1" parent="1" source="s1" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="err1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="endArrow=open;" edge="1" parent="1" source="err1" target="end2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" style="endArrow=open;" edge="1" parent="1" source="s2" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

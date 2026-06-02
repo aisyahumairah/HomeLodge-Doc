@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-set-01" name="UC-SET-01 Configure System Settings">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-SET-01: Configure System Settings" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="450" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_admin" value="Admin" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="680" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="680" as="geometry"/>
+        </mxCell>
+        <!-- Admin lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_admin">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Admin navigates to System Settings page" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="100" y="75" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Admin modifies one or more settings fields" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="100" y="265" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="Admin clicks Save Settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="100" y="345" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="a2" value="Display current settings: security (max attempts, lockout duration), payment (gateway keys, extension window), SMTP config, cancellation policy tiers, general settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="50" y="70" width="280" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Validate setting values" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="40" y="340" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Highlight invalid fields (negative numbers, invalid email, etc.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="215" y="338" width="155" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Save updated settings to database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="50" y="450" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Write audit log entry. Display success message." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="50" y="540" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="end1" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="125" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e_start_a1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a1_a2" style="endArrow=open;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a2_a3" style="endArrow=open;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a3_a4" style="endArrow=open;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a4_d1" style="endArrow=open;" edge="1" parent="1" source="a4" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_e1" value="Invalid" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="e1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_e1_a3" style="endArrow=open;dashed=1;fontSize=9;" edge="1" parent="1" source="e1" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_a5" value="Valid" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a5_a6" style="endArrow=open;" edge="1" parent="1" source="a5" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a6_end" style="endArrow=open;" edge="1" parent="1" source="a6" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

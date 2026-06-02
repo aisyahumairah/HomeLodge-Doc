@@ -1,0 +1,91 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-hs-05" name="UC-HS-05 Deactivate Delete Unit">
+    <mxGraphModel dx="801" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="600" width="760" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Admin" vertex="1">
+          <mxGeometry height="580" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Click Deactivate or Delete&#xa;on a unit" vertex="1">
+          <mxGeometry height="50" width="160" x="110" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane_user" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Admin&#xa;confirms?" vertex="1">
+          <mxGeometry height="60" width="140" x="120" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="580" width="380" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Unit has confirmed&#xa;future bookings?" vertex="1">
+          <mxGeometry height="65" width="140" x="120" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Block action. Display warning&#xa;listing conflicting bookings." vertex="1">
+          <mxGeometry height="55" width="175" x="195" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display confirmation&#xa;prompt" vertex="1">
+          <mxGeometry height="50" width="150" x="20" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Set is_active = false.&#xa;Write audit log." vertex="1">
+          <mxGeometry height="55" width="160" x="90" y="312.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Display success — unit&#xa;removed from guest listing" vertex="1">
+          <mxGeometry height="50" width="160" x="90" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="155" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="ee1end" edge="1" parent="lane_sys" source="e1" style="endArrow=open;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="545" />
+            </Array>
+            <mxPoint x="280.3878869230807" y="271.0057880767946" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-HS-05: Deactivate / Delete Homestay Unit" vertex="1">
+          <mxGeometry height="28" width="450" x="161" y="-3" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2no" edge="1" parent="swim" source="d2" style="endArrow=open;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1" value="No">
+          <mxGeometry relative="1" x="-0.9222" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1d1" edge="1" parent="1" source="a1" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1yes" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1no" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="a2" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2d2" edge="1" parent="1" source="a2" style="endArrow=open;" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2yes" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="a3" value="Yes">
+          <mxGeometry relative="1" x="-0.8946" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="230" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ea3a4" edge="1" parent="1" source="a3" style="endArrow=open;" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4end" edge="1" parent="1" source="a4" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,74 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-audit-02" name="UC-AUDIT-02 Automatic Event Logging">
+    <mxGraphModel dx="692" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="590" width="760" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_source" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System (Event Source)" vertex="1">
+          <mxGeometry height="570" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_source" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_source" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="An auditable event occurs in any module&#xa;(CRUD, auth, payment, admin action, scheduled job)" vertex="1">
+          <mxGeometry height="65" width="270" x="55" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System (Audit Service)" vertex="1">
+          <mxGeometry height="570" width="380" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Capture: user ID (or system), action type, affected resource, timestamp, IP address, before/after values" vertex="1">
+          <mxGeometry height="80" width="270" x="45" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Write audit log entry to&#xa;audit_logs table" vertex="1">
+          <mxGeometry height="50" width="200" x="80" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Write successful?" vertex="1">
+          <mxGeometry height="65" width="200" x="80" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Audit entry available in&#xa;admin Audit Logs view" vertex="1">
+          <mxGeometry height="50" width="180" x="10" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Log write failure to application error log.&#xa;Do not block the original operation." vertex="1">
+          <mxGeometry height="60" width="150" x="210" y="426" as="geometry" />
+        </mxCell>
+        <mxCell id="end2" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="26" width="26" x="184" y="532" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4end" edge="1" parent="lane_sys" source="a4" style="endArrow=open;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-AUDIT-02: Automatic Event Logging" vertex="1">
+          <mxGeometry height="28" width="450" x="160" y="-4" as="geometry" />
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea12" edge="1" parent="1" source="a1" style="endArrow=open;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea23" edge="1" parent="1" source="a2" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3d1" edge="1" parent="1" source="a3" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1yes" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="a4" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1no" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ee1end" edge="1" parent="1" source="e1" style="endArrow=open;edgeStyle=orthogonalEdgeStyle;" target="end2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="705" y="615" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

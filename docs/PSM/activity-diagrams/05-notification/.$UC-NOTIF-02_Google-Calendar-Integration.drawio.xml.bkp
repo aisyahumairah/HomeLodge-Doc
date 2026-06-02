@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-notif-02" name="UC-NOTIF-02 Google Calendar Integration">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-NOTIF-02: Google Calendar Integration" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="225" y="10" width="400" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="720" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_user" value="User" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="700" as="geometry"/>
+        </mxCell>
+        <!-- System lane (main flow) -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Booking is confirmed&#xa;(payment received)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="110" y="65" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Guest has Google&#xa;Calendar linked?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="110" y="145" width="160" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Create Google Calendar event:&#xa;check-in/out dates, unit name,&#xa;booking ref" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="250" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="Google API call&#xa;successful?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="115" y="345" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Calendar event created&#xa;with reminder set" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="120" y="445" width="160" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Log error. Calendar event&#xa;not created. In-app notification&#xa;remains." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="10" y="540" width="170" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="end1" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="185" y="630" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="end2" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="40" y="165" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="es1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea1d1" style="endArrow=open;" edge="1" parent="1" source="a1" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed1no" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="end2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea2d2" style="endArrow=open;" edge="1" parent="1" source="a2" target="d2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed2no" value="Failed" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="e1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ee1end" style="endArrow=open;" edge="1" parent="1" source="e1" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed2yes" value="Success" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea3end" style="endArrow=open;" edge="1" parent="1" source="a3" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

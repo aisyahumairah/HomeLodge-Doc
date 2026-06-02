@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-fb-02" name="UC-FB-02 View Submitted Feedback">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="540" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-FB-02: View Submitted Feedback" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="225" y="10" width="400" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="440" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_guest" value="Guest" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="420" as="geometry"/>
+        </mxCell>
+        <!-- Guest lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_guest">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Navigate to My Feedback&#xa;section or unit detail page" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_guest">
+          <mxGeometry x="100" y="75" width="180" height="45" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="s1" value="Retrieve feedback records&#xa;submitted by guest (or all&#xa;reviews for a unit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="30" y="60" width="190" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Any feedback&#xa;exists?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="45" y="150" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Display: No feedback&#xa;submitted yet." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="230" y="153" width="140" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="Display feedback list:&#xa;star rating, comment, date,&#xa;admin response (if any)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="30" y="245" width="190" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="end1" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="110" y="330" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="end2" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="287" y="240" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="ed1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed2" style="endArrow=open;" edge="1" parent="1" source="a1" target="s1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed3" style="endArrow=open;" edge="1" parent="1" source="s1" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed4" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="e1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed5" style="endArrow=open;" edge="1" parent="1" source="e1" target="end2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed6" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="s2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed7" style="endArrow=open;" edge="1" parent="1" source="s2" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

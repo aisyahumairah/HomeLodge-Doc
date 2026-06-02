@@ -1,0 +1,196 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-auth-02" name="UC-AUTH-02 Login">
+    <mxGraphModel dx="1015" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="1240" width="1170" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="User" vertex="1">
+          <mxGeometry height="1220" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="170" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Navigate to login page" vertex="1">
+          <mxGeometry height="45" width="160" x="105" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="d0" parent="lane_user" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Login method?" vertex="1">
+          <mxGeometry height="65" width="140" x="115" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="ep1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Enter email and password" vertex="1">
+          <mxGeometry height="50" width="160" x="15" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="gp1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Click Sign in with Google" vertex="1">
+          <mxGeometry height="50" width="170" x="195" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="1220" width="790" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eamcpend" edge="1" parent="lane_sys" source="amcp" style="endArrow=open;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="298" y="1190" />
+            </Array>
+            <mxPoint x="100" y="990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ed1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Credentials valid&#xa;&amp; account not locked?" vertex="1">
+          <mxGeometry height="70" width="160" x="222.5" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="eerr2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Display: Account&#xa;deactivated. Contact support." vertex="1">
+          <mxGeometry height="55" width="170" x="20" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="eed2no" edge="1" parent="lane_sys" source="ed2e" style="endArrow=open;fontSize=9;" target="eerr2" value="Deactivated">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eerr2end" edge="1" parent="lane_sys" source="eerr2" style="endArrow=open;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="103" y="1200" />
+            </Array>
+            <mxPoint x="-95" y="708" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eerr1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;" value="Increment failed attempts.&#xa;Account locked? Show lockout&#xa;or invalid credentials error." vertex="1">
+          <mxGeometry height="70" width="175" x="212.5" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2e" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Account active?" vertex="1">
+          <mxGeometry height="60" width="150" x="227.5" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="gp2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Exchange auth code.&#xa;Retrieve name, email,&#xa;google_id." vertex="1">
+          <mxGeometry height="60" width="170" x="397.5" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="gd1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="User grants permission?" vertex="1">
+          <mxGeometry height="60" width="150" x="407.5" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="gerr1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Display: Google sign-in&#xa;cancelled. Return to login." vertex="1">
+          <mxGeometry height="55" width="170" x="587.5" y="362.5" as="geometry" />
+        </mxCell>
+        <mxCell id="egd1no" edge="1" parent="lane_sys" source="gd1" style="endArrow=open;fontSize=9;" target="gerr1" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gp3a" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Create new account&#xa;(Guest role, SSO-only)" vertex="1">
+          <mxGeometry height="55" width="160" x="592.5" y="552.5" as="geometry" />
+        </mxCell>
+        <mxCell id="egerr1end" edge="1" parent="lane_sys" source="gerr1" style="endArrow=open;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="475" y="524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gd2" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="Account exists&#xa;with email or google_id?" vertex="1">
+          <mxGeometry height="70" width="170" x="397.5" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="egd2no" edge="1" parent="lane_sys" source="gd2" style="endArrow=open;fontSize=9;" target="gp3a" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gp3b" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Link google_id if&#xa;not yet linked" vertex="1">
+          <mxGeometry height="55" width="160" x="402.5" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="dm" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" value="must_change_password&#xa;= true?" vertex="1">
+          <mxGeometry height="65" width="170" x="217.5" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="amcp" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Redirect to Force&#xa;Change Password page" vertex="1">
+          <mxGeometry height="50" width="160" x="217.5" y="915" as="geometry" />
+        </mxCell>
+        <mxCell id="asess" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="Create authenticated session.&#xa;Record last_login_at.&#xa;Reset failed_login_attempts." vertex="1">
+          <mxGeometry height="65" width="200" x="562.5" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="easessredir" edge="1" parent="lane_sys" source="asess" style="endArrow=open;" target="aredir">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="663" y="1120" />
+              <mxPoint x="475" y="1120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edmyes" edge="1" parent="lane_sys" source="dm" style="endArrow=open;fontSize=9;" target="asess" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aredir" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Redirect to role-based&#xa;dashboard" vertex="1">
+          <mxGeometry height="50" width="160" x="317.5" y="1095" as="geometry" />
+        </mxCell>
+        <mxCell id="egp3am" edge="1" parent="lane_sys" source="gp3a" style="endArrow=open;exitX=0.423;exitY=1.035;exitDx=0;exitDy=0;exitPerimeter=0;" target="asess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="382.5" y="1175" as="geometry" />
+        </mxCell>
+        <mxCell id="egp3bm" edge="1" parent="lane_sys" source="gp3b" style="endArrow=open;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="asess">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="483" y="836" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-AUTH-02: Login / Login via Google SSO" vertex="1">
+          <mxGeometry height="28" width="400" x="399" y="-2" as="geometry" />
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea1d0" edge="1" parent="1" source="a1" style="endArrow=open;" target="d0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed0ep" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="ep1" value="Email / Password">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed0gp" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="gp1" value="Google SSO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eep1d1" edge="1" parent="1" source="ep1" style="endArrow=open;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="ed1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="175" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eed1ok" edge="1" parent="1" source="ed1" style="endArrow=open;fontSize=9;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="ed2e" value="Valid">
+          <mxGeometry relative="1" x="-0.5306" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="620" y="473" />
+              <mxPoint x="620" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eed1no" edge="1" parent="1" source="ed1" style="endArrow=open;fontSize=9;" target="eerr1" value="Invalid / locked">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eerr1b" edge="1" parent="1" source="eerr1" style="endArrow=open;dashed=1;" target="ep1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="135" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eed2yes" edge="1" parent="1" source="ed2e" style="endArrow=open;fontSize=9;" target="dm" value="Active">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="egp1d1" edge="1" parent="1" source="gp1" style="endArrow=open;" target="gd1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="903" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="egd1yes" edge="1" parent="1" source="gd1" style="endArrow=open;fontSize=9;" target="gp2" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="egp2d2" edge="1" parent="1" source="gp2" style="endArrow=open;" target="gd2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="egd2yes" edge="1" parent="1" source="gd2" style="endArrow=open;fontSize=9;" target="gp3b" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edmno" edge="1" parent="1" source="dm" style="endArrow=open;fontSize=9;" target="amcp" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="earedirend" edge="1" parent="1" source="aredir" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

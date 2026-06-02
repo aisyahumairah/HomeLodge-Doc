@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-bk-05" name="UC-BK-05 Cancel Booking">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-BK-05: Cancel Booking (Guest &amp; Admin)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="450" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="1000" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_user" value="Guest / Admin" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="980" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="980" as="geometry"/>
+        </mxCell>
+        <!-- Guest / Admin lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_user">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Navigate to booking detail page&#xa;and click Cancel Booking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_user">
+          <mxGeometry x="80" y="70" width="220" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="Confirms cancellation?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_user">
+          <mxGeometry x="100" y="360" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="end2" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_user">
+          <mxGeometry x="60" y="377" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="d1" value="Booking status?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="100" y="70" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="No payment made — no refund&#xa;needed. Show confirmation dialog." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="10" y="180" width="180" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Calculate refund based on&#xa;cancellation policy tiers.&#xa;Display: refund amount,&#xa;irreversible warning." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="210" y="175" width="160" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="Set status = cancelled.&#xa;Release held dates." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="350" width="200" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="Refund applicable?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="100" y="440" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Trigger refund via&#xa;payment gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="535" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" value="Refund processing&#xa;successful?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="620" width="180" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Flag refund as pending_manual.&#xa;Notify admin." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="290" y="625" width="150" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Send cancellation notifications&#xa;(in-app and email) to guest&#xa;and admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="720" width="200" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a7" value="Write audit log entry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="90" y="810" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="end" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="175" y="890" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e_start_a1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a1_d1" style="endArrow=open;" edge="1" parent="1" source="a1" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_a2" value="pending_payment" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_a3" value="confirmed" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a2_d2" style="endArrow=open;" edge="1" parent="1" source="a2" target="d2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a3_d2" style="endArrow=open;" edge="1" parent="1" source="a3" target="d2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d2_a4" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d2_end2" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="end2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a4_d3" style="endArrow=open;" edge="1" parent="1" source="a4" target="d3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d3_a6" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d3" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d3_a5" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d3" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a5_d4" style="endArrow=open;" edge="1" parent="1" source="a5" target="d4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d4_e1" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d4" target="e1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_e1_a6" style="endArrow=open;dashed=1;" edge="1" parent="1" source="e1" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d4_a6" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d4" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a6_a7" style="endArrow=open;" edge="1" parent="1" source="a6" target="a7"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a7_end" style="endArrow=open;" edge="1" parent="1" source="a7" target="end"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

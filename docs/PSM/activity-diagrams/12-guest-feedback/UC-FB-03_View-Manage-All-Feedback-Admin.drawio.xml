@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-fb-03" name="UC-FB-03 View Manage All Feedback Admin">
+    <mxGraphModel dx="1015" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="620" width="830" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_admin" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Admin" vertex="1">
+          <mxGeometry height="600" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_admin" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="31" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Navigate to&#xa;Feedback Management" vertex="1">
+          <mxGeometry height="45" width="160" x="110" y="91" as="geometry" />
+        </mxCell>
+        <mxCell id="d0" parent="lane_admin" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Admin action?" vertex="1">
+          <mxGeometry height="60" width="160" x="110" y="236" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="600" width="450" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Retrieve all feedback records.&#xa;Display table: guest, unit,&#xa;rating, date, response status" vertex="1">
+          <mxGeometry height="55" width="240" x="70" y="83" as="geometry" />
+        </mxCell>
+        <mxCell id="pa1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Respond: Enter admin reply&#xa;to feedback. Save and&#xa;display to guest." vertex="1">
+          <mxGeometry height="55" width="190" x="20" y="216" as="geometry" />
+        </mxCell>
+        <mxCell id="pa2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Moderate: Hide/show&#xa;inappropriate feedback.&#xa;Write audit log." vertex="1">
+          <mxGeometry height="55" width="190" x="20" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="pa3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Filter: Apply filters&#xa;(unit, rating, date range).&#xa;Refresh results." vertex="1">
+          <mxGeometry height="55" width="190" x="20" y="376" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display success /&#xa;updated list" vertex="1">
+          <mxGeometry height="45" width="180" x="250" y="301" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="325" y="551" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-FB-03: View / Manage All Feedback (Admin)" vertex="1">
+          <mxGeometry height="28" width="450" x="190" y="-5" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2" edge="1" parent="1" source="a1" style="endArrow=open;" target="s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed3" edge="1" parent="1" source="s1" style="endArrow=open;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="d0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed4" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pa1" value="Respond">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed5" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pa2" value="Moderate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed6" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pa3" value="Filter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed7" edge="1" parent="1" source="pa1" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed8" edge="1" parent="1" source="pa2" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed9" edge="1" parent="1" source="pa3" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed10" edge="1" parent="1" source="a3" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,84 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-qr-04" name="UC-QR-04 Pay Extension Charge">
+    <mxGraphModel dx="692" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="630" width="910" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_guest" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Guest" vertex="1">
+          <mxGeometry height="610" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_guest" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_guest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Guest receives extension notification with bill" vertex="1">
+          <mxGeometry height="50" width="250" x="65" y="89" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_guest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Guest clicks Pay Extension and is redirected to payment gateway" vertex="1">
+          <mxGeometry height="60" width="270" x="55" y="174" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="610" width="530" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Payment&#xa;successful?" vertex="1">
+          <mxGeometry height="70" width="200" x="60" y="174" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Update booking check-out date. Mark extension as confirmed." vertex="1">
+          <mxGeometry height="55" width="280" x="20" y="299" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Update QR code validity window to new check-out date" vertex="1">
+          <mxGeometry height="55" width="280" x="20" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Send confirmation notification to guest and admin" vertex="1">
+          <mxGeometry height="55" width="280" x="20" y="469" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="145" y="559" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-QR-04: Pay Extension Charge" vertex="1">
+          <mxGeometry height="28" width="450" x="180" y="-3" as="geometry" />
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea12" edge="1" parent="1" source="a1" style="endArrow=open;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2d1" edge="1" parent="1" source="a2" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1no" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="Failed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ee1end" edge="1" parent="1" source="e1" style="endArrow=open;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="644" />
+            </Array>
+            <mxPoint x="756.0903975595775" y="340.2174428148038" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ee1retry" edge="1" parent="1" source="e1" style="endArrow=open;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1yes" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="a3" value="Success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea3a4" edge="1" parent="1" source="a3" style="endArrow=open;" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4a5" edge="1" parent="1" source="a4" style="endArrow=open;" target="a5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea5end" edge="1" parent="1" source="a5" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Payment failed.&#xa;Guest can retry&#xa;before deadline." vertex="1">
+          <mxGeometry height="60" width="170" x="770" y="249" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,217 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-bk-06" name="UC-BK-06 Manage Booking Admin">
+    <mxGraphModel dx="801" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="1280" width="1550" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Admin" vertex="1">
+          <mxGeometry height="1260" width="660" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="315" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Admin navigates to&#xa;Booking Management" vertex="1">
+          <mxGeometry height="50" width="200" x="230" y="83" as="geometry" />
+        </mxCell>
+        <mxCell id="d0" parent="lane_user" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Admin action?" vertex="1">
+          <mxGeometry height="60" width="170" x="245" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="pa1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Apply filters&#xa;(status, date, unit, ID)" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="pb1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Select user, unit, dates.&#xa;Check availability." vertex="1">
+          <mxGeometry height="60" width="135" x="145" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="pb3" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Show conflict.&#xa;Prompt re-select." vertex="1">
+          <mxGeometry height="50" width="135" x="145" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="pc1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Load booking.&#xa;Admin modifies fields." vertex="1">
+          <mxGeometry height="60" width="130" x="300" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pd1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Show confirmation.&#xa;Cancel/delete booking." vertex="1">
+          <mxGeometry height="60" width="110" x="497.5" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pe1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Select unit &amp; date&#xa;range to block." vertex="1">
+          <mxGeometry height="60" width="105" x="500" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="345" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pb3_pb1" edge="1" parent="lane_user" style="endArrow=open;dashed=1;entryX=0.187;entryY=0.999;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.182;exitY=0.055;exitDx=0;exitDy=0;exitPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="212.08000000000004" y="412.8099999999999" as="sourcePoint" />
+            <mxPoint x="212.755" y="337.99999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="1260" width="890" x="660" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pa1_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display filtered booking list" vertex="1">
+          <mxGeometry height="60" width="140" x="45" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="pc2_sys" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Dates changed?" vertex="1">
+          <mxGeometry height="60" width="140" x="450" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pc3_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Check availability&#xa;for new dates" vertex="1">
+          <mxGeometry height="55" width="140" x="450" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="pd1_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Cancel/delete booking.&#xa;Release dates. Notify guest.&#xa;Write audit log." vertex="1">
+          <mxGeometry height="65" width="170" x="30" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pc4_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Update record. Write audit log.&#xa;Notify guest." vertex="1">
+          <mxGeometry height="60" width="170" x="670" y="607" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pc3s_pc4s" edge="1" parent="lane_sys" source="pc3_sys" style="endArrow=open;" target="pc4_sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pc2s_pc4s" edge="1" parent="lane_sys" source="pc2_sys" style="endArrow=open;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="pc4_sys" value="No">
+          <mxGeometry relative="1" x="-0.9052" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pe2_sys" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Confirmed bookings&#xa;in range?" vertex="1">
+          <mxGeometry height="65" width="160" x="220" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="pe4_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Create blocked_dates records.&#xa;Dates immediately unavailable&#xa;on guest calendar." vertex="1">
+          <mxGeometry height="65" width="170" x="430" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pe2s_pe4s" edge="1" parent="lane_sys" source="pe2_sys" style="endArrow=open;fontSize=9;" target="pe4_sys" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pe3_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Warn admin: cancel&#xa;existing bookings first." vertex="1">
+          <mxGeometry height="55" width="160" x="220" y="371" as="geometry" />
+        </mxCell>
+        <mxCell id="aUE-eFuXLyEHRrQX4Ltv-4" edge="1" parent="lane_sys" source="pb2_sys" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pb2d" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pb2_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Check availability for&#xa;selected dates" vertex="1">
+          <mxGeometry height="55" width="150" x="215" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="pb2d" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Dates available?" vertex="1">
+          <mxGeometry height="60" width="140" x="220" y="702" as="geometry" />
+        </mxCell>
+        <mxCell id="pb4_sys" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Create booking (pending_payment).&#xa;Auto-generate bill. Notify guest." vertex="1">
+          <mxGeometry height="60" width="180" x="200" y="802" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pb2s_pb2d" edge="1" parent="lane_sys" source="pb2_sys" style="endArrow=open;" target="pb2d">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pb2d_pb4s" edge="1" parent="lane_sys" source="pb2d" style="endArrow=open;fontSize=9;" target="pb4_sys" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pc4s_end" edge="1" parent="swim" source="pc4_sys" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1415" y="1055" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pe4s_end" edge="1" parent="swim" source="pe4_sys" style="endArrow=open;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1530" y="211" />
+              <mxPoint x="1530" y="1055" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pb1_pb2s" edge="1" parent="swim" source="pb1" style="endArrow=open;edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="pb2_sys">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="380" />
+              <mxPoint x="290" y="380" />
+              <mxPoint x="290" y="660" />
+            </Array>
+            <mxPoint x="280" y="390" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pb2d_pb3" edge="1" parent="swim" source="pb2d" style="endArrow=open;fontSize=9;entryX=0.5;entryY=1;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="pb3" value="No">
+          <mxGeometry relative="1" x="-0.9052" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pb4s_end" edge="1" parent="swim" source="pb4_sys" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="1055" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-BK-06: Manage Booking (Admin)" vertex="1">
+          <mxGeometry height="28" width="450" x="470" y="-3" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_a1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a1_d0" edge="1" parent="1" source="a1" style="endArrow=open;" target="d0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pa1" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;edgeStyle=orthogonalEdgeStyle;" target="pa1" value="View/Filter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pb1" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pb1" value="Create">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pc1" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pc1" value="Edit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pd1" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pd1" value="Delete/Cancel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pe1" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pe1" value="Block Dates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pa1_pa1s" edge="1" parent="1" source="pa1" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="pa1_sys">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="470" />
+              <mxPoint x="815" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pa1s_end" edge="1" parent="1" source="pa1_sys" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="815" y="1105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pc1_pc2s" edge="1" parent="1" source="pc1" style="endArrow=open;" target="pc2_sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pc2s_pc3s" edge="1" parent="1" source="pc2_sys" style="endArrow=open;fontSize=9;" target="pc3_sys" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pd1_pd1s" edge="1" parent="1" source="pd1" style="endArrow=open;" target="pd1_sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pd1s_end" edge="1" parent="1" source="pd1_sys" style="endArrow=open;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1570" y="343" />
+              <mxPoint x="1570" y="1105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pe1_pe2s" edge="1" parent="1" source="pe1" style="endArrow=open;" target="pe2_sys">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pe2s_pe3s" edge="1" parent="1" source="pe2_sys" style="endArrow=open;fontSize=9;" target="pe3_sys" value="Yes">
+          <mxGeometry relative="1" x="-0.7973" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pe3s_end" edge="1" parent="1" source="pe3_sys" style="endArrow=open;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1100" y="469" />
+              <mxPoint x="1100" y="1105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

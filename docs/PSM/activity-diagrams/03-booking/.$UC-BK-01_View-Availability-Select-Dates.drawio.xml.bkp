@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-bk-01" name="UC-BK-01 View Availability Select Dates">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-BK-01: View Availability &amp; Select Dates" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="450" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="740" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_user" value="Guest" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="720" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="720" as="geometry"/>
+        </mxCell>
+        <!-- Guest lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_user">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Guest is on unit detail page" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_user">
+          <mxGeometry x="90" y="70" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="Guest selects check-in date" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_user">
+          <mxGeometry x="90" y="380" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Guest selects check-out date" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_user">
+          <mxGeometry x="90" y="460" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="a2" value="Query bookings, blocked_dates,&#xa;and temporary holds for the unit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="20" y="70" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Render calendar: Green=available,&#xa;Red=booked/blocked,&#xa;Yellow=held/pending" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="20" y="170" width="220" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="Check-out before check-in?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="30" y="280" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Show validation error.&#xa;Prompt re-selection." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="240" y="285" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="Real-time check:&#xa;dates available?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="30" y="385" width="180" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="Display: Selected dates&#xa;not available. Highlight conflict." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="240" y="390" width="130" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="Minimum 1-night stay met?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="30" y="495" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="Show minimum stay&#xa;requirement message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="lane_sys">
+          <mxGeometry x="240" y="500" width="130" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Update booking summary:&#xa;total nights, estimated cost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="20" y="600" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="end" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="105" y="690" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="e_start_a1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a1_a2" style="endArrow=open;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a2_a3" style="endArrow=open;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a3_a4" style="endArrow=open;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a4_a5" style="endArrow=open;" edge="1" parent="1" source="a4" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a5_d1" style="endArrow=open;" edge="1" parent="1" source="a5" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_e1" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="e1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_e1_a4" style="endArrow=open;dashed=1;" edge="1" parent="1" source="e1" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d1_d2" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="d2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d2_e2" value="No (conflict)" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="e2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_e2_a4" style="endArrow=open;dashed=1;" edge="1" parent="1" source="e2" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d2_d3" value="Available" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d2" target="d3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d3_e3" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d3" target="e3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_e3_a4" style="endArrow=open;dashed=1;" edge="1" parent="1" source="e3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_d3_a6" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d3" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a6_end" style="endArrow=open;" edge="1" parent="1" source="a6" target="end"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-usr-05" name="UC-USR-05 Manage Permissions">
+    <mxGraphModel dx="1015" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="740" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="580" width="850" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_admin" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Admin" vertex="1">
+          <mxGeometry height="560" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_admin" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_admin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Navigate to Permissions section" vertex="1">
+          <mxGeometry height="50" width="180" x="100" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="d0" parent="lane_admin" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Admin action?" vertex="1">
+          <mxGeometry height="70" width="160" x="110" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="560" width="470" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display list of all permissions&#xa;grouped by module" vertex="1">
+          <mxGeometry height="55" width="200" x="90" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="pa1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Create: Enter permission name,&#xa;slug, module. Save." vertex="1">
+          <mxGeometry height="60" width="200" x="20" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="pa2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Edit: Modify permission name&#xa;or module. Save." vertex="1">
+          <mxGeometry height="60" width="200" x="20" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="pa3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Delete: Check if assigned to&#xa;roles. If yes, block. If no,&#xa;confirm and delete." vertex="1">
+          <mxGeometry height="70" width="200" x="20" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="345" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-USR-05: Manage Permissions (Admin)" vertex="1">
+          <mxGeometry height="28" width="400" x="210" y="-3" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_a1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a1_a2" edge="1" parent="1" source="a1" style="endArrow=open;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a2_d0" edge="1" parent="1" source="a2" style="endArrow=open;" target="d0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pa1" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pa1" value="Create">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pa2" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pa2" value="Edit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_pa3" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="pa3" value="Delete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pa1_a3" edge="1" parent="1" source="pa1" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pa2_a3" edge="1" parent="1" source="pa2" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pa3_a3" edge="1" parent="1" source="pa3" style="endArrow=open;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a3_end" edge="1" parent="1" source="a3" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Write audit log. Refresh list.&#xa;Display success." vertex="1">
+          <mxGeometry height="55" width="200" x="680" y="370" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

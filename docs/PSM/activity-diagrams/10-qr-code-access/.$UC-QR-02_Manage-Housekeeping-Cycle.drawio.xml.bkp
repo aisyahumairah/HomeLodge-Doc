@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="act-qr-02" name="UC-QR-02 Manage Housekeeping Cycle">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="UC-QR-02: Manage Housekeeping Cycle" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="450" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="swim" value="" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="760" height="680" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_admin" value="Admin/Staff" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="0" y="20" width="380" height="660" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_sys" value="System" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" vertex="1" parent="swim">
+          <mxGeometry x="380" y="20" width="380" height="660" as="geometry"/>
+        </mxCell>
+        <!-- System lane -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="175" y="15" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Guest checks out (booking end date reached)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="60" y="70" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="System auto-invalidates current QR code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="60" y="150" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Unit status set to pending_housekeeping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="60" y="230" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Admin lane -->
+        <mxCell id="a4" value="Admin/Staff marks housekeeping as complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_admin">
+          <mxGeometry x="70" y="320" width="240" height="55" as="geometry"/>
+        </mxCell>
+        <!-- System lane decision -->
+        <mxCell id="d1" value="Next booking exists&#xa;for this unit?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="60" y="420" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Auto-generate new QR code&#xa;for the next guest. Send via&#xa;email and in-app." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="20" y="530" width="180" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Unit ready.&#xa;No QR generated." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_sys">
+          <mxGeometry x="230" y="535" width="160" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="end1" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="lane_sys">
+          <mxGeometry x="175" y="625" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="es1" style="endArrow=open;" edge="1" parent="1" source="start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea12" style="endArrow=open;" edge="1" parent="1" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea23" style="endArrow=open;" edge="1" parent="1" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea34" style="endArrow=open;" edge="1" parent="1" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea4d1" style="endArrow=open;" edge="1" parent="1" source="a4" target="d1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed1yes" value="Yes" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed1no" value="No" style="endArrow=open;fontSize=9;" edge="1" parent="1" source="d1" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea5end" style="endArrow=open;" edge="1" parent="1" source="a5" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ea6end" style="endArrow=open;" edge="1" parent="1" source="a6" target="end1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,104 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="act-bk-03" name="UC-BK-03 View Bookings">
+    <mxGraphModel dx="1087" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="640" width="1170" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="Guest / Admin" vertex="1">
+          <mxGeometry height="620" width="460" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="200" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Guest / Admin navigates&#xa;to My Bookings" vertex="1">
+          <mxGeometry height="50" width="200" x="115" y="89" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="200" y="579" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="620" width="710" x="460" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d0" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="View tab selected?" vertex="1">
+          <mxGeometry height="60" width="160" x="150" y="84" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Retrieve confirmed / pending_payment&#xa;bookings. Display list with status&#xa;badge, dates, cost." vertex="1">
+          <mxGeometry height="75" width="200" x="10" y="189" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Guest clicks a booking?" vertex="1">
+          <mxGeometry height="60" width="160" x="30" y="309" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="View full booking details&#xa;(UC-BK-04)" vertex="1">
+          <mxGeometry height="50" width="180" x="20" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Retrieve completed / cancelled&#xa;bookings. Display list." vertex="1">
+          <mxGeometry height="75" width="200" x="250" y="189" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Booking status = completed?" vertex="1">
+          <mxGeometry height="65" width="180" x="260" y="309" as="geometry" />
+        </mxCell>
+        <mxCell id="a6" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display cancelled booking&#xa;without action links" vertex="1">
+          <mxGeometry height="55" width="190" x="255" y="509" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-BK-03: View Bookings" vertex="1">
+          <mxGeometry height="28" width="450" x="322" y="-2" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_a1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a1_d0" edge="1" parent="1" source="a1" style="endArrow=open;" target="d0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_a2" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="a2" value="Current">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d0_a3" edge="1" parent="1" source="d0" style="endArrow=open;fontSize=9;" target="a3" value="History">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a2_d1" edge="1" parent="1" source="a2" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d1_a4" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="a4" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d1_end" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end" value="No">
+          <mxGeometry relative="1" x="-0.9223" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_a4_end" edge="1" parent="1" source="a4" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_a3_d2" edge="1" parent="1" source="a3" style="endArrow=open;" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d2_a5" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;" target="a5" value="Completed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_d2_a6" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;" target="a6" value="Cancelled">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a5_end" edge="1" parent="1" source="a5" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_a6_end" edge="1" parent="1" source="a6" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=elbowEdgeStyle;elbow=vertical;" target="end">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Show action links:&#xa;View Receipt, Leave a Review" vertex="1">
+          <mxGeometry height="60" width="190" x="1010" y="379" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
