@@ -1,0 +1,51 @@
+# Use Case Diagram Explanations
+
+## HomeLodge – Booking Homestay System
+
+---
+
+Figure 4.1 shows the use case diagram for the **Authentication Module**, which contains functions for registering a new account using an email and password, logging in or registering via Google Single Sign-On (SSO), logging out, and resetting a forgotten password through an email link. Both the Guest and the Admin can log in, log out, reset their password, and view or update their profile. The Guest additionally has access to the show/hide password toggle and is subject to the force change password flow after an admin-initiated reset. The diagram also captures two system-driven behaviours that extend from the login use case: account lockout after a configured number of failed attempts, and automatic unlocking once the lockout duration expires. A successful password reset also serves as an early-unlock path for a locked account.
+
+---
+
+Figure 4.2 shows the use case diagram for the **Homestay Management Module**, which contains functions for browsing, viewing, and managing homestay units within the system. The Guest can browse the list of active units, view the full details and availability of a selected unit, and read the house policies attached to that unit. The Admin has exclusive access to the management functions, which include creating a new unit, editing an existing unit, deactivating or deleting a unit, uploading unit images, setting pricing and check-in/check-out times, viewing the full list of all units, and managing per-unit house policies. Creating a new unit automatically triggers image upload, pricing configuration, and the application of default policies as included sub-steps. The deactivation use case extends with a guard that prevents deletion if confirmed future bookings exist for that unit.
+
+---
+
+Figure 4.3 shows the use case diagram for the **Booking Module**, which contains functions for the entire booking lifecycle from date selection through to cancellation and automated expiry. The Guest can view the availability calendar, select check-in and check-out dates, submit a booking, view current and past bookings, view booking details, and cancel a booking. Date availability is checked in real time as an included step within date selection, and cancellation includes a step that displays the applicable cancellation policy and refund information. The Admin has a broader set of management functions: viewing a booking calendar showing all statuses, creating bookings on behalf of a user, editing or deleting bookings, cancelling a booking on behalf of a user, filtering the booking list, and blocking specific dates to prevent new reservations. When a Guest submits a booking, the system automatically creates a temporary hold on the selected dates for a twenty-four-hour payment window. A scheduled system job monitors this window and auto-cancels any booking whose payment deadline has passed without a completed payment.
+
+---
+
+Figure 4.4 shows the use case diagram for the **Payment Module**, which contains functions for processing payments, managing billing records, and handling receipts. The Guest can initiate a payment through the online payment gateway, view their current payment bill, view or download their payment receipt, and filter their payment history by date or status. The Admin can view the full billing list, view the full payment list, regenerate a bill PDF on demand, and regenerate a receipt PDF on demand. Both billing and payment list views include filtering as an included step. Two system-automated use cases are also shown: the auto-generation of a bill and payment reference number when a booking is submitted, and the processing of incoming payment webhook callbacks from the external Payment Gateway. The Payment Gateway actor participates directly in the Make Payment and Process Payment Webhook use cases.
+
+---
+
+Figure 4.5 shows the use case diagram for the **Notification Module**, which contains functions for delivering system events to both Guests and Admins through multiple channels. The Guest can receive in-app notifications, receive email notifications, receive payment reminders, receive check-in and check-out reminders, and view confirmed bookings synchronised to their Google Calendar. The Admin can receive in-app notifications, email notifications, check-in and check-out reminders, a QR code reminder notification, calendar synchronisation, and has the ability to toggle email notifications on or off. The Google Calendar integration is represented as a separate external actor, and the View Booking in Google Calendar use case connects to it through a «uses» relationship to indicate that the feature depends on the external Google Calendar API.
+
+---
+
+Figure 4.6 shows the use case diagram for the **Chat Module**, which contains functions for real-time text communication between the Guest and the Admin. Both actors share the same three use cases: sending a message, receiving a message in real time, and viewing the full chat history. Messages are delivered instantly via WebSocket, meaning neither party needs to reload the page to see new messages. The module is intentionally minimal, reflecting its role as a direct support channel between the two human actors of the system.
+
+---
+
+Figure 4.7 shows the use case diagram for the **User & Access Management Module**, which contains functions exclusively for the Admin to manage user accounts, roles, and permissions. On the user account side, the Admin can create a new user account, edit an existing account, delete an account, reset a user's password, and activate or deactivate an account. Resetting a password includes a force password change step as an included sub-use case, requiring the affected user to set a new password on their next login. On the access control side, the Admin can create, edit, delete, and assign permissions to roles, as well as create, edit, and delete individual permission keys. Two guard behaviours are captured as extending use cases: a role that is currently assigned to one or more users cannot be deleted, and a permission that is currently attached to a role cannot be deleted.
+
+---
+
+Figure 4.8 shows the use case diagram for the **System Settings Module**, which contains functions that allow the Admin to configure all system-wide parameters from a single settings area. The configurable items include SMTP server credentials for email delivery, account lockout duration, session timeout duration, maximum failed login attempts, refund policy thresholds, payment and billing options, email notification toggling, general settings such as the application name and logo, extension charge rates per booking extension type, and the default house policies applied to every new homestay unit at the time of creation. All ten use cases are accessed exclusively by the Admin actor, with no guest-facing exposure.
+
+---
+
+Figure 4.9 shows the use case diagram for the **Audit Logs Module**, which contains functions for recording and reviewing a complete trail of all auditable events within the system. The Admin can view the audit trail in chronological order and filter the log by date range, event type, or actor. The System actor is responsible for the automated logging use cases: logging user actions, logging admin-initiated changes, logging authentication events such as logins, logouts, and account lockouts, and logging system-level events triggered by background jobs and scheduled tasks. The audit log is read-only; entries cannot be modified or deleted by any actor.
+
+---
+
+Figure 4.10 shows the use case diagram for the **QR Code & Access Module**, which contains functions for generating, using, invalidating, and extending QR codes tied to confirmed bookings. The Guest can receive a QR code upon booking confirmation, use the QR code for door access during the valid stay period, and pay an extension charge when the admin initiates a booking extension. The Admin can regenerate a temporary QR code for housekeeping staff after checkout, mark housekeeping as complete, initiate a booking extension by entering a new check-out date or time, and configure the per-unit extension payment window. Several system-driven use cases handle the automated parts of the lifecycle: auto-invalidating the previous guest's QR code at checkout, auto-generating a new QR code for the next confirmed guest once housekeeping is complete, and auto-cancelling an extension if the guest does not pay within the configured deadline. The auto-cancel use case includes a revert step that restores the booking to its original check-out date and time without ambiguity.
+
+---
+
+Figure 4.11 shows the use case diagram for the **Reporting & Analytics Module**, which contains functions that give the Admin visibility into system-wide operational performance. The Admin can view the analytics dashboard, which serves as the entry point and includes the booking trends view, the revenue report view, and the feedback and rating summary as included sub-use cases. The revenue report view includes a filtering step for narrowing results by date range, unit, or payment status. Additionally, the Admin can view a bookings breakdown per unit and export any report as a downloadable PDF or CSV file. The module is entirely admin-facing with no guest interaction.
+
+---
+
+Figure 4.12 shows the use case diagram for the **Guest Feedback Module**, which contains functions for submitting, viewing, and moderating feedback following a completed stay. The Guest can submit a star rating (from one to five stars) with an optional written comment after a booking is completed, and can also view all feedback they have previously submitted along with any admin reply. The submission use case carries a self-referencing extends relationship to indicate that it is only accessible after the booking status reaches completed. The Admin can view all feedback across any unit, respond to individual guest reviews, and moderate feedback entries that violate content policies by hiding them from the public listing. A derived use case captures the automatic calculation and display of the average rating on each unit's listing page, which is derived from the pool of visible submitted feedback records.

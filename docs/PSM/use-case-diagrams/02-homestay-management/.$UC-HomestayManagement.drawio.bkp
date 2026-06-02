@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="hs-uc-diagram" name="Homestay Management Module">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System Boundary -->
+        <mxCell id="sys-boundary" value="HomeLodge — Homestay Management Module" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=top;arcSize=0;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="170" y="60" width="750" height="590" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ACTORS ═══ -->
+
+        <!-- Guest (left) -->
+        <mxCell id="actor-guest" value="Guest" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="56" y="180" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Admin (right) -->
+        <mxCell id="actor-admin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="970" y="270" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ USE CASES ═══ -->
+
+        <!-- UC-HS-01 -->
+        <mxCell id="uc-hs-01" value="UC-HS-01&#xa;Browse Homestay Units" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="110" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-HS-02 -->
+        <mxCell id="uc-hs-02" value="UC-HS-02&#xa;View Unit Details&#xa;&amp; Availability" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="110" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-HS-03 -->
+        <mxCell id="uc-hs-03" value="UC-HS-03&#xa;Create Homestay Unit" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="270" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-HS-04 -->
+        <mxCell id="uc-hs-04" value="UC-HS-04&#xa;Edit Homestay Unit" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="270" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-HS-05 -->
+        <mxCell id="uc-hs-05" value="UC-HS-05&#xa;Deactivate / Delete Unit" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="440" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-HS-06 -->
+        <mxCell id="uc-hs-06" value="UC-HS-06&#xa;View All Units List" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="440" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ASSOCIATIONS ═══ -->
+
+        <!-- Guest → UC-HS-01 -->
+        <mxCell id="e-g-01" style="edgeStyle=none;html=1;" edge="1" source="actor-guest" target="uc-hs-01" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Guest → UC-HS-02 -->
+        <mxCell id="e-g-02" style="edgeStyle=none;html=1;" edge="1" source="actor-guest" target="uc-hs-02" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-HS-03 -->
+        <mxCell id="e-a-03" style="edgeStyle=none;html=1;" edge="1" source="actor-admin" target="uc-hs-03" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-HS-04 -->
+        <mxCell id="e-a-04" style="edgeStyle=none;html=1;" edge="1" source="actor-admin" target="uc-hs-04" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-HS-05 -->
+        <mxCell id="e-a-05" style="edgeStyle=none;html=1;" edge="1" source="actor-admin" target="uc-hs-05" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-HS-06 -->
+        <mxCell id="e-a-06" style="edgeStyle=none;html=1;" edge="1" source="actor-admin" target="uc-hs-06" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

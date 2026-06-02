@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="qr-uc-diagram" name="QR Code and Access Module">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System Boundary -->
+        <mxCell id="sys-boundary" value="HomeLodge — QR Code &amp; Access Module" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=top;arcSize=0;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="170" y="50" width="750" height="680" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ACTORS ═══ -->
+
+        <!-- Guest (left) -->
+        <mxCell id="actor-guest" value="Guest" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="56" y="190" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Admin (right, upper) -->
+        <mxCell id="actor-admin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="970" y="200" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- System (right, lower) -->
+        <mxCell id="actor-system" value="System" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="970" y="500" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ USE CASES ═══ -->
+
+        <!-- UC-QR-01 -->
+        <mxCell id="uc-qr-01" value="UC-QR-01&#xa;Receive &amp; Use QR Code" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="100" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-QR-02 -->
+        <mxCell id="uc-qr-02" value="UC-QR-02&#xa;Manage Housekeeping&#xa;Cycle" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="100" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-QR-03 -->
+        <mxCell id="uc-qr-03" value="UC-QR-03&#xa;Initiate Booking&#xa;Extension" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="230" y="280" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-QR-04 -->
+        <mxCell id="uc-qr-04" value="UC-QR-04&#xa;Pay Extension Charge" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="280" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-QR-05 -->
+        <mxCell id="uc-qr-05" value="UC-QR-05&#xa;Auto-Cancel Extension" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="480" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ASSOCIATIONS ═══ -->
+
+        <!-- Guest → UC-QR-01 -->
+        <mxCell id="e-g-01" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-guest" target="uc-qr-01" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Guest → UC-QR-04 -->
+        <mxCell id="e-g-04" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-guest" target="uc-qr-04" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-QR-02 -->
+        <mxCell id="e-a-02" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-admin" target="uc-qr-02" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-QR-03 -->
+        <mxCell id="e-a-03" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-admin" target="uc-qr-03" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- System → UC-QR-05 -->
+        <mxCell id="e-s-05" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-system" target="uc-qr-05" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

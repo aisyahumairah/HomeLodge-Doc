@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" modified="2026-06-01T00:00:00.000Z" agent="HomeLodge-Doc" version="21.6.5">
+  <diagram id="fb-uc-diagram" name="Guest Feedback Module">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- System Boundary -->
+        <mxCell id="sys-boundary" value="HomeLodge — Guest Feedback Module" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=13;fontStyle=1;verticalAlign=top;arcSize=0;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="170" y="70" width="750" height="580" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ACTORS ═══ -->
+
+        <!-- Guest (left) -->
+        <mxCell id="actor-guest" value="Guest" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="56" y="190" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Admin (right, upper) -->
+        <mxCell id="actor-admin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="970" y="245" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- System (right, lower) -->
+        <mxCell id="actor-system" value="System" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="970" y="460" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ USE CASES ═══ -->
+
+        <!-- UC-FB-01 -->
+        <mxCell id="uc-fb-01" value="UC-FB-01&#xa;Submit Rating &amp;&#xa;Feedback" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="240" y="120" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-FB-02 -->
+        <mxCell id="uc-fb-02" value="UC-FB-02&#xa;View Submitted Feedback" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="240" y="310" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-FB-03 -->
+        <mxCell id="uc-fb-03" value="UC-FB-03&#xa;View / Manage All&#xa;Feedback (Admin)" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="225" width="210" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- UC-FB-04 -->
+        <mxCell id="uc-fb-04" value="UC-FB-04&#xa;Display Average Rating" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="530" y="435" width="210" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ASSOCIATIONS ═══ -->
+
+        <!-- Guest → UC-FB-01 -->
+        <mxCell id="e-g-01" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-guest" target="uc-fb-01" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Guest → UC-FB-02 -->
+        <mxCell id="e-g-02" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-guest" target="uc-fb-02" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin → UC-FB-03 -->
+        <mxCell id="e-a-03" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-admin" target="uc-fb-03" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- System → UC-FB-04 -->
+        <mxCell id="e-s-04" style="endArrow=none;html=1;rounded=0;" edge="1" source="actor-system" target="uc-fb-04" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

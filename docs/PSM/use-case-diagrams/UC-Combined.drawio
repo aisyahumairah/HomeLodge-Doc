@@ -1,0 +1,448 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="combined-uc-diagram" name="HomeLodge — Combined Use Case Diagram">
+    <mxGraphModel dx="2533" dy="1670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="2100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys-boundary" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=16;fontStyle=1;verticalAlign=top;arcSize=0;spacingTop=8;" value="HomeLodge System" vertex="1">
+          <mxGeometry height="1920" width="1200" x="330" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-guest" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Guest" vertex="1">
+          <mxGeometry height="60" width="30" x="150" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-reguser" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Registered&#xa;User" vertex="1">
+          <mxGeometry height="60" width="30" x="150" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-gateway" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Payment&#xa;Gateway" vertex="1">
+          <mxGeometry height="60" width="30" x="1680" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Admin" vertex="1">
+          <mxGeometry height="60" width="30" x="1680" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-gcal" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Google&#xa;Calendar" vertex="1">
+          <mxGeometry height="60" width="30" x="1680" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-system" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="System" vertex="1">
+          <mxGeometry height="60" width="30" x="1680" y="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl-01" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="01 — Authentication" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUTH-01&#xa;Register Account&#xa;(Email / Password)" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUTH-02&#xa;Login / Login via&#xa;Google SSO" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUTH-03&#xa;Logout" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth-04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUTH-04&#xa;Forgot Password&#xa;(Reset via Email)" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth-05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUTH-05&#xa;View / Update Profile" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-auth-06" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUTH-06&#xa;Force Change Password" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-01" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="276" as="sourcePoint" />
+            <mxPoint x="1520" y="276" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-02" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="02 — Homestay Management" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="284" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-hs-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-HS-01&#xa;Browse Homestay Units" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="309" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-hs-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-HS-02&#xa;View Unit Details&#xa;&amp; Availability" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="309" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-hs-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-HS-03&#xa;Create Homestay Unit" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="309" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-hs-04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-HS-04&#xa;Edit Homestay Unit" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="389" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-hs-05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-HS-05&#xa;Deactivate / Delete Unit" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="389" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-hs-06" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-HS-06&#xa;View All Units List" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="389" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-02" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="465" as="sourcePoint" />
+            <mxPoint x="1520" y="465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-03" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="03 — Booking" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="473" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-01&#xa;View Availability&#xa;&amp; Select Dates" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-02&#xa;Submit Booking" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-03&#xa;View Bookings" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-04&#xa;View Booking Details" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="578" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-05&#xa;Cancel Booking" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="578" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-06" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-06&#xa;Manage Booking (Admin)" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="578" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-bk-07" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-BK-07&#xa;Auto-Cancel Expired&#xa;Booking" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="658" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-03" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="734" as="sourcePoint" />
+            <mxPoint x="1520" y="734" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-04" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="04 — Payment" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="742" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-pay-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-PAY-01&#xa;Make Payment" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-pay-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-PAY-02&#xa;View Payment &amp;&#xa;Billing Records" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-pay-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-PAY-03&#xa;Regenerate Bill / Receipt" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-04" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="843" as="sourcePoint" />
+            <mxPoint x="1520" y="843" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-05" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="05 — Notification" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="851" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-notif-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-NOTIF-01&#xa;Receive System&#xa;Notification" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="876" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-notif-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-NOTIF-02&#xa;Google Calendar&#xa;Integration" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="876" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-05" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="952" as="sourcePoint" />
+            <mxPoint x="1520" y="952" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-06" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="06 — Chat" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-chat-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-CHAT-01&#xa;Send / Receive Messages" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="985" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-chat-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-CHAT-02&#xa;View Chat History" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="985" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-06" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1061" as="sourcePoint" />
+            <mxPoint x="1520" y="1061" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-07" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="07 — User &amp; Access Management" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="1069" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-usr-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-USR-01&#xa;Create User Account" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1094" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-usr-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-USR-02&#xa;Edit / Activate /&#xa;Deactivate User" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1094" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-usr-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-USR-03&#xa;Reset User Password" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="1094" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-usr-04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-USR-04&#xa;Manage Roles" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1174" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-usr-05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-USR-05&#xa;Manage Permissions" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1174" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-07" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1250" as="sourcePoint" />
+            <mxPoint x="1520" y="1250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-08" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="08 — System Settings" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="1258" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-set-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-SET-01&#xa;Configure System Settings" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1283" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-set-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-SET-02&#xa;Manage Default&#xa;Homestay Policies" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1283" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-08" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1359" as="sourcePoint" />
+            <mxPoint x="1520" y="1359" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-09" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="09 — Audit Logs" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="1367" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-audit-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUDIT-01&#xa;View / Filter Audit Trail" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1392" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-audit-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-AUDIT-02&#xa;Automatic Event Logging" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1392" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-09" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1468" as="sourcePoint" />
+            <mxPoint x="1520" y="1468" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-10" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="10 — QR Code &amp; Access" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="1476" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-qr-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-QR-01&#xa;Receive &amp; Use QR Code" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1501" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-qr-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-QR-02&#xa;Manage Housekeeping&#xa;Cycle" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1501" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-qr-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-QR-03&#xa;Initiate Booking&#xa;Extension" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="1501" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-qr-04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-QR-04&#xa;Pay Extension Charge" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1581" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-qr-05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-QR-05&#xa;Auto-Cancel Extension" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1581" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-10" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1657" as="sourcePoint" />
+            <mxPoint x="1520" y="1657" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-11" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="11 — Reporting &amp; Analytics" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="1665" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-rpt-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-RPT-01&#xa;View Analytics Dashboard" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-rpt-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-RPT-02&#xa;View Revenue Report" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-rpt-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-RPT-03&#xa;Export Report" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="sep-11" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#CCCCCC;dashed=1;dashPattern=8 4;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1766" as="sourcePoint" />
+            <mxPoint x="1520" y="1766" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl-12" parent="1" style="text;html=1;strokeColor=none;fillColor=#E6E6E6;fontSize=11;fontStyle=3;align=left;verticalAlign=middle;spacingLeft=10;fontColor=#333333;rounded=1;" value="12 — Guest Feedback" vertex="1">
+          <mxGeometry height="22" width="1180" x="340" y="1774" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-fb-01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-FB-01&#xa;Submit Rating &amp;&#xa;Feedback" vertex="1">
+          <mxGeometry height="68" width="200" x="400" y="1799" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-fb-02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-FB-02&#xa;View Submitted Feedback" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1799" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-fb-03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-FB-03&#xa;View / Manage All&#xa;Feedback (Admin)" vertex="1">
+          <mxGeometry height="68" width="200" x="900" y="1799" as="geometry" />
+        </mxCell>
+        <mxCell id="uc-fb-04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="UC-FB-04&#xa;Display Average Rating" vertex="1">
+          <mxGeometry height="68" width="200" x="650" y="1879" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-auth01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-auth-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-auth02" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-auth-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-auth04" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-auth-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-hs01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-hs-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-hs02" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-hs-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-bk01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-bk-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-bk02" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-bk-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-bk03" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-bk-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-bk04" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-bk-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-bk05" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-bk-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-pay01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-pay-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-pay02" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-pay-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-chat01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-chat-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-chat02" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-chat-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-qr01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-qr-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-qr04" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-qr-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-fb01" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-fb-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-g-fb02" edge="1" parent="1" source="actor-guest" style="endArrow=none;html=1;rounded=0;" target="uc-fb-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ru-auth02" edge="1" parent="1" source="actor-reguser" style="endArrow=none;html=1;rounded=0;" target="uc-auth-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ru-auth03" edge="1" parent="1" source="actor-reguser" style="endArrow=none;html=1;rounded=0;" target="uc-auth-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ru-auth04" edge="1" parent="1" source="actor-reguser" style="endArrow=none;html=1;rounded=0;" target="uc-auth-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ru-auth05" edge="1" parent="1" source="actor-reguser" style="endArrow=none;html=1;rounded=0;" target="uc-auth-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ru-notif01" edge="1" parent="1" source="actor-reguser" style="endArrow=none;html=1;rounded=0;" target="uc-notif-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ru-notif02" edge="1" parent="1" source="actor-reguser" style="endArrow=none;html=1;rounded=0;" target="uc-notif-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-auth06" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-auth-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-hs03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-hs-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-hs04" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-hs-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-hs05" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-hs-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-hs06" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-hs-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-bk03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-bk-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-bk04" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-bk-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-bk05" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-bk-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-bk06" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-bk-06">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-pay02" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-pay-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-pay03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-pay-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-chat01" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-chat-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-chat02" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-chat-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-usr01" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-usr-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-usr02" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-usr-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-usr03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-usr-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-usr04" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-usr-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-usr05" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-usr-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-set01" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-set-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-set02" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-set-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-audit01" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-audit-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-qr02" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-qr-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-qr03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-qr-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-rpt01" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-rpt-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-rpt02" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-rpt-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-rpt03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-rpt-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-a-fb03" edge="1" parent="1" source="actor-admin" style="endArrow=none;html=1;rounded=0;" target="uc-fb-03">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-s-bk07" edge="1" parent="1" source="actor-system" style="endArrow=none;html=1;rounded=0;" target="uc-bk-07">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-s-notif01" edge="1" parent="1" source="actor-system" style="endArrow=none;html=1;rounded=0;" target="uc-notif-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-s-audit02" edge="1" parent="1" source="actor-system" style="endArrow=none;html=1;rounded=0;" target="uc-audit-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-s-qr05" edge="1" parent="1" source="actor-system" style="endArrow=none;html=1;rounded=0;" target="uc-qr-05">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-s-fb04" edge="1" parent="1" source="actor-system" style="endArrow=none;html=1;rounded=0;" target="uc-fb-04">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gw-pay01" edge="1" parent="1" source="actor-gateway" style="endArrow=none;html=1;rounded=0;" target="uc-pay-01">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-gc-notif02" edge="1" parent="1" source="actor-gcal" style="endArrow=none;html=1;rounded=0;" target="uc-notif-02">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
