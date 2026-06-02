@@ -641,6 +641,166 @@ Table 4.15: Database Table Descriptions
 | `activity_log` | Managed by `spatie/laravel-activitylog`. Read-only audit trail of all system events. |
 | `settings` | Key-value store for all configurable system settings, grouped by category (SMTP, security, payment, extension, policy). |
 
+#### 4.3.2.1 Data Dictionary
+
+The data dictionary below defines the attributes of each table in the database schema.
+
+**1. Table: `homestays`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the homestay. |
+| `name` | string | | The name of the homestay unit. |
+| `description` | text | | Detailed description of the unit. |
+| `location` | string | | The location or address of the unit. |
+| `base_price` | decimal | | The standard price per night. |
+| `deposit_amount` | decimal | | The required security deposit amount. |
+| `default_check_in_time` | time | | Standard check-in time. |
+| `default_check_out_time` | time | | Standard check-out time. |
+| `is_active` | boolean | | Status indicating if the unit is active for bookings. |
+| `extension_payment_window_minutes` | int | | Time limit in minutes for paying an extension charge. |
+
+**2. Table: `users`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the user. |
+| `name` | string | | The user's full name. |
+| `email` | string | | The user's email address. |
+| `password` | string | | The hashed password for authentication. |
+| `google_id` | string | | OAuth identifier for Google SSO. |
+| `is_active` | boolean | | Status indicating if the account is active. |
+| `must_change_password` | boolean | | Flag requiring password change on next login. |
+| `failed_login_attempts` | int | | Number of consecutive failed login attempts. |
+| `locked_until` | timestamp | | Time until the account lockout expires. |
+
+**3. Table: `bookings`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the booking. |
+| `booking_number` | string | | Unique alphanumeric booking reference. |
+| `homestay_id` | bigint | FK | Foreign key referencing the `homestays` table. |
+| `user_id` | bigint | FK | Foreign key referencing the `users` table. |
+| `check_in_date` | date | | Scheduled check-in date. |
+| `check_out_date` | date | | Scheduled check-out date. |
+| `status` | string | | Current status of the booking (e.g., pending, confirmed, cancelled). |
+| `total_amount` | decimal | | Total cost of the booking. |
+| `payment_deadline` | timestamp | | Time by which payment must be completed. |
+
+**4. Table: `booking_extensions`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the extension. |
+| `booking_id` | bigint | FK | Foreign key referencing the `bookings` table. |
+| `extension_type` | string | | Type of extension (e.g., late checkout, extra day). |
+| `original_check_out_date` | date | | The original check-out date before extension. |
+| `extended_check_out_date` | date | | The newly requested check-out date. |
+| `extra_charge_amount` | decimal | | Additional cost for the extension. |
+| `payment_deadline` | timestamp | | Time by which the extension payment must be completed. |
+| `status` | string | | Status of the extension request. |
+
+**5. Table: `bills`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the bill. |
+| `bill_number` | string | | Unique alphanumeric bill reference. |
+| `booking_id` | bigint | FK | Foreign key referencing the `bookings` table. |
+| `total_amount` | decimal | | Total amount to be paid. |
+| `status` | string | | Status of the bill (e.g., pending, paid). |
+
+**6. Table: `payments`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the payment record. |
+| `payment_number` | string | | Unique alphanumeric payment reference. |
+| `bill_id` | bigint | FK | Foreign key referencing the `bills` table. |
+| `booking_id` | bigint | FK | Foreign key referencing the `bookings` table. |
+| `amount` | decimal | | The payment amount. |
+| `gateway` | string | | Payment gateway used (e.g., Billplz, Stripe). |
+| `status` | string | | Status of the payment transaction. |
+
+**7. Table: `refunds`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the refund record. |
+| `payment_id` | bigint | FK | Foreign key referencing the `payments` table. |
+| `booking_id` | bigint | FK | Foreign key referencing the `bookings` table. |
+| `amount` | decimal | | The refunded amount. |
+| `percentage` | decimal | | Percentage of the total amount refunded. |
+| `status` | string | | Status of the refund processing. |
+
+**8. Table: `qr_codes`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the QR code record. |
+| `booking_id` | bigint | FK | Foreign key referencing the `bookings` table. |
+| `token` | string | | Unique secure token embedded in the QR code. |
+| `status` | string | | Status of the QR code (e.g., active, expired). |
+| `valid_from` | timestamp | | Start time of the QR code's validity period. |
+| `valid_until` | timestamp | | End time of the QR code's validity period. |
+
+**9. Table: `feedbacks`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the feedback record. |
+| `booking_id` | bigint | FK | Foreign key referencing the `bookings` table. |
+| `homestay_id` | bigint | FK | Foreign key referencing the `homestays` table. |
+| `user_id` | bigint | FK | Foreign key referencing the `users` table. |
+| `rating` | tinyint | | Star rating given by the guest (1-5). |
+| `comment` | text | | Written feedback provided by the guest. |
+| `is_visible` | boolean | | Flag determining if the feedback is publicly visible. |
+
+**10. Table: `homestay_policies`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the policy record. |
+| `homestay_id` | bigint | FK | Foreign key referencing the `homestays` table. |
+| `policy` | string | | The house rule or policy description. |
+| `is_active` | boolean | | Status indicating if the policy is currently enforced. |
+
+**11. Table: `blocked_dates`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the blocked date record. |
+| `homestay_id` | bigint | FK | Foreign key referencing the `homestays` table. |
+| `date` | date | | The start date of the blocked period. |
+| `to_date` | date | | The end date of the blocked period. |
+
+**12. Table: `chat_conversations`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the conversation. |
+| `user_id` | bigint | FK | Foreign key referencing the `users` table (guest). |
+| `last_message_at` | timestamp | | Timestamp of the most recent message in the conversation. |
+
+**13. Table: `chat_messages`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the message. |
+| `conversation_id` | bigint | FK | Foreign key referencing the `chat_conversations` table. |
+| `sender_id` | bigint | FK | Foreign key referencing the `users` table (sender). |
+| `message` | text | | The content of the chat message. |
+
+**14. Table: `settings`**
+
+| Column Name | Data Type | Key | Description |
+|---|---|---|---|
+| `id` | bigint | PK | Primary identifier for the setting record. |
+| `key` | string | | The unique configuration key. |
+| `value` | text | | The value assigned to the configuration key. |
+| `group` | string | | The category to which the setting belongs. |
+
 Key design decisions in the schema are:
 
 1. **Foreign key constraints** enforce referential integrity at the database level. A booking cannot reference a nonexistent user or homestay unit.
