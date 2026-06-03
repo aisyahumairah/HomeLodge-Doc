@@ -1,0 +1,731 @@
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ============================================================ -->
+    <!-- TITLE -->
+    <!-- ============================================================ -->
+    <mxCell id="title" value="Gantt Chart for HomeLodge – Final Year Project (PSM 1 &amp; PSM 2)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="10" width="1630" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- HEADER ROW 1 – Phase labels across weeks -->
+    <!-- ============================================================ -->
+
+    <!-- Task Name header -->
+    <mxCell id="h_task" value="Task Name" style="text;html=1;strokeColor=#000000;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="10" y="50" width="200" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- Status header -->
+    <mxCell id="h_status" value="Status" style="text;html=1;strokeColor=#000000;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="210" y="50" width="80" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- PSM 1 header spanning W01-W08 (8 weeks × 40px = 320px) -->
+    <mxCell id="h_psm1" value="PSM 1 (Pre-Game Phase)" style="text;html=1;strokeColor=#000000;fillColor=#fff2cc;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="290" y="50" width="320" height="15" as="geometry" />
+    </mxCell>
+
+    <!-- PSM 2 header spanning W09-W24 (16 weeks × 40px = 640px) -->
+    <mxCell id="h_psm2" value="PSM 2 (Game Phase – Implementation &amp; Testing)" style="text;html=1;strokeColor=#000000;fillColor=#dae8fc;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="610" y="50" width="1030" height="15" as="geometry" />
+    </mxCell>
+
+    <!-- HEADER ROW 2 – Week labels (W01 to W24, each 40px wide) -->
+    <!-- W01 -->
+    <mxCell id="wh01" value="W01" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="290" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W02 -->
+    <mxCell id="wh02" value="W02" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="330" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W03 -->
+    <mxCell id="wh03" value="W03" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="370" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W04 -->
+    <mxCell id="wh04" value="W04" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="410" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W05 -->
+    <mxCell id="wh05" value="W05" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="450" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W06 -->
+    <mxCell id="wh06" value="W06" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="490" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W07 -->
+    <mxCell id="wh07" value="W07" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="530" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W08 -->
+    <mxCell id="wh08" value="W08" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="570" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W09 -->
+    <mxCell id="wh09" value="W09" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="610" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W10 -->
+    <mxCell id="wh10" value="W10" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="650" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W11 -->
+    <mxCell id="wh11" value="W11" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="690" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W12 -->
+    <mxCell id="wh12" value="W12" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="730" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W13 -->
+    <mxCell id="wh13" value="W13" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="770" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W14 -->
+    <mxCell id="wh14" value="W14" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="810" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W15 -->
+    <mxCell id="wh15" value="W15" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="850" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W16 -->
+    <mxCell id="wh16" value="W16" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="890" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W17 -->
+    <mxCell id="wh17" value="W17" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="930" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W18 -->
+    <mxCell id="wh18" value="W18" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="970" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W19 -->
+    <mxCell id="wh19" value="W19" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1010" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W20 -->
+    <mxCell id="wh20" value="W20" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W21 -->
+    <mxCell id="wh21" value="W21" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1090" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W22 -->
+    <mxCell id="wh22" value="W22" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1130" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W23 -->
+    <mxCell id="wh23" value="W23" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1170" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W24 -->
+    <mxCell id="wh24" value="W24" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1210" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W25 -->
+    <mxCell id="wh25" value="W25" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1250" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W26 -->
+    <mxCell id="wh26" value="W26" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1290" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W27 -->
+    <mxCell id="wh27" value="W27" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1330" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W28 -->
+    <mxCell id="wh28" value="W28" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1370" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W29 -->
+    <mxCell id="wh29" value="W29" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1410" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W30 -->
+    <mxCell id="wh30" value="W30" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1450" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W31 -->
+    <mxCell id="wh31" value="W31" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1490" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W32 -->
+    <mxCell id="wh32" value="W32" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1530" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W33 -->
+    <mxCell id="wh33" value="W33" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1570" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+    <!-- W34 -->
+    <mxCell id="wh34" value="W34" style="text;html=1;strokeColor=#000000;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="1610" y="65" width="40" height="15" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- SECTION HEADER: PSM 1 – PRE-GAME PHASE -->
+    <!-- ============================================================ -->
+    <mxCell id="sec_psm1" value="PSM 1 – Pre-Game Phase" style="text;html=1;strokeColor=#000000;fillColor=#f0a30a;fontColor=#000000;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="10" y="80" width="1630" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- ROW HELPER MACRO: y starts at 100, each row = 20px -->
+    <!-- Structure: Label | Status | W01..W34 bars -->
+    <!-- ============================================================ -->
+
+    <!-- Row 1: Identify problem statement (W01–W01) -->
+    <mxCell id="r1_label" value="Identify problem statement" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="100" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r1_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="100" width="80" height="20" as="geometry" />
+    </mxCell>
+    <!-- Empty cells W01-W34 background -->
+    <mxCell id="r1_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="290" y="100" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <!-- Bar W01 -->
+    <mxCell id="r1_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="293" y="103" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 2: Identify project aim & objectives (W01–W02) -->
+    <mxCell id="r2_label" value="Identify project aim &amp; objectives" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="120" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r2_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="120" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r2_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="120" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r2_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="293" y="123" width="74" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 3: Identify project scopes (W02–W02) -->
+    <mxCell id="r3_label" value="Identify project scopes" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="140" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r3_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="140" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r3_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="140" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r3_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="333" y="143" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 4: Analyse & compare current system (W02–W04) -->
+    <mxCell id="r4_label" value="Analyse &amp; compare current system" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="160" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r4_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="160" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r4_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="160" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r4_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="333" y="163" width="114" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 5: Identify software & hardware requirements (W03–W04) -->
+    <mxCell id="r5_label" value="Identify software &amp; hardware requirements" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="180" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r5_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="180" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r5_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="180" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r5_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="373" y="183" width="74" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 6: Methodology selection (W04–W05) -->
+    <mxCell id="r6_label" value="Methodology selection" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="200" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r6_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="200" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r6_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="200" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r6_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="413" y="203" width="74" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 7: Technologies selection (W04–W06) -->
+    <mxCell id="r7_label" value="Technologies selection" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="220" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r7_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="220" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r7_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="220" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r7_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="413" y="223" width="114" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 8: Requirement analysis & design (W05–W07) -->
+    <mxCell id="r8_label" value="Requirement analysis &amp; design" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="240" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r8_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="240" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r8_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="240" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r8_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="453" y="243" width="114" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 9: Submission of PSM 1 Report (W08–W08) -->
+    <mxCell id="r9_label" value="Submission of PSM 1 Report" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="260" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r9_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="260" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r9_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="260" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r9_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="573" y="263" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Row 10: Presentation of PSM 1 (W08–W08) -->
+    <mxCell id="r10_label" value="Presentation of PSM 1" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="280" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r10_status" value="Complete" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="280" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r10_bg" value="" style="text;html=1;strokeColor=#d6b656;fillColor=#fffacd;" vertex="1" parent="1">
+      <mxGeometry x="290" y="280" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="r10_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="573" y="283" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- SECTION HEADER: PSM 2 – GAME PHASE -->
+    <!-- ============================================================ -->
+    <mxCell id="sec_psm2" value="PSM 2 – Game Phase (Implementation &amp; Testing)" style="text;html=1;strokeColor=#000000;fillColor=#647687;fontColor=#ffffff;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="10" y="300" width="1630" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- SPRINT 1 – Authentication & User Management (W09–W12) -->
+    <!-- ============================================================ -->
+    <mxCell id="sp1_header" value="Sprint 1 – Authentication &amp; User Management" style="text;html=1;strokeColor=#000000;fillColor=#FF8C00;fontColor=#ffffff;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="320" width="1630" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 1 row helper: Dev env setup (W09–W09) -->
+    <mxCell id="sp1r1_label" value="Dev environment setup" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="340" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r1_status" value="Not Started" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="340" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r1_bg" value="" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;" vertex="1" parent="1">
+      <mxGeometry x="290" y="340" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r1_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;strokeColor=#8B4513;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="613" y="343" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 1: Authentication module (W09–W11) -->
+    <mxCell id="sp1r2_label" value="Authentication module (Login, Register, SSO, Password Reset)" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="360" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r2_status" value="Not Started" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="360" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r2_bg" value="" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;" vertex="1" parent="1">
+      <mxGeometry x="290" y="360" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r2_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;strokeColor=#8B4513;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="613" y="363" width="114" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 1: User & Access Management (W10–W12) -->
+    <mxCell id="sp1r3_label" value="User &amp; Access Management module" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="380" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r3_status" value="Not Started" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="380" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r3_bg" value="" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;" vertex="1" parent="1">
+      <mxGeometry x="290" y="380" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r3_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;strokeColor=#8B4513;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="653" y="383" width="114" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 1: System Settings (W11–W12) -->
+    <mxCell id="sp1r4_label" value="System Settings module" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="400" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r4_status" value="Not Started" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="400" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r4_bg" value="" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;" vertex="1" parent="1">
+      <mxGeometry x="290" y="400" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r4_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;strokeColor=#8B4513;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="693" y="403" width="74" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 1: Review (W12) -->
+    <mxCell id="sp1r5_label" value="Sprint Review &amp; Testing" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="420" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r5_status" value="Not Started" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="420" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r5_bg" value="" style="text;html=1;strokeColor=#f0a30a;fillColor=#fff8e1;" vertex="1" parent="1">
+      <mxGeometry x="290" y="420" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp1r5_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;strokeColor=#8B4513;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="733" y="423" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- SPRINT 2 – Homestay Management & Booking (W13–W17) -->
+    <!-- ============================================================ -->
+    <mxCell id="sp2_header" value="Sprint 2 – Homestay Management &amp; Booking" style="text;html=1;strokeColor=#000000;fillColor=#6d8764;fontColor=#ffffff;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="440" width="1630" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 2: Homestay Management (W13–W14) -->
+    <mxCell id="sp2r1_label" value="Homestay Management module" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="460" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r1_status" value="Not Started" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="460" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r1_bg" value="" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
+      <mxGeometry x="290" y="460" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r1_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3a5a30;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="773" y="463" width="80" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 2: Booking module (W14–W16) -->
+    <mxCell id="sp2r2_label" value="Booking module (availability, submit, cancel, auto-cancel)" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="480" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r2_status" value="Not Started" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="480" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r2_bg" value="" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
+      <mxGeometry x="290" y="480" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r2_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3a5a30;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="813" y="483" width="120" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 2: Payment module (W16–W17) -->
+    <mxCell id="sp2r3_label" value="Payment module (gateway integration, webhook)" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="500" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r3_status" value="Not Started" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="500" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r3_bg" value="" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
+      <mxGeometry x="290" y="500" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r3_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3a5a30;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="893" y="503" width="80" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 2: Audit Logs (W17) -->
+    <mxCell id="sp2r4_label" value="Audit Logs module" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="520" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r4_status" value="Not Started" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="520" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r4_bg" value="" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
+      <mxGeometry x="290" y="520" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r4_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3a5a30;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="933" y="523" width="40" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 2: Review (W17) -->
+    <mxCell id="sp2r5_label" value="Sprint Review &amp; Testing" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="540" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r5_status" value="Not Started" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="540" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r5_bg" value="" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
+      <mxGeometry x="290" y="540" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp2r5_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3a5a30;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="973" y="543" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- SPRINT 3 – QR Code, Notification & Chat (W18–W22) -->
+    <!-- ============================================================ -->
+    <mxCell id="sp3_header" value="Sprint 3 – QR Code Door Access, Notification &amp; Chat" style="text;html=1;strokeColor=#000000;fillColor=#006EAF;fontColor=#ffffff;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="560" width="1630" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 3: QR Code module (W18–W20) -->
+    <mxCell id="sp3r1_label" value="QR Code &amp; Door Access module (generate, expire, housekeeping)" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="580" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r1_status" value="Not Started" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="580" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r1_bg" value="" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;" vertex="1" parent="1">
+      <mxGeometry x="290" y="580" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r1_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#003d6b;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1013" y="583" width="120" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 3: Booking Extension (W19–W21) -->
+    <mxCell id="sp3r2_label" value="Booking Extension module (initiate, pay, auto-revert)" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="600" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r2_status" value="Not Started" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="600" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r2_bg" value="" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;" vertex="1" parent="1">
+      <mxGeometry x="290" y="600" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r2_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#003d6b;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1053" y="603" width="120" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 3: Notification module (W20–W21) -->
+    <mxCell id="sp3r3_label" value="Notification module (email, in-app, Google Calendar)" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="620" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r3_status" value="Not Started" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="620" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r3_bg" value="" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;" vertex="1" parent="1">
+      <mxGeometry x="290" y="620" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r3_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#003d6b;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1093" y="623" width="80" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 3: Chat module (W21–W22) -->
+    <mxCell id="sp3r4_label" value="Chat module (WebSocket real-time messaging)" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="640" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r4_status" value="Not Started" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="640" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r4_bg" value="" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;" vertex="1" parent="1">
+      <mxGeometry x="290" y="640" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r4_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#003d6b;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1133" y="643" width="80" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 3: Review (W22) -->
+    <mxCell id="sp3r5_label" value="Sprint Review &amp; Testing" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="660" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r5_status" value="Not Started" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="660" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r5_bg" value="" style="text;html=1;strokeColor=#23a0da;fillColor=#dae8fc;" vertex="1" parent="1">
+      <mxGeometry x="290" y="660" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp3r5_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#003d6b;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1213" y="663" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- SPRINT 4 – Reporting, Feedback, UAT & Deployment (W23–W34) -->
+    <!-- ============================================================ -->
+    <mxCell id="sp4_header" value="Sprint 4 – Reporting, Guest Feedback, UAT &amp; Deployment" style="text;html=1;strokeColor=#000000;fillColor=#7B4F9E;fontColor=#ffffff;align=left;verticalAlign=middle;fontStyle=1;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="680" width="1630" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 4: Reporting & Analytics (W23–W24) -->
+    <mxCell id="sp4r1_label" value="Reporting &amp; Analytics module" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="700" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r1_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="700" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r1_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="700" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r1_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1253" y="703" width="80" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 4: Guest Feedback module (W24–W25) -->
+    <mxCell id="sp4r2_label" value="Guest Feedback module (submit, moderate, reply)" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="720" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r2_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="720" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r2_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="720" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r2_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1293" y="723" width="80" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 4: Unit, Integration & UAT testing (W25–W29) -->
+    <mxCell id="sp4r3_label" value="Unit, Integration &amp; User Acceptance Testing (UAT)" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="740" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r3_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="740" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r3_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="740" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r3_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1333" y="743" width="200" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 4: Deployment to server (W29–W31) -->
+    <mxCell id="sp4r4_label" value="Deployment to live server (Nginx, PHP, SSL)" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="760" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r4_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="760" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r4_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="760" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r4_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1453" y="763" width="120" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 4: Bug fixing & polish (W30–W32) -->
+    <mxCell id="sp4r5_label" value="Bug fixing &amp; UI/UX polish" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="780" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r5_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="780" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r5_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="780" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r5_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1493" y="783" width="120" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Sprint 4: Final documentation (W31–W33) -->
+    <mxCell id="sp4r6_label" value="Final documentation &amp; report writing" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="800" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r6_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="800" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r6_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="800" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r6_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1533" y="803" width="120" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Submission of PSM 2 Draft Report (W33) -->
+    <mxCell id="sp4r7_label" value="Submission of PSM 2 Draft Report" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="820" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r7_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="820" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r7_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="820" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r7_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1613" y="823" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- Presentation of PSM 2 (W34) -->
+    <mxCell id="sp4r8_label" value="Presentation of PSM 2" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="10" y="840" width="200" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r8_status" value="Not Started" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="210" y="840" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r8_bg" value="" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" vertex="1" parent="1">
+      <mxGeometry x="290" y="840" width="1360" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="sp4r8_bar" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="1613" y="843" width="34" height="14" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- LEGEND -->
+    <!-- ============================================================ -->
+    <mxCell id="legend_title" value="Legend:" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="10" y="870" width="80" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg1_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD700;strokeColor=#B8860B;" vertex="1" parent="1">
+      <mxGeometry x="100" y="874" width="20" height="12" as="geometry" />
+    </mxCell>
+    <mxCell id="leg1_label" value="PSM 1 Tasks / Key Milestones" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="125" y="870" width="180" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg2_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;strokeColor=#8B4513;" vertex="1" parent="1">
+      <mxGeometry x="320" y="874" width="20" height="12" as="geometry" />
+    </mxCell>
+    <mxCell id="leg2_label" value="Sprint 1 – Auth &amp; User Mgmt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="345" y="870" width="180" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg3_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6d8764;strokeColor=#3a5a30;" vertex="1" parent="1">
+      <mxGeometry x="540" y="874" width="20" height="12" as="geometry" />
+    </mxCell>
+    <mxCell id="leg3_label" value="Sprint 2 – Homestay, Booking &amp; Payment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="565" y="870" width="220" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg4_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#006EAF;strokeColor=#003d6b;" vertex="1" parent="1">
+      <mxGeometry x="800" y="874" width="20" height="12" as="geometry" />
+    </mxCell>
+    <mxCell id="leg4_label" value="Sprint 3 – QR Code, Notification &amp; Chat" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="825" y="870" width="220" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg5_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B4F9E;strokeColor=#4a2875;" vertex="1" parent="1">
+      <mxGeometry x="1060" y="874" width="20" height="12" as="geometry" />
+    </mxCell>
+    <mxCell id="leg5_label" value="Sprint 4 – Reporting, Feedback, UAT &amp; Deployment" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="1085" y="870" width="280" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ============================================================ -->
+    <!-- FIGURE CAPTION -->
+    <!-- ============================================================ -->
+    <mxCell id="caption" value="Figure 1.1    Gantt Chart for HomeLodge – Final Year Project (PSM 1 &amp; PSM 2)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="10" y="900" width="1630" height="25" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
