@@ -48,7 +48,7 @@ These tools were not designed for homestay management. They are general-purpose 
 
 ## 2.4 Comparative Study of Existing Systems
 
-Three short-term rental platforms are reviewed in this section: Airbnb, Booking.com, and MySyok. The review covers the features most relevant to the problem described in Section 2.3 and the requirements gathered for HomeLodge.
+Three short-term rental platforms are reviewed in this section: Airbnb, Booking.com, and Agoda. The review covers the features most relevant to the problem described in Section 2.3 and the requirements gathered for HomeLodge.
 
 ### 2.4.1 Airbnb
 
@@ -66,11 +66,11 @@ The platform is used by a wide range of accommodation types, from large hotels t
 
 The same structural constraint that applies to Airbnb applies to Booking.com. It is a marketplace. Operators who list there are bound by the platform's commission structure and content policies. The host interface does not support QR code door access, role-based access permissions, or booking extension management. Like Airbnb, the platform is built to give the marketplace visibility of transactions, not to give the operator a configurable private management tool.
 
-### 2.4.3 MySyok
+### 2.4.3 Agoda
 
-MySyok is a Malaysian short-term rental platform that connects property owners with domestic travellers (MySyok, 2024). Property owners list units, manage availability, and receive bookings through the platform. It supports Bahasa Malaysia and is oriented to the local rental market.
+Agoda is a Singapore-based online travel agency that is part of Booking Holdings. It is widely used across Southeast Asia, including Malaysia, for booking hotels, apartments, and short-term rental properties (Agoda, 2024). Property owners list units, manage availability, and receive bookings through the platform. It supports Bahasa Malaysia and multiple local payment methods, including FPX bank transfers, and is well-oriented to the regional rental market.
 
-MySyok addresses localisation requirements that Airbnb and Booking.com do not meet, including local payment methods and language support. However, it operates on the same marketplace model. Operators list publicly and are subject to the platform's commission and policy structure. There is no in-platform messaging between guest and host, no QR code door access feature, no role and permission management system, and no booking extension workflow. The house policies visible to guests are limited to whatever the platform exposes, not what the operator configures independently.
+Agoda addresses localisation requirements relevant to the Malaysian market, including local payment options and language support. It also provides in-platform messaging between guest and host. However, it operates on the same marketplace model as Airbnb and Booking.com. Operators list publicly and are subject to the platform's commission and policy structure. There is no QR code door access feature, no role and permission management system, and no booking extension workflow. The house policies visible to guests are limited to whatever the platform exposes, not what the operator configures independently.
 
 ### 2.4.4 Comparison Summary
 
@@ -78,11 +78,11 @@ Table 2.1 compares the three platforms against the key requirements of HomeLodge
 
 Table 2.1: Comparison of Existing Booking Systems
 
-| Feature | Airbnb | Booking.com | MySyok | HomeLodge |
+| Feature | Airbnb | Booking.com | Agoda | HomeLodge |
 |---|---|---|---|---|
 | Online availability calendar | Yes | Yes | Yes | Yes |
 | Online payment processing | Yes | Yes | Yes | Yes |
-| In-app guest to host messaging | Yes | Yes | No | Yes |
+| In-app guest to host messaging | Yes | Yes | Yes | Yes |
 | QR code door access | No | No | No | Yes |
 | Booking extension management | No | No | No | Yes |
 | Role-based access control | No | No | No | Yes |
@@ -92,7 +92,7 @@ Table 2.1: Comparison of Existing Booking Systems
 | Configurable system settings | No | No | No | Yes |
 | No per-booking marketplace commission | No | No | No | Yes |
 
-Table 2.1 shows that all three platforms provide online availability management and payment processing, which removes the most immediate failures of the manual process described in Section 2.2. What none of them provides is the ability to operate privately without marketplace exposure, manage physical door access through QR codes, process booking extensions through a formal payment workflow, or apply role-based access control to administrative functions. These are the specific gaps HomeLodge is built to address.
+Table 2.1 shows that all three platforms provide online availability management, payment processing, and in-app messaging, which removes the most immediate failures of the manual process described in Section 2.2. What none of them provides is the ability to operate privately without marketplace exposure, manage physical door access through QR codes, process booking extensions through a formal payment workflow, or apply role-based access control to administrative functions. These are the specific gaps HomeLodge is built to address.
 
 ---
 
@@ -297,7 +297,7 @@ The case study showed that small-scale multi-unit homestay operators in Malaysia
 
 The current systems analysis found that the specific tools used — WhatsApp, Telegram, Google Calendar, and Excel — are not designed for this purpose. They lack integration with each other, they provide no automatic availability validation, and there is no consolidated view of all active bookings across multiple units.
 
-The comparison of Airbnb, Booking.com, and MySyok showed that each platform handles availability and payment adequately, but all three operate as public marketplaces. None supports QR code door access, booking extensions with a payment workflow, fine-grained role-based access control, or private operation without public listing and per-booking commission. These are the gaps HomeLodge is built to fill.
+The comparison of Airbnb, Booking.com, and Agoda showed that each platform handles availability and payment adequately, but all three operate as public marketplaces. None supports QR code door access, booking extensions with a payment workflow, fine-grained role-based access control, or private operation without public listing and per-booking commission. These are the gaps HomeLodge is built to fill.
 
 The methodology review compared four approaches: Waterfall, Agile, Rapid Application Development, and the Iterative model. No single methodology satisfies all requirements of this project in isolation. A hybrid methodology combining Waterfall and Agile was selected. Waterfall governs the planning and analysis phases, producing the complete requirements specification and system design before implementation begins. Agile, structured through Scrum and managed using a Kanban Board, governs the implementation and testing phases, providing an incremental and trackable approach to delivering the thirteen functional modules of HomeLodge.
 
