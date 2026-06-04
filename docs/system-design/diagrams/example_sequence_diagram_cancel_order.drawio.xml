@@ -1,0 +1,52 @@
+﻿<mxfile host="app.diagrams.net" type="device">
+  <diagram id="seq_cancel" name="Sequence Diagram - Cancel Order">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a_clerk" value="Clerk" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="al_clerk" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="55" y="110" as="sourcePoint" /><mxPoint x="55" y="600" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_main" value="«view» :MainWindow" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="40" width="140" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_form" value="«view» :OrderWindowForm" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="160" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_handler" value="«controller» :OrderHandler" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="150" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_order" value="anOrd : Order" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="760" y="40" width="120" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_da" value=":OrderDA" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="40" width="80" height="560" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="beginCancel()" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="55" y="140" as="sourcePoint" /><mxPoint x="210" y="140" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="display()" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="210" y="180" as="sourcePoint" /><mxPoint x="420" y="180" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="cancelOrder(orderID)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="55" y="230" as="sourcePoint" /><mxPoint x="420" y="230" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="cancelOrder(orderID)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="420" y="270" as="sourcePoint" /><mxPoint x="635" y="270" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="anOrd := findOrder(orderID)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="635" y="310" as="sourcePoint" /><mxPoint x="820" y="310" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="cancelOrder()" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="635" y="360" as="sourcePoint" /><mxPoint x="820" y="360" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="saveOrder(anOrd)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="820" y="410" as="sourcePoint" /><mxPoint x="950" y="410" as="targetPoint" /></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

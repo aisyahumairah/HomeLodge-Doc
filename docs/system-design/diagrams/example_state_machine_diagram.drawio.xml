@@ -1,0 +1,38 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="state" name="State Machine Diagram">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="init" value="" style="ellipse;fillColor=#000000;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="40" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="s_new" value="New" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="120" y="100" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s_active" value="Active&#10;entry / activate()" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;verticalAlign=top;align=left;spacingLeft=6;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="120" y="220" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s_suspended" value="Suspended" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="470" y="220" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s_closed" value="Closed&#10;entry / banBalance()" style="rounded=1;whiteSpace=wrap;html=1;arcSize=20;verticalAlign=top;align=left;spacingLeft=6;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="120" y="420" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="final" value="" style="ellipse;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="200" y="540" width="24" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="finaldot" value="" style="ellipse;fillColor=#000000;html=1;" vertex="1" parent="1">
+          <mxGeometry x="205" y="545" width="14" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="t0" value="" style="endArrow=open;html=1;" edge="1" parent="1" source="init" target="s_new"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t1" value="[isUnlock()] / cancel()" style="endArrow=open;html=1;" edge="1" parent="1" source="s_new" target="s_active"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t2" value="[isAccountDormant()] / suspend()" style="endArrow=open;html=1;" edge="1" parent="1" source="s_active" target="s_suspended"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t3" value="[isResumeRequested()] / resume()" style="endArrow=open;html=1;exitX=1;exitY=0.75;entryX=1;entryY=0.75;" edge="1" parent="1" source="s_suspended" target="s_active"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t4" value="[isCancelRequested()] / cancel()" style="endArrow=open;html=1;" edge="1" parent="1" source="s_active" target="s_closed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t5" value="[isCancelRequested()] / cancel()" style="endArrow=open;html=1;" edge="1" parent="1" source="s_suspended" target="s_closed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t6" value="" style="endArrow=open;html=1;" edge="1" parent="1" source="s_closed" target="final"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

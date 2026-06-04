@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="usecase" name="Use Case Diagram">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" value="Online Shopping" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="260" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_view" value="View Items" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="120" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_purchase" value="Make Purchase" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_checkout" value="Checkout" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="290" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_register" value="Register Client" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="380" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_auth" value="Authentication" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="a_webcustomer" value="Web Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a_registered" value="Registered Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="90" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a_new" value="New Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a_identity" value="Identity Provider" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="220" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a_credit" value="Credit Payment Service" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="320" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a_paypal" value="PayPal" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="420" width="40" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=none;html=1;" edge="1" parent="1" source="a_registered" target="uc_view"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=none;html=1;" edge="1" parent="1" source="a_registered" target="uc_purchase"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=none;html=1;" edge="1" parent="1" source="a_new" target="uc_register"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=none;html=1;" edge="1" parent="1" source="a_new" target="uc_view"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="" style="endArrow=block;endFill=0;html=1;dashed=0;" edge="1" parent="1" source="a_webcustomer" target="a_registered"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="&#171;include&#187;" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="uc_purchase" target="uc_view"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="&#171;include&#187;" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="uc_purchase" target="uc_checkout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="&#171;service&#187;" style="endArrow=none;html=1;" edge="1" parent="1" source="uc_checkout" target="uc_auth"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="endArrow=none;html=1;" edge="1" parent="1" source="uc_auth" target="a_identity"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="endArrow=none;html=1;" edge="1" parent="1" source="uc_checkout" target="a_credit"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="endArrow=none;html=1;" edge="1" parent="1" source="uc_checkout" target="a_paypal"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

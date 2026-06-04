@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="component" name="Component Diagram">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="webstore" value="&#171;subsystem&#187; WebStore" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="240" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="c_search" value=":SearchEngine" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_cart" value=":Shopping Cart" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="200" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c_auth" value=":Authentication" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="300" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="warehouses" value="&#171;subsystem&#187; Warehouses" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="c_inventory" value=":Inventory" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="610" y="90" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="accounting" value="&#171;subsystem&#187; Accounting" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="220" width="240" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="c_orders" value=":Orders" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="610" y="260" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c_customers" value=":Customers" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="610" y="350" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c_accounts" value=":Accounts" style="shape=component;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="610" y="430" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="Search Inventory" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="c_search" target="c_inventory"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="d2" value="Manage Orders" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="c_cart" target="c_orders"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="d3" value="Manage Customers" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="c_orders" target="c_customers"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="d4" value="Manage Accounts" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="c_customers" target="c_accounts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="d5" value="Manage Inventory" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="c_orders" target="c_inventory"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

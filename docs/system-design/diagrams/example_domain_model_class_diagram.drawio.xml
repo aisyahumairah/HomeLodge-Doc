@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="domain" name="Domain Model">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="webuser" value="WebUser&#10;- id : String {id}&#10;- password : String&#10;- state : UserState" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="customer" value="Customer&#10;- id : String {id}&#10;- address : Address&#10;- phone : Phone&#10;- email : String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" value="Payment&#10;- id : String {id}&#10;- date : Date&#10;- total : Real&#10;- details : String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="account" value="Account&#10;- id : String {id}&#10;- billing : Address&#10;- created : Date&#10;- closed : Date" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="280" y="200" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="order" value="Order&#10;- number : String {id}&#10;- ordered : Date&#10;- shipped : Date&#10;- ship_to : Address&#10;- status : OrderStatus&#10;- total : Real" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cart" value="ShoppingCart&#10;- created : Date" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lineitem" value="LineItem&#10;- quantity : Integer&#10;- price : Real" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="320" y="400" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="product" value="Product&#10;- id : String {id}&#10;- name : String&#10;- supplier : Supplier" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="320" y="540" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" value="" style="endArrow=none;html=1;startArrow=none;" edge="1" parent="1" source="webuser" target="customer"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="customer" target="account"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="account" target="payment"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="account" target="order"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r5" value="" style="endArrow=none;html=1;" edge="1" parent="1" source="webuser" target="cart"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r6" value="{ordered}" style="endArrow=none;html=1;" edge="1" parent="1" source="cart" target="lineitem"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r7" value="{ordered}" style="endArrow=none;html=1;" edge="1" parent="1" source="order" target="lineitem"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r8" value="line_item" style="endArrow=none;html=1;" edge="1" parent="1" source="lineitem" target="product"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

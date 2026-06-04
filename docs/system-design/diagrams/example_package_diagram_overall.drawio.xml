@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="pkg_overall" name="Package Diagram - Overall">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p_orderentry" value="Order Entry Subsystem" style="shape=folder;tabWidth=160;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="340" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_order" value="Order" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_orderitem" value="OrderItem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_ordertrans" value="OrderTransaction" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="170" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p_fulfillment" value="Order Fulfillment Subsystem" style="shape=folder;tabWidth=180;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_shipper" value="Shipper" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_shipment" value="Shipment" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p_custmaint" value="Customer Maintenance Subsystem" style="shape=folder;tabWidth=210;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_customer" value="Customer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p_catmaint" value="Catalog Maintenance Subsystem" style="shape=folder;tabWidth=200;tabHeight=24;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="420" y="300" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_catalog" value="Catalog" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_catprod" value="CatalogProduct" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="360" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_productitem" value="ProductItem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="420" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cl_inventoryitem" value="InventoryItem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="420" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dep1" value="" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="p_fulfillment" target="p_orderentry"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="dep2" value="" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="p_orderentry" target="p_custmaint"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="dep3" value="" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="p_orderentry" target="p_catmaint"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

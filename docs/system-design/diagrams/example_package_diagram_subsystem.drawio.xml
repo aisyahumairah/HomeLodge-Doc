@@ -1,0 +1,60 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="pkg_subsystem" name="Package Diagram - Subsystem">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="subsystem" value="Order Entry Subsystem" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="800" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="view" value="View Layer" style="shape=folder;tabWidth=100;tabHeight=22;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="320" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="v_main" value="MainWindow" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v_prodquery" value="ProductQuery" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v_orderwin" value="OrderWindow" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v_neworder" value="NewOrderWindow" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="200" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="domain" value="Domain Layer" style="shape=folder;tabWidth=120;tabHeight=22;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="470" y="90" width="330" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="d_orderhandler" value="OrderHandler" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d_availhandler" value="AvailabilityHandler" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="140" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d_order" value="Order" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_orderitem" value="OrderItem" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="200" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_ordertrans" value="OrderTransaction" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="235" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="data" value="Data Access Layer" style="shape=folder;tabWidth=150;tabHeight=22;tabPosition=left;html=1;whiteSpace=wrap;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="430" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="da_orderda" value="OrderDA" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="360" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="da_orderitemda" value="OrderItemDA" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="da_ordtransda" value="OrdTransactionDA" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dep1" value="" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="view" target="domain"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="dep2" value="" style="endArrow=open;dashed=1;html=1;" edge="1" parent="1" source="domain" target="data"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

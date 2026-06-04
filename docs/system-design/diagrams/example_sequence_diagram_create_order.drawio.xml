@@ -1,0 +1,58 @@
+﻿<mxfile host="app.diagrams.net" type="device">
+  <diagram id="seq_create" name="Sequence Diagram - Create New Phone Order">
+    <mxGraphModel dx="900" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a_clerk" value="Clerk" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="al_clerk" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="55" y="110" as="sourcePoint" /><mxPoint x="55" y="640" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="ll_main" value="«view» :MainWindow" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="130" y="40" width="140" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_new" value="«view» :NewOrderWindow" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="160" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_handler" value="«controller» :OrderHandler" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="40" width="150" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_cust" value="aC : Customer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="740" y="40" width="130" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ll_order" value="anOrd : Order" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry x="920" y="40" width="130" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="newOrder()" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="55" y="140" as="sourcePoint" /><mxPoint x="200" y="140" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="display()" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="200" y="180" as="sourcePoint" /><mxPoint x="400" y="180" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="newOrder(accountNo)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="55" y="230" as="sourcePoint" /><mxPoint x="400" y="230" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="newOrder(accountNo)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="400" y="270" as="sourcePoint" /><mxPoint x="615" y="270" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="aC := findCustomer(accountNo)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="615" y="320" as="sourcePoint" /><mxPoint x="805" y="320" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="newOrder(accountNo)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="615" y="380" as="sourcePoint" /><mxPoint x="985" y="380" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="addLineItem(prod, qty)" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="615" y="440" as="sourcePoint" /><mxPoint x="985" y="440" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="loop" value="loop [i := 1..n]" style="shape=umlFrame;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="590" y="410" width="430" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m8" value="aC, anOrd" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="615" y="540" as="sourcePoint" /><mxPoint x="55" y="540" as="targetPoint" /></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
