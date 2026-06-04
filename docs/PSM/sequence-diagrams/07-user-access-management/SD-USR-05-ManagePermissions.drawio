@@ -1,0 +1,29 @@
+<mxfile host="Electron" agent="HomeLodge-Doc">
+  <diagram id="sd-usr-05" name="SD-USR-05 Manage Permissions">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="title" value="SD-USR-05: Manage Permissions" style="text;html=1;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="350" y="20" width="400" height="30" as="geometry" /></mxCell>
+        <mxCell id="ll-admin" value="Admin" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=40;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="80" y="70" width="120" height="510" as="geometry" /></mxCell>
+        <mxCell id="ll-permmgmt" value="Permission&#xa;Management Page" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=45;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="320" y="70" width="150" height="510" as="geometry" /></mxCell>
+        <mxCell id="ll-system" value="System" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=40;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="590" y="70" width="120" height="510" as="geometry" /></mxCell>
+        <mxCell id="ll-db" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;size=40;fontSize=12;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="850" y="70" width="120" height="510" as="geometry" /></mxCell>
+
+        <mxCell id="alt-main" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;width=30;height=20;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=5;fontSize=11;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="60" y="130" width="950" height="310" as="geometry" /></mxCell>
+
+        <mxCell id="f1" value="[Create Permission]" style="text;html=1;fontSize=11;fontStyle=3;" vertex="1" parent="1"><mxGeometry x="100" y="150" width="150" height="20" as="geometry" /></mxCell>
+        <mxCell id="c1" value="1: enterPermission(name, description) → save" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="140" y="180" as="sourcePoint" /><mxPoint x="650" y="180" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="c2" value="2: checkUniqueName(), createPermission()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="650" y="210" as="sourcePoint" /><mxPoint x="910" y="210" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="sep1" value="" style="endArrow=none;dashed=1;html=1;dashPattern=8 8;strokeWidth=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="60" y="260" as="sourcePoint" /><mxPoint x="1010" y="260" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="f2" value="[Delete Permission]" style="text;html=1;fontSize=11;fontStyle=3;" vertex="1" parent="1"><mxGeometry x="100" y="270" width="150" height="20" as="geometry" /></mxCell>
+        <mxCell id="d1" value="1: selectPermission() → clickDelete()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="140" y="300" as="sourcePoint" /><mxPoint x="650" y="300" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="d2" value="2: checkAttachedToRoles() → if none, confirm &amp; delete, auditLog()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="650" y="330" as="sourcePoint" /><mxPoint x="910" y="330" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="alt-err" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;width=30;height=20;boundedLbl=1;verticalAlign=top;align=left;spacingLeft=5;fontSize=11;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="60" y="470" width="950" height="50" as="geometry" /></mxCell>
+        <mxCell id="alt-err-label" value="[Permission attached to roles — Delete blocked] — Show &quot;Remove from roles before deleting&quot;" style="text;html=1;fontSize=10;fontStyle=2;align=left;verticalAlign=top;fillColor=none;strokeColor=none;" vertex="1" parent="1"><mxGeometry x="100" y="490" width="700" height="20" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
