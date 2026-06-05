@@ -178,7 +178,7 @@ This module handles everything related to signing in and out of HomeLodge, creat
 | **Use Case ID** | UC-AUTH-05 |
 | **Use Case Name** | View / Update Profile |
 | **Actor(s)** | Registered User (Guest or Admin) |
-| **Description** | A signed-in user views and updates their own personal information, including name, phone number, and profile photo. |
+| **Description** | A signed-in user views and updates their own personal information, including name, phone number, and profile photo or changes their own password. |
 | **Preconditions** | User is signed in. |
 | **Postconditions** | Updated profile information is saved and reflected across the system. |
 | **Priority** | Should Have |
@@ -192,13 +192,24 @@ This module handles everything related to signing in and out of HomeLodge, creat
 6. System checks that the changes are valid (e.g., phone number format is correct, photo file is an accepted image type and within the size limit).
 7. System saves the updated information.
 8. A confirmation message is shown: "Profile updated successfully."
+9. User wants to change password.
+10. User clicks "Change Password."
+11. System asks for the current password and the new password twice.
+12. System checks that the current password is correct.
+13. System checks that the new password meets the strength rules.
+14. System saves the new password.
+15. A confirmation message is shown: "Password changed successfully."
 
 **Alternative Flows:**
 - **A1 – Invalid phone number format:** System highlights the field and asks for correction.
 - **A2 – Uploaded file is not a valid image or exceeds the size limit:** System shows an appropriate error message.
+- **A3 – Password does not meet the strength rules:** System shows which rules are not yet met so the person can fix them.
+- **A4 – Current password does not match:** System shows "Current password does not match."
+- **A5 – Passwords do not match:** System shows "Passwords do not match."
 
 **Exception Flows:**
 - **E1 – Photo upload failure:** System rolls back the change and notifies the user.
+- **E2 – System error:** System rolls back the change and notifies the user.
 
 ---
 
