@@ -1,0 +1,311 @@
+<mxfile host="Electron">
+  <diagram id="domain" name="Domain Model - HomeLodge">
+    <mxGraphModel dx="3445" dy="971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="User&#xa;- id : BigInt {id}&#xa;- name : String&#xa;- email : String&#xa;- password : String&#xa;- phone : String&#xa;- avatar : String&#xa;- google_id : String&#xa;- status : UserStatus&#xa;- failed_login_count : Integer&#xa;- locked_until : DateTime&#xa;- must_change_password : Boolean" vertex="1">
+          <mxGeometry height="220" width="240" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="role" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Role&#xa;- id : BigInt {id}&#xa;- name : String&#xa;- guard_name : String" vertex="1">
+          <mxGeometry height="80" width="180" x="-320" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="permission" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Permission&#xa;- id : BigInt {id}&#xa;- name : String&#xa;- guard_name : String" vertex="1">
+          <mxGeometry height="80" width="180" x="-230" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="chat_conversation" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="ChatConversation&#xa;- id : BigInt {id}&#xa;- last_message_at : DateTime" vertex="1">
+          <mxGeometry height="60" width="210" x="350" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="chat_message" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="ChatMessage&#xa;- id : BigInt {id}&#xa;- message : String&#xa;- is_read : Boolean" vertex="1">
+          <mxGeometry height="80" width="210" x="350" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="homestay_unit" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="HomestayUnit&#xa;- id : BigInt {id}&#xa;- name : String&#xa;- description : String&#xa;- location : String&#xa;- base_price : Decimal&#xa;- deposit : Decimal&#xa;- check_in_time : Time&#xa;- check_out_time : Time&#xa;- status : UnitStatus&#xa;- average_rating : Decimal" vertex="1">
+          <mxGeometry height="200" width="240" x="20" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="homestay_image" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="HomestayImage&#xa;- id : BigInt {id}&#xa;- image_path : String&#xa;- sort_order : Integer" vertex="1">
+          <mxGeometry height="80" width="190" x="-300" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="house_policy" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="HousePolicy&#xa;- id : BigInt {id}&#xa;- policy_name : String&#xa;- description : String" vertex="1">
+          <mxGeometry height="80" width="190" x="-290" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="default_house_policy" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="DefaultHousePolicy&#xa;- id : BigInt {id}&#xa;- policy_name : String&#xa;- description : String&#xa;- is_active : Boolean" vertex="1">
+          <mxGeometry height="100" width="210" x="640" as="geometry" />
+        </mxCell>
+        <mxCell id="booking" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Booking&#xa;- id : BigInt {id}&#xa;- booking_number : String&#xa;- check_in_date : Date&#xa;- check_in_time : Time&#xa;- check_out_date : Date&#xa;- check_out_time : Time&#xa;- status : BookingStatus&#xa;- total_amount : Decimal&#xa;- payment_deadline : DateTime&#xa;- cancelled_at : DateTime&#xa;- refund_amount : Decimal" vertex="1">
+          <mxGeometry height="220" width="240" x="370" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="bill" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Bill&#xa;- id : BigInt {id}&#xa;- bill_number : String&#xa;- amount : Decimal&#xa;- status : BillStatus&#xa;- type : BillType" vertex="1">
+          <mxGeometry height="120" width="200" x="660" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Payment&#xa;- id : BigInt {id}&#xa;- payment_number : String&#xa;- amount : Decimal&#xa;- gateway_reference : String&#xa;- status : PaymentStatus&#xa;- paid_at : DateTime" vertex="1">
+          <mxGeometry height="140" width="210" x="960" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="booking_extension" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="BookingExtension&#xa;- id : BigInt {id}&#xa;- original_check_out : DateTime&#xa;- new_check_out : DateTime&#xa;- extension_type : ExtensionType&#xa;- charge_amount : Decimal&#xa;- status : ExtensionStatus&#xa;- payment_deadline : DateTime" vertex="1">
+          <mxGeometry height="150" width="250" x="660" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="qr_code" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="QrCode&#xa;- id : BigInt {id}&#xa;- token : String&#xa;- valid_from : DateTime&#xa;- valid_until : DateTime&#xa;- purpose : QrPurpose&#xa;- status : QrStatus" vertex="1">
+          <mxGeometry height="140" width="210" x="700" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Feedback&#xa;- id : BigInt {id}&#xa;- rating : Integer&#xa;- comment : String&#xa;- admin_reply : String&#xa;- is_visible : Boolean" vertex="1">
+          <mxGeometry height="120" width="200" x="390" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="notification" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Notification&#xa;- id : String {id}&#xa;- type : String&#xa;- notifiable_type : String&#xa;- notifiable_id : BigInt&#xa;- data : JSON&#xa;- read_at : DateTime" vertex="1">
+          <mxGeometry height="130" width="170" x="-310" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="activity_log" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="ActivityLog&#xa;- id : BigInt {id}&#xa;- log_name : String&#xa;- description : String&#xa;- subject_type : String&#xa;- subject_id : BigInt&#xa;- event : String&#xa;- properties : JSON" vertex="1">
+          <mxGeometry height="150" width="210" x="-50" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="setting" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" value="Setting&#xa;- id : BigInt {id}&#xa;- group : String&#xa;- key : String&#xa;- value : String" vertex="1">
+          <mxGeometry height="100" width="190" x="650" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="user" style="endArrow=none;html=1;" target="role" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_s" connectable="0" parent="r1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r1_t" connectable="0" parent="r1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" source="role" style="endArrow=none;html=1;" target="permission" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_s" connectable="0" parent="r2" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r2_t" connectable="0" parent="r2" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" source="user" style="endArrow=none;html=1;" target="chat_conversation" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3_s" connectable="0" parent="r3" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3_t" connectable="0" parent="r3" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="0..1" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4" edge="1" parent="1" source="chat_conversation" style="startArrow=diamondThin;startFill=1;startSize=14;endArrow=none;html=1;" target="chat_message" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4_s" connectable="0" parent="r4" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4_t" connectable="0" parent="r4" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5" edge="1" parent="1" source="chat_message" style="endArrow=none;html=1;dashed=1;" target="user" value="sender">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5_s" connectable="0" parent="r5" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5_t" connectable="0" parent="r5" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r6" edge="1" parent="1" source="user" style="endArrow=none;html=1;" target="booking" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r6_s" connectable="0" parent="r6" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r6_t" connectable="0" parent="r6" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r7" edge="1" parent="1" source="homestay_unit" style="endArrow=none;html=1;" target="booking" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7_s" connectable="0" parent="r7" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r7_t" connectable="0" parent="r7" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r8" edge="1" parent="1" source="homestay_unit" style="startArrow=diamondThin;startFill=1;startSize=14;endArrow=none;html=1;" target="homestay_image" value="{ordered}">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8_s" connectable="0" parent="r8" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r8_t" connectable="0" parent="r8" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r9" edge="1" parent="1" source="homestay_unit" style="startArrow=diamondThin;startFill=1;startSize=14;endArrow=none;html=1;" target="house_policy" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r9_s" connectable="0" parent="r9" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r9_t" connectable="0" parent="r9" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r10" edge="1" parent="1" source="booking" style="endArrow=none;html=1;" target="bill" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r10_s" connectable="0" parent="r10" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r10_t" connectable="0" parent="r10" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="1..*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r11" edge="1" parent="1" source="bill" style="endArrow=none;html=1;" target="payment" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r11_s" connectable="0" parent="r11" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r11_t" connectable="0" parent="r11" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="0..1" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r12" edge="1" parent="1" source="booking" style="endArrow=none;html=1;" target="booking_extension" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r12_s" connectable="0" parent="r12" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r12_t" connectable="0" parent="r12" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r13" edge="1" parent="1" source="booking_extension" style="endArrow=none;html=1;" target="bill" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r13_s" connectable="0" parent="r13" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r13_t" connectable="0" parent="r13" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="0..1" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r14" edge="1" parent="1" source="booking" style="startArrow=diamondThin;startFill=1;startSize=14;endArrow=none;html=1;" target="qr_code" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r14_s" connectable="0" parent="r14" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r14_t" connectable="0" parent="r14" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r15" edge="1" parent="1" source="booking" style="endArrow=none;html=1;" target="feedback" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r15_s" connectable="0" parent="r15" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r15_t" connectable="0" parent="r15" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="0..1" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r16" edge="1" parent="1" source="user" style="endArrow=none;html=1;" target="feedback" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r16_s" connectable="0" parent="r16" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r16_t" connectable="0" parent="r16" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r17" edge="1" parent="1" source="homestay_unit" style="endArrow=none;html=1;" target="feedback" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r17_s" connectable="0" parent="r17" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r17_t" connectable="0" parent="r17" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r18" edge="1" parent="1" source="user" style="endArrow=none;html=1;" target="notification" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r18_s" connectable="0" parent="r18" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r18_t" connectable="0" parent="r18" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r19" edge="1" parent="1" source="user" style="endArrow=none;html=1;" target="activity_log" value="causer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r19_s" connectable="0" parent="r19" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r19_t" connectable="0" parent="r19" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

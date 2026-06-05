@@ -1,0 +1,199 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="domain" name="Domain Model">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ==================== ROW 1: User, Role, Permission ==================== -->
+
+        <mxCell id="user" value="User&#10;- id : BigInt {id}&#10;- name : String&#10;- email : String&#10;- email_verified_at : Timestamp&#10;- password : String&#10;- phone : String&#10;- avatar : String&#10;- google_id : String&#10;- status : UserStatus&#10;- failed_login_count : Integer&#10;- locked_until : DateTime&#10;- must_change_password : Boolean&#10;- remember_token : String&#10;- deleted_at : Timestamp" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="250" height="270" as="geometry" />
+        </mxCell>
+
+        <mxCell id="role" value="Role&#10;- id : BigInt {id}&#10;- name : String&#10;- guard_name : String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="permission" value="Permission&#10;- id : BigInt {id}&#10;- name : String&#10;- guard_name : String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="360" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ROW 1 cont: HomestayUnit, HomestayImage ==================== -->
+
+        <mxCell id="homestay_unit" value="HomestayUnit&#10;- id : BigInt {id}&#10;- name : String&#10;- description : String&#10;- location : String&#10;- base_price : Decimal&#10;- deposit : Decimal&#10;- check_in_time : Time&#10;- check_out_time : Time&#10;- extension_payment_window : Integer&#10;- status : UnitStatus&#10;- average_rating : Decimal" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="640" y="40" width="260" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="homestay_image" value="HomestayImage&#10;- id : BigInt {id}&#10;- image_path : String&#10;- sort_order : Integer" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="980" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="house_policy" value="HousePolicy&#10;- id : BigInt {id}&#10;- policy_name : String&#10;- description : String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="980" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="default_house_policy" value="DefaultHousePolicy&#10;- id : BigInt {id}&#10;- policy_name : String&#10;- description : String&#10;- is_active : Boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="40" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ROW 2: Booking (center) ==================== -->
+
+        <mxCell id="booking" value="Booking&#10;- id : BigInt {id}&#10;- booking_number : String&#10;- check_in_date : Date&#10;- check_in_time : Time&#10;- check_out_date : Date&#10;- check_out_time : Time&#10;- status : BookingStatus&#10;- total_amount : Decimal&#10;- payment_deadline : DateTime&#10;- cancelled_at : DateTime&#10;- refund_amount : Decimal" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="640" y="360" width="260" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ROW 2: Bill, BookingExtension ==================== -->
+
+        <mxCell id="bill" value="Bill&#10;- id : BigInt {id}&#10;- bill_number : String&#10;- amount : Decimal&#10;- status : BillStatus&#10;- type : BillType" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="380" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="booking_extension" value="BookingExtension&#10;- id : BigInt {id}&#10;- original_check_out : DateTime&#10;- new_check_out : DateTime&#10;- extension_type : ExtensionType&#10;- charge_amount : Decimal&#10;- status : ExtensionStatus&#10;- payment_deadline : DateTime" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="540" width="260" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ROW 3: Payment, QrCode, Feedback ==================== -->
+
+        <mxCell id="payment" value="Payment&#10;- id : BigInt {id}&#10;- payment_number : String&#10;- amount : Decimal&#10;- gateway_reference : String&#10;- status : PaymentStatus&#10;- paid_at : DateTime" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="360" width="220" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="qr_code" value="QrCode&#10;- id : BigInt {id}&#10;- token : String&#10;- valid_from : DateTime&#10;- valid_until : DateTime&#10;- purpose : QrPurpose&#10;- status : QrStatus" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="640" y="660" width="220" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="feedback" value="Feedback&#10;- id : BigInt {id}&#10;- rating : Integer&#10;- comment : String&#10;- admin_reply : String&#10;- is_visible : Boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="360" y="660" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ROW 2-3: ChatConversation, ChatMessage ==================== -->
+
+        <mxCell id="chat_conversation" value="ChatConversation&#10;- id : BigInt {id}&#10;- last_message_at : DateTime" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="chat_message" value="ChatMessage&#10;- id : BigInt {id}&#10;- message : String&#10;- is_read : Boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="530" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== ROW 4: Notification, ActivityLog, Setting ==================== -->
+
+        <mxCell id="notification" value="Notification&#10;- id : String {id}&#10;- type : String&#10;- notifiable_type : String&#10;- notifiable_id : BigInt&#10;- data : JSON&#10;- read_at : DateTime" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="220" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="activity_log" value="ActivityLog&#10;- id : BigInt {id}&#10;- log_name : String&#10;- description : String&#10;- subject_type : String&#10;- subject_id : BigInt&#10;- event : String&#10;- properties : JSON" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="580" width="220" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="setting" value="Setting&#10;- id : BigInt {id}&#10;- group : String&#10;- key : String&#10;- value : String" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="780" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== RELATIONSHIPS ==================== -->
+
+        <!-- User — Role (many-to-many) -->
+        <mxCell id="r_user_role" value="has *" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="role">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Role — Permission (many-to-many) -->
+        <mxCell id="r_role_perm" value="has *" style="endArrow=none;html=1;" edge="1" parent="1" source="role" target="permission">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User → Booking (1..*) -->
+        <mxCell id="r_user_booking" value="makes 1..*" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="booking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User → ChatConversation (0..*) -->
+        <mxCell id="r_user_chat" value="has 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="chat_conversation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User → Notification (0..*) -->
+        <mxCell id="r_user_notif" value="receives 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="notification">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User → ActivityLog (0..*) -->
+        <mxCell id="r_user_log" value="triggers 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="activity_log">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User → Feedback (0..*) -->
+        <mxCell id="r_user_feedback" value="submits 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="user" target="feedback">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- HomestayUnit → Booking (1..*) -->
+        <mxCell id="r_unit_booking" value="hosts 1..*" style="endArrow=none;html=1;" edge="1" parent="1" source="homestay_unit" target="booking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- HomestayUnit → HomestayImage (0..*) -->
+        <mxCell id="r_unit_image" value="has 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="homestay_unit" target="homestay_image">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- HomestayUnit → HousePolicy (0..*) -->
+        <mxCell id="r_unit_policy" value="has 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="homestay_unit" target="house_policy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- HomestayUnit → Feedback (0..*) -->
+        <mxCell id="r_unit_feedback" value="receives 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="homestay_unit" target="feedback">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Booking → Bill (1..*) -->
+        <mxCell id="r_booking_bill" value="generates 1..*" style="endArrow=none;html=1;" edge="1" parent="1" source="booking" target="bill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Booking → BookingExtension (0..*) -->
+        <mxCell id="r_booking_ext" value="has 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="booking" target="booking_extension">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Booking → QrCode (1..*) -->
+        <mxCell id="r_booking_qr" value="generates 1..*" style="endArrow=none;html=1;" edge="1" parent="1" source="booking" target="qr_code">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Booking → Feedback (0..1) -->
+        <mxCell id="r_booking_feedback" value="has 0..1" style="endArrow=none;html=1;" edge="1" parent="1" source="booking" target="feedback">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Booking → Payment (0..*) -->
+        <mxCell id="r_booking_payment" value="has 0..*" style="endArrow=none;html=1;" edge="1" parent="1" source="booking" target="payment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Bill → Payment (0..1) -->
+        <mxCell id="r_bill_payment" value="paid by 0..1" style="endArrow=none;html=1;" edge="1" parent="1" source="bill" target="payment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- BookingExtension → Bill (0..1) -->
+        <mxCell id="r_ext_bill" value="generates 0..1" style="endArrow=none;html=1;" edge="1" parent="1" source="booking_extension" target="bill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ChatConversation → ChatMessage (1..*) -->
+        <mxCell id="r_conv_msg" value="contains 1..*" style="endArrow=none;html=1;" edge="1" parent="1" source="chat_conversation" target="chat_message">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ChatMessage → User (sender) -->
+        <mxCell id="r_msg_sender" value="sent by" style="endArrow=none;html=1;dashed=1;" edge="1" parent="1" source="chat_message" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
