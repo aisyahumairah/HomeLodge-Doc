@@ -289,7 +289,7 @@ The system uses the following protocols:
 
 ## 2.2 System Features
 
-The system features include the following 13 functional modules. For every module, the document states the inputs the system receives, the processing it performs, and the outputs it produces.
+The system features include the following 12 functional modules. For every module, the document states the inputs the system receives, the processing it performs, and the outputs it produces.
 
 > **Note:** Use case diagrams, activity diagrams, domain model class diagrams, and state machine diagrams should be included here. Refer to `/docs/dev/USE_CASE_DIAGRAMS.md` and `/docs/dev/USE_CASE_DESCRIPTIONS.md` for the complete set. Placeholder references are noted below; replace with actual diagram images.
 
@@ -297,39 +297,44 @@ The system features include the following 13 functional modules. For every modul
 
 ### 2.2.1 Authentication Module
 
-This module handles registration, login, logout, password management, profile updates, and account security for both guests and admins.
+This module handles registration, login, logout, password management, profile updates, and account security for both guests and admins. It is the front door of the system — every user must go through it before they can do anything else.
+
+**Use Cases:** UC-AUTH-01, UC-AUTH-02, UC-AUTH-03, UC-AUTH-04, UC-AUTH-05, UC-AUTH-06
 
 **Inputs:**
-- A registration form (email and password) or a Google SSO request.
-- Login credentials or a Google SSO button click.
+- A registration form (full name, email, and password) or a Google SSO request.
+- Login credentials (email and password) or a Google SSO button click.
 - A logout action.
 - A forgot-password form with the registered email.
-- A change-password form with old password, new password, and confirmation.
-- Updated profile information.
+- A new password form (with confirmation) from a reset link.
+- A change-password form with current password, new password, and confirmation.
+- Updated profile information (name, phone number, avatar image).
+- A forced password change form after an admin-initiated reset.
 
 **Processing:**
 
 | ID | Requirement |
 | :--- | :--- |
-| AUTH-01 | Users and admins can register using email/password or Google SSO. New accounts are assigned the "User" role by default. |
-| AUTH-02 | Users and admins log in with their credentials or Google SSO. The system checks the supplied password against the stored bcrypt hash, or validates the Google OAuth token. |
-| AUTH-03 | Logging out terminates the active session. |
-| AUTH-04 | The forgot-password flow sends a time-limited reset token to the registered email address. |
-| AUTH-05 | Passwords must be 8 to 12 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character. |
-| AUTH-06 | The password field has a show/hide toggle and a real-time indicator showing which criteria the typed password meets. |
-| AUTH-07 | If an admin resets a user's password, the user must change it at next login. Until they do, they cannot access any other page, even by editing the URL. |
-| AUTH-08 | After exceeding the maximum number of failed login attempts (set by the admin in System Settings), the account is temporarily locked. |
-| AUTH-09 | Locked accounts unlock automatically once the lockout duration has passed. |
-| AUTH-10 | A locked account can also be unlocked if the user goes through the forgot-password flow or if an admin resets the password. |
-| AUTH-11 | Users and admins can view and update their own profile (name, email, phone, avatar). |
+| AUTH-01 | Guests can register using email/password. New accounts are assigned the "Guest" role by default. The system validates email format, uniqueness, and password strength (8–12 characters with at least one uppercase, one lowercase, one digit, and one special character). |
+| AUTH-02 | If a person signs in with Google SSO for the first time and has no existing HomeLodge account, the system creates one automatically with the "Guest" role. If an account with the same email already exists, the Google identity is linked to it. |
+| AUTH-03 | Registered users and admins log in with email/password or Google SSO. The system verifies credentials against the stored bcrypt hash or validates the Google OAuth token, then checks the account is active and not locked. |
+| AUTH-04 | After login, the system checks whether the user is required to change their password. If so, the user is redirected to the forced password change page and all other pages are blocked until the change is completed. |
+| AUTH-05 | Logging out terminates the active session and clears any "remember me" tokens. Subsequent browser back-navigation shows the login page rather than protected content. |
+| AUTH-06 | The forgot-password flow sends a time-limited reset link (default validity: 60 minutes) to the registered email. The link is single-use; the system marks it as used after the password is reset. If the account was locked, the lock is cleared after the reset. |
+| AUTH-07 | Passwords must be 8 to 12 characters long and include at least one uppercase letter, one lowercase letter, one digit, and one special character. The password field has a show/hide toggle and a real-time indicator showing which criteria are met. |
+| AUTH-08 | After exceeding the maximum number of failed login attempts (configurable in System Settings; default: 5), the account is temporarily locked for the configured lockout duration (default: 30 minutes). |
+| AUTH-09 | Locked accounts unlock automatically once the lockout duration has passed, or immediately when the user completes the forgot-password flow or an admin resets the password. |
+| AUTH-10 | Users and admins can view and update their own profile (name, phone number, avatar). They can also change their own password by entering the current password followed by the new password and confirmation. |
+| AUTH-11 | When an admin resets a user's password, the system flags the account to require a forced password change at next login. The user must set a new personal password before they can access any other page. The new password cannot be the same as the temporary one. |
 
 **Outputs:**
-- A registration confirmation or an error.
-- A redirect to the appropriate dashboard on successful login, or an error with the number of attempts remaining.
+- A registration confirmation message and redirect to the login page, or a field-level validation error.
+- A redirect to the appropriate dashboard (guest or admin) on successful login, or a generic error message without revealing which field is wrong.
 - A redirect to the login page after logout.
-- A password reset email, or an error if the address is not in the system.
-- A confirmation that the password was changed, or a validation error listing unmet criteria.
+- A password reset email with a time-limited link (the same generic message is shown regardless of whether the email exists, to protect privacy).
+- A confirmation that the password was changed, or a list of unmet strength criteria.
 - A confirmation that the profile was updated.
+- A redirect to the forced password change page if the flag is active; all other pages are inaccessible until this is done.
 
 ---
 
@@ -337,39 +342,40 @@ This module handles registration, login, logout, password management, profile up
 
 This module lets administrators manage multiple homestay properties and lets guests browse available units. Management operations are admin-only; guests only have read access on the public side.
 
+**Use Cases:** UC-HS-01, UC-HS-02, UC-HS-03, UC-HS-04, UC-HS-05, UC-HS-06
+
 **Inputs:**
-- Admin submits a form with unit name, description, location, images, base price, deposit, and check-in/check-out times.
-- Admin edits an existing unit.
-- Admin deactivates or deletes a unit.
-- Admin uploads or manages unit images.
-- Admin adds, edits, or removes house policies for a unit.
-- Admin sets the per-unit extension payment window.
-- Guest browses the listing of active units.
-- Guest views a unit's detail page.
+- Admin submits a form with unit name, description, location, images, base price per night, deposit, and default check-in/check-out times.
+- Admin optionally sets a per-unit extension payment window (overrides the system-wide default).
+- Admin edits an existing unit's details, policies, or images.
+- Admin deactivates or soft-deletes a unit.
+- Admin adds, edits, or removes house policies on a specific unit.
+- Guest opens the homestay listing page.
+- Guest clicks on a unit card to view its detail page.
 
 **Processing:**
 
 | ID | Requirement |
 | :--- | :--- |
-| HS-01 | Admin can create a homestay unit with its name, description, location, images, and pricing. |
-| HS-02 | Admin can edit any existing unit. |
-| HS-03 | Admin can deactivate or delete a unit. A unit that has confirmed future bookings cannot be deleted. |
-| HS-04 | Admin can view all units in a list showing each unit's status (active or inactive) and a count of upcoming bookings. |
-| HS-05 | Guests can browse all active units and view each unit's details and availability calendar. |
-| HS-06 | Availability is tracked per unit, so different units can be booked for the same dates without conflict. |
-| HS-07 | Admin can upload and manage multiple images per unit. |
-| HS-08 | Admin can set the base price, deposit, and default check-in/check-out times per unit. |
-| HS-09 | Each unit has its own set of configurable house policies (e.g., no smoking, no pets, no durians). |
-| HS-10 | When a new unit is created, the system copies a set of default policies (No Pets Allowed, No Durians, No Smoking) to it. The admin can then add, edit, or remove policies individually. |
-| HS-11 | Guests see the house policies on the unit detail page in a "House Rules" section before they proceed to book. |
-| HS-12 | The default policies that get copied to new units are managed at the system level and are not hardcoded. The admin can change them. |
-| HS-13 | Admin can set a per-unit extension payment window (in minutes) that overrides the system-wide default. |
+| HS-01 | Guests can browse all active units on the listing page. Each unit is displayed as a card showing its name, main photo, base price per night, location, and average guest rating (calculated from visible reviews only). |
+| HS-02 | Guests can view the full detail page of a selected unit, including: all photos in a gallery, full description, location, base price, deposit amount, check-in/check-out times, house rules, average rating with individual guest reviews, and a real-time availability calendar. |
+| HS-03 | The availability calendar on the unit detail page shows dates colour-coded as: available (can be booked), booked (reserved by another guest), temporarily held (another guest is in the process of paying), or blocked (made unavailable by admin). |
+| HS-04 | Admin can create a homestay unit by supplying its name, description, location, base price, deposit, check-in/check-out times, and photos. |
+| HS-05 | When a new unit is created, the system automatically copies all active default house rules (e.g., No Pets, No Durians, No Smoking) to the new unit's rules list. |
+| HS-06 | Admin can optionally set a per-unit extension payment window (in minutes) at creation time. This overrides the system-wide default for that unit only. |
+| HS-07 | Admin can edit any existing unit's details (name, description, pricing, times, photos, house rules, extension payment window). Changes take effect immediately on the guest-facing pages. |
+| HS-08 | Admin can deactivate or soft-delete a unit. A unit with confirmed future bookings cannot be deactivated or deleted — the system blocks the action and lists the conflicting bookings. |
+| HS-09 | Deactivated units are hidden from the guest listing page. No new bookings can be made for them. All historical data is retained. |
+| HS-10 | Admin can view a complete list of all units (active and inactive), including each unit's status, number of upcoming confirmed bookings, base price, and action buttons. |
+| HS-11 | Availability is tracked per unit, so different units can be booked for the same dates without conflict. |
+| HS-12 | Each unit has its own set of house rules. The admin can add, edit, or remove rules on a per-unit basis after creation. |
+| HS-13 | The default house rules copied to new units are managed at the system level (see Section 2.2.9) and are not hardcoded. |
 
 **Outputs:**
-- Confirmation of creation, update, or deletion.
-- A validation error if the admin tries to delete a unit with future bookings.
-- A public listing of active units showing images, price, location, and average rating.
-- A detail page per unit with description, gallery, calendar, and policies.
+- A public listing of active units, each showing its name, main photo, location, base price, and average rating.
+- A unit detail page with a full gallery, description, pricing, house rules, availability calendar, and guest reviews.
+- Confirmation of unit creation, update, or deactivation; an audit log entry is recorded for each.
+- A validation error listing conflicting bookings if the admin tries to deactivate or delete a unit with confirmed future bookings.
 
 ---
 
@@ -377,66 +383,88 @@ This module lets administrators manage multiple homestay properties and lets gue
 
 This module covers the full booking lifecycle: date selection, availability checking, booking creation, confirmation, cancellation, and refund processing. Every booking belongs to a specific homestay unit.
 
+**Use Cases:** UC-BK-01, UC-BK-02, UC-BK-03, UC-BK-04, UC-BK-05, UC-BK-06, UC-BK-07
+
 **Inputs:**
-- Guest picks check-in and check-out dates from a unit's availability calendar.
-- Guest submits a booking form.
-- Guest requests a cancellation.
-- Admin views the calendar, creates bookings (own or on behalf), edits, deletes, or cancels bookings.
-- Admin filters the booking list by status, booking ID, or date range.
-- Admin blocks dates.
-- A scheduled job checks for bookings whose payment deadline has passed.
+- Guest views the availability calendar for a unit and selects check-in and check-out dates.
+- Guest reviews the booking summary and submits the booking.
+- Guest requests a cancellation from the booking detail page.
+- Admin creates a booking on behalf of a guest or for themselves.
+- Admin edits or deletes an existing booking.
+- Admin cancels a booking on behalf of a guest.
+- Admin blocks a date range on a unit (with an optional internal note).
+- Admin filters the booking list by status, booking reference, unit, or date range.
+- A scheduled job runs at regular intervals to check for overdue unpaid bookings.
 
 **Processing:**
 
-*Guest side:*
+*Availability and Date Selection (UC-BK-01):*
 
 | ID | Requirement |
 | :--- | :--- |
-| BK-U-01 | Guests can view a calendar for each unit showing which dates are available and which are taken. |
-| BK-U-02 | Guests can pick a check-in and check-out date and time. |
-| BK-U-03 | The system checks availability in real time as the guest selects dates. |
-| BK-U-04 | If the selected date is unavailable, the system shows the message "The selected date has been booked! Please choose another date" and disables the submit button. |
-| BK-U-05 | If the date is available and the guest has filled in all required fields, the submit button is enabled. |
-| BK-U-06 | Submitting a booking generates a unique booking number (e.g., `BK-20260303-001`). |
-| BK-U-07 | Guests can view their current bookings, booking history, and individual booking details. |
-| BK-U-08 | Guests can cancel their own bookings. The applicable refund policy is shown before they confirm. |
+| BK-01 | The availability calendar displays dates in four colour-coded states: available, booked (reserved by another guest), temporarily held (another guest is mid-payment), and blocked (admin-restricted). |
+| BK-02 | The system checks availability in real time when the guest selects a date range. If any date in the range is unavailable, the system highlights the conflict and asks the guest to re-select. |
+| BK-03 | The check-out date must be after the check-in date. Selecting a check-out before check-in triggers a validation message. |
+| BK-04 | On valid date selection, the booking summary updates with the total number of nights and estimated cost (nightly rate × nights + deposit). |
 
-*Admin side:*
+*Booking Submission (UC-BK-02):*
 
 | ID | Requirement |
 | :--- | :--- |
-| BK-A-01 | Admin can view a calendar that shows booked, temporarily blocked, and available dates for each unit. |
-| BK-A-02 | Admin can create a booking on behalf of a registered guest. |
-| BK-A-03 | Admin can create a booking for themselves. |
-| BK-A-04 | Admin can view, edit, and delete any booking. |
-| BK-A-05 | Admin can cancel a booking on behalf of a guest. |
-| BK-A-06 | Admin can filter the booking list by status, booking ID, and date range. |
-| BK-A-07 | Admin can block specific dates to prevent bookings. Guests see only that the date is blocked, not the reason. |
+| BK-05 | When the guest confirms a booking, the system performs a second availability check to prevent two guests submitting for the same dates simultaneously. |
+| BK-06 | A successful submission creates a booking in "awaiting payment" status with a one-day payment deadline (configurable in System Settings). |
+| BK-07 | The system automatically generates a unique booking number (e.g., `BK-20260303-001`) and a bill with a unique bill number. |
+| BK-08 | The guest receives an in-app and email notification containing the bill and payment deadline. |
 
-*Cancellation Policy:*
-
-| When the Guest Cancels | Refund |
-| :--- | :--- |
-| Less than 3 days before the booking | No refund (0 %) |
-| 1 week before the booking | 25 % |
-| 2 weeks or more before the booking | 50 % |
-
-Refunds are processed within 3 to 5 business days. The refund percentages are configurable by the admin in System Settings.
-
-*Payment Hold and Auto-Cancellation:*
+*Viewing Bookings (UC-BK-03, UC-BK-04):*
 
 | ID | Requirement |
 | :--- | :--- |
-| BK-H-01 | When a booking is submitted, the selected date is temporarily held for 1 day (configurable) while the guest makes payment. |
-| BK-H-02 | If payment is received within that window, the booking status changes to "confirmed". |
-| BK-H-03 | If payment is not received, a scheduled job automatically cancels the booking and reopens the date. |
+| BK-09 | Guests can view all their bookings in two sections: "Current" (active and upcoming) and "History" (completed and cancelled). Each entry shows unit name, dates, status, and total cost. |
+| BK-10 | Guests can open a booking detail page showing: unit name and photo, check-in/check-out date and time, total amount, payment status, booking status, applicable cancellation policy and estimated refund, and the QR access code (for confirmed bookings). |
+| BK-11 | Admins can view all bookings system-wide, with filtering by status, date range, unit, or booking reference, and can switch between a list view and the all-unit booking calendar view. |
+
+*Cancellation (UC-BK-05):*
+
+| ID | Requirement |
+| :--- | :--- |
+| BK-12 | Guests and admins can cancel a booking that is in "awaiting payment" or "confirmed" status and has not yet been checked in. |
+| BK-13 | Before cancellation is confirmed, the system calculates and displays the applicable refund amount based on the tiered cancellation policy (configured in System Settings). |
+| BK-14 | If the booking was in "awaiting payment" status (no payment made), no refund is calculated. The booking is simply cancelled. |
+| BK-15 | After cancellation, the booking status is set to "cancelled," the previously reserved dates are released, a cancellation notification is sent to the guest and admin, and an audit log entry is recorded. |
+
+*Cancellation Policy (configurable in System Settings):*
+
+| Days Before Check-In | Refund |
+| :--- | :--- |
+| More than 14 days | 100 % |
+| 7 to 14 days | 50 % |
+| Less than 7 days | 0 % |
+
+Refunds are processed through the payment service. The refund tiers and percentages are configurable by the admin in System Settings.
+
+*Admin Booking Management (UC-BK-06):*
+
+| ID | Requirement |
+| :--- | :--- |
+| BK-16 | Admin can create a booking on behalf of any registered guest (for walk-in or phone reservations) or for themselves. The system checks availability in real time and generates a bill; the guest is notified to pay. |
+| BK-17 | Admin can edit any booking's details (dates, times). If dates are changed, the system checks availability for the new range. The guest is notified of changes. |
+| BK-18 | Admin can delete a booking record. This action is permanent; the system requires confirmation, releases the dates, notifies the guest, and records an audit log entry. |
+| BK-19 | Admin can block a date range on a unit with an optional internal note (reason). Blocked dates appear as unavailable to guests; the internal reason is not shown to guests. Blocking is prevented if confirmed bookings already exist in the range. |
+
+*Auto-Cancellation (UC-BK-07):*
+
+| ID | Requirement |
+| :--- | :--- |
+| BK-20 | A scheduled job runs approximately every hour to find all bookings in "awaiting payment" status whose one-day payment deadline has passed. |
+| BK-21 | For each overdue booking: the status is set to "cancelled," the temporarily reserved dates are released, a cancellation notification is sent to the guest (in-app and email), and an audit log entry is recorded. |
 
 **Outputs:**
-- Availability status for the selected dates.
-- Booking confirmation with the generated booking number, or a validation error.
-- An updated booking list.
-- A cancellation confirmation showing the refund amount and timeline.
-- An auto-cancellation notification for unpaid bookings.
+- Real-time availability status as the guest selects dates; booking summary with nights count and estimated cost.
+- A booking confirmation with the generated booking number and bill, or a conflict error if dates became unavailable at submission time.
+- A guest booking list (current and history) and a booking detail page with full information including the QR code for confirmed bookings.
+- A cancellation confirmation dialog showing the refund amount; a cancellation notification sent to guest and admin after confirmation.
+- An auto-cancellation notification for unpaid bookings whose deadline has passed.
 
 ---
 
@@ -444,359 +472,477 @@ Refunds are processed within 3 to 5 business days. The refund percentages are co
 
 This module handles payments through an external gateway, generates bills and payment numbers, issues receipts, and tracks payment history.
 
+**Use Cases:** UC-PAY-01, UC-PAY-02, UC-PAY-03
+
 **Inputs:**
-- Guest clicks the pay button from the booking detail page.
-- The payment gateway sends a webhook after payment succeeds or fails.
-- Guest views payment history with optional filters.
+- Guest clicks "Pay Now" from the booking detail page or the bill notification.
+- The payment gateway sends an HTTPS webhook after a payment succeeds or fails.
+- Guest views their payment and billing history.
 - Admin views billing and payment lists with optional filters.
 - Admin regenerates a bill or receipt.
 
 **Processing:**
 
-*Guest side:*
+*Making a Payment (UC-PAY-01):*
 
 | ID | Requirement |
 | :--- | :--- |
-| PAY-U-01 | Guests can pay through the configured payment gateway. The gateway calculates the total (including deposit). |
-| PAY-U-02 | Guests can view the bill generated for their booking. |
-| PAY-U-03 | After a successful payment, guests can view and download a PDF receipt. |
-| PAY-U-04 | Guests can view their payment history and filter it by date range and payment status. |
-| PAY-U-05 | Guests receive in-app and email notifications when a payment succeeds or fails, triggered by the webhook. |
+| PAY-01 | Guests pay through the configured online payment service. The system creates a payment request and redirects the guest to the secure payment page hosted by the gateway. |
+| PAY-02 | After the guest completes payment, the payment service sends a signed webhook notification to HomeLodge. The system verifies the webhook's signature before processing. |
+| PAY-03 | On confirmed successful payment: the payment is recorded, the booking status is updated to "confirmed," a QR access code is generated for the guest (see Section 2.2.11), and a PDF receipt is created. |
+| PAY-04 | The system sends a booking confirmation notification (in-app and email) to the guest containing the receipt and the QR code. The admin is also notified of the new confirmed booking. |
+| PAY-05 | If the payment is declined or fails, the payment is recorded as failed. The guest is returned to HomeLodge with an error message and a "Try Again" option. The booking remains in "awaiting payment" status. |
+| PAY-06 | Webhook processing is idempotent. If the gateway sends a duplicate confirmation, the system detects it and ignores the duplicate without creating a second payment record. |
+| PAY-07 | If a webhook notification cannot be verified as genuine, the system rejects it and records a security alert. |
 
-*Admin side:*
+*Viewing Records (UC-PAY-02):*
 
 | ID | Requirement |
 | :--- | :--- |
-| PAY-A-01 | The system generates a unique bill number (e.g., `BILL-20260303-001`) and a unique payment number (e.g., `PAY-20260303-001`) for each transaction. |
-| PAY-A-02 | Admin can view the billing list and filter by bill ID and date range. |
-| PAY-A-03 | Admin can view the payment list and filter by payment ID, date range, and status. |
-| PAY-A-04 | Admin can regenerate a bill for a booking. |
-| PAY-A-05 | Admin can regenerate a receipt for a completed payment. |
+| PAY-08 | Guests can view their payment history showing: payment number, booking reference, date, amount, and status. Guests can view or download the itemised bill (nightly rate, number of nights, deposit, total) and the receipt for completed payments. |
+| PAY-09 | The system generates a unique bill number (e.g., `BILL-20260303-001`) and a unique payment number (e.g., `PAY-20260303-001`) for each transaction. |
+| PAY-10 | Admins can view the billing list (all bills) and the payment list (all transactions) system-wide. Each entry shows: reference number, guest name, unit, amount, status, and date. Admins can filter by date range, reference number, and status. |
+
+*Regenerating Documents (UC-PAY-03):*
+
+| ID | Requirement |
+| :--- | :--- |
+| PAY-11 | Admin can regenerate a bill for any booking. The new document reflects the latest booking and billing data. |
+| PAY-12 | Admin can regenerate a receipt for any completed payment. Optionally, the regenerated document can be resent to the guest by email. |
 
 **Outputs:**
-- Redirect to the payment gateway with the bill amount.
-- A success or failure page after returning from the gateway.
-- Booking status updated to "confirmed" and bill marked "paid" when the webhook arrives.
-- Downloadable PDF receipt.
-- Filtered billing and payment lists.
+- Redirect to the payment gateway's secure payment page.
+- A success confirmation page (with receipt and QR code) or a failure page with a "Try Again" option, shown after returning from the gateway.
+- Booking status updated to "confirmed," bill marked "paid," and QR code generated when the payment webhook is verified.
+- Downloadable PDF receipt accessible from the booking detail page.
+- Filtered billing and payment lists for both guests and admins.
 
 ---
 
 ### 2.2.5 Notification Module
 
-This module sends in-app and email notifications for system events, reminders, and links bookings to Google Calendar.
+This module ensures that everyone stays informed about important events — from booking confirmations to payment reminders and check-in alerts. Notifications are delivered both within the app and by email. Confirmed bookings can also be synced to the user's Google Calendar.
+
+**Use Cases:** UC-NOTIF-01, UC-NOTIF-02
 
 **Inputs:**
-- System events such as booking creation, payment confirmation or failure, approaching check-in dates, and pending payment deadlines.
-- Admin toggles email notifications on or off in System Settings.
-- User or admin authenticates with Google Calendar.
+- System events: booking created, booking confirmed, payment received or failed, booking cancelled (by user or auto-cancellation), extension charge issued, extension confirmed or cancelled, QR code generated.
+- Scheduled daily jobs for payment deadline reminders and check-in/check-out reminders.
+- Admin toggles the global email notification setting in System Settings.
+- User connects (or has connected) their Google account via OAuth.
 
 **Processing:**
 
+*In-App and Email Notifications (UC-NOTIF-01):*
+
 | ID | Requirement |
 | :--- | :--- |
-| NOTIF-01 | Users and admins receive in-app notifications for system events. These are stored in Laravel's database notification table. |
-| NOTIF-02 | Users and admins receive email notifications for the same events, sent via SMTP. |
-| NOTIF-03 | Guests with pending payments receive a daily reminder from a scheduled job. |
-| NOTIF-04 | Both guests and admins get reminders before upcoming check-ins and check-outs. |
-| NOTIF-05 | Admins receive QR code reminders tied to check-in and check-out events. |
-| NOTIF-06 | Bookings sync to Google Calendar. Calendar events are created, updated, and deleted as bookings change. Both guests and admins can see these events. |
-| NOTIF-07 | Admin can turn email notifications on or off globally through System Settings. |
+| NOTIF-01 | In-app notifications are stored in the database and delivered in real time via WebSocket to online users. The bell icon badge count updates without requiring a page refresh. |
+| NOTIF-02 | Clicking a notification marks it as read and navigates the user to the relevant page (e.g., the booking detail). The notification panel shows read and unread entries with the newest first. |
+| NOTIF-03 | Email notifications are sent for the same events as in-app notifications, provided the global email toggle is enabled. If email is disabled globally, only in-app notifications are delivered. |
+| NOTIF-04 | A scheduled daily job finds bookings in "awaiting payment" status where the payment deadline is approaching and sends a reminder to the guest with the booking reference, amount due, deadline, and a direct payment link. |
+| NOTIF-05 | A scheduled daily job finds confirmed bookings with check-in or check-out dates within the reminder window (e.g., 1 day before) and sends reminders to both the guest and the admin. |
+| NOTIF-06 | Admins receive QR code reminders tied to upcoming check-in and check-out events. |
+| NOTIF-07 | Admin can enable or disable email notifications globally through System Settings. When disabled, all outgoing emails are suppressed; in-app notifications continue normally. |
+
+*Google Calendar Integration (UC-NOTIF-02):*
+
+| ID | Requirement |
+| :--- | :--- |
+| NOTIF-08 | When a booking is confirmed, the system creates a Google Calendar event for any user (guest or admin) who has connected their Google account. The event spans from check-in to check-out and includes the unit name and booking reference in the description. |
+| NOTIF-09 | If the booking dates are updated (e.g., after a date extension), the system updates the corresponding Google Calendar event. If a booking is cancelled, the event is deleted. |
+| NOTIF-10 | If a user has not connected their Google Calendar, the system skips the calendar step silently. No error is shown to the user. |
 
 **Outputs:**
-- A badge count on the notification bell and a dropdown list of recent notifications.
-- Emails delivered to registered addresses.
-- Google Calendar events that reflect the booking schedule.
+- A real-time badge count on the notification bell and a dropdown panel of recent notifications (read and unread).
+- Emails delivered to registered addresses for all key system events (when enabled).
+- Automated reminder emails for pending payments and upcoming check-ins/check-outs.
+- Google Calendar events created, updated, or deleted to mirror the booking schedule.
 
 ---
 
 ### 2.2.6 Chat Module
 
-This module provides real-time messaging between guests and the admin over WebSocket.
+This module provides a built-in messaging system so that guests and administrators can communicate directly within HomeLodge. Messages are delivered instantly and all conversations are saved for future reference.
+
+**Use Cases:** UC-CHAT-01, UC-CHAT-02
 
 **Inputs:**
-- A guest or admin types and sends a chat message.
-- A guest or admin opens the chat interface.
+- A guest or admin types a message in the chat input and clicks "Send" (or presses Enter).
+- A guest or admin opens the chat page to view the conversation history.
 
 **Processing:**
 
 | ID | Requirement |
 | :--- | :--- |
-| CHAT-01 | Guests can send messages to the admin. |
-| CHAT-02 | Admins can receive messages and reply. |
-| CHAT-03 | Chat runs on WebSocket (Laravel Reverb). Messages are saved to the `chat_messages` table. Each guest has one conversation thread with the admin (one row in `chat_conversations`). |
+| CHAT-01 | Guests can send messages to the admin. Admins can receive messages from any guest and reply. Each guest has exactly one conversation thread with the admin. |
+| CHAT-02 | The system saves every message with the sender's identity, recipient's identity, message content, and timestamp. |
+| CHAT-03 | Chat is delivered over WebSocket (Laravel Reverb). Messages appear in the recipient's chat window in real time if they are online. |
+| CHAT-04 | If the recipient is not online, the message is stored and visible the next time they sign in. An unread count badge is shown on the chat icon. |
+| CHAT-05 | The send button is disabled when the input field is blank. Empty messages cannot be sent. |
+| CHAT-06 | When a real-time connection is lost, the interface shows a "Reconnecting…" indicator. Messages are still persisted and visible on the next page load. |
+| CHAT-07 | On the chat page, messages are displayed in chronological order (oldest to newest). Messages sent by the current user are shown on the right; received messages on the left. Each message shows the sender's name and timestamp. |
+| CHAT-08 | When a user opens the chat page, all unread messages in that conversation are marked as read. |
 
 **Outputs:**
-- Messages appear in real time in the chat interface.
-- Message history is stored and can be retrieved later.
-- Unread badges appear on conversations with new messages.
-- A typing indicator shows when the other party is composing a message.
+- Messages delivered in real time to the recipient's chat window if they are online.
+- Full conversation history available to both parties on the chat page.
+- Unread badges on the chat icon or conversation list for new messages.
+- A typing indicator showing when the other party is composing a message.
 
 ---
 
 ### 2.2.7 User Management Module
 
-Admin-only module for managing user accounts.
+Admin-only module for managing user accounts, roles, and permissions. It controls who can access the system and what they can do within it.
+
+**Use Cases:** UC-USR-01, UC-USR-02, UC-USR-03, UC-USR-04, UC-USR-05
 
 **Inputs:**
-- Admin fills out a user creation form.
-- Admin edits user information.
-- Admin deletes a user.
-- Admin resets a user's password (via email link or by setting the default password).
-- Admin activates or deactivates a user.
+- Admin fills out a user creation form (name, email, role assignment).
+- Admin edits user information (name, email, phone, role).
+- Admin toggles a user's active/inactive status.
+- Admin initiates a password reset for a user.
+- Admin creates, edits, or deletes a role and assigns/removes permissions.
+- Admin creates, edits, or deletes an individual permission.
 
 **Processing:**
 
-| ID | Requirement |
-| :--- | :--- |
-| USR-01 | Admin can create accounts. New accounts get the "User" role by default. |
-| USR-02 | Admin can edit user information. |
-| USR-03 | Admin can delete accounts (soft delete — the record is archived rather than erased). |
-| USR-04 | Admin can reset a password in two ways: send a reset link to the user's email, or set the password to the default value (`Abc@123`). |
-| USR-05 | After a password reset, the `must_change_password` flag is set. The user must choose a new password at their next login. |
-| USR-06 | Admin can activate or deactivate accounts. Deactivated users cannot log in. |
-
-**Outputs:**
-- Confirmation of account creation, update, deletion, or status change.
-- A reset email sent to the user, or a confirmation that the password was set to the default.
-- The user list is updated to reflect the change.
-
----
-
-### 2.2.8 Role and Permission Module
-
-Admin-only module for managing roles and permissions.
-
-**Inputs:**
-- Admin creates, edits, or deletes a role.
-- Admin assigns or removes permissions on a role.
-- Admin creates, edits, or deletes a permission.
-
-**Processing:**
+*User Account Management (UC-USR-01, UC-USR-02, UC-USR-03):*
 
 | ID | Requirement |
 | :--- | :--- |
-| ROLE-01 | Admin can create, edit, and delete roles. |
-| ROLE-02 | Admin can assign one or more permissions to a role. |
-| ROLE-03 | The system prevents deletion of a role that is currently assigned to at least one user. A warning is displayed. |
-| PERM-01 | Admin can create, edit, and delete permissions. |
-| PERM-02 | The system prevents deletion of a permission that is attached to at least one role. A warning is displayed. |
+| USR-01 | Admin can manually create a new user account by providing the person's name, email, and role. The system generates a temporary password for the account. |
+| USR-02 | The new account is immediately flagged to require a forced password change on first sign-in. The user receives an email with the temporary password and a link to sign in. |
+| USR-03 | Admin can edit user information (name, email, phone number, role assignment). If the role is changed, the new permissions take effect immediately. |
+| USR-04 | Admin can deactivate a user account. Deactivation prevents the user from signing in and immediately ends any active sessions for that user. |
+| USR-05 | Admin can reactivate a deactivated account, restoring the user's ability to sign in. |
+| USR-06 | Admin can soft-delete a user account. The record is archived rather than permanently erased, preserving referential integrity. |
+| USR-07 | Admin can reset a user's password in two ways: send a password reset link to the user's registered email, or immediately set the password to the system default temporary value. |
+| USR-08 | After an admin-initiated password reset, the system flags the account to require a forced password change at next sign-in. If the account was locked, the lock is removed and the failed sign-in counter is reset. |
+
+*Role Management (UC-USR-04):*
+
+| ID | Requirement |
+| :--- | :--- |
+| ROLE-01 | Admin can create a role by providing a name and optional description. Role names must be unique. |
+| ROLE-02 | Admin can edit a role's name or description. |
+| ROLE-03 | Admin can assign or remove permissions on a role via a permission checklist. Changes take effect immediately for all users with that role. |
+| ROLE-04 | Admin can delete a role only if no users currently have it assigned. If users still hold the role, the system blocks deletion and shows the count of affected users. |
+
+*Permission Management (UC-USR-05):*
+
+| ID | Requirement |
+| :--- | :--- |
+| PERM-01 | Admin can create a permission by providing a name and optional description. Permission names must be unique. |
+| PERM-02 | Admin can edit a permission's name or description. |
+| PERM-03 | Admin can delete a permission only if it is not currently attached to any role. If it is, the system blocks deletion and shows how many roles use it. |
 
 The system ships with two default roles:
 
 | Role | Description |
 | :--- | :--- |
 | Admin | Full access to every module and all settings. |
-| User | Guest-level access limited to booking, payment, notification, chat, and feedback. |
+| Guest | Access limited to booking, payment, notification, chat, and feedback modules. |
 
 **Outputs:**
-- Confirmation of the creation, update, or deletion.
-- An error message if the admin tries to delete a role or permission that is still in use.
-- Updated role and permission lists.
+- Confirmation of account creation (with a notification email to the new user), update, deactivation, or deletion; an audit log entry is recorded for each.
+- A password reset email sent to the user, or a confirmation that the temporary password was applied; the user is notified in-app and by email.
+- Confirmation of role or permission creation, update, or deletion; an audit log entry is recorded.
+- An error message if the admin tries to delete a role that is still assigned to users, or a permission that is still attached to roles.
+- Updated user, role, and permission lists reflecting all changes.
 
 ---
 
-### 2.2.9 System Settings Module
+### 2.2.8 System Settings Module
 
-Admin-only module for configuring all operational parameters. Every setting is stored in the `settings` database table and applied at runtime. No values are hardcoded.
+Admin-only module for configuring all system-wide operational parameters. Every setting is stored in the `settings` database table and applied at runtime. No values are hardcoded. Changes made here affect the entire system.
+
+**Use Cases:** UC-SET-01, UC-SET-02
 
 **Inputs:**
-- Admin updates SMTP settings.
-- Admin updates security settings (lockout duration, session timeout, max login attempts).
-- Admin updates payment and refund parameters.
-- Admin toggles email notifications.
+- Admin updates email (SMTP) settings and optionally tests the connection.
+- Admin updates security parameters (max login attempts, lockout duration, session timeout).
+- Admin updates tiered cancellation and refund policy settings.
+- Admin updates payment and billing options (payment service credentials, bill prefix, initial booking payment window).
 - Admin updates extension charge rates (per hour, per night).
-- Admin updates the default extension payment window.
-- Admin manages default house policies.
+- Admin updates the system-wide default extension payment window.
+- Admin toggles the global email notification switch.
 - Admin updates general settings (system name, logo).
+- Admin adds, edits, or removes default house rules.
 
 **Processing:**
 
-*SMTP:*
+*Email (Outgoing Mail):*
 
 | ID | Requirement |
 | :--- | :--- |
-| SET-SMTP-01 | Admin can set SMTP host, port, username, password, and encryption type for outgoing emails. |
+| SET-SMTP-01 | Admin can set the mail server address, port, username, password, encryption type, and sender name/address for outgoing emails. |
+| SET-SMTP-02 | Admin can optionally test the email connection before saving. If the test fails, the system shows the error and allows correction without overwriting saved settings. |
 
 *Security:*
 
 | ID | Requirement |
 | :--- | :--- |
-| SET-SEC-01 | Admin can set the lockout duration in minutes. |
-| SET-SEC-02 | Admin can set the session timeout in minutes. |
-| SET-SEC-03 | Admin can set how many failed login attempts it takes before lockout. |
+| SET-SEC-01 | Admin can set the maximum number of failed sign-in attempts before account lockout (default: 5). |
+| SET-SEC-02 | Admin can set the lockout duration in minutes (default: 30). |
+| SET-SEC-03 | Admin can set the session timeout in minutes (default: 120). |
 
-*Payment and Refund:*
+*Cancellation and Refund Policy:*
 
 | ID | Requirement |
 | :--- | :--- |
-| SET-GEN-02 | Admin can set refund percentages for the 3-day, 1-week, and 2-week cancellation windows. |
-| SET-GEN-03 | Admin can set payment and billing options, including the payment hold duration (default 24 hours). |
+| SET-REF-01 | Admin can configure tiered refund rules. Each tier specifies a days-before-check-in threshold and the corresponding refund percentage (e.g., >14 days: 100%; 7–14 days: 50%; <7 days: 0%). |
+| SET-REF-02 | The system validates that refund tiers do not overlap and that all percentages are between 0 and 100. |
+
+*Payment and Billing:*
+
+| ID | Requirement |
+| :--- | :--- |
+| SET-PAY-01 | Admin can configure payment service credentials, the bill number format/prefix, and the initial booking payment window (default: 1 day). |
 
 *Extension Charges:*
 
 | ID | Requirement |
 | :--- | :--- |
-| SET-EXT-01 | Admin can set the extra charge per hour for time extensions. |
-| SET-EXT-02 | Admin can set the extra charge per night for date extensions. |
-| SET-EXT-03 | All extension charge values are stored in the database and applied dynamically. |
-| SET-EXT-04 | Admin can set the system-wide default extension payment window in minutes (default: 60 minutes). |
+| SET-EXT-01 | Admin can set the extra charge rate per hour for same-day time extensions. |
+| SET-EXT-02 | Admin can set the extra charge rate per night for overnight date extensions. |
+| SET-EXT-03 | Admin can set the system-wide default extension payment window in minutes (default: 60 minutes). Individual units can override this value. |
 
-*Default House Policies:*
+*Email Notifications:*
 
 | ID | Requirement |
 | :--- | :--- |
-| SET-POL-01 | Admin can change the default policies that are copied to every new homestay unit. |
-| SET-POL-02 | The initial defaults are No Pets Allowed, No Durians, and No Smoking. The admin can modify these. |
+| SET-NOTIF-01 | Admin can globally enable or disable email notifications. When disabled, all outgoing emails are suppressed; in-app notifications continue normally. |
 
 *General:*
 
 | ID | Requirement |
 | :--- | :--- |
-| SET-GEN-01 | Admin can update general settings like the system name and logo. |
-| SET-GEN-04 | Admin can turn email notifications on or off across the whole system. |
+| SET-GEN-01 | Admin can update general settings such as the system name and logo. |
 
-**Outputs:**
-- Confirmation that settings were saved.
-- Changes take effect immediately without restarting the application.
-- Validation errors for invalid input.
-
----
-
-### 2.2.10 Audit Logs Module
-
-Admin-only module that records a complete, read-only audit trail of everything that happens in the system.
-
-**Inputs:**
-- Any create, update, or delete action by a user or the system triggers a log entry automatically.
-- Admin opens the audit log page.
-- Admin filters the log.
-
-**Processing:**
+*Default House Policies (UC-SET-02):*
 
 | ID | Requirement |
 | :--- | :--- |
-| AUDIT-01 | Admin can view the full audit trail. |
-| AUDIT-02 | The log captures user actions, admin changes, authentication events (login, logout, failed attempts, lockouts), and system events (auto-cancellation, QR regeneration). |
-| AUDIT-03 | Log entries are read-only. No one, including admins, can edit or delete them. |
+| SET-POL-01 | Admin can add new default house rules, edit existing ones, or remove them from the default list. |
+| SET-POL-02 | The initial pre-loaded defaults are: No Pets Allowed, No Durians, and No Smoking. The admin can modify these at any time. |
+| SET-POL-03 | Changes to the default rules affect only new homestay units created after the change. Existing units retain their current rules and are not retroactively updated. |
+
+**Outputs:**
+- A confirmation message when settings are saved. Changes take effect immediately across the system without restarting the application.
+- A validation error for any invalid input (e.g., negative numbers, overlapping refund tiers, percentages outside 0–100).
+- An email test result (success or error message) when the admin tests the SMTP connection.
+
+---
+
+### 2.2.9 Audit Logs Module
+
+Admin-only module that records a complete, permanent, tamper-proof audit trail of everything that happens in the system. This provides accountability, transparency, and helps the administrator track who did what and when.
+
+**Use Cases:** UC-AUDIT-01, UC-AUDIT-02
+
+**Inputs:**
+- Any significant action by a user, admin, or the system automatically triggers a log entry (no manual input required).
+- Admin opens the audit log page.
+- Admin applies one or more filter criteria (date range, event type, user name).
+
+**Processing:**
+
+*Viewing and Filtering (UC-AUDIT-01):*
+
+| ID | Requirement |
+| :--- | :--- |
+| AUDIT-01 | Admin can view the complete audit trail in reverse chronological order (newest first), paginated for readability. |
+| AUDIT-02 | Admin can filter the log by date range, event type, and user name. Filters can be cleared to return to the full log. |
+| AUDIT-03 | Log entries are read-only. No one, including admins, can edit or delete any entry. |
+
+*Automatic Event Logging (UC-AUDIT-02):*
+
+| ID | Requirement |
+| :--- | :--- |
+| AUDIT-04 | The system automatically records a log entry for every significant event: user actions (sign-in, sign-out, booking submission, payment, feedback), admin actions (managing users, changing settings, editing bookings), and system actions (auto-cancelling expired bookings, expiring QR codes, processing webhooks). |
+| AUDIT-05 | System-initiated events are recorded with the actor shown as "System" rather than a user name. |
 
 Each entry records:
-- When it happened (timestamp).
-- Who did it (the `causer`).
-- What they did (action type: create, update, delete, login, etc.).
-- What was affected (model type and ID).
-- What changed (before/after values stored as JSON).
+- Timestamp (when it happened).
+- Actor (user name or "System" for automated actions).
+- Event type (sign-in, create, update, delete, cancel, etc.).
+- Affected record (model type and ID, e.g., Booking #BK-20260303-001).
+- Change details (before/after values stored as JSON where applicable).
 
 **Outputs:**
-- A paginated, filterable table of audit entries.
-- Each entry shows the timestamp, user, action, target, and details of what changed.
+- A paginated, filterable, read-only table of audit entries.
+- Each entry displays the timestamp, actor, event type, affected record, and change details.
 
 ---
 
-### 2.2.11 QR Code Door Access Module
+### 2.2.10 QR Code and Access Module
 
-This module generates, invalidates, and regenerates QR codes for physical door access. It also handles booking extensions that change the QR code's validity period.
+This module manages the digital QR codes that allow guests physical access to their booked homestay units. QR codes are automatically generated when a booking is confirmed and automatically expired at check-out. The module also handles the housekeeping transition between guests and booking extensions (when a guest wants to stay longer).
+
+**Use Cases:** UC-QR-01, UC-QR-02, UC-QR-03, UC-QR-04, UC-QR-05
 
 **Inputs:**
-- A booking is confirmed (triggered by payment).
-- Check-out time arrives (triggered by a scheduled job).
+- A booking status changes to "confirmed" (triggered by successful payment).
+- A scheduled job runs and finds QR codes whose `valid_until` time has passed.
+- Admin generates a housekeeping QR code and sets its validity period.
 - Admin marks housekeeping as complete.
-- Admin starts an extension request.
-- Guest pays the extension charge.
-- The extension payment deadline passes without payment (triggered by a scheduled job).
+- Admin initiates a booking extension (selects extension type and new check-out date/time).
+- Guest pays the extension charge through the payment service.
+- A scheduled job runs and finds extension records whose payment deadline has passed.
 
 **Processing:**
 
+*Guest QR Code — Receive and Use (UC-QR-01):*
+
 | ID | Requirement |
 | :--- | :--- |
-| QR-01 | The system generates a unique QR code with a secure token for each confirmed booking. |
-| QR-02 | The QR code is valid from check-in (default 3:00 PM) to check-out (default 12:00 PM). |
-| QR-03 | After check-out time passes, the QR code is automatically invalidated and a new one is generated. |
-| QR-04 | Admin can regenerate a QR code for housekeeping (the code gets tagged with purpose `housekeeping`). |
-| QR-05 | When housekeeping is marked complete, the system generates a new QR code for the next guest (purpose `guest`). |
-| QR-06 | Every booking gets a unique, distinct QR code token. |
-| QR-07 | Admin can start a booking extension when a guest asks to stay longer (extend the check-out time or date). |
-| QR-08 | Before approving, the system checks that the extended period does not conflict with another booking on the same unit. |
-| QR-09 | If the admin approves, the system creates an extension record with status `pending_payment`, generates an additional bill, and sets a payment deadline based on the unit's extension payment window. |
-| QR-10 | The extra charge is calculated from configurable rates: charge per hour for time extensions, charge per night for date extensions. |
-| QR-11 | The guest must pay within the extension payment window (per-unit default, or the system-wide default of 60 minutes). |
-| QR-12 | The QR code is not extended when the extension is requested. The validity is only updated after the guest pays. |
-| QR-13 | If the guest does not pay in time, the extension is cancelled automatically. The booking reverts to the original check-out date and time, and the guest is notified. |
-| QR-14 | After the extension payment is confirmed, the booking dates are updated and the QR code's `valid_until` timestamp is extended to match the new check-out. |
+| QR-01 | When a booking is confirmed, the system automatically generates a unique QR code with a secure, encrypted token. The code is valid from the check-in date/time to the check-out date/time. |
+| QR-02 | The QR code is delivered to the guest via an in-app notification and by email. It is also accessible at any time from the booking detail page. |
+| QR-03 | The guest presents the QR code to the smart lock scanner at the homestay door. The lock checks the token and grants access only if the code is active and the current time is within the valid window. |
+| QR-04 | If the QR code is expired, inactive, or revoked, access is denied and the lock displays the appropriate status message. |
+
+*Housekeeping Cycle (UC-QR-02):*
+
+| ID | Requirement |
+| :--- | :--- |
+| QR-05 | A scheduled job runs regularly around the time of check-outs, finds all active QR codes whose `valid_until` time has passed, sets them to "expired," and updates the corresponding booking status to "completed." |
+| QR-06 | Admin can generate a temporary housekeeping QR code for a unit by setting a validity window (e.g., valid for 4 hours). The code is tagged with `housekeeping` type and displayed for the admin to share with cleaning staff. |
+| QR-07 | When admin marks housekeeping as complete, the housekeeping QR code is expired. If a next confirmed booking exists for the unit, the system automatically generates a new guest QR code and delivers it to the next guest via in-app notification and email. |
+| QR-08 | If there is no next confirmed booking, the system skips QR code generation. No action is required from the admin. |
+
+*Booking Extension — Initiate (UC-QR-03):*
+
+| ID | Requirement |
+| :--- | :--- |
+| QR-09 | Admin can initiate a booking extension for an active confirmed booking. The extension type is either a time extension (later check-out on the same day) or a date extension (additional overnight nights). |
+| QR-10 | Before processing, the system checks that the extended period does not conflict with another confirmed booking on the same unit. If a conflict exists, the system shows the conflicting booking details and blocks the extension. |
+| QR-11 | The additional charge is calculated from configurable rates: (hours extended) × hourly rate for time extensions; (nights added) × nightly rate for date extensions. |
+| QR-12 | The system creates an extension record in "awaiting payment" status, generates an extension bill, and sets the payment deadline based on the unit's extension payment window (or the system-wide default of 60 minutes if the unit has no custom setting). |
+| QR-13 | The guest is notified with the extension charge amount, payment deadline, and a direct link to pay. The QR code validity is NOT updated at this point. |
+
+*Booking Extension — Pay (UC-QR-04):*
+
+| ID | Requirement |
+| :--- | :--- |
+| QR-14 | The guest pays the extension charge through the online payment service before the deadline. |
+| QR-15 | On confirmed payment: the extension status is set to "confirmed," the booking's check-out date and time are updated to the new extended values, and the QR code's `valid_until` timestamp is extended to match. |
+| QR-16 | The guest receives a confirmation notification: "Your stay has been extended. Your QR code is now valid until [new check-out date/time]." An audit log entry is recorded. |
+
+*Extension Auto-Cancellation (UC-QR-05):*
+
+| ID | Requirement |
+| :--- | :--- |
+| QR-17 | A scheduled job runs every few minutes to find extension records in "awaiting payment" status whose payment deadline has passed. |
+| QR-18 | For each overdue extension: the extension status is set to "cancelled," the booking's check-out date and time are reverted to the original values (stored at the time the extension was created), and the QR code is not modified (it already reflects the original check-out time). |
+| QR-19 | The guest is notified that the extension was cancelled because payment was not received, and informed of the original check-out date and time. An audit log entry is recorded. |
 
 **Outputs:**
-- QR code shown on the guest's booking detail page.
-- QR code regenerated for housekeeping or for the next guest.
-- Extension bill created and payment notification sent to the guest.
-- Booking dates and QR code updated after extension payment.
-- Automatic revert and notification if the extension payment was not made.
+- QR code delivered to the guest via in-app notification and email upon booking confirmation; accessible from the booking detail page at any time.
+- A temporary housekeeping QR code displayed for the admin to share with cleaning staff.
+- A new guest QR code generated and delivered to the next guest after housekeeping is marked complete.
+- An extension bill generated and a payment notification sent to the guest.
+- Booking dates and QR code `valid_until` updated after extension payment is confirmed.
+- Automatic revert to original check-out time and a notification to the guest if the extension payment deadline passes without payment.
 
 ---
 
-### 2.2.12 Reporting and Analytics Module
+### 2.2.11 Reporting and Analytics Module
 
-Admin-only module that presents operational data on a dashboard and allows report export.
+Admin-only module that presents operational data on a dashboard and allows detailed report viewing and export. It helps with decision-making by showing trends in bookings, revenue, and guest satisfaction.
+
+**Use Cases:** UC-RPT-01, UC-RPT-02, UC-RPT-03
 
 **Inputs:**
-- Admin opens the Reports and Analytics page.
+- Admin opens the Reporting and Analytics section.
 - Admin applies filters (date range, homestay unit, payment status).
-- Admin switches between daily, weekly, and monthly trend views.
-- Admin clicks the export button for PDF or CSV.
+- Admin toggles the booking trends chart between daily, weekly, and monthly views.
+- Admin clicks "Export PDF" or "Export CSV" on a report page.
 
 **Processing:**
 
+*Analytics Dashboard (UC-RPT-01):*
+
 | ID | Requirement |
 | :--- | :--- |
-| RPT-01 | Admin can view an analytics dashboard with summary metrics. |
-| RPT-02 | The dashboard displays total bookings, total revenue, occupancy rate, and cancellation rate. |
-| RPT-03 | Booking trends are shown as a line chart with daily, weekly, and monthly toggles. |
-| RPT-04 | Revenue reports can be filtered by date range, homestay unit, and payment status. |
-| RPT-05 | A bar chart breaks down bookings by homestay unit. |
-| RPT-06 | The dashboard includes a summary of guest feedback and average ratings per unit. |
-| RPT-07 | Admin can export reports as PDF or CSV files. |
+| RPT-01 | Admin can view a summary dashboard displaying key performance indicators: total bookings (current month and year-to-date), total revenue (current month and year-to-date), occupancy rate (percentage of available dates that were booked), cancellation rate (percentage of bookings cancelled), and average guest rating (from all visible reviews). |
+| RPT-02 | The dashboard displays a booking trends line chart showing volumes over time; the admin can toggle between daily, weekly, and monthly views. |
+| RPT-03 | The dashboard displays a per-unit booking breakdown bar chart comparing booking counts, occupancy, and revenue across different units. |
+| RPT-04 | The dashboard includes a guest feedback and rating summary per unit, showing average score, review count, and rating distribution. |
+| RPT-05 | Admin can filter all dashboard data by date range or specific unit. |
+
+*Revenue Report (UC-RPT-02):*
+
+| ID | Requirement |
+| :--- | :--- |
+| RPT-06 | Admin can view a detailed revenue report filtered by date range, homestay unit, and payment status. The report shows total revenue, an itemised breakdown by booking, and a summary by unit. |
+
+*Report Export (UC-RPT-03):*
+
+| ID | Requirement |
+| :--- | :--- |
+| RPT-07 | Admin can export any report view (revenue, booking breakdown, feedback summary) as a PDF document or a CSV spreadsheet file for offline use, sharing, or archiving. |
+| RPT-08 | PDF exports use an A4 page format with a header showing the system name, document title, and generation timestamp. CSV exports contain raw column headers and data rows with no formatting. |
 
 **Outputs:**
-- A dashboard with summary cards and interactive charts.
-- Filtered report views.
-- Downloadable PDF or CSV files.
+- A dashboard with live summary metric cards and interactive charts (booking trends, per-unit breakdown, feedback summary).
+- A filtered revenue report view with itemised and unit-level breakdowns.
+- A PDF or CSV file automatically downloaded to the admin's device.
 
 ---
 
-### 2.2.13 Guest Feedback Module
+### 2.2.12 Guest Feedback Module
 
-Guests leave ratings and reviews after their stay. Admins can respond and moderate.
+Guests leave star ratings and written reviews after completing a stay. Admins can respond to reviews, moderate inappropriate content, and the system automatically displays the calculated average rating on public-facing unit pages.
+
+**Use Cases:** UC-FB-01, UC-FB-02, UC-FB-03, UC-FB-04
 
 **Inputs:**
-- Guest goes to a completed booking and submits a star rating (1 to 5) and optional written feedback.
-- Admin views feedback for a unit.
+- Guest navigates to a completed booking and submits a star rating (1–5, required) and an optional written comment.
+- Guest views their previously submitted reviews.
+- Admin views all reviews system-wide with optional filters.
 - Admin replies to a review.
-- Admin hides or flags a review.
+- Admin hides or restores a review.
 
 **Processing:**
 
-*Guest side:*
+*Submit Feedback (UC-FB-01):*
 
 | ID | Requirement |
 | :--- | :--- |
-| FB-U-01 | Guests can submit a 1-to-5 star rating and a written review for a homestay unit after their stay is completed (booking status: `completed`). |
-| FB-U-02 | Feedback can only be submitted for completed bookings. |
-| FB-U-03 | One feedback entry per booking. |
-| FB-U-04 | Guests can view the feedback they have submitted previously. |
+| FB-01 | Guests can submit a 1-to-5 star rating (required) and an optional written comment for a homestay unit. Submission is only possible for bookings in "completed" status. |
+| FB-02 | Only one feedback entry is allowed per booking. Once submitted, the review cannot be edited by the guest. The "Leave a Review" button is replaced with "View Your Review" after submission. |
+| FB-03 | On submission, the system saves the review (linked to the booking, unit, and guest, with visibility set to "visible") and recalculates the unit's average rating. |
 
-*Admin side:*
+*View Own Feedback (UC-FB-02):*
 
 | ID | Requirement |
 | :--- | :--- |
-| FB-A-01 | Admin can view all feedback and ratings for each unit. |
-| FB-A-02 | Admin can reply to a guest's feedback. The reply is stored in `admin_reply`. |
-| FB-A-03 | Admin can hide feedback that violates content guidelines by toggling `is_visible`. |
-| FB-A-04 | The average rating for each unit is calculated from visible feedback and shown on the public listing page. |
+| FB-04 | Guests can view all reviews they have previously submitted across their completed bookings. Each entry shows the unit name, stay dates, star rating, comment, submission date, and any admin reply. Reviews are read-only. |
+
+*Admin Feedback Management (UC-FB-03):*
+
+| ID | Requirement |
+| :--- | :--- |
+| FB-05 | Admin can view all guest reviews system-wide (including hidden ones), with filtering by unit or visibility status. Each entry shows: guest name, unit, booking reference, rating, comment, date, visibility status, and admin reply status. |
+| FB-06 | Admin can reply to any review. The reply is saved and displayed alongside the guest's review on the unit detail page. If an existing reply is edited, the reply date is updated. |
+| FB-07 | Admin can hide a review with inappropriate content. The system asks for confirmation before hiding. Hidden reviews are removed from the public unit detail page and excluded from the average rating calculation. |
+| FB-08 | Admin can restore a hidden review. The system sets it back to "visible" and recalculates the unit's average rating. |
+
+*Display Average Rating (UC-FB-04):*
+
+| ID | Requirement |
+| :--- | :--- |
+| FB-09 | The system automatically calculates and displays the average star rating for each unit on both the listing page and the unit detail page. Only visible (non-hidden) reviews are included in the calculation. |
+| FB-10 | The display format is: "X.X ★ (N reviews)." If a unit has no visible reviews, the system displays "No reviews yet." |
+| FB-11 | The average rating updates automatically whenever a new review is submitted, or an existing review is hidden or restored by the admin. |
 
 **Outputs:**
-- Confirmation that the feedback was submitted.
-- The average star rating appears on the unit listing page.
-- Admin replies are visible alongside the guest's review.
-- Hidden feedback is removed from public view.
+- A thank-you confirmation message after feedback is submitted; the unit's average rating is recalculated immediately.
+- A read-only list of the guest's own reviews, including any admin replies.
+- An admin feedback management table with all reviews (visible and hidden) and moderation controls.
+- An updated average rating and review count displayed on the unit listing card and unit detail page.
 
 ---
 
