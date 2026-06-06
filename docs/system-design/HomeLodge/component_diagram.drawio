@@ -1,0 +1,357 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="HomeLodge Component Diagram" id="homelodge-component">
+    <mxGraphModel dx="964" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" value="Figure 3.1: Component Diagram of HomeLodge" vertex="1">
+          <mxGeometry height="30" width="1000" x="327" y="1121" as="geometry" />
+        </mxCell>
+        <mxCell id="clientLayer" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=left;spacingLeft=36;fontSize=14;fontStyle=1;strokeColor=#1a5276;fillColor=#d6eaf8;verticalAlign=top;" value="«subsystem» Client Layer" vertex="1">
+          <mxGeometry height="170" width="1570" x="40" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="guestBrowser" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#1a5276;fillColor=#eaf2ff;" value="«component»&#xa;:GuestBrowser&#xa;(Blade/Alpine.js)" vertex="1">
+          <mxGeometry height="80" width="200" x="120" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="adminBrowser" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#1a5276;fillColor=#eaf2ff;" value="«component»&#xa;:AdminBrowser&#xa;(Blade/Alpine.js)" vertex="1">
+          <mxGeometry height="80" width="200" x="727" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="smartLock" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#1a5276;fillColor=#eaf2ff;" value="«component»&#xa;:SmartLockDevice&#xa;(QR Scanner HW)" vertex="1">
+          <mxGeometry height="80" width="200" x="1300" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="if_guest_out" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a5276;fontColor=#ffffff;strokeColor=#1a5276;fontSize=14;width=70;height=24;" value="GuestUI" vertex="1">
+          <mxGeometry height="24" width="70" x="145" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="if_admin_out" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a5276;fontColor=#ffffff;strokeColor=#1a5276;fontSize=14;" value="AdminUI" vertex="1">
+          <mxGeometry height="24" width="70" x="755" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="if_qr_out" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1a5276;fontColor=#ffffff;strokeColor=#1a5276;fontSize=14;" value="QRScan" vertex="1">
+          <mxGeometry height="24" width="70" x="1325" y="178" as="geometry" />
+        </mxCell>
+        <mxCell id="https1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=2;" value="HTTPS" vertex="1">
+          <mxGeometry height="15" width="50" x="165" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="https2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=2;" value="HTTPS" vertex="1">
+          <mxGeometry height="15" width="50" x="775" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="https3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=2;" value="HTTPS" vertex="1">
+          <mxGeometry height="15" width="50" x="1345" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="serverLayer" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=left;spacingLeft=36;fontSize=14;fontStyle=1;strokeColor=#145a32;fillColor=#d5f5e3;verticalAlign=top;" value="«subsystem» Server Layer" vertex="1">
+          <mxGeometry height="740" width="1570" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="webServer" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#145a32;fillColor=#a9dfbf;" value="«component»&#xa;:WebServer&#xa;(Apache + PHP-FPM)" vertex="1">
+          <mxGeometry height="70" width="500" x="577" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="if_http_req" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#145a32;fontColor=#ffffff;strokeColor=#145a32;fontSize=14;" value="HTTPRequest" vertex="1">
+          <mxGeometry height="24" width="110" x="580" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="appLayer" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=left;spacingLeft=36;fontSize=14;fontStyle=1;strokeColor=#6e2f8a;fillColor=#f5eef8;verticalAlign=top;" value="«subsystem» Application Layer (Laravel MVC + Service Layer)" vertex="1">
+          <mxGeometry height="420" width="1510" x="70" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="authModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:AuthModule&#xa;(Login, Register, SSO, Lockout)" vertex="1">
+          <mxGeometry height="80" width="210" x="100" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="bookingModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:BookingModule&#xa;(Lifecycle, Availability, Cancel)" vertex="1">
+          <mxGeometry height="80" width="210" x="340" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="paymentModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:PaymentModule&#xa;(Bill, Gateway, Receipt)" vertex="1">
+          <mxGeometry height="80" width="210" x="580" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="homestayModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:HomestayModule&#xa;(CRUD, Images, Listing)" vertex="1">
+          <mxGeometry height="80" width="210" x="820" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="qrModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:QRCodeModule&#xa;(Generate, Validate, Extend)" vertex="1">
+          <mxGeometry height="80" width="210" x="1060" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="notifModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:NotificationModule&#xa;(In-app, Email, Calendar)" vertex="1">
+          <mxGeometry height="80" width="210" x="1300" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="chatModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:ChatModule&#xa;(WebSocket, Messaging)" vertex="1">
+          <mxGeometry height="80" width="210" x="100" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="userMgmtModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:UserMgmtModule&#xa;(CRUD, Activate/Deactivate)" vertex="1">
+          <mxGeometry height="80" width="210" x="340" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="roleModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:RolePermModule&#xa;(RBAC, Spatie Permission)" vertex="1">
+          <mxGeometry height="80" width="210" x="580" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="settingsModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:SettingsModule&#xa;(SMTP, Security, Payment)" vertex="1">
+          <mxGeometry height="80" width="210" x="820" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="auditModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:AuditLogModule&#xa;(Spatie Activity Log)" vertex="1">
+          <mxGeometry height="80" width="210" x="1060" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="reportingModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:ReportingModule&#xa;(Metrics, Chart.js, PDF/CSV)" vertex="1">
+          <mxGeometry height="80" width="210" x="1300" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="feedbackModule" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»&#xa;:FeedbackModule&#xa;(Ratings, Reviews, Moderation)" vertex="1">
+          <mxGeometry height="80" width="210" x="580" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="mysqlDB" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#1b2631;fillColor=#d5d8dc;" value="«component»&#xa;:MySQL/MariaDB&#xa;(Primary Database)" vertex="1">
+          <mxGeometry height="70" width="220" x="230" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#1b2631;fillColor=#d5d8dc;" value="«component»&#xa;:Redis&#xa;(Cache / Session / Queue)" vertex="1">
+          <mxGeometry height="70" width="220" x="695" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="reverb" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#1b2631;fillColor=#d5d8dc;" value="«component»&#xa;:LaravelReverb&#xa;(WebSocket Server)" vertex="1">
+          <mxGeometry height="70" width="220" x="1165" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="extLayer" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=left;spacingLeft=36;fontSize=14;fontStyle=1;strokeColor=#7b241c;fillColor=#fadbd8;verticalAlign=top;" value="«subsystem» External Services" vertex="1">
+          <mxGeometry height="91" width="1570" x="40" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="payGateway" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#7b241c;fillColor=#f5b7b1;" value="«component»&#xa;:PaymentGateway&#xa;(Billplz / Stripe / Toyyibpay)" vertex="1">
+          <mxGeometry height="50" width="240" x="140" y="1051" as="geometry" />
+        </mxCell>
+        <mxCell id="googleApis" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#7b241c;fillColor=#f5b7b1;" value="«component»&#xa;:GoogleAPIs&#xa;(OAuth 2.0, Calendar v3)" vertex="1">
+          <mxGeometry height="50" width="240" x="690" y="1051" as="geometry" />
+        </mxCell>
+        <mxCell id="smtpServer" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#7b241c;fillColor=#f5b7b1;" value="«component»&#xa;:SMTPServer&#xa;(Email Delivery)" vertex="1">
+          <mxGeometry height="50" width="240" x="1240" y="1051" as="geometry" />
+        </mxCell>
+        <mxCell id="e_guest_ws" edge="1" parent="1" source="guestBrowser" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#1a5276;fontSize=14;" target="webServer">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="220" />
+              <mxPoint x="827" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_admin_ws" edge="1" parent="1" source="adminBrowser" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#1a5276;fontSize=14;" target="webServer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lock_ws" edge="1" parent="1" source="smartLock" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#1a5276;fontSize=14;" target="webServer">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="220" />
+              <mxPoint x="827" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ws_auth" edge="1" parent="1" source="webServer" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#145a32;fontSize=14;" target="authModule">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ws_booking" edge="1" parent="1" source="webServer" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#145a32;fontSize=14;" target="bookingModule">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="445" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ws_payment" edge="1" parent="1" source="webServer" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#145a32;fontSize=14;" target="paymentModule">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="827" y="370" />
+              <mxPoint x="685" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ws_homestay" edge="1" parent="1" source="webServer" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#145a32;fontSize=14;" target="homestayModule">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="827" y="370" />
+              <mxPoint x="925" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ws_qr" edge="1" parent="1" source="webServer" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#145a32;fontSize=14;" target="qrModule">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="827" y="370" />
+              <mxPoint x="1165" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ws_notif" edge="1" parent="1" source="webServer" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;strokeColor=#145a32;fontSize=14;" target="notifModule">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_book_home" edge="1" parent="1" source="bookingModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="homestayModule" value="check availability">
+          <mxGeometry relative="1" x="-0.231" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="410" y="530" />
+              <mxPoint x="870" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_book_pay" edge="1" parent="1" source="bookingModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="paymentModule" value="create bill">
+          <mxGeometry relative="1" x="-0.0067" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="445" y="760" />
+              <mxPoint x="680" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_book_notif" edge="1" parent="1" source="bookingModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="notifModule" value="send confirmations">
+          <mxGeometry relative="1" x="0.242" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="480" y="390" />
+              <mxPoint x="1370" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_book_qr" edge="1" parent="1" source="bookingModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="qrModule" value="generate QR">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="410" />
+              <mxPoint x="1130" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pay_qr" edge="1" parent="1" source="paymentModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="qrModule" value="trigger QR on payment">
+          <mxGeometry relative="1" x="0.0241" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="760" y="520" />
+              <mxPoint x="1130" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_qr_settings" edge="1" parent="1" source="qrModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="settingsModule" value="read extension config">
+          <mxGeometry relative="1" x="0.1087" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1165" y="670" />
+              <mxPoint x="925" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_auth_role" edge="1" parent="1" source="authModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="roleModule" value="enforce RBAC">
+          <mxGeometry relative="1" x="-0.1678" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="205" y="750" />
+              <mxPoint x="630" y="750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_auth_settings" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;entryX=0.167;entryY=0.995;entryDx=0;entryDy=0;entryPerimeter=0;" target="settingsModule" value="read lockout settings">
+          <mxGeometry relative="1" x="-0.3131" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="160" y="780" />
+              <mxPoint x="855" y="780" />
+            </Array>
+            <mxPoint x="160.0588235294117" y="500" as="sourcePoint" />
+            <mxPoint x="915" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_notif_settings" edge="1" parent="1" source="notifModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="settingsModule" value="read SMTP config">
+          <mxGeometry relative="1" x="-0.1197" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1340" y="650" />
+              <mxPoint x="1020" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_book_settings" edge="1" parent="1" source="bookingModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="settingsModule" value="read hold duration">
+          <mxGeometry relative="1" x="-0.0227" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="480" y="790" />
+              <mxPoint x="900" y="790" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_chat_reverb" edge="1" parent="1" source="chatModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="reverb" value="WebSocket">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="830" />
+              <mxPoint x="1275" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_notif_reverb" edge="1" parent="1" source="notifModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#6e2f8a;fontSize=14;" target="reverb" value="real-time push">
+          <mxGeometry relative="1" x="0.5534" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1405" y="820" />
+              <mxPoint x="1275" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app_mysql" edge="1" parent="1" source="appLayer" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#1b2631;fontSize=14;" target="mysqlDB" value="data persistence">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="800" />
+              <mxPoint x="340" y="840" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_app_redis" edge="1" parent="1" source="appLayer" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#1b2631;fontSize=14;" target="redis" value="cache / session / queue">
+          <mxGeometry relative="1" x="-0.5" y="5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="805" y="800" />
+              <mxPoint x="805" y="840" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_audit_mysql" edge="1" parent="1" source="auditModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#1b2631;fontSize=14;" target="mysqlDB" value="log events">
+          <mxGeometry relative="1" x="-0.4018" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1190" y="770" />
+              <mxPoint x="340" y="770" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pay_gateway" edge="1" parent="1" source="paymentModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#7b241c;fontSize=14;" target="payGateway" value="API + Webhook">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="950" />
+              <mxPoint x="260" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_notif_google" edge="1" parent="1" source="notifModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#7b241c;fontSize=14;" target="googleApis" value="Calendar Sync / OAuth">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="1000" />
+              <mxPoint x="810" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_auth_google" edge="1" parent="1" source="authModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#7b241c;fontSize=14;" target="googleApis" value="SSO OAuth 2.0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="1000" />
+              <mxPoint x="810" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_notif_smtp" edge="1" parent="1" source="notifModule" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#7b241c;fontSize=14;" target="smtpServer" value="send emails">
+          <mxGeometry relative="1" x="0.5653" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1560" y="460" />
+              <mxPoint x="1560" y="960" />
+              <mxPoint x="1460" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="20" width="60" x="40" y="1121" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#555555;fillColor=#f5f5f5;" value="«subsystem» boundary" vertex="1">
+          <mxGeometry height="30" width="130" x="40" y="1146" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=component;align=center;fontSize=14;strokeColor=#6e2f8a;fillColor=#e8daef;" value="«component»" vertex="1">
+          <mxGeometry height="30" width="100" x="185" y="1146" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;strokeColor=#555555;fontSize=14;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="305" y="1161" as="sourcePoint" />
+            <mxPoint x="360" y="1161" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg3_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;" value="«uses» dependency" vertex="1">
+          <mxGeometry height="20" width="130" x="368" y="1151" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
