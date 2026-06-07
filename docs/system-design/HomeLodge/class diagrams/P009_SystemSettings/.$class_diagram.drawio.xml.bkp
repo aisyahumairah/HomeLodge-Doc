@@ -1,0 +1,80 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="p009-class-diagram" name="P009 Class Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- SettingsController -->
+        <mxCell id="SettingsController" value="SettingsController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="SettingsController-attrs" value="- settingsService: SettingsService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="SettingsController">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SettingsController-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="SettingsController">
+          <mxGeometry y="52" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SettingsController-methods" value="+ index(): View&#xa;+ update(Request): Response&#xa;+ updateSmtp(Request): Response&#xa;+ updateRefundPolicies(Request): Response" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="SettingsController">
+          <mxGeometry y="60" width="280" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- SettingsService -->
+        <mxCell id="SettingsService" value="SettingsService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="460" y="65" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="SettingsService-attrs" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="SettingsService">
+          <mxGeometry y="26" width="300" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="SettingsService-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="SettingsService">
+          <mxGeometry y="36" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SettingsService-methods" value="+ getAllSettings(): Collection&#xa;+ updateSetting(key, value): Boolean&#xa;+ getSetting(key): String&#xa;+ updateMultipleSettings(data): Boolean&#xa;+ getDefaultPolicies(): Collection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="SettingsService">
+          <mxGeometry y="44" width="300" height="116" as="geometry" />
+        </mxCell>
+
+        <!-- Setting Model -->
+        <mxCell id="Setting" value="Setting" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="280" y="320" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Setting-attrs" value="+ id: BigInteger&#xa;+ key: String&#xa;+ value: Text&#xa;+ group: String&#xa;+ created_at: DateTime&#xa;+ updated_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Setting">
+          <mxGeometry y="26" width="240" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="Setting-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="Setting">
+          <mxGeometry y="110" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="Setting-methods" value="+ getValue(key): String&#xa;+ setValue(key, value): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Setting">
+          <mxGeometry y="118" width="240" height="32" as="geometry" />
+        </mxCell>
+
+        <!-- DefaultHousePolicy Model -->
+        <mxCell id="DefaultHousePolicy" value="DefaultHousePolicy" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="640" y="320" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="DefaultHousePolicy-attrs" value="+ id: BigInteger&#xa;+ policy_name: String&#xa;+ policy_description: Text&#xa;+ is_active: Boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DefaultHousePolicy">
+          <mxGeometry y="26" width="260" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="DefaultHousePolicy-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="DefaultHousePolicy">
+          <mxGeometry y="90" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DefaultHousePolicy-methods" value="+ addPolicy(data): DefaultHousePolicy&#xa;+ removePolicy(id): Boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="DefaultHousePolicy">
+          <mxGeometry y="98" width="260" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Relations -->
+        <mxCell id="rel1" edge="1" parent="1" source="SettingsController" target="SettingsService" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel2" edge="1" parent="1" source="SettingsService" target="Setting" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel3" edge="1" parent="1" source="SettingsService" target="DefaultHousePolicy" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

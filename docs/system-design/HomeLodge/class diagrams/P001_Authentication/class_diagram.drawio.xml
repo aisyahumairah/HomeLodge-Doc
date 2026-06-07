@@ -1,0 +1,97 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="p001-class-diagram" name="P001 Class Diagram">
+    <mxGraphModel dx="1414" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="User" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="User" vertex="1">
+          <mxGeometry height="230" width="360" x="395" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="User-attrs" parent="User" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ id: BigInteger&#xa;+ name: String&#xa;+ email: String&#xa;+ password: String&#xa;+ role: String&#xa;+ failed_login_count: Integer&#xa;+ must_change_password: Boolean" vertex="1">
+          <mxGeometry height="114" width="360" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="User-line" parent="User" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="360" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="User-methods" parent="User" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ register(name, email, password, password_confirmation): User&#xa;+ login(email, password): Boolean&#xa;+ logout(): void" vertex="1">
+          <mxGeometry height="82" width="360" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="AuthController" vertex="1">
+          <mxGeometry height="110" width="220" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthController-attrs" parent="AuthController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- authService: AuthService" vertex="1">
+          <mxGeometry height="26" width="220" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthController-line" parent="AuthController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="220" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthController-methods" parent="AuthController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ showLoginForm(): View&#xa;+ login(Request): Response&#xa;+ logout(Request): Response" vertex="1">
+          <mxGeometry height="50" width="220" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RegisterController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="RegisterController" vertex="1">
+          <mxGeometry height="110" width="240" x="280" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="RegisterController-attrs" parent="RegisterController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- authService: AuthService" vertex="1">
+          <mxGeometry height="26" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="RegisterController-line" parent="RegisterController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="RegisterController-methods" parent="RegisterController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ showRegistrationForm(): View&#xa;+ register(Request): Response" vertex="1">
+          <mxGeometry height="50" width="240" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PasswordResetController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="PasswordResetController" vertex="1">
+          <mxGeometry height="130" width="260" x="540" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PasswordResetController-attrs" parent="PasswordResetController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- authService: AuthService" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="PasswordResetController-line" parent="PasswordResetController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="PasswordResetController-methods" parent="PasswordResetController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ showLinkRequestForm(): View&#xa;+ sendResetLinkEmail(Request): Response&#xa;+ showResetForm(token): View&#xa;+ reset(Request): Response" vertex="1">
+          <mxGeometry height="70" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ProfileController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="ProfileController" vertex="1">
+          <mxGeometry height="110" width="240" x="820" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ProfileController-attrs" parent="ProfileController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- authService: AuthService" vertex="1">
+          <mxGeometry height="26" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="ProfileController-line" parent="ProfileController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="ProfileController-methods" parent="ProfileController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ edit(): View&#xa;+ update(Request): Response&#xa;+ changePassword(Request): Response" vertex="1">
+          <mxGeometry height="50" width="240" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthService" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="AuthService" vertex="1">
+          <mxGeometry height="150" width="350" x="400" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthService-attrs" parent="AuthService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="10" width="350" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthService-line" parent="AuthService" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="350" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthService-methods" parent="AuthService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ attemptLogin(credentials): Boolean&#xa;+ createUser(data): User&#xa;+ processPasswordReset(email): void&#xa;+ resetPassword(token, new_pass): void&#xa;+ updateUserProfile(user, data): User&#xa;+ updatePassword(user, new_pass): void" vertex="1">
+          <mxGeometry height="106" width="350" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" edge="1" parent="1" source="AuthController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.25;edgeStyle=orthogonalEdgeStyle;" target="AuthService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" edge="1" parent="1" source="RegisterController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="AuthService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" edge="1" parent="1" source="PasswordResetController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.75;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="AuthService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" edge="1" parent="1" source="ProfileController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.25;edgeStyle=orthogonalEdgeStyle;" target="AuthService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5" edge="1" parent="1" source="AuthService" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="User">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

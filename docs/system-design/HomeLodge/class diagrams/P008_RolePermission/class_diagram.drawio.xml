@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="p008-class-diagram" name="P008 Class Diagram">
+    <mxGraphModel dx="1414" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RoleController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="RoleController" vertex="1">
+          <mxGeometry height="160" width="240" x="120" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RoleController-attrs" parent="RoleController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="10" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="RoleController-line" parent="RoleController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="RoleController-methods" parent="RoleController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ index(): View&#xa;+ create(): View&#xa;+ store(Request): Response&#xa;+ edit(id): View&#xa;+ update(Request, id): Response&#xa;+ destroy(id): Response" vertex="1">
+          <mxGeometry height="116" width="240" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="PermissionController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="PermissionController" vertex="1">
+          <mxGeometry height="160" width="240" x="460" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PermissionController-attrs" parent="PermissionController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="10" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="PermissionController-line" parent="PermissionController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="PermissionController-methods" parent="PermissionController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ index(): View&#xa;+ create(): View&#xa;+ store(Request): Response&#xa;+ edit(id): View&#xa;+ update(Request, id): Response&#xa;+ destroy(id): Response" vertex="1">
+          <mxGeometry height="116" width="240" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="Role" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Role (Spatie)" vertex="1">
+          <mxGeometry height="200" width="300" x="90" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Role-attrs" parent="Role" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ id: BigInteger&#xa;+ name: String&#xa;+ guard_name: String&#xa;+ created_at: DateTime&#xa;+ updated_at: DateTime" vertex="1">
+          <mxGeometry height="84" width="300" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Role-line" parent="Role" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="300" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Role-methods" parent="Role" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ permissions(): Collection&#xa;+ givePermissionTo(permission): void&#xa;+ revokePermissionTo(permission): void&#xa;+ syncPermissions(permissions): void" vertex="1">
+          <mxGeometry height="82" width="300" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="Permission" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Permission (Spatie)" vertex="1">
+          <mxGeometry height="170" width="240" x="460" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="Permission-attrs" parent="Permission" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ id: BigInteger&#xa;+ name: String&#xa;+ guard_name: String&#xa;+ created_at: DateTime&#xa;+ updated_at: DateTime" vertex="1">
+          <mxGeometry height="84" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Permission-line" parent="Permission" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Permission-methods" parent="Permission" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ roles(): Collection&#xa;+ assignRole(role): void&#xa;+ removeRole(role): void" vertex="1">
+          <mxGeometry height="52" width="240" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" edge="1" parent="1" source="RoleController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="Role">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" edge="1" parent="1" source="PermissionController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="Permission">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" edge="1" parent="1" source="Role" style="endArrow=none;endFill=0;endSize=10;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="Permission">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3-label-left" connectable="0" parent="rel3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="*" vertex="1">
+          <mxGeometry relative="1" x="-0.8" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3-label-right" connectable="0" parent="rel3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="*" vertex="1">
+          <mxGeometry relative="1" x="0.8" y="-12" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

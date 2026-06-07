@@ -1,0 +1,96 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="p002-class-diagram" name="P002 Class Diagram">
+    <mxGraphModel dx="1414" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HomestayController" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="HomestayController" vertex="1">
+          <mxGeometry height="200" width="240" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayController-attrs" parent="HomestayController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="- homestayService: HomestayService" vertex="1">
+          <mxGeometry height="26" width="240" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayController-line" parent="HomestayController" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="240" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayController-methods" parent="HomestayController" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ index(): View&#xa;+ show(id): View&#xa;+ create(): View&#xa;+ store(Request): Response&#xa;+ edit(id): View&#xa;+ update(Request, id): Response&#xa;+ destroy(id): Response&#xa;+ deactivate(id): Response" vertex="1">
+          <mxGeometry height="140" width="240" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayService" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="HomestayService" vertex="1">
+          <mxGeometry height="160" width="280" x="60" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayService-attrs" parent="HomestayService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="10" width="280" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayService-line" parent="HomestayService" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="280" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayService-methods" parent="HomestayService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ getAllActiveUnits(): Collection&#xa;+ getAllUnits(): Collection&#xa;+ getUnitDetails(id): HomestayUnit&#xa;+ createUnit(data): HomestayUnit&#xa;+ updateUnit(id, data): HomestayUnit&#xa;+ deactivateUnit(id): void&#xa;+ deleteUnit(id): void" vertex="1">
+          <mxGeometry height="116" width="280" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="HomestayUnit" vertex="1">
+          <mxGeometry height="250" width="690" x="390" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit-attrs" parent="HomestayUnit" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ id: BigInteger&#xa;+ name: String&#xa;+ description: Text&#xa;+ location: String&#xa;+ base_price: Decimal&#xa;+ deposit: Decimal&#xa;+ check_in_time: Time&#xa;+ check_out_time: Time&#xa;+ is_active: Boolean&#xa;+ extension_payment_window: Integer" vertex="1">
+          <mxGeometry height="154" width="690" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit-line" parent="HomestayUnit" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="690" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit-methods" parent="HomestayUnit" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ createUnit(name, description, location, base_price, deposit, check_in_time, check_out_time, images, policies): HomestayUnit&#xa;+ updateUnit(data): HomestayUnit&#xa;+ deleteUnit(id): Boolean" vertex="1">
+          <mxGeometry height="62" width="690" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="HousePolicy" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="HousePolicy" vertex="1">
+          <mxGeometry height="150" width="250" x="720" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="HousePolicy-attrs" parent="HousePolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ id: BigInteger&#xa;+ homestay_unit_id: BigInteger&#xa;+ policy_name: String&#xa;+ policy_description: Text" vertex="1">
+          <mxGeometry height="74" width="250" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="HousePolicy-line" parent="HousePolicy" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="250" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="HousePolicy-methods" parent="HousePolicy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ addPolicy(data): HousePolicy&#xa;+ removePolicy(id): Boolean" vertex="1">
+          <mxGeometry height="42" width="250" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayImage" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="HomestayImage" vertex="1">
+          <mxGeometry height="150" width="250" x="400" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayImage-attrs" parent="HomestayImage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ id: BigInteger&#xa;+ homestay_unit_id: BigInteger&#xa;+ image_url: String&#xa;+ is_primary: Boolean" vertex="1">
+          <mxGeometry height="74" width="250" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayImage-line" parent="HomestayImage" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" value="" vertex="1">
+          <mxGeometry height="8" width="250" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayImage-methods" parent="HomestayImage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" value="+ uploadImage(file, unit_id): HomestayImage&#xa;+ deleteImage(id): Boolean" vertex="1">
+          <mxGeometry height="42" width="250" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" edge="1" parent="1" source="HomestayController" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="HomestayService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" edge="1" parent="1" source="HomestayService" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="HomestayUnit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" edge="1" parent="1" source="HomestayUnit" style="endArrow=diamondThin;endFill=0;endSize=10;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="HomestayImage">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3-label" connectable="0" parent="rel3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1..*" vertex="1">
+          <mxGeometry relative="1" x="-0.8" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4" edge="1" parent="1" source="HomestayUnit" style="endArrow=diamondThin;endFill=0;endSize=10;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="HousePolicy">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4-label" connectable="0" parent="rel4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="-0.8" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

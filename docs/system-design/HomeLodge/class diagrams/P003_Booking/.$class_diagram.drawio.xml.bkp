@@ -1,0 +1,91 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="p003-class-diagram" name="P003 Class Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- BookingController -->
+        <mxCell id="BookingController" value="BookingController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="BookingController-attrs" value="- bookingService: BookingService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="BookingController">
+          <mxGeometry y="26" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="BookingController-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="BookingController">
+          <mxGeometry y="52" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="BookingController-methods" value="+ index(): View&#xa;+ show(id): View&#xa;+ store(Request): Response&#xa;+ update(Request, id): Response&#xa;+ destroy(id): Response&#xa;+ cancel(id): Response" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="BookingController">
+          <mxGeometry y="60" width="240" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- BookingService -->
+        <mxCell id="BookingService" value="BookingService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="BookingService-attrs" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="BookingService">
+          <mxGeometry y="26" width="280" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="BookingService-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="BookingService">
+          <mxGeometry y="36" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="BookingService-methods" value="+ checkAvailability(unit_id, dates): Boolean&#xa;+ createBooking(data): Booking&#xa;+ cancelBooking(id, user_id): Boolean&#xa;+ autoCancelExpiredBookings(): void&#xa;+ getAllBookings(filters): Collection&#xa;+ getBookingDetails(id): Booking" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="BookingService">
+          <mxGeometry y="44" width="280" height="96" as="geometry" />
+        </mxCell>
+
+        <!-- Booking Model -->
+        <mxCell id="Booking" value="Booking" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="460" y="240" width="560" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Booking-attrs" value="+ id: BigInteger&#xa;+ user_id: BigInteger&#xa;+ homestay_unit_id: BigInteger&#xa;+ booking_number: String&#xa;+ check_in_date: Date&#xa;+ check_in_time: Time&#xa;+ check_out_date: Date&#xa;+ check_out_time: Time&#xa;+ status: String&#xa;+ total_amount: Decimal&#xa;+ payment_deadline: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Booking">
+          <mxGeometry y="26" width="560" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Booking-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="Booking">
+          <mxGeometry y="196" width="560" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="Booking-methods" value="+ createBooking(user_id, unit_id, check_in_date, check_in_time, check_out_date, check_out_time): Booking&#xa;+ cancelBooking(booking_id, cancelled_by): Boolean&#xa;+ isExpired(): Boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Booking">
+          <mxGeometry y="204" width="560" height="56" as="geometry" />
+        </mxCell>
+
+        <!-- HomestayUnit Model -->
+        <mxCell id="HomestayUnit" value="HomestayUnit" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="630" y="60" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit-attrs" value="+ id: BigInteger&#xa;+ name: String&#xa;+ base_price: Decimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="HomestayUnit">
+          <mxGeometry y="26" width="220" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="HomestayUnit">
+          <mxGeometry y="80" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="HomestayUnit-methods" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="HomestayUnit">
+          <mxGeometry y="88" width="220" height="12" as="geometry" />
+        </mxCell>
+
+        <!-- Relations -->
+        <mxCell id="rel1" edge="1" parent="1" source="BookingController" target="BookingService" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel2" edge="1" parent="1" source="BookingService" target="Booking" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel3" edge="1" parent="1" source="BookingService" target="HomestayUnit" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.75;exitY=0;entryX=0;entryY=0.5;edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel4" edge="1" parent="1" source="Booking" target="HomestayUnit" style="endArrow=diamondThin;endFill=0;endSize=10;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4-label" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="rel4">
+          <mxGeometry x="-0.7" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,62 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="p013-class-diagram" name="P013 Class Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- FeedbackController -->
+        <mxCell id="FeedbackController" value="FeedbackController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="FeedbackController-attrs" value="- feedbackService: FeedbackService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="FeedbackController">
+          <mxGeometry y="26" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FeedbackController-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="FeedbackController">
+          <mxGeometry y="52" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FeedbackController-methods" value="+ index(): View&#xa;+ store(Request): Response&#xa;+ reply(Request, id): Response&#xa;+ destroy(id): Response" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="FeedbackController">
+          <mxGeometry y="60" width="260" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- FeedbackService -->
+        <mxCell id="FeedbackService" value="FeedbackService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="460" y="80" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="FeedbackService-attrs" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="FeedbackService">
+          <mxGeometry y="26" width="280" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="FeedbackService-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="FeedbackService">
+          <mxGeometry y="36" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FeedbackService-methods" value="+ submitFeedback(data): Feedback&#xa;+ replyToFeedback(id, reply): Boolean&#xa;+ getFeedbackByUnit(unit_id): Collection&#xa;+ deleteFeedback(id): Boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="FeedbackService">
+          <mxGeometry y="44" width="280" height="86" as="geometry" />
+        </mxCell>
+
+        <!-- Feedback Model -->
+        <mxCell id="Feedback" value="Feedback" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="460" y="300" width="280" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="Feedback-attrs" value="+ id: BigInteger&#xa;+ user_id: BigInteger&#xa;+ unit_id: BigInteger&#xa;+ booking_id: BigInteger&#xa;+ rating: Integer&#xa;+ comment: Text&#xa;+ admin_reply: Text&#xa;+ created_at: DateTime&#xa;+ updated_at: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Feedback">
+          <mxGeometry y="26" width="280" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="Feedback-line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="Feedback">
+          <mxGeometry y="160" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="Feedback-methods" value="+ submitFeedback(booking_id, rating, comment): Feedback&#xa;+ unit(): HomestayUnit&#xa;+ user(): User&#xa;+ booking(): Booking" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="Feedback">
+          <mxGeometry y="168" width="280" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- Relations -->
+        <mxCell id="rel1" edge="1" parent="1" source="FeedbackController" target="FeedbackService" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel2" edge="1" parent="1" source="FeedbackService" target="Feedback" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
