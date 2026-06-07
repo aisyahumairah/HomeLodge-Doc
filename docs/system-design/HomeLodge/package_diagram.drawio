@@ -1,0 +1,306 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="homelodge-package-diagram" name="Package Diagram">
+    <mxGraphModel dx="1645" dy="971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p001" parent="1" style="shape=folder;fontStyle=1;tabWidth=170;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;" value="P001: Authentication Subsystem" vertex="1">
+          <mxGeometry height="170" width="320" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p001-c1" parent="p001" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="AuthController" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p001-c2" parent="p001" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="RegisterController" vertex="1">
+          <mxGeometry height="30" width="130" x="170" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p001-c3" parent="p001" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="PasswordResetController" vertex="1">
+          <mxGeometry height="30" width="150" x="20" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p001-c4" parent="p001" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="ProfileController" vertex="1">
+          <mxGeometry height="30" width="110" x="190" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p001-c5" parent="p001" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="AuthService" vertex="1">
+          <mxGeometry height="30" width="110" x="20" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p001-c6" parent="p001" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="User" vertex="1">
+          <mxGeometry height="30" width="80" x="150" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p007" parent="1" style="shape=folder;fontStyle=1;tabWidth=170;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;" value="P007: User Management Subsystem" vertex="1">
+          <mxGeometry height="120" width="280" x="410" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="p007-c1" parent="p007" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="UserController" vertex="1">
+          <mxGeometry height="30" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p007-c2" parent="p007" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="UserService" vertex="1">
+          <mxGeometry height="30" width="100" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p007-c3" parent="p007" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="User" vertex="1">
+          <mxGeometry height="30" width="80" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p008" parent="1" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=8;" value="P008: Role and Permission Subsystem" vertex="1">
+          <mxGeometry height="120" width="300" x="740" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="p008-c1" parent="p008" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="RoleController" vertex="1">
+          <mxGeometry height="30" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p008-c2" parent="p008" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="PermissionController" vertex="1">
+          <mxGeometry height="30" width="125" x="155" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p008-c3" parent="p008" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="Role" vertex="1">
+          <mxGeometry height="30" width="80" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p008-c4" parent="p008" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="Permission" vertex="1">
+          <mxGeometry height="30" width="90" x="120" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p002" parent="1" style="shape=folder;fontStyle=1;tabWidth=200;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;" value="P002: Homestay Management Subsystem" vertex="1">
+          <mxGeometry height="170" width="340" x="40" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="p002-c1" parent="p002" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="HomestayController" vertex="1">
+          <mxGeometry height="30" width="140" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p002-c2" parent="p002" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="HomestayService" vertex="1">
+          <mxGeometry height="30" width="130" x="180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p002-c3" parent="p002" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="HomestayUnit" vertex="1">
+          <mxGeometry height="30" width="110" x="20" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p002-c4" parent="p002" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="HousePolicy" vertex="1">
+          <mxGeometry height="30" width="100" x="150" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p002-c5" parent="p002" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="HomestayImage" vertex="1">
+          <mxGeometry height="30" width="120" x="20" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p003" parent="1" style="shape=folder;fontStyle=1;tabWidth=150;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;" value="P003: Booking Subsystem" vertex="1">
+          <mxGeometry height="125" width="280" x="420" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="p003-c1" parent="p003" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="BookingController" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p003-c2" parent="p003" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="BookingService" vertex="1">
+          <mxGeometry height="30" width="110" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p003-c3" parent="p003" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="Booking" vertex="1">
+          <mxGeometry height="30" width="90" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p004" parent="1" style="shape=folder;fontStyle=1;tabWidth=150;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;" value="P004: Payment Subsystem" vertex="1">
+          <mxGeometry height="170" width="290" x="745" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="p004-c1" parent="p004" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="PaymentController" vertex="1">
+          <mxGeometry height="30" width="135" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p004-c2" parent="p004" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="WebhookController" vertex="1">
+          <mxGeometry height="30" width="135" x="170" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p004-c3" parent="p004" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="PaymentService" vertex="1">
+          <mxGeometry height="30" width="120" x="20" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p004-c4" parent="p004" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="Payment" vertex="1">
+          <mxGeometry height="30" width="90" x="20" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p004-c5" parent="p004" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="Bill" vertex="1">
+          <mxGeometry height="30" width="80" x="130" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p011" parent="1" style="shape=folder;fontStyle=1;tabWidth=210;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=8;" value="P011: QR Code Door Access Subsystem" vertex="1">
+          <mxGeometry height="170" width="320" x="1090" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="p011-c1" parent="p011" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="QrCodeController" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p011-c2" parent="p011" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="QrCodeService" vertex="1">
+          <mxGeometry height="30" width="120" x="165" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p011-c3" parent="p011" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="ExtensionService" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="p011-c4" parent="p011" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="QrCode" vertex="1">
+          <mxGeometry height="30" width="100" x="20" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p011-c5" parent="p011" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="BookingExtension" vertex="1">
+          <mxGeometry height="30" width="140" x="140" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p006" parent="1" style="shape=folder;fontStyle=1;tabWidth=140;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;spacingLeft=8;" value="P006: Chat Subsystem" vertex="1">
+          <mxGeometry height="125" width="280" x="40" y="522" as="geometry" />
+        </mxCell>
+        <mxCell id="p006-c1" parent="p006" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="ChatController" vertex="1">
+          <mxGeometry height="30" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p006-c2" parent="p006" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="ChatService" vertex="1">
+          <mxGeometry height="30" width="100" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p006-c3" parent="p006" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="ChatConversation" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p006-c4" parent="p006" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="ChatMessage" vertex="1">
+          <mxGeometry height="30" width="100" x="160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p013" parent="1" style="shape=folder;fontStyle=1;tabWidth=180;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;spacingLeft=8;" value="P013: Guest Feedback Subsystem" vertex="1">
+          <mxGeometry height="125" width="280" x="350" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="p013-c1" parent="p013" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="FeedbackController" vertex="1">
+          <mxGeometry height="30" width="135" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p013-c2" parent="p013" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="FeedbackService" vertex="1">
+          <mxGeometry height="30" width="115" x="165" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p013-c3" parent="p013" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="Feedback" vertex="1">
+          <mxGeometry height="30" width="90" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p012" parent="1" style="shape=folder;fontStyle=1;tabWidth=220;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;spacingLeft=8;" value="P012: Reporting and Analytics Subsystem" vertex="1">
+          <mxGeometry height="125" width="320" x="1000" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="p012-c1" parent="p012" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="ReportController" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p012-c2" parent="p012" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="ReportService" vertex="1">
+          <mxGeometry height="30" width="115" x="165" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p012-c3" parent="p012" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="BookingExport" vertex="1">
+          <mxGeometry height="30" width="110" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p012-c4" parent="p012" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="RevenueExport" vertex="1">
+          <mxGeometry height="30" width="115" x="140" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p009" parent="1" style="shape=folder;fontStyle=1;tabWidth=180;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacingLeft=8;" value="P009: System Settings Subsystem" vertex="1">
+          <mxGeometry height="125" width="320" x="110" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="p009-c1" parent="p009" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="SettingsController" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p009-c2" parent="p009" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="SettingsService" vertex="1">
+          <mxGeometry height="30" width="115" x="165" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p009-c3" parent="p009" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="Setting" vertex="1">
+          <mxGeometry height="30" width="90" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p009-c4" parent="p009" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="DefaultHousePolicy" vertex="1">
+          <mxGeometry height="30" width="140" x="125" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p010" parent="1" style="shape=folder;fontStyle=1;tabWidth=160;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacingLeft=8;" value="P010: Audit Log Subsystem" vertex="1">
+          <mxGeometry height="125" width="280" x="465" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="p010-c1" parent="p010" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="AuditLogController" vertex="1">
+          <mxGeometry height="30" width="140" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p010-c2" parent="p010" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="Activity (Spatie)" vertex="1">
+          <mxGeometry height="30" width="130" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" edge="1" parent="1" source="p003" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;" target="p002">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" edge="1" parent="1" source="p003" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;" target="p004">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" edge="1" parent="1" source="p003" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;edgeStyle=orthogonalEdgeStyle;" target="p005">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="492" />
+              <mxPoint x="820" y="492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4" edge="1" parent="1" source="p004" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;" target="p011">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d5" edge="1" parent="1" source="p004" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;entryX=0.73;entryY=0.188;entryDx=0;entryDy=0;entryPerimeter=0;" target="p005">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d6" edge="1" parent="1" source="p004" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;exitX=0;exitY=0;entryX=0;entryY=0;exitDx=0;exitDy=59;exitPerimeter=0;entryDx=280;entryDy=47.75;entryPerimeter=0;" target="p003">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d7" edge="1" parent="1" source="p011" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;" target="p004">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d8" edge="1" parent="1" source="p011" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;exitX=0;exitY=0;entryX=0.868;entryY=0.179;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;exitDx=0;exitDy=133;exitPerimeter=0;" target="p005">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1070" y="423" />
+              <mxPoint x="1070" y="510" />
+              <mxPoint x="930" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d9" edge="1" parent="1" source="p001" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;" target="p007">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d10" edge="1" parent="1" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="200" as="sourcePoint" />
+            <mxPoint x="740" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d11" edge="1" parent="1" source="p007" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;" target="p008">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d12" edge="1" parent="1" source="p013" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;exitX=0.745;exitY=0.146;entryX=0.5;entryY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="p003">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d13" edge="1" parent="1" source="p013" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;edgeStyle=orthogonalEdgeStyle;" target="p002">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="500" />
+              <mxPoint x="300" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d14" edge="1" parent="1" source="p012" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;entryX=0;entryY=0;entryDx=290;entryDy=133;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="p004">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="480" />
+              <mxPoint x="1060" y="480" />
+              <mxPoint x="1060" y="423" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d15" edge="1" parent="1" source="p002" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;exitX=0.5;exitY=1;entryX=0.2;entryY=0;edgeStyle=orthogonalEdgeStyle;" target="p009">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="470" />
+              <mxPoint x="20" y="470" />
+              <mxPoint x="20" y="660" />
+              <mxPoint x="174" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d16" edge="1" parent="1" source="p003" style="endArrow=open;endFill=0;dashed=1;html=1;strokeColor=#333333;exitX=0.3;exitY=1;entryX=0;entryY=0;edgeStyle=orthogonalEdgeStyle;entryDx=90;entryDy=0;entryPerimeter=0;" target="p009">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="504" y="470" />
+              <mxPoint x="340" y="470" />
+              <mxPoint x="340" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;align=left;spacingLeft=6;fillColor=#f5f5f5;strokeColor=#666666;" value="Legend" vertex="1">
+          <mxGeometry height="125" width="320" x="860" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-l1" parent="legend" style="text;html=1;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Identity &amp; Access (P001, P007, P008)" vertex="1">
+          <mxGeometry height="20" width="296" x="12" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-l2" parent="legend" style="text;html=1;align=left;fillColor=#d5e8d4;strokeColor=#82b366;" value="Core Booking Flow (P002, P003, P004, P011)" vertex="1">
+          <mxGeometry height="20" width="296" x="12" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-l3" parent="legend" style="text;html=1;align=left;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Engagement &amp; Reporting (P005, P006, P012, P013)" vertex="1">
+          <mxGeometry height="20" width="296" x="12" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-l4" parent="legend" style="text;html=1;align=left;fillColor=#f8cecc;strokeColor=#b85450;" value="Cross-cutting (P009 Settings, P010 Audit)  - - -&gt; = depends on («use»)" vertex="1">
+          <mxGeometry height="20" width="296" x="12" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontStyle=1;fontSize=18;align=center;verticalAlign=middle;" value="HomeLodge Package Diagram" vertex="1">
+          <mxGeometry height="40" width="700" x="710" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="p005" parent="1" style="shape=folder;fontStyle=1;tabWidth=170;tabHeight=22;tabPosition=left;html=1;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;spacingLeft=8;" value="P005: Notification Subsystem" vertex="1">
+          <mxGeometry height="125" width="300" x="670" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="p005-c1" parent="p005" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="NotificationController" vertex="1">
+          <mxGeometry height="30" width="150" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p005-c2" parent="p005" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="NotificationService" vertex="1">
+          <mxGeometry height="30" width="140" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p005-c3" parent="p005" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="GoogleCalendarService" vertex="1">
+          <mxGeometry height="30" width="115" x="170" y="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
