@@ -1,105 +1,195 @@
 <mxfile host="Electron" agent="HomeLodge-Doc">
   <diagram id="act-auth-05" name="UC-AUTH-05 View Update Profile">
-    <mxGraphModel dx="951" dy="628" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="750" math="0" shadow="0">
+    <mxGraphModel dx="1488" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="swim" parent="1" style="shape=swimlane;startSize=20;swimlaneFillColor=#ffffff;" value="" vertex="1">
-          <mxGeometry height="710" width="780" x="40" y="50" as="geometry" />
-        </mxCell>
-        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="User" vertex="1">
-          <mxGeometry height="690" width="380" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="DtZwQLyT4y2zfzlZRikw-1" edge="1" parent="lane_user" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="a1" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="175" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Navigate to Profile page" vertex="1">
-          <mxGeometry height="45" width="160" x="110" y="100" as="geometry" />
-        </mxCell>
-        <mxCell id="a3" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Modify fields and/or&#xa;upload new profile photo" vertex="1">
-          <mxGeometry height="50" width="160" x="110" y="250" as="geometry" />
-        </mxCell>
-        <mxCell id="a4" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Submit form" vertex="1">
-          <mxGeometry height="45" width="120" x="130" y="335" as="geometry" />
-        </mxCell>
-        <mxCell id="es1" edge="1" parent="lane_user" source="start" style="endArrow=open;" target="a1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ea34" edge="1" parent="lane_user" source="a3" style="endArrow=open;" target="a4">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
-          <mxGeometry height="690" width="400" x="380" y="20" as="geometry" />
-        </mxCell>
-        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display current profile:&#xa;name, email, phone, photo" vertex="1">
-          <mxGeometry height="55" width="170" x="60" y="160" as="geometry" />
-        </mxCell>
-        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Validate inputs" vertex="1">
-          <mxGeometry height="60" width="150" x="30" y="330" as="geometry" />
-        </mxCell>
-        <mxCell id="d2" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Save record&#xa;successful?" vertex="1">
-          <mxGeometry height="60" width="150" x="30" y="430" as="geometry" />
-        </mxCell>
-        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Highlight invalid field&#xa;(phone format, image&#xa;type/size)" vertex="1">
-          <mxGeometry height="60" width="130" x="230" y="330" as="geometry" />
-        </mxCell>
-        <mxCell id="e2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="File storage failure —&#xa;roll back change and&#xa;notify user" vertex="1">
-          <mxGeometry height="60" width="130" x="240" y="430" as="geometry" />
-        </mxCell>
-        <mxCell id="a5" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display: Profile updated&#xa;successfully." vertex="1">
-          <mxGeometry height="50" width="170" x="20" y="530" as="geometry" />
-        </mxCell>
-        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
-          <mxGeometry height="30" width="30" x="90" y="620" as="geometry" />
-        </mxCell>
-        <mxCell id="ed1ok" edge="1" parent="lane_sys" source="d1" style="endArrow=open;fontSize=9;" target="d2" value="Valid">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ed1err" edge="1" parent="lane_sys" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="Invalid">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ed2err" edge="1" parent="lane_sys" source="d2" style="endArrow=open;fontSize=9;" target="e2" value="Storage fail">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ed2ok" edge="1" parent="lane_sys" source="d2" style="endArrow=open;fontSize=9;" target="a5" value="Success">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ee2end" edge="1" parent="lane_sys" source="e2" style="endArrow=open;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="305" y="635" />
-            </Array>
-            <mxPoint x="313.4356922222155" y="530.0944608332743" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="ea5end" edge="1" parent="lane_sys" source="a5" style="endArrow=open;" target="end1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ea12" edge="1" parent="swim" source="a1" style="endArrow=open;edgeStyle=orthogonalEdgeStyle;" target="a2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ea23" edge="1" parent="swim" source="a2" style="endArrow=open;edgeStyle=orthogonalEdgeStyle;" target="a3">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="525" y="295" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="ea4d1" edge="1" parent="swim" source="a4" style="endArrow=open;" target="d1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="ee1b" edge="1" parent="swim" source="e1" style="endArrow=open;dashed=1;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="a3">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="675" y="320" />
-            </Array>
-          </mxGeometry>
+          <mxGeometry height="1480" width="990" x="40" y="50" as="geometry" />
         </mxCell>
         <mxCell id="title" parent="swim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=13;fontStyle=1;" value="UC-AUTH-05: View / Update Profile" vertex="1">
-          <mxGeometry height="28" width="400" x="185" y="-3" as="geometry" />
+          <mxGeometry height="28" width="400" x="249" y="-3" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_user" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="User" vertex="1">
+          <mxGeometry height="1460" width="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="lane_user" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="175" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Navigate to Profile page" vertex="1">
+          <mxGeometry height="45" width="160" x="110" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Modify fields and/or&#xa;upload new profile photo" vertex="1">
+          <mxGeometry height="50" width="160" x="110" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Click Save" vertex="1">
+          <mxGeometry height="45" width="120" x="130" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_decision" parent="lane_user" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Change&#xa;Password?" vertex="1">
+          <mxGeometry height="70" width="130" x="125" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_click" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Click &quot;Change Password&quot;" vertex="1">
+          <mxGeometry height="45" width="160" x="110" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_enter" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Enter current password&#xa;and new password (twice)" vertex="1">
+          <mxGeometry height="50" width="160" x="110" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_submit" parent="lane_user" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="Submit password change" vertex="1">
+          <mxGeometry height="45" width="160" x="110" y="905" as="geometry" />
+        </mxCell>
+        <mxCell id="lane_sys" parent="swim" style="swimlane;startSize=25;fillColor=#f5f5f5;fontSize=12;fontStyle=1;" value="System" vertex="1">
+          <mxGeometry height="1460" width="610" x="380" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display current profile:&#xa;name, email, phone, photo" vertex="1">
+          <mxGeometry height="55" width="170" x="60" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Validate inputs" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Highlight invalid field&#xa;(phone format, image&#xa;type/size)" vertex="1">
+          <mxGeometry height="60" width="140" x="380" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Save record&#xa;successful?" vertex="1">
+          <mxGeometry height="60" width="150" x="50" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="File storage failure —&#xa;roll back &amp; notify user" vertex="1">
+          <mxGeometry height="55" width="140" x="380" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display: Profile updated&#xa;successfully." vertex="1">
+          <mxGeometry height="50" width="170" x="40" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_sys_prompt" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Show Change Password form&#xa;(current + new password fields)" vertex="1">
+          <mxGeometry height="55" width="200" x="30" y="695" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_d_match" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Passwords&#xa;match?" vertex="1">
+          <mxGeometry height="65" width="140" x="55" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_e_match" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Show: &quot;Passwords&#xa;do not match.&quot;" vertex="1">
+          <mxGeometry height="50" width="150" x="370" y="905" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_d_cur" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Current password&#xa;correct?" vertex="1">
+          <mxGeometry height="65" width="150" x="50" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_e_cur" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Show: &quot;Current password&#xa;does not match.&quot;" vertex="1">
+          <mxGeometry height="50" width="155" x="365" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_d_str" parent="lane_sys" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="New password meets&#xa;strength rules?" vertex="1">
+          <mxGeometry height="65" width="160" x="45" y="1125" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_e_str" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Show which strength&#xa;rules are not met." vertex="1">
+          <mxGeometry height="50" width="150" x="365" y="1135" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_save" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Save new password securely" vertex="1">
+          <mxGeometry height="45" width="190" x="30" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="cp_ok" parent="lane_sys" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Display: Password changed&#xa;successfully." vertex="1">
+          <mxGeometry height="50" width="190" x="30" y="1325" as="geometry" />
+        </mxCell>
+        <mxCell id="end1" parent="lane_sys" style="ellipse;fillColor=#000000;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="30" width="30" x="110" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="es1" edge="1" parent="1" source="start" style="endArrow=open;" target="a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea12" edge="1" parent="1" source="a1" style="endArrow=open;" target="a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea23" edge="1" parent="1" source="a2" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea34" edge="1" parent="1" source="a3" style="endArrow=open;" target="a4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea4d1" edge="1" parent="1" source="a4" style="endArrow=open;" target="d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1ok" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="d2" value="Valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed1err" edge="1" parent="1" source="d1" style="endArrow=open;fontSize=9;" target="e1" value="Invalid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ee1b" edge="1" parent="1" source="e1" style="endArrow=open;dashed=1;fontSize=9;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="a3" value="Retry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2ok" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;" target="a5" value="Success">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ed2err" edge="1" parent="1" source="d2" style="endArrow=open;fontSize=9;" target="e2" value="Storage fail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ee2end" edge="1" parent="1" source="e2" style="endArrow=open;dashed=1;fontSize=9;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="990" y="516" />
+              <mxPoint x="990" y="1495" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ea5cpd" edge="1" parent="1" source="a5" style="endArrow=open;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="cp_decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ecp_no" edge="1" parent="1" source="cp_decision" style="endArrow=open;fontSize=9;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="end1" value="No">
+          <mxGeometry relative="1" x="-0.948" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="80" y="685" />
+              <mxPoint x="80" y="1495" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ecp_yes" edge="1" parent="1" source="cp_decision" style="endArrow=open;fontSize=9;" target="cp_click" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ecp_click_sys" edge="1" parent="1" source="cp_click" style="endArrow=open;" target="cp_sys_prompt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ecp_prompt_enter" edge="1" parent="1" source="cp_sys_prompt" style="endArrow=open;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="cp_enter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ecp_enter_sub" edge="1" parent="1" source="cp_enter" style="endArrow=open;" target="cp_submit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ecp_sub_match" edge="1" parent="1" source="cp_submit" style="endArrow=open;" target="cp_d_match">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_match_no" edge="1" parent="1" source="cp_d_match" style="endArrow=open;fontSize=9;" target="cp_e_match" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_match_retry" edge="1" parent="1" source="cp_e_match" style="endArrow=open;dashed=1;fontSize=9;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="cp_enter" value="Retry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_match_yes" edge="1" parent="1" source="cp_d_match" style="endArrow=open;fontSize=9;" target="cp_d_cur" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cur_no" edge="1" parent="1" source="cp_d_cur" style="endArrow=open;fontSize=9;" target="cp_e_cur" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cur_retry" edge="1" parent="1" source="cp_e_cur" style="endArrow=open;dashed=1;fontSize=9;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="cp_enter" value="Retry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cur_yes" edge="1" parent="1" source="cp_d_cur" style="endArrow=open;fontSize=9;" target="cp_d_str" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_str_no" edge="1" parent="1" source="cp_d_str" style="endArrow=open;fontSize=9;" target="cp_e_str" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_str_retry" edge="1" parent="1" source="cp_e_str" style="endArrow=open;dashed=1;fontSize=9;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="cp_enter" value="Retry">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="1230" />
+              <mxPoint x="970" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_str_yes" edge="1" parent="1" source="cp_d_str" style="endArrow=open;fontSize=9;" target="cp_save" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_save_ok" edge="1" parent="1" source="cp_save" style="endArrow=open;" target="cp_ok">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ok_end" edge="1" parent="1" source="cp_ok" style="endArrow=open;" target="end1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
