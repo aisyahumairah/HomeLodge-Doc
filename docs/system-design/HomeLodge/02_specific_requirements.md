@@ -291,7 +291,17 @@ The system uses the following protocols:
 
 The system features include the following 12 functional modules. For every module, the document states the inputs the system receives, the processing it performs, and the outputs it produces.
 
-> **Note:** Use case diagrams, activity diagrams, domain model class diagrams, and state machine diagrams should be included here. Refer to `/docs/dev/USE_CASE_DIAGRAMS.md` and `/docs/dev/USE_CASE_DESCRIPTIONS.md` for the complete set. Placeholder references are noted below; replace with actual diagram images.
+> [!NOTE]
+> For the complete set of module-specific diagrams, refer to [UC-Combined.drawio] and [UC_DESC v3.md]
+
+### 2.2.0 Overall System Activity Diagram
+
+The activity diagram below describes the general sequence of actions across several objects and use cases for the purpose of functional modelling in the system as a whole. It outlines the complete workflow of a guest booking journey—including registration, date selection, gateway payment processing, WebSocket verification, QR door access, stay extensions, housekeeping checkout, and rating submission.
+
+![Activity Diagram for HomeLodge](activity_diagram.png)
+
+**Figure 2.2: Activity Diagram for HomeLodge**
+- Editable source: [activity_diagram.drawio](file:///c:/Users/Admin/Documents/HomeLodge-Doc/docs/system-design/HomeLodge/activity_diagram.drawio)
 
 ---
 
