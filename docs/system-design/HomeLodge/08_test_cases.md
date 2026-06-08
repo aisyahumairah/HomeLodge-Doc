@@ -6,14 +6,14 @@ This chapter lists the test cases for the HomeLodge system, organised by subsyst
 
 ---
 
-## 8.1 TC001: Test Authentication Subsystem: User Registration (UC001)
+## 8.1 TC001: Test Authentication Subsystem: User Registration (UC-AUTH-01)
 
 This test contains the following test cases:
-1. TC001_01: Test User Registration — Successful (SD001)
+1. TC001_01: Test User Registration — Successful (SD-AUTH-01)
 2. TC001_02: Test User Registration — Duplicate Email
 3. TC001_03: Test User Registration — Invalid Password
 
-### 8.1.1 TC001_01: Test User Registration — Successful (SD001)
+### 8.1.1 TC001_01: Test User Registration — Successful (SD-AUTH-01)
 
 | Field | Detail |
 | :--- | :--- |
@@ -27,7 +27,7 @@ This test contains the following test cases:
 | 1 | Navigate to the registration page. | The registration form is displayed with fields: Name, Email, Password, Confirm Password. | | |
 | 2 | Fill in all fields with the test data. | All fields accept input. Password shows real-time strength indicator. | | |
 | 3 | Click the "Register" button. | A success message is displayed: "Registration successful." The user is redirected to the login page or dashboard. A verification email is sent. | | |
-| 4 | Check the database. | A new User record exists with email "newguest@example.com", role "User", status "active". | | |
+| 4 | Check the database. | A new User record exists with email "newguest@example.com", role "Guest", status "active". | | |
 
 ### 8.1.2 TC001_02: Test User Registration — Duplicate Email
 
@@ -57,18 +57,18 @@ This test contains the following test cases:
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Navigate to the registration page. | The registration form is displayed. | | |
 | 2 | Enter "weak" in the password field. | The real-time password indicator shows unmet criteria (uppercase, digit, special character, minimum length). | | |
-| 3 | Click the "Register" button. | Validation errors appear below the password field listing all unmet criteria (AUTH-05). The submit is rejected. | | |
+| 3 | Click the "Register" button. | Validation errors appear below the password field listing all unmet criteria. The submit is rejected. | | |
 
 ---
 
-## 8.2 TC002: Test Authentication Subsystem: User Login (UC002)
+## 8.2 TC002: Test Authentication Subsystem: User Login (UC-AUTH-02)
 
 This test contains the following test cases:
-1. TC002_01: Test Successful Login (SD002)
+1. TC002_01: Test Successful Login (SD-AUTH-02)
 2. TC002_02: Test Failed Login — Wrong Password
 3. TC002_03: Test Account Lockout
 
-### 8.2.1 TC002_01: Test Successful Login (SD002)
+### 8.2.1 TC002_01: Test Successful Login (SD-AUTH-02)
 
 | Field | Detail |
 | :--- | :--- |
@@ -115,13 +115,13 @@ This test contains the following test cases:
 
 ---
 
-## 8.3 TC003: Test Homestay Management Subsystem: Create Unit (UC005)
+## 8.3 TC003: Test Homestay Management Subsystem: Create Unit (UC-HS-03)
 
 This test contains the following test cases:
-1. TC003_01: Test Create Homestay Unit — Successful (SD005)
-2. TC003_02: Test Delete Unit with Future Bookings
+1. TC003_01: Test Create Homestay Unit — Successful (SD-HS-03)
+2. TC003_02: Test Delete Unit with Future Bookings (SD-HS-05)
 
-### 8.3.1 TC003_01: Test Create Homestay Unit — Successful (SD005)
+### 8.3.1 TC003_01: Test Create Homestay Unit — Successful (SD-HS-03)
 
 | Field | Detail |
 | :--- | :--- |
@@ -135,9 +135,9 @@ This test contains the following test cases:
 | 1 | Navigate to Homestays → Create New. | The creation form is displayed. | | |
 | 2 | Fill in all fields with test data and upload images. | All fields accept input. Images preview correctly. | | |
 | 3 | Click "Save". | Success toast: "Homestay unit created successfully." The unit appears in the list as "active". | | |
-| 4 | View the new unit's detail page. | Default house policies (No Pets, No Durians, No Smoking) are automatically applied (HS-10). | | |
+| 4 | View the new unit's detail page. | Default house policies (No Pets, No Durians, No Smoking) are automatically applied. | | |
 
-### 8.3.2 TC003_02: Test Delete Unit with Future Bookings
+### 8.3.2 TC003_02: Test Delete Unit with Future Bookings (SD-HS-05)
 
 | Field | Detail |
 | :--- | :--- |
@@ -149,18 +149,18 @@ This test contains the following test cases:
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Navigate to the unit list and click "Delete" on "Unit A". | A confirmation modal appears with a red "Delete" button. | | |
-| 2 | Click the "Delete" button in the modal. | Error message: "Cannot delete unit with future bookings." (HS-03). The unit is not deleted. | | |
+| 2 | Click the "Delete" button in the modal. | Error message: "Cannot delete unit with future bookings." The unit is not deleted. | | |
 
 ---
 
-## 8.4 TC004: Test Booking Subsystem: Create Booking (UC007)
+## 8.4 TC004: Test Booking Subsystem: Submit Booking (UC-BK-02)
 
 This test contains the following test cases:
-1. TC004_01: Test Create Booking — Successful (SD007)
-2. TC004_02: Test Create Booking — Date Unavailable
-3. TC004_03: Test Auto-Cancel Unpaid Booking (SD009)
+1. TC004_01: Test Submit Booking — Successful (SD-BK-02)
+2. TC004_02: Test Booking Creation — Date Unavailable (SD-BK-01)
+3. TC004_03: Test Auto-Cancel Expired Booking (SD-BK-07)
 
-### 8.4.1 TC004_01: Test Create Booking — Successful (SD007)
+### 8.4.1 TC004_01: Test Submit Booking — Successful (SD-BK-02)
 
 | Field | Detail |
 | :--- | :--- |
@@ -172,11 +172,11 @@ This test contains the following test cases:
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Navigate to "Unit A" detail page. | The availability calendar shows 2026-07-01 and 2026-07-02 in green. | | |
-| 2 | Select check-in and check-out dates. | Availability is confirmed in real time (BK-U-03). Submit button is enabled. | | |
-| 3 | Click "Book Now". | Booking is created with a unique booking number (e.g., `BK-20260701-001`). Status: "pending_payment". A bill is generated. | | |
+| 2 | Select check-in and check-out dates. | Availability is confirmed in real time. Submit button is enabled. | | |
+| 3 | Click "Confirm Booking". | Booking is created with a unique booking number (e.g., `BK-20260701-001`). Status: "awaiting_payment". A bill is generated. | | |
 | 4 | Check My Bookings page. | The new booking appears with status badge "Pending Payment" (amber). | | |
 
-### 8.4.2 TC004_02: Test Create Booking — Date Unavailable
+### 8.4.2 TC004_02: Test Booking Creation — Date Unavailable (SD-BK-01)
 
 | Field | Detail |
 | :--- | :--- |
@@ -188,15 +188,15 @@ This test contains the following test cases:
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Navigate to "Unit A" detail page. | Calendar shows 2026-07-01 and 2026-07-02 in red (booked). | | |
-| 2 | Select the booked dates. | Error message: "The selected date has been booked! Please choose another date" (BK-U-04). Submit button is disabled. | | |
+| 2 | Select the booked dates. | Error message: "The selected date has been booked! Please choose another date". Submit button is disabled. | | |
 
-### 8.4.3 TC004_03: Test Auto-Cancel Unpaid Booking (SD009)
+### 8.4.3 TC004_03: Test Auto-Cancel Expired Booking (SD-BK-07)
 
 | Field | Detail |
 | :--- | :--- |
 | **Test Case ID** | TC004_03 |
 | **Test Case Name** | Auto-Cancellation of Unpaid Booking |
-| **Prerequisites** | A booking exists with status "pending_payment". Payment deadline has passed. |
+| **Prerequisites** | A booking exists with status "awaiting_payment". Payment deadline has passed. |
 | **Test Data** | Booking: `BK-20260701-001`, payment_deadline: expired |
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
@@ -206,20 +206,20 @@ This test contains the following test cases:
 
 ---
 
-## 8.5 TC005: Test Payment Subsystem: Make Payment (UC010)
+## 8.5 TC005: Test Payment Subsystem: Make Payment (UC-PAY-01)
 
 This test contains the following test cases:
-1. TC005_01: Test Successful Payment (SD010)
-2. TC005_02: Test Payment Webhook — Success (SD011)
-3. TC005_03: Test Payment Webhook — Duplicate
+1. TC005_01: Test Successful Payment (SD-PAY-01)
+2. TC005_02: Test Payment Webhook — Success (SD-PAY-01)
+3. TC005_03: Test Payment Webhook — Duplicate (SD-PAY-01)
 
-### 8.5.1 TC005_01: Test Successful Payment (SD010)
+### 8.5.1 TC005_01: Test Successful Payment (SD-PAY-01)
 
 | Field | Detail |
 | :--- | :--- |
 | **Test Case ID** | TC005_01 |
 | **Test Case Name** | Successful Payment via Gateway |
-| **Prerequisites** | Guest has a booking with status "pending_payment" and an unpaid bill. |
+| **Prerequisites** | Guest has a booking with status "awaiting_payment" and an unpaid bill. |
 | **Test Data** | Booking: `BK-20260701-001`, Amount: RM 350.00 |
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
@@ -228,13 +228,13 @@ This test contains the following test cases:
 | 2 | Complete payment on the gateway. | Guest is redirected back to HomeLodge with a success confirmation page. | | |
 | 3 | Verify booking status. | Booking status changes to "confirmed". Bill status changes to "paid". A Payment record is created. A QR code is generated. | | |
 
-### 8.5.2 TC005_02: Test Payment Webhook — Success (SD011)
+### 8.5.2 TC005_02: Test Payment Webhook — Success (SD-PAY-01)
 
 | Field | Detail |
 | :--- | :--- |
 | **Test Case ID** | TC005_02 |
 | **Test Case Name** | Webhook Processing — Successful Payment |
-| **Prerequisites** | Booking `BK-20260701-001` exists with status "pending_payment". |
+| **Prerequisites** | Booking `BK-20260701-001` exists with status "awaiting_payment". |
 | **Test Data** | Webhook payload: { gateway_reference: "GW-001", status: "success", signature: valid } |
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
@@ -243,7 +243,7 @@ This test contains the following test cases:
 | 2 | Verify database records. | Bill marked "paid". Payment record created with gateway_reference "GW-001". Booking status "confirmed". QR code generated. | | |
 | 3 | Verify notifications. | Guest receives in-app and email notification of successful payment. | | |
 
-### 8.5.3 TC005_03: Test Payment Webhook — Duplicate
+### 8.5.3 TC005_03: Test Payment Webhook — Duplicate (SD-PAY-01)
 
 | Field | Detail |
 | :--- | :--- |
@@ -258,14 +258,14 @@ This test contains the following test cases:
 
 ---
 
-## 8.6 TC006: Test QR Code Subsystem: Generate QR Code (UC022)
+## 8.6 TC006: Test QR Code & Access Subsystem: Receive & Use QR Code (UC-QR-01)
 
 This test contains the following test cases:
-1. TC006_01: Test QR Code Generation on Booking Confirmation (SD022)
-2. TC006_02: Test Booking Extension — Successful (SD023)
-3. TC006_03: Test Extension Auto-Cancel (SD024)
+1. TC006_01: Test QR Code Generation on Booking Confirmation (SD-QR-01)
+2. TC006_02: Test Booking Extension — Successful (SD-QR-03 & SD-QR-04)
+3. TC006_03: Test Extension Auto-Cancel (SD-QR-05)
 
-### 8.6.1 TC006_01: Test QR Code Generation (SD022)
+### 8.6.1 TC006_01: Test QR Code Generation (SD-QR-01)
 
 | Field | Detail |
 | :--- | :--- |
@@ -279,7 +279,7 @@ This test contains the following test cases:
 | 1 | View the booking detail page. | A QR code image is displayed. | | |
 | 2 | Verify QR code record in database. | Token is unique, valid_from = 2026-07-01 15:00, valid_until = 2026-07-03 12:00, purpose = "guest", status = "active". | | |
 
-### 8.6.2 TC006_02: Test Booking Extension — Successful (SD023)
+### 8.6.2 TC006_02: Test Booking Extension — Successful (SD-QR-03 & SD-QR-04)
 
 | Field | Detail |
 | :--- | :--- |
@@ -292,16 +292,16 @@ This test contains the following test cases:
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Admin navigates to QR Code Management and clicks "Extend" for the booking. | The extension form appears. | | |
 | 2 | Admin selects new check-out date 2026-07-04. | System checks availability — no conflict. Extension charge calculated: RM 150.00. | | |
-| 3 | Admin confirms the extension. | Extension record created with status "pending_payment". Additional bill generated. Payment deadline set (60 minutes). Guest notified. | | |
+| 3 | Admin confirms the extension. | Extension record created with status "awaiting_payment". Additional bill generated. Payment deadline set (60 minutes). Guest notified. | | |
 | 4 | Guest pays the extension charge within the window. | Extension status → "paid". Booking check-out updated to 2026-07-04 12:00. QR code valid_until updated. | | |
 
-### 8.6.3 TC006_03: Test Extension Auto-Cancel (SD024)
+### 8.6.3 TC006_03: Test Extension Auto-Cancel (SD-QR-05)
 
 | Field | Detail |
 | :--- | :--- |
 | **Test Case ID** | TC006_03 |
 | **Test Case Name** | Extension Auto-Cancelled Due to Non-Payment |
-| **Prerequisites** | Extension exists with status "pending_payment". Payment deadline has passed. |
+| **Prerequisites** | Extension exists with status "awaiting_payment". Payment deadline has passed. |
 | **Test Data** | Extension for booking `BK-20260701-001`, payment_deadline: expired |
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
@@ -311,14 +311,14 @@ This test contains the following test cases:
 
 ---
 
-## 8.7 TC007: Test Guest Feedback Subsystem: Submit Feedback (UC027)
+## 8.7 TC007: Test Guest Feedback Subsystem: Submit Rating & Feedback (UC-FB-01)
 
 This test contains the following test cases:
-1. TC007_01: Test Submit Feedback — Successful (SD027)
+1. TC007_01: Test Submit Feedback — Successful (SD-FB-01)
 2. TC007_02: Test Submit Feedback — Booking Not Completed
 3. TC007_03: Test Duplicate Feedback
 
-### 8.7.1 TC007_01: Test Submit Feedback — Successful (SD027)
+### 8.7.1 TC007_01: Test Submit Feedback — Successful (SD-FB-01)
 
 | Field | Detail |
 | :--- | :--- |
@@ -345,7 +345,7 @@ This test contains the following test cases:
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Navigate to the booking detail page. | The feedback form is NOT displayed. A message says "Feedback can be submitted after your stay is completed." (FB-U-02) | | |
+| 1 | Navigate to the booking detail page. | The feedback form is NOT displayed. A message says "Feedback can be submitted after your stay is completed." | | |
 
 ### 8.7.3 TC007_03: Test Duplicate Feedback
 
@@ -358,7 +358,7 @@ This test contains the following test cases:
 
 | Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Navigate to the booking detail page. | The submitted feedback is displayed (read-only). The feedback form is replaced by a "You have already submitted feedback" message. (FB-U-03) | | |
+| 1 | Navigate to the booking detail page. | The submitted feedback is displayed (read-only). The feedback form is replaced by a "You have already submitted feedback" message. | | |
 
 ---
 
@@ -369,32 +369,32 @@ The table below traces each test case back to its use case / sequence diagram an
 | Test Case ID | Use Case ID / Sequence Diagram ID | Package ID |
 | :--- | :--- | :--- |
 | TC001 for Authentication Subsystem | | P001 |
-| TC001_01 | UC001 / SD001 | P001 |
-| TC001_02 | UC001 / SD001 (alternate) | P001 |
-| TC001_03 | UC001 / SD001 (exception) | P001 |
+| TC001_01 | UC-AUTH-01 / SD-AUTH-01 | P001 |
+| TC001_02 | UC-AUTH-01 / SD-AUTH-01 (alternate) | P001 |
+| TC001_03 | UC-AUTH-01 / SD-AUTH-01 (exception) | P001 |
 | TC002 for Authentication Subsystem | | P001 |
-| TC002_01 | UC002 / SD002 | P001 |
-| TC002_02 | UC002 / SD002 (alternate) | P001 |
-| TC002_03 | UC002 / SD002 (exception) | P001 |
+| TC002_01 | UC-AUTH-02 / SD-AUTH-02 | P001 |
+| TC002_02 | UC-AUTH-02 / SD-AUTH-02 (alternate) | P001 |
+| TC002_03 | UC-AUTH-02 / SD-AUTH-02 (exception) | P001 |
 | TC003 for Homestay Management Subsystem | | P002 |
-| TC003_01 | UC005 / SD005 | P002 |
-| TC003_02 | UC005 / SD005 (exception) | P002 |
+| TC003_01 | UC-HS-03 / SD-HS-03 | P002 |
+| TC003_02 | UC-HS-05 / SD-HS-05 (exception) | P002 |
 | TC004 for Booking Subsystem | | P003 |
-| TC004_01 | UC007 / SD007 | P003 |
-| TC004_02 | UC007 / SD007 (alternate) | P003 |
-| TC004_03 | UC009 / SD009 | P003 |
+| TC004_01 | UC-BK-02 / SD-BK-02 | P003 |
+| TC004_02 | UC-BK-01 / SD-BK-01 (alternate) | P003 |
+| TC004_03 | UC-BK-07 / SD-BK-07 | P003 |
 | TC005 for Payment Subsystem | | P004 |
-| TC005_01 | UC010 / SD010 | P004 |
-| TC005_02 | UC011 / SD011 | P004 |
-| TC005_03 | UC011 / SD011 (alternate) | P004 |
-| TC006 for QR Code Subsystem | | P011 |
-| TC006_01 | UC022 / SD022 | P011 |
-| TC006_02 | UC023 / SD023 | P011 |
-| TC006_03 | UC024 / SD024 | P011 |
-| TC007 for Guest Feedback Subsystem | | P013 |
-| TC007_01 | UC027 / SD027 | P013 |
-| TC007_02 | UC027 / SD027 (exception) | P013 |
-| TC007_03 | UC027 / SD027 (alternate) | P013 |
+| TC005_01 | UC-PAY-01 / SD-PAY-01 | P004 |
+| TC005_02 | UC-PAY-01 / SD-PAY-01 (webhook) | P004 |
+| TC005_03 | UC-PAY-01 / SD-PAY-01 (webhook alternate) | P004 |
+| TC006 for QR Code & Access Subsystem | | P010 |
+| TC006_01 | UC-QR-01 / SD-QR-01 | P010 |
+| TC006_02 | UC-QR-03 & UC-QR-04 / SD-QR-03 & SD-QR-04 | P010 |
+| TC006_03 | UC-QR-05 / SD-QR-05 | P010 |
+| TC007 for Guest Feedback Subsystem | | P012 |
+| TC007_01 | UC-FB-01 / SD-FB-01 | P012 |
+| TC007_02 | UC-FB-01 / SD-FB-01 (exception) | P012 |
+| TC007_03 | UC-FB-01 / SD-FB-01 (alternate) | P012 |
 
 ---
 
