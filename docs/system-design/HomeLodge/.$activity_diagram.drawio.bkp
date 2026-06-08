@@ -1,0 +1,270 @@
+<mxfile host="Electron" agent="HomeLodge SDD">
+  <diagram id="homelodge-activity-diagram" name="Activity Diagram">
+    <mxGraphModel dx="1645" dy="971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Diagram Title -->
+        <mxCell id="title" parent="1" style="text;html=1;fontStyle=1;fontSize=18;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" value="HomeLodge Activity Diagram — Overall System Flow" vertex="1">
+          <mxGeometry height="40" width="800" x="40" y="10" as="geometry" />
+        </mxCell>
+        
+        <!-- Swimlanes Pool -->
+        <mxCell id="pool" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;html=1;horizontal=0;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="800" height="1940" as="geometry" />
+        </mxCell>
+        
+        <!-- Lane 1: Guest -->
+        <mxCell id="lane_guest" value="Guest (User)" style="shape=tableRow;horizontal=0;startSize=30;swimlaneHead=1;html=1;collapsible=0;fillColor=#e1f5fe;strokeColor=#0288d1;fontColor=#01579b;fontStyle=1;align=center;" vertex="1" parent="pool">
+          <mxGeometry width="200" height="1940" as="geometry" />
+        </mxCell>
+        
+        <!-- Lane 2: Admin -->
+        <mxCell id="lane_admin" value="Admin / Housekeeping" style="shape=tableRow;horizontal=0;startSize=30;swimlaneHead=1;html=1;collapsible=0;fillColor=#efebe9;strokeColor=#5d4037;fontColor=#3e2723;fontStyle=1;align=center;" vertex="1" parent="pool">
+          <mxGeometry x="200" width="200" height="1940" as="geometry" />
+        </mxCell>
+        
+        <!-- Lane 3: System / Scheduler -->
+        <mxCell id="lane_sys" value="System / Scheduler" style="shape=tableRow;horizontal=0;startSize=30;swimlaneHead=1;html=1;collapsible=0;fillColor=#e8f5e9;strokeColor=#388e3c;fontColor=#1b5e20;fontStyle=1;align=center;" vertex="1" parent="pool">
+          <mxGeometry x="400" width="200" height="1940" as="geometry" />
+        </mxCell>
+        
+        <!-- Lane 4: Payment Gateway -->
+        <mxCell id="lane_pg" value="Payment Gateway" style="shape=tableRow;horizontal=0;startSize=30;swimlaneHead=1;html=1;collapsible=0;fillColor=#fff3e0;strokeColor=#f57c00;fontColor=#e65100;fontStyle=1;align=center;" vertex="1" parent="pool">
+          <mxGeometry x="600" width="200" height="1940" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== GUEST LANE NODES ==================== -->
+        <mxCell id="start" value="" style="ellipse;fillColor=#000000;strokeColor=none;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="110" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_auth" value="Register / Login&#xa;(UC-AUTH-01/02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_browse" value="Browse Homestay Units&#xa;&amp;amp; View Availability&#xa;(UC-HS-01/02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="75" y="230" width="130" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_select_dates" value="Select Dates &amp;amp; Submit Booking&#xa;(UC-BK-01/02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="75" y="305" width="130" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dec_pay_choice" value="Pay before&#xa;24h expiry?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="380" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_guest_pay" value="Make Payment via Gateway&#xa;(UC-PAY-01)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="75" y="520" width="130" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_guest_use_qr" value="Receive QR Code &amp;amp; Access Unit&#xa;(UC-QR-01)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1010" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dec_stay_extend" value="Need stay&#xa;extension?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1090" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_guest_req_ext" value="Initiate Booking Extension&#xa;(UC-QR-03)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1210" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_guest_pay_ext" value="Pay Extension Charge&#xa;(UC-QR-04)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1390" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_guest_feedback" value="Submit Stay Rating &amp;amp; Feedback&#xa;(UC-FB-01)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#0288d1;fontColor=#01579b;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1670" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== ADMIN LANE NODES ==================== -->
+        <mxCell id="act_admin_housekeeping" value="Perform Housekeeping &amp;amp;&#xa;Clean Unit (UC-QR-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#5d4037;fontColor=#3e2723;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="1670" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_admin_complete_housekeeping" value="Mark Housekeeping Complete&#xa;(UC-QR-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#5d4037;fontColor=#3e2723;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="265" y="1740" width="150" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_admin_respond" value="View Feedback, Respond /&#xa;Moderate (UC-FB-03)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#5d4037;fontColor=#3e2723;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="265" y="1810" width="150" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_admin_report" value="View Dashboard Analytics&#xa;&amp;amp; Export Reports (UC-RPT-01/02/03)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#5d4037;fontColor=#3e2723;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="255" y="1920" width="170" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="end_flow" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="330" y="1980" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== SYSTEM LANE NODES ==================== -->
+        <mxCell id="act_sys_create_booking" value="Create Booking (Pending)&#xa;&amp;amp; Temporary Hold Dates&#xa;(UC-BK-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="470" y="305" width="140" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_autocancel" value="Auto-Cancel Booking&#xa;&amp;amp; Reopen Dates (UC-BK-07)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="470" y="400" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="end_cancelled" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="530" y="470" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_verify" value="Verify Webhook Signature&#xa;(UC-PAY-01)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="470" y="600" width="140" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dec_webhook_valid" value="Valid signature&#xa;&amp;amp; success?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="680" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_log_alert" value="Log Security Alert &amp;amp;&#xa;Drop Webhook (UC-AUDIT-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="800" width="160" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="end_failed" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="530" y="870" width="20" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_confirm" value="Confirm Booking, Generate QR,&#xa;Send Receipts &amp;amp; Notify Guest&#xa;(UC-PAY-01, UC-NOTIF-01)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="920" width="180" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_gcal_sync" value="Sync Booking with&#xa;Google Calendar (UC-NOTIF-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="1010" width="180" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_process_ext" value="Check Extension Availability&#xa;&amp;amp; Generate Extension Bill&#xa;(UC-QR-03)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="455" y="1210" width="170" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dec_ext_pay" value="Paid within&#xa;60m window?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1290" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_cancel_ext" value="Auto-Cancel Extension &amp;amp;&#xa;Revert Booking (UC-QR-05)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="455" y="1390" width="170" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_update_qr" value="Extend QR Validity Window&#xa;&amp;amp; Confirm Stay Extension&#xa;(UC-QR-04)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="455" y="1470" width="170" height="45" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_checkout" value="Invalidate Guest QR Code&#xa;upon Check-out (UC-QR-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1560" width="160" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="fork_checkout" value="" style="rounded=0;fillColor=#000000;strokeColor=none;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1630" width="460" height="6" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_sys_regen_qr" value="Generate Temporary Staff QR&#xa;&amp;amp; Next Guest QR (UC-QR-02)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#388e3c;fontColor=#1b5e20;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="460" y="1740" width="160" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="join_checkout" value="" style="rounded=0;fillColor=#000000;strokeColor=none;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1880" width="460" height="6" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== PG LANE NODES ==================== -->
+        <mxCell id="act_pg_process" value="Process Guest Payment" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#f57c00;fontColor=#e65100;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="520" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="act_pg_webhook" value="Post Signed Webhook&#xa;Callback" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#ffffff;strokeColor=#f57c00;fontColor=#e65100;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="680" y="600" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- ==================== EDGES / TRANSITIONS ==================== -->
+        <mxCell id="f1" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="start" target="act_auth"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f2" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_auth" target="act_browse"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f3" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_browse" target="act_select_dates"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f4" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_select_dates" target="act_sys_create_booking"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f5" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_sys_create_booking" target="dec_pay_choice"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="f6" value="No" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_pay_choice" target="act_sys_autocancel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;" edge="1" parent="1" source="act_sys_autocancel" target="end_cancelled"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="f8" value="Yes" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_pay_choice" target="act_guest_pay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="f9" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_guest_pay" target="act_pg_process"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f10" style="endArrow=open;endFill=1;strokeColor=#f57c00;html=1;" edge="1" parent="1" source="act_pg_process" target="act_pg_webhook"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f11" style="endArrow=open;endFill=1;strokeColor=#f57c00;html=1;" edge="1" parent="1" source="act_pg_webhook" target="act_sys_verify"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f12" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;" edge="1" parent="1" source="act_sys_verify" target="dec_webhook_valid"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="f13" value="No" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_webhook_valid" target="act_sys_log_alert">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f14" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;" edge="1" parent="1" source="act_sys_log_alert" target="end_failed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="f15" value="Yes" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_webhook_valid" target="act_sys_confirm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="f16" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;" edge="1" parent="1" source="act_sys_confirm" target="act_sys_gcal_sync"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f17" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_sys_gcal_sync" target="act_guest_use_qr"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f18" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_guest_use_qr" target="dec_stay_extend"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Extension branch Yes -->
+        <mxCell id="f19" value="Yes" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_stay_extend" target="act_guest_req_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f20" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_guest_req_ext" target="act_sys_process_ext"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f21" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;" edge="1" parent="1" source="act_sys_process_ext" target="dec_ext_pay"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Extension unpaid timeout -->
+        <mxCell id="f22" value="No" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_ext_pay" target="act_sys_cancel_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f23" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;" edge="1" parent="1" source="act_sys_cancel_ext" target="act_sys_checkout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Extension paid successfully -->
+        <mxCell id="f24" value="Yes" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_ext_pay" target="act_guest_pay_ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f25" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;" edge="1" parent="1" source="act_guest_pay_ext" target="act_sys_update_qr"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Loop back to extend decision -->
+        <mxCell id="f26" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_sys_update_qr" target="dec_stay_extend">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="1493" />
+              <mxPoint x="640" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Checkout branch (stay_extend No) -->
+        <mxCell id="f27" value="No" style="endArrow=open;endFill=1;strokeColor=#0288d1;html=1;labelBackgroundColor=#ffffff;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="dec_stay_extend" target="act_sys_checkout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="f28" style="endArrow=open;endFill=1;strokeColor=#388e3c;html=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_sys_checkout" target="fork_checkout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Fork branch 1: housekeeping -->
+        <mxCell id="f29" style="endArrow=open;endFill=1;strokeColor=#5d4037;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="fork_checkout" target="act_admin_housekeeping"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f30" style="endArrow=open;endFill=1;strokeColor=#5d4037;" edge="1" parent="1" source="act_admin_housekeeping" target="act_admin_complete_housekeeping"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f31" style="endArrow=open;endFill=1;strokeColor=#5d4037;" edge="1" parent="1" source="act_admin_complete_housekeeping" target="act_sys_regen_qr"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f32" style="endArrow=open;endFill=1;strokeColor=#388e3c;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_sys_regen_qr" target="join_checkout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Fork branch 2: feedback -->
+        <mxCell id="f33" style="endArrow=open;endFill=1;strokeColor=#0288d1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="fork_checkout" target="act_guest_feedback"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f34" style="endArrow=open;endFill=1;strokeColor=#0288d1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_guest_feedback" target="act_admin_respond"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f35" style="endArrow=open;endFill=1;strokeColor=#5d4037;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="act_admin_respond" target="join_checkout"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <!-- Join to report and end -->
+        <mxCell id="f36" style="endArrow=open;endFill=1;strokeColor=#5d4037;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="join_checkout" target="act_admin_report"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f37" style="endArrow=open;endFill=1;strokeColor=#5d4037;" edge="1" parent="1" source="act_admin_report" target="end_flow"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
