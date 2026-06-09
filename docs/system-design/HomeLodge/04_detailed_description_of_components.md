@@ -292,20 +292,40 @@ User-->ProfileController: Return User
 ProfileController-->ProfileView: Render profile
 ProfileView-->User: Display details
 
-User->ProfileView: Edit fields / update photo
-User->ProfileView: Click Save
-ProfileView->ProfileController: PUT /profile
-ProfileController->ProfileController: Validate input
-alt Validation fails
-  ProfileController-->ProfileView: Redirect back with errors
-  ProfileView-->User: Highlight invalid fields
-else Valid
-  ProfileController->User: updateProfile(data)
-  User->Database: Save updated profile
-  Database-->User: Updated
-  User-->ProfileController: Success
-  ProfileController-->ProfileView: Redirect with success
-  ProfileView-->User: Profile updated successfully
+alt Update Profile Information
+  User->ProfileView: Edit fields / update photo
+  User->ProfileView: Click Save
+  ProfileView->ProfileController: PUT /profile
+  ProfileController->ProfileController: Validate input
+  alt Validation fails
+    ProfileController-->ProfileView: Redirect back with errors
+    ProfileView-->User: Highlight invalid fields
+  else Valid
+    ProfileController->User: updateProfile(data)
+    User->Database: Save updated profile
+    Database-->User: Updated
+    User-->ProfileController: Success
+    ProfileController-->ProfileView: Redirect with success
+    ProfileView-->User: Profile updated successfully
+  end
+else Change Password
+  User->ProfileView: Click Change Password
+  ProfileView-->User: Display password change form
+  User->ProfileView: Enter current password, new password, confirm new
+  User->ProfileView: Click Save Password
+  ProfileView->ProfileController: PUT /profile/password
+  ProfileController->ProfileController: Validate input & check current password
+  alt Validation fails / Incorrect current password
+    ProfileController-->ProfileView: Redirect back with errors
+    ProfileView-->User: Highlight invalid fields / Show error
+  else Valid
+    ProfileController->User: updatePassword(newPassword)
+    User->Database: Save new hashed password
+    Database-->User: Updated
+    User-->ProfileController: Success
+    ProfileController-->ProfileView: Redirect with success
+    ProfileView-->User: Password changed successfully
+  end
 end
 ```
 
