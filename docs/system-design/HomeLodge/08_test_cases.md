@@ -362,6 +362,212 @@ This test contains the following test cases:
 
 ---
 
+## 8.8 TC008: Test Notification Subsystem: Receive System Notification (UC-NOTIF-01)
+
+This test contains the following test cases:
+1. TC008_01: Test In-App Notification Received Successfully
+2. TC008_02: Test Email Notification Delivery
+
+### 8.8.1 TC008_01: Test In-App Notification Received Successfully
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC008_01 |
+| **Test Case Name** | In-App Notification Received Successfully |
+| **Prerequisites** | User is logged in. A triggering event occurs (e.g., booking confirmed). |
+| **Test Data** | Event: Booking Confirmation |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | System triggers notification event. | Bell icon badge updates with unread count in real-time. | | |
+| 2 | Click on the bell icon. | Notifications panel opens, showing the newest notification first. | | |
+| 3 | Click the notification. | Notification is marked as read, user is redirected to the booking detail page. | | |
+
+### 8.8.2 TC008_02: Test Email Notification Delivery
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC008_02 |
+| **Test Case Name** | Email Notification Delivery |
+| **Prerequisites** | User has a valid email. Email settings are enabled globally (UC-SET-01). |
+| **Test Data** | Event: Booking Confirmation |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | System triggers notification event. | System checks if email notifications are enabled. | | |
+| 2 | Check user's email inbox. | An email detailing the booking confirmation is received. | | |
+
+---
+
+## 8.9 TC009: Test Chat Subsystem: Send / Receive Messages (UC-CHAT-01)
+
+This test contains the following test cases:
+1. TC009_01: Test Guest Sends Message to Admin
+2. TC009_02: Test Admin Replies to Guest
+
+### 8.9.1 TC009_01: Test Guest Sends Message to Admin
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC009_01 |
+| **Test Case Name** | Guest Sends Message to Admin |
+| **Prerequisites** | Guest is logged in. |
+| **Test Data** | Message: "Is early check-in allowed?" |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Guest navigates to Chat and opens conversation with Admin. | Chat window is displayed. | | |
+| 2 | Guest types message and clicks Send. | Message appears in guest's chat history. | | |
+| 3 | Admin checks their chat inbox. | Admin receives the message from the guest. | | |
+
+### 8.9.2 TC009_02: Test Admin Replies to Guest
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC009_02 |
+| **Test Case Name** | Admin Replies to Guest |
+| **Prerequisites** | Admin is logged in. Guest has sent a message. |
+| **Test Data** | Message: "Yes, early check-in is subject to availability." |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Admin opens the conversation with the Guest. | Chat window is displayed with guest's previous messages. | | |
+| 2 | Admin types reply and clicks Send. | Message appears in admin's chat history. | | |
+| 3 | Guest checks their chat window. | Guest receives the reply from the admin in real-time. | | |
+
+---
+
+## 8.10 TC010: Test User & Access Management Subsystem: Manage Roles (UC-USR-04)
+
+This test contains the following test cases:
+1. TC010_01: Test Admin Creates and Assigns New Role
+2. TC010_02: Test Attempt Unauthorized Access
+
+### 8.10.1 TC010_01: Test Admin Creates and Assigns New Role
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC010_01 |
+| **Test Case Name** | Admin Creates and Assigns New Role |
+| **Prerequisites** | Super Admin is logged in. |
+| **Test Data** | Role Name: "Support Staff", Permissions: ["view-bookings", "reply-chat"] |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Navigate to User Management → Roles & Permissions. | Role management page is displayed. | | |
+| 2 | Click "Create Role", fill test data, and submit. | Role is created successfully. | | |
+| 3 | Navigate to Users list, edit a user, and assign "Support Staff" role. | User is updated successfully with the new role. | | |
+
+### 8.10.2 TC010_02: Test Attempt Unauthorized Access
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC010_02 |
+| **Test Case Name** | Attempt Unauthorized Access |
+| **Prerequisites** | User logged in with "Support Staff" role. |
+| **Test Data** | Target Action: "delete-unit" |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | User attempts to navigate to the Homestay Unit deletion endpoint/UI. | The UI button is hidden or disabled. | | |
+| 2 | User directly accesses the delete URL. | System returns a 403 Forbidden error. | | |
+
+---
+
+## 8.11 TC011: Test System Settings Subsystem: Configure System Settings (UC-SET-01)
+
+This test contains the following test cases:
+1. TC011_01: Test Admin Updates General Settings Successfully
+
+### 8.11.1 TC011_01: Test Admin Updates General Settings Successfully
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC011_01 |
+| **Test Case Name** | Admin Updates General Settings Successfully |
+| **Prerequisites** | Admin is logged in. |
+| **Test Data** | Setting: "Email Notifications Enabled", Value: "False" |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Navigate to System Settings. | Settings form is displayed with current values. | | |
+| 2 | Toggle "Email Notifications Enabled" to False and click Save. | Success message displayed. Settings are updated in the database. | | |
+| 3 | Trigger a notification event. | In-app notification is sent, but no email is sent. | | |
+
+---
+
+## 8.12 TC012: Test Audit Logs Subsystem: View / Filter Audit Trail (UC-AUDIT-01)
+
+This test contains the following test cases:
+1. TC012_01: Test System Automatically Logs Event (UC-AUDIT-02)
+2. TC012_02: Test Admin Filters Audit Logs by Date Range
+
+### 8.12.1 TC012_01: Test System Automatically Logs Event (UC-AUDIT-02)
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC012_01 |
+| **Test Case Name** | System Automatically Logs Event |
+| **Prerequisites** | Admin is logged in. |
+| **Test Data** | Action: Create a new Homestay Unit. |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Admin performs the create unit action. | Action completes successfully. | | |
+| 2 | Navigate to Audit Logs page. | A new log entry is visible showing the admin's name, action ("Unit Created"), timestamp, and IP address. | | |
+
+### 8.12.2 TC012_02: Test Admin Filters Audit Logs by Date Range
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC012_02 |
+| **Test Case Name** | Admin Filters Audit Logs by Date Range |
+| **Prerequisites** | Audit logs exist for various dates. |
+| **Test Data** | Start Date: Yesterday, End Date: Today |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Navigate to Audit Logs page. | Complete list of logs is displayed. | | |
+| 2 | Select Start Date and End Date, then click Filter. | The list is refreshed to only show logs within the selected date range. | | |
+
+---
+
+## 8.13 TC013: Test Reporting & Analytics Subsystem: View Revenue Report (UC-RPT-02)
+
+This test contains the following test cases:
+1. TC013_01: Test View Revenue Report with Date Filter
+2. TC013_02: Test Export Revenue Report to PDF (UC-RPT-03)
+
+### 8.13.1 TC013_01: Test View Revenue Report with Date Filter
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC013_01 |
+| **Test Case Name** | View Revenue Report with Date Filter |
+| **Prerequisites** | Admin is logged in. Booking data exists. |
+| **Test Data** | Date Range: "Current Month" |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Navigate to Reporting → Revenue Report. | Default revenue charts and data tables are displayed. | | |
+| 2 | Select "Current Month" from the date filter. | Report updates to reflect revenue generated in the current month only. | | |
+
+### 8.13.2 TC013_02: Test Export Revenue Report to PDF (UC-RPT-03)
+
+| Field | Detail |
+| :--- | :--- |
+| **Test Case ID** | TC013_02 |
+| **Test Case Name** | Export Revenue Report to PDF |
+| **Prerequisites** | Admin is on the Revenue Report page. |
+| **Test Data** | Action: Click "Export to PDF" |
+
+| Step # | Step Details | Expected Results | Actual Results | Pass/Fail |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Click "Export to PDF" button. | System generates a PDF document containing the currently filtered report data. | | |
+| 2 | Open the downloaded PDF. | PDF content matches the data displayed on the screen. | | |
+
+---
+
 # Appendix A: Traceability Matrix
 
 The table below traces each test case back to its use case / sequence diagram and package.
@@ -395,6 +601,23 @@ The table below traces each test case back to its use case / sequence diagram an
 | TC007_01 | UC-FB-01 / SD-FB-01 | P012 |
 | TC007_02 | UC-FB-01 / SD-FB-01 (exception) | P012 |
 | TC007_03 | UC-FB-01 / SD-FB-01 (alternate) | P012 |
+| TC008 for Notification Subsystem | | P005 |
+| TC008_01 | UC-NOTIF-01 / SD-NOTIF-01 | P005 |
+| TC008_02 | UC-NOTIF-01 / SD-NOTIF-01 (alternate) | P005 |
+| TC009 for Chat Subsystem | | P006 |
+| TC009_01 | UC-CHAT-01 / SD-CHAT-01 | P006 |
+| TC009_02 | UC-CHAT-01 / SD-CHAT-01 | P006 |
+| TC010 for User & Access Management Subsystem | | P007 |
+| TC010_01 | UC-USR-04 / SD-USR-04 | P007 |
+| TC010_02 | UC-USR-05 / SD-USR-05 (exception) | P007 |
+| TC011 for System Settings Subsystem | | P008 |
+| TC011_01 | UC-SET-01 / SD-SET-01 | P008 |
+| TC012 for Audit Logs Subsystem | | P009 |
+| TC012_01 | UC-AUDIT-02 / SD-AUDIT-02 | P009 |
+| TC012_02 | UC-AUDIT-01 / SD-AUDIT-01 | P009 |
+| TC013 for Reporting & Analytics Subsystem | | P011 |
+| TC013_01 | UC-RPT-02 / SD-RPT-02 | P011 |
+| TC013_02 | UC-RPT-03 / SD-RPT-03 | P011 |
 
 ---
 
