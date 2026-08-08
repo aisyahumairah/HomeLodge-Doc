@@ -14,7 +14,7 @@ The planning and analysis phases of HomeLodge need a structured, document-driven
 
 The implementation and testing phases need a different approach. Developing thirteen modules inside a single undivided implementation phase offers no way to track progress at the task level, manage build order, or spot stalled work before it disrupts the schedule. Agile addresses this by dividing development into time-boxed sprints under the Scrum framework. At the start of each sprint, a defined set of modules or features is selected. Progress is tracked on a Kanban Board that shows each task in one of three states: To Do, In Progress, or Done. Bottlenecks become visible immediately.
 
-The hybrid model keeps Waterfall's formal documentation structure for the phases that need it, and applies Agile's iterative delivery and task-level tracking where they are needed.
+The hybrid model keeps Waterfall's formal documentation structure for the phases that need it, and applies Agile's iterative delivery and task-level tracking where they are needed. This hybrid approach is not merely an academic abstraction: empirical studies have confirmed that teams in industry frequently combine Waterfall planning phases with Agile execution phases (Kuhrmann et al., 2017), and the Water-Scrum-Fall pattern — where Waterfall governs requirements and design, Scrum governs implementation, and Waterfall governs deployment — has been shown to be widely adopted in practice (Theocharis et al., 2015).
 
 ---
 
@@ -44,7 +44,7 @@ No module development started until the schema, use case diagram, and interface 
 
 ### 3.3.3 Phase 3: Implementation (Agile with Scrum and Kanban Board)
 
-Implementation applied the Agile approach. Development was organised into sprints under the Scrum framework, with each sprint targeting a defined set of modules. Sprint planning determined which modules to develop based on data dependencies. For example, the Payment module was not scheduled until the Booking module was functional, because payment records reference confirmed booking records.
+Implementation applied the Agile approach. Development was organised into sprints under the Scrum framework, with each sprint targeting a defined set of modules. Sprint planning determined which modules to develop based on data dependencies. For example, the Payment module was not scheduled until the Booking module was functional, because payment records reference confirmed booking records. The use of Scrum sprints and Kanban for task tracking is supported by statistical evidence that both methods produce measurable improvements in software development project outcomes (Lei et al., 2017).
 
 Within each sprint, a Kanban Board tracked task progress. Each task was a card on the board, moved through the following columns as work progressed:
 

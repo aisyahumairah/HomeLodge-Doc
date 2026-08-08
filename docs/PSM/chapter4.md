@@ -2,7 +2,7 @@
 
 ## 4.1 Introduction
 
-This chapter documents the results of the requirements analysis and system design phases described in Chapter 3. Section 4.2 presents the requirements analysis output: actor definitions, use case summaries for all twelve modules, and activity diagrams for the primary workflows. Section 4.3 presents the system design output: the system architecture, database schema, and user interface design. All analysis and design work was completed before implementation began.
+This chapter documents the results of the requirements analysis and system design phases described in Chapter 3. Section 4.2 presents the requirements analysis output: actor definitions, use case summaries for all twelve modules, activity diagrams for the primary workflows, and the overall to-be process for the proposed system. Section 4.3 presents the system design output: the system architecture, database schema, and user interface design. All analysis and design work was completed before implementation began.
 
 ---
 
@@ -406,6 +406,24 @@ flowchart TD
     I --> End([End])
 ```
 
+### 4.2.3 To-Be Process
+
+The activity diagrams in Section 4.2.2 describe individual workflows in isolation. This section presents the overall to-be process that HomeLodge is designed to support, combining these workflows into a single end-to-end flow. Figure 4.9 shows the to-be activity diagram with four swimlanes: Guest (User), Admin, System, and Payment Gateway.
+
+![Figure 4.9: Activity Diagram — Homestay Booking Workflow (To-Be)](../system-design/HomeLodge/activity_diagram-To-Be.png)
+
+Figure 4.9: Activity Diagram — Homestay Booking Workflow (To-Be)
+
+The to-be process begins when a guest registers for an account or logs in to the system. Once authenticated, the guest browses the available homestay units and views unit details along with a real-time availability calendar. The guest then selects check-in and check-out dates and submits a booking request. At this point, the system takes over: it creates a booking record with a pending payment status and temporarily holds the selected dates for twenty-four hours.
+
+A decision point follows. If the guest does not pay within the twenty-four-hour window, the system's scheduler automatically cancels the booking and reopens the held dates for other guests. The flow terminates for that booking. If the guest pays before the deadline, the system redirects the payment to the external payment gateway. The gateway processes the transaction and sends a signed webhook callback to the system. The system then verifies the webhook signature. If the signature is invalid or the payment failed, the system logs a security alert and drops the webhook; the flow ends without confirming the booking. If the signature is valid and the payment succeeded, the system confirms the booking, generates a QR code for door access, sends a receipt and confirmation notification to the guest, and syncs the booking as a calendar event through the Google Calendar API.
+
+The guest receives the QR code and uses it to access the homestay unit during the stay. At this point, the flow reaches another decision: whether the guest needs to extend the stay. If an extension is needed, the admin initiates a booking extension by selecting the extension type and a new check-out date. The system checks whether the extended dates are available and generates an extension bill with a sixty-minute payment window. If the guest pays the extension charge within the window, the system extends the QR code validity and confirms the extension, and the flow loops back to the stay extension decision point in case a further extension is required. If the guest does not pay within sixty minutes, the system auto-cancels the extension and reverts the booking to its original check-out date.
+
+When no further extension is needed, the system invalidates the guest's QR code at check-out. From this point, the flow splits into two parallel branches using a fork bar. In the first branch, the admin and housekeeping staff carry out their post-checkout duties: the admin assigns housekeeping, the staff cleans the unit and marks it complete, and the system generates a temporary staff QR code as well as a new guest QR code if a subsequent booking exists. In the second branch, the guest submits a stay rating and written feedback, which the admin can then view, respond to, or moderate.
+
+Both branches converge at a join bar. After the join, the admin views the dashboard analytics and exports reports as needed, and the overall process reaches its end state.
+
 ---
 
 ## 4.3 Design Phase Workflow
@@ -414,9 +432,9 @@ This section presents the output of Phase 2 (System Design) of the hybrid method
 
 ### 4.3.1 System Design
 
-HomeLodge follows a Model-View-Controller (MVC) architecture implemented through the Laravel framework. Figure 4.9 shows the system architecture.
+HomeLodge follows a Model-View-Controller (MVC) architecture implemented through the Laravel framework. Figure 4.10 shows the system architecture.
 
-Figure 4.9: System Architecture Diagram
+Figure 4.10: System Architecture Diagram
 
 ```mermaid
 flowchart TB
@@ -467,9 +485,9 @@ The architecture separates concerns as follows. Nginx receives HTTP requests and
 
 The database schema was designed during Phase 2 and was finalised before any migration files were written. The schema uses MySQL 8 with Eloquent ORM. All tables follow Laravel conventions: `id` as a BIGINT UNSIGNED auto-incrementing primary key, `created_at` and `updated_at` timestamps, and `deleted_at` for soft-deletable tables.
 
-Figure 4.10 shows the Entity-Relationship Diagram for the HomeLodge database.
+Figure 4.11 shows the Entity-Relationship Diagram for the HomeLodge database.
 
-Figure 4.10: Entity-Relationship Diagram
+Figure 4.11: Entity-Relationship Diagram
 
 ```mermaid
 erDiagram
@@ -815,9 +833,9 @@ The user interface was designed for two user groups: guests who browse and book,
 
 **Guest Interface**
 
-The guest interface uses a top navigation bar with the site logo, main navigation links (Home, My Bookings, Notifications), and a user avatar dropdown. Page content is displayed in a centred container with a maximum width of 1200 pixels. Figure 4.11 shows the guest layout structure.
+The guest interface uses a top navigation bar with the site logo, main navigation links (Home, My Bookings, Notifications), and a user avatar dropdown. Page content is displayed in a centred container with a maximum width of 1200 pixels. Figure 4.12 shows the guest layout structure.
 
-Figure 4.11: Guest Layout Structure
+Figure 4.12: Guest Layout Structure
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -836,9 +854,9 @@ The booking flow follows a linear sequence: the guest browses units, selects dat
 
 **Admin Interface**
 
-The admin interface uses a fixed left sidebar with grouped navigation items, and a top header bar showing the current page title and notification indicator. The sidebar groups are organised by function. Figure 4.12 shows the admin layout structure.
+The admin interface uses a fixed left sidebar with grouped navigation items, and a top header bar showing the current page title and notification indicator. The sidebar groups are organised by function. Figure 4.13 shows the admin layout structure.
 
-Figure 4.12: Admin Layout Structure
+Figure 4.13: Admin Layout Structure
 
 ```
 ┌──────────┬──────────────────────────────────────────┐
@@ -881,6 +899,6 @@ The interface is responsive across three breakpoints: mobile (below 640 pixels),
 
 This chapter presented the outputs of the requirements analysis and system design phases of the HomeLodge development methodology.
 
-The requirements analysis produced a complete use case model with four actors and forty-seven use cases spread across twelve modules. Each use case was traced back to its source requirements in the URS and PRD. Activity diagrams were provided for the seven primary workflows: guest booking, payment processing, auto-cancellation, guest cancellation, booking extension, QR code lifecycle, and guest feedback submission.
+The requirements analysis produced a complete use case model with four actors and forty-seven use cases spread across twelve modules. Each use case was traced back to its source requirements in the URS and PRD. Activity diagrams were provided for the seven primary workflows: guest booking, payment processing, auto-cancellation, guest cancellation, booking extension, QR code lifecycle, and guest feedback submission. The to-be process diagram then combined these individual workflows into a single end-to-end flow across four swimlanes, showing how the guest, admin, system, and payment gateway interact from registration through to post-checkout analytics.
 
 The system design produced three outputs. The system architecture follows the MVC pattern implemented through Laravel, with Nginx, PHP-FPM, MySQL, Redis, and the Reverb WebSocket server as the infrastructure. The database schema has sixteen tables with foreign key constraints, soft deletes on archivable records, and a key-value settings table for configuration without schema changes. The user interface separates the guest experience (top navbar, linear booking flow) from the admin experience (fixed sidebar, grouped navigation), with a responsive design system based on Inter typography, an 8-pixel grid, and colour-coded status indicators.
